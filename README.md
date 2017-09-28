@@ -1,1 +1,1 @@
-# WhatsUpClone
+This is our term project for CEN 5035, Software Engineering course. We are planning to develop a website like whatsapp where users can have instant messaging facilities with each. We are planning to use Go as BackEnd, Angular material as frontend and SQLite as our database engine. 
