@@ -1,0 +1,24 @@
+<md-toolbar color="primary" layout="row">
+    <div>
+      <span><h2>My Chat</h2></span>
+    </div>    <!-- This fills the remaining space of the current row -->
+      <span class="example-fill-remaining-space"></span>
+      <span>User name goes here..</span>
+    </md-toolbar>
+    
+    <md-list *ngFor="let msg of messages">
+        <md-list-item>   
+          <md-card style="width: 70%;">
+              <md-card-content style="text-align: left;">
+                  {{msg}}
+              </md-card-content>
+          </md-card> 
+        </md-list-item>
+    </md-list>
+      
+  <form class="chats-space">    
+     <md-form-field class="example-full-width">
+        <input mdInput #message maxlength="256" placeholder="Message">
+      </md-form-field>
+    </form>
+    

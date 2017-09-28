@@ -1,0 +1,15 @@
+.example-fill-remaining-space {
+  /* // This fills the remaining space, by using flexbox. 
+  // Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;  /* grows to absorb any extra free space in the flex container, and shrinks to its minimum size to fit the container */
+}
+
+.chats-space {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
