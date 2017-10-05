@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
 })
 export class UsersComponent {
 
-   users:string[] = ["Becky","Dimpu"]; 
+    users:string[] = ["Becky","Dimpu"]; 
 
 }

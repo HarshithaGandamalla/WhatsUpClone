@@ -1,11 +1,32 @@
-<md-sidenav-container>
-    <md-sidenav mode="side" opened>
-          <md-nav-list>
-            <md-list-item *ngFor="let user of users"> 
-              <span>{{user}}</span>
-            </md-list-item>
-   </md-nav-list>
- </md-sidenav>
- 
-</md-sidenav-container>
+<ul id='dropdown1' class='dropdown-content'>
+    <li><a href="#!">New group</a></li>
+    <li><a href="#!">Profile</a></li>
+    <li><a href="#!">Settings</a></li>
+    <li><a href="#!">Log out</a></li>
+  </ul>
     
+<nav>
+  <div class="nav-wrapper white">
+   <a class='dropdown-button btn right' href='#' data-activates='dropdown1'>Drop Me!</a>
+  </div>
+</nav>
+    
+     <form>
+        <div class="input-field">
+          <input id="search" type="search" required>
+          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+          <i class="material-icons">close</i>
+        </div>
+      </form>
+      
+   <ul class="collection">
+    <li class="collection-item avatar" *ngFor="let user of users">
+<!--      <img src={{user.image}} alt="" class="circle">-->
+           <i class="material-icons circle">folder</i>
+      <span class="title">{{user}}</span>
+      <p>First Line <br>
+         Second Line
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+    </li>
+  </ul>
