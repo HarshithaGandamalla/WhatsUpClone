@@ -5,31 +5,35 @@ import {MatCheckboxModule} from '@angular/material';
 import {MatTabsModule} from '@angular/material';
 import {MatGridListModule} from '@angular/material';
 import { AppComponent } from './app.component';
-import { UsersComponent } from './users/users.component';
-import { HeaderComponent } from './header/header.component';
-import { ChatsComponent } from './chats/chats.component';
+import {LoginComponent } from './login/login.component';
 import { MatInputModule } from '@angular/material';
 import { Routes,RouterModule } from '@angular/router';
 import {MatToolbarModule} from '@angular/material';
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {MatCardModule} from '@angular/material';
 import {MatSidenavModule} from '@angular/material';
+import { HomeComponent } from './home/home.component';
+import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
 
 
 const appRoutes:Routes = [
-  {path:'users',component: UsersComponent},
-  {path:'chats',component: ChatsComponent}
+  {path : '' , component : LoginComponent},
+  {path:'home',component: HomeComponent},
+  {path : 'home/:userid' , component : HomeComponent},
+  
+  
 ];
 @NgModule({
   declarations: [
     AppComponent,
-    UsersComponent,
-    HeaderComponent,
-    ChatsComponent,
-    
+    LoginComponent,
+    HomeComponent  
   ],
   imports: [
     BrowserModule,
+    HttpModule,
+    FormsModule,
     BrowserAnimationsModule,
     MatCheckboxModule,
     MatTabsModule,
@@ -45,3 +49,5 @@ const appRoutes:Routes = [
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
