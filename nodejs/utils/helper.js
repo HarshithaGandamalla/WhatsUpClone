@@ -19,12 +19,21 @@ class Helper{
    */
    userNameCheck(data,callback){
        this.Mongodb.onConnect( (db,ObjectID) => {
-           db.collection('users').find(data).count( (err, result) => {
+           db.collection('users').find({name: data.name}).count( (err, result) => {
                db.close();
                callback(result);
            });
        });
    }
+
+//    emailCheck(data,callback){
+//     this.Mongodb.onConnect( (db,ObjectID) => {
+//         db.collection('users').find(data).count( (err, result) => {
+//             db.close();
+//             callback(result);
+//         });
+//     });
+// }
 
    /*
    * Name of the Method : login
@@ -53,6 +62,7 @@ class Helper{
    */
    registerUser(data,callback){
        this.Mongodb.onConnect( (db,ObjectID) => {
+      
            db.collection('users').insertOne(data, (err, result) =>{
                db.close();
                callback(err,result);

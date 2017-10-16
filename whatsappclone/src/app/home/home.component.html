@@ -72,9 +72,11 @@
               </div>
             </nav>
             <ul class="message-thread">
+                
             <li *ngFor="let message of messages"
-            [class.align-right]="alignMessage(message.toUserId)"
-            >
+            [ngClass]="alignMessage(message.toUserId)?'{card-panel teal lighten-2 , right-align }':
+            '{card-panel black, left-align}'"
+            > 
               {{ message.message}}
           </li>
             </ul>

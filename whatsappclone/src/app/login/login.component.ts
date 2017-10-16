@@ -12,14 +12,18 @@ import { HttpService } from './../http.service';
   	providers : [ChatService,HttpService]
 })
 export class LoginComponent{
-	
+
 	private username = null;
   	private email = null;
   	private password = null;
 
   	private isuserNameAvailable = false;
   	private userTypingTimeout= 500;
-  	private typingTimer = null;
+      private typingTimer = null;
+      
+      private isemailAvailable = false;
+  	private userTypingTimeoutEmail= 500;
+  	private typingTimerEmail = null;
 
   	constructor(
       	private chatService : ChatService,
@@ -43,7 +47,28 @@ export class LoginComponent{
 
   	public onkeydown(event){
 		clearTimeout(this.typingTimer);
-  	}
+      }
+      
+
+    //   public onkeyupEmail(event){
+    //     clearTimeout(this.typingTimerEmail);
+    //     this.typingTimerEmail = setTimeout( ()=>{
+    //         this.chatService.checkEmailCheck({
+    //               'email' : this.email
+    //           }, (response)=>{
+    //               if(response.error) {
+    //                   this.isemailAvailable = true;
+    //               }else{
+    //                   this.isemailAvailable = false;
+    //               }
+    //           });
+    //     }, this.userTypingTimeoutEmail);
+    //     console.log(this.isemailAvailable +" emailavailable??")
+    // }
+
+    // public onkeydownEmail(event){
+    //   clearTimeout(this.typingTimerEmail);
+    // }
 
   	public login():void{
 

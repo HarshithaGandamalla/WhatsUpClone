@@ -20,11 +20,25 @@ export class ChatService {
   					callback(response);
   				},
   				error => {
-  					alert('HTTP fail.');
+  					alert('HTTP fail.usernameee');
   				}
   			);
 	}
 
+	// public checkEmailCheck(params,callback){
+	// 	this.httpService.emailCheck(params).subscribe(
+  	// 			response => {
+  	// 				callback(response);
+  	// 			},
+  	// 			error => {
+  	// 				alert('HTTP fail.emailll');
+  	// 			}
+  	// 		);
+	// }
+
+
+	
+	
 	/* 
 	* Login the user
 	*/

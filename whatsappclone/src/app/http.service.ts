@@ -27,10 +27,19 @@ export class HttpService {
   	constructor( private http:Http) { }
 
   	public userNameCheck(params){
+		console.log(JSON.stringify(params)+" username httpserveice");
+		
   		return this.http.post(`${this.BASE_URL}usernameCheck`,JSON.stringify(params),this.headerOptions)
   			.map( (response:Response) => response.json())
   			.catch( (error:any) => Observable.throw(error.json().error || `Server error`) );
-  	}
+	  }
+	  
+	//   public emailCheck(params){
+	// 	  console.log(JSON.stringify(params)+" emailCheckin httpserveice");
+	// 	return this.http.post(`${this.BASE_URL}emailCheck`,JSON.stringify(params),this.headerOptions)
+	// 		.map( (response:Response) => response.json())
+	// 		.catch( (error:any) => Observable.throw(error.json().error || `Server error`) );
+	// }
 
 	public login(params){
         return this.http.post(`${this.BASE_URL}login`,JSON.stringify(params),this.headerOptions)
