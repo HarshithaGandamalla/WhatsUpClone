@@ -6,6 +6,7 @@ import { RouterTestingModule } from "@angular/router/testing";
 import {Location} from "@angular/common";
 import { LoginComponent } from './login.component';
 
+
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
