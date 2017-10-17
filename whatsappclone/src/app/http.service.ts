@@ -9,14 +9,15 @@ import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
-@Injectable()
+@Injectable()   
+
 export class HttpService {
 
   	/* 
 	* specifying Base URL.
 	*/
     private BASE_URL = 'http://localhost:4000/';
-
+ results: boolean;
     /* 
 	* Setting the Request headers.
 	*/
@@ -24,7 +25,9 @@ export class HttpService {
         headers : new Headers({ 'Content-Type' : 'application/json;charset=UTF-8' })
     });
 
-  	constructor( private http:Http) { }
+  	constructor( private http:Http) { 
+		this.results = true;
+	  }
 
   	public userNameCheck(params){
 		console.log(JSON.stringify(params)+" username httpserveice");
