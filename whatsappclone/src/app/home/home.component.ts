@@ -171,9 +171,13 @@ export class HomeComponent implements OnInit {
 				return this.userId === userId ? false : true;
 			}
 
+<<<<<<< HEAD
 			userToggle(){
 				this.selectedUsersList = !this.selectedUsersList;
 			}
+=======
+		
+>>>>>>> master
 			sendMessage(event){
 				if(event.keyCode === 13) {
 					if(this.message === '' || this.message === null) {
