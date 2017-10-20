@@ -34,11 +34,13 @@ export class HomeComponent implements OnInit {
 	private userId = null;
 	private socketId = null;
 	private chatListUsers = [];
+	private offlineListUsers = [];
 	private message = '';
 	private messages = [];
 	/*
 	* Chat and message related variables ends
 	*/
+	private selectedUsersList = true;
  
  
 	constructor( 
@@ -167,6 +169,10 @@ export class HomeComponent implements OnInit {
 			 
 			alignMessage(userId){
 				return this.userId === userId ? false : true;
+			}
+
+			userToggle(){
+				this.selectedUsersList = !this.selectedUsersList;
 			}
 			sendMessage(event){
 				if(event.keyCode === 13) {
