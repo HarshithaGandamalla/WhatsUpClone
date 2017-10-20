@@ -39,6 +39,7 @@ export class HomeComponent implements OnInit {
 	/*
 	* Chat and message related variables ends
 	*/
+	private selectedUsersList = true;
  
  
 	constructor( 
@@ -168,6 +169,8 @@ export class HomeComponent implements OnInit {
 			alignMessage(userId){
 				return this.userId === userId ? false : true;
 			}
+
+		
 			sendMessage(event){
 				if(event.keyCode === 13) {
 					if(this.message === '' || this.message === null) {
