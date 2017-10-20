@@ -9,7 +9,6 @@
           <div class="row">
           <div class="col s4">
 
-<<<<<<< HEAD
                   <nav>
                       <div class="nav-wrapper black">
                         <ul id="nav-mobile" class="left hide-on-med-and-down">
@@ -102,76 +101,6 @@
                               </button> -->       
                         </div>
                       </div>  
-=======
-            <form>
-                <div class="input-field">
-                  <input id="search" type="search" required>
-                  <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                  <i class="material-icons">close</i>
-                </div>
-              </form>    
-                
-              <ul class="user-list">
-                  
-              <!-- click event to handle the selection : selectedUser() -->
-              <!-- adding a class to indicate the selection -->
-             
-              
-            </ul>
-            <div class="row" >
-                <div class="col s12"></div>
-                <li class="col s6 waves-effect waves-light btn"
-               (click)="selectedUsersList=true">Online</li>
-                <li class="col s6 waves-effect waves-light btn"
-                (click)="selectedUsersList=false">Offline</li>
-              </div>
-            
-              <div *ngIf="selectedUsersList">    
-              <ul class="collection">
-                <li class="collection-item active avatar" 
-                *ngFor="let user of chatListUsers"
-                (click)="selectedUser(user)" 
-                [class.selected-user]="isUserSelected(user._id)">
-                  <!--<img src={{user.image}} alt="" class="circle">-->
-                  <i class="material-icons circle">folder</i>
-                  <span class="title">{{ user.username}}</span>
-                  <p>First Line <br> Second Line</p>
-                  <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-                </li>
-              </ul> 
-              </div> 
-              
-    <div *ngIf="!selectedUsersList"><li>Offline</li> </div>
-        </div>
-        <div class="col s8">
-            <nav>
-              <div class="nav-wrapper black">
-                  <div *ngIf="selectedUserName" 
-                  class="opposite-user">
-                    Chatting with {{selectedUserName}}
-                </div>
-              </div>
-            </nav>
-            <ul class="message-thread">
-                
-            <li *ngFor="let message of messages"
-            [ngClass]="alignMessage(message.toUserId)?'{card-panel teal lighten-2 , right-align }':
-            '{card-panel black, left-align}'"
-            > 
-              {{ message.message}}
-          </li>
-            </ul>
-            <div id="copyright">
-              <div class="row">
-                <div class="col s12">
-                    <div class="row">
-                    <div class="input-field col s12">
-                    <textarea auto-grow id="textarea1" 
-                    class="materialize-textarea" 
-                    [(ngModel)]="message" 
-                    (keyup)="sendMessage($event)"></textarea>
-                    </div>
->>>>>>> master
                     </div>
 
 
