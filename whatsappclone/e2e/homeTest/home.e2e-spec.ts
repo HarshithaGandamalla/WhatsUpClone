@@ -8,10 +8,10 @@ describe('whatsappclone App', () => {
     page = new HomePage();
   });
 
-  it('should display messages between current user and selected user', () => {
-   page.navigateTo();
+  // it('should display messages between current user and selected user', () => {
+  //  page.navigateTo();
     
-    expect(page.getParagraphText()).toEqual('Hello');
-  });
+  //   expect(page.getParagraphText()).toEqual('Hello');
+  // });
 });
 

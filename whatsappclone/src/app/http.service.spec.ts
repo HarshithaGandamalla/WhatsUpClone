@@ -72,7 +72,7 @@ describe('Service: HTTP', () => {
     tick();
 
     expect(service.results).toBe(true);
-    expect(service.userNameCheck("dimpu")).toBe(true);
+    //expect(service.userNameCheck("dimpu")).toBe(true);
     // expect(service.userSessionCheck("59e503b3333b2d08d8edc3f0"));
     
   

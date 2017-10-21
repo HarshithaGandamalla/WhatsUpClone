@@ -15,6 +15,7 @@ import {MatSidenavModule} from '@angular/material';
 import { HomeComponent } from './home/home.component';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
+import { ElasticDirective } from './directives/auto-grow.directive';
 
 
 const appRoutes:Routes = [
@@ -28,7 +29,8 @@ const appRoutes:Routes = [
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent  
+    HomeComponent,
+    ElasticDirective,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +47,9 @@ const appRoutes:Routes = [
     MatSidenavModule,
     RouterModule.forRoot(appRoutes)
   ],
+//   exports: [
+//     ElasticDirective,
+// ],
   providers: [],
   bootstrap: [AppComponent]
 })
