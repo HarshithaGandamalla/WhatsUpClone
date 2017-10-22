@@ -102,7 +102,7 @@ export class LoginComponent{
             alert(`Email can't be empty.`);
         }else if(this.password === ''){
             alert(`Password can't be empty.`);
-        }else{
+        }else if(!this.isuserNameAvailable){
            this.chatService.registerUser({
                 username : this.username,
                 email : this.email,
@@ -119,6 +119,10 @@ export class LoginComponent{
                 }
             });
         }
+        else{
+            alert(`Register with new credentials.`);
+        }
+
     }
 
 }

@@ -34,11 +34,7 @@ export class HomeComponent implements OnInit {
 	private userId = null;
 	private socketId = null;
 	private chatListUsers = [];
-<<<<<<< HEAD
-	private offlineListUsers = [];
-=======
 	private chatOfflineUsers = [];
->>>>>>> master
 	private message = '';
 	private messages = [];
 	/*
