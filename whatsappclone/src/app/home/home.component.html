@@ -70,7 +70,22 @@
               </ul> 
               </div> 
               
-    <div *ngIf="!selectedUsersList"><li>Offline</li> </div>
+    <div *ngIf="!selectedUsersList">
+        <ul class="collection">
+            <li class="collection-item active avatar" 
+            *ngFor="let user of chatOfflineUsers"
+            (click)="selectedUser(user)" 
+            [class.selected-user]="isUserSelected(user._id)">
+              <!--<img src={{user.image}} alt="" class="circle">-->
+              <i class="material-icons circle">folder</i>
+              <span class="title">{{ user.username}}</span>
+              <p>First Line <br> Second Line</p>
+              <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+            </li>
+          </ul> 
+    </div>
+
+
         </div>
         <div class="col s8">
             <nav>
