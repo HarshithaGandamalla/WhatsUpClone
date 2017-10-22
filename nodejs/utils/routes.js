@@ -106,6 +106,7 @@ class Routes{
                           response.status(404).json(registrationResponse);
                       }else{
 
+                        console.log("User registration response detains: "+result);
                           registrationResponse.error = false;
                           registrationResponse.userId = result.insertedId;
                        registrationResponse.message = `User registration successful.`;

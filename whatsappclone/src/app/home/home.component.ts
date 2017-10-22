@@ -34,7 +34,11 @@ export class HomeComponent implements OnInit {
 	private userId = null;
 	private socketId = null;
 	private chatListUsers = [];
+<<<<<<< HEAD
 	private offlineListUsers = [];
+=======
+	private chatOfflineUsers = [];
+>>>>>>> master
 	private message = '';
 	private messages = [];
 	/*
@@ -123,6 +127,46 @@ export class HomeComponent implements OnInit {
 									}
 						  });	
 			
+
+
+
+						  this.socketService.getOfflineChatList(this.userId).subscribe(response => {
+							
+							if(!response.error) {
+								
+								if(response.singleUser) {
+				
+									/* 
+									* Removing duplicate user from chat list array.
+									*/
+									if(this.chatOfflineUsers.length > 0) {
+										this.chatOfflineUsers = this.chatOfflineUsers.filter(function( obj ) {
+											return obj._id !== response.chatList._id;
+										});
+									}
+				
+									/* 
+									* Adding new offline user into chat list array
+									*/
+									this.chatOfflineUsers.push(response.chatList);
+				
+								}else if(response.userDisconnected){
+									this.chatOfflineUsers = this.chatOfflineUsers.filter(function( obj ) {
+										return obj.socketId !== response.socketId;
+									});
+								}else{
+									/* 
+									* Updating entire chatlist if user logs out.
+									*/
+									this.chatOfflineUsers = response.chatList;
+								}
+							}else{
+								alert('Chat list failure.');
+							}
+				  });	
+	
+
+
 							  this.socketService.receiveMessages().subscribe(response => {
 								if(this.selectedUserId && this.selectedUserId == response.fromUserId) {
 									this.messages.push(response);
