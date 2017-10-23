@@ -10,17 +10,17 @@ Database: MongoDB
 #### Installation:
 
 Steps to get the development environment running:
-    1) Clone/download the repository 
-    2) Run npm install in both the folders 'whatsappclone' (frontend) and 'nodejs' (backend). This will download all the dependencies            listed in package.json file.
-    3) Run npm start to start the Angular 2 project.
-    4) Navigate to http://localhost:4200/. 
+    1. Clone/download the repository 
+    2. Run npm install in both the folders 'whatsappclone' (frontend) and 'nodejs' (backend). This will download all the dependencies            listed in package.json file.  
+    3. Run npm start to start the Angular 2 project.
+    4. Navigate to http://localhost:4200/. 
 
 ## Running unit tests
 
-Run ng test to execute the unit tests via [Karma] (https://karma-runner.github.io/1.0/index.html).
+Run ng test to execute the unit tests via [Karma](https://karma-runner.github.io/1.0/index.html).
 
 ## Running end-to-end tests
 
-Run ng e2e to execute the end-to-end tests via [Protractor] (http://www.protractortest.org/#/). Before running the tests make sure you are serving the app via ng serve.
+Run ng e2e to execute the end-to-end tests via [Protractor](http://www.protractortest.org/#/). Before running the tests make sure you are serving the app via ng serve.
 
 # Backend API Description
