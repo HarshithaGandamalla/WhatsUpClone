@@ -15,7 +15,7 @@
                   <ul id="nav-mobile" class="left hide-on-med-and-down">
                       <li class="col s4 waves-effect waves-light">Profile<li>
                       <li class="col s4 waves-effect waves-light">Settings</li>    
-                      <li class="col s4 waves-effect waves-light" (click)="logout()" >Logout</li> 
+                      <li id='logout' class="col s4 waves-effect waves-light" (click)="logout()" >Logout</li> 
                   </ul>
                 </div>
               </nav>
@@ -85,12 +85,17 @@
               </div>
             </nav>
             <ul class="message-thread">
-                
-            <li *ngFor="let message of messages"
-            [ngClass]="alignMessage(message.toUserId)?'{card-panel teal lighten-2 , right-align }':
-            '{card-panel black, left-align}'"
-            > 
-              {{ message.message}}
+              
+           <li *ngFor="let message of messages" 
+           [ngStyle]="{
+            'display': inline-block,
+            'font-weight': 'bold',
+            'background-color': '#c51162 pink accent-4'
+          }"
+          [ngClass]="alignMessage(message.toUserId)?'
+          {card-panel teal lighten-2 , right-align }': '{card-panel black, left-align}'">       
+         
+              {{ message.message}}   
           </li>
             </ul>
             <div id="copyright">
