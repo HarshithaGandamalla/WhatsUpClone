@@ -79,6 +79,11 @@ export class ChatService {
                       callback(true,'HTTP fail.');
                   }
               );
-    }
+	}
+	
+	public registerGroup():any{
+
+		
+	}
 
 }
