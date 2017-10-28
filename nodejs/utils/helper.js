@@ -139,6 +139,16 @@ class Helper{
        });
    }
 
+
+   getOfflineChatList(userId, callback){
+    this.Mongodb.onConnect( (db,ObjectID) => {
+        db.collection('users').find({'online':'N' , socketId : { $ne : userId }}).toArray( (err, result) => {
+        db.close();
+            callback(err,result);
+        });
+    });
+}
+
    /*
    * Name of the Method : insertMessages
    * Description : To insert a new message into DB.

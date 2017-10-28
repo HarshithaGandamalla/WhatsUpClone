@@ -32,7 +32,7 @@
                   <label for='username'>Username</label>
                 </div>
                 <br *ngIf="isuserNameAvailable && username!=''" />
-								<div *ngIf="isuserNameAvailable && username!=''" class="alert alert-danger">
+								<div id=isuserNameAvailable *ngIf="isuserNameAvailable && username!=''" class="alert alert-danger">
 									username <strong>{{username}}</strong> is already taken.
 								</div>
               </div>
@@ -45,10 +45,6 @@
                   />
                   <label for='email'>Enter your email</label>
                 </div>
-                <!-- <br *ngIf="isemailAvailable && email!=''" />
-								<div *ngIf="isemailAvailable && email!=''" class="alert alert-danger">
-									email <strong>{{email}}</strong> is already taken.
-								</div> -->
               </div>
   
               <div class='row'>
@@ -76,7 +72,7 @@
 
                 <div class='row'>
                   <button type='submit' 
-                  name='btn_login' 
+                  id='btn_login' 
                   class='col s12 btn btn-large waves-effect indigo'
                   (click)="registerUser()">Create account</button>
                 </div>

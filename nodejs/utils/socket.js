@@ -53,6 +53,42 @@ class Socket{
                }
            });
 
+
+           socket.on('chat-list-offline', (data) => {
+            
+                           let chatListResponse = {};
+            
+                           if (data.userId == '') {
+            
+                               chatListResponse.error = true;
+                               chatListResponse.message = `User does not exits.`;
+                               
+                               this.io.emit('chat-list-response-offline',chatListResponse);
+            
+                           }else{
+            
+                               helper.getUserInfo( data.userId,(err, UserInfoResponse)=>{
+                                   
+                                   delete UserInfoResponse.password;
+            
+                                   helper.getOfflineChatList( socket.id,(err, response)=>{
+                                   
+                                       this.io.to(socket.id).emit('chat-list-response-offline',{
+                                           error : false ,
+                                           singleUser : false ,
+                                           chatList : response
+                                       });
+            
+                                       socket.broadcast.emit('chat-list-response-offline',{
+                                           error : false ,
+                                           singleUser : true ,
+                                           chatList : UserInfoResponse
+                                       });
+            
+                                   });
+                               });
+                           }
+                       });
            /**
            * send the messages to the user
            */

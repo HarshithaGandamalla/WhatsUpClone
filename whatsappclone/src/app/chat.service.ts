@@ -25,23 +25,6 @@ export class ChatService {
   			);
 	}
 
-	// public checkEmailCheck(params,callback){
-	// 	this.httpService.emailCheck(params).subscribe(
-  	// 			response => {
-  	// 				callback(response);
-  	// 			},
-  	// 			error => {
-  	// 				alert('HTTP fail.emailll');
-  	// 			}
-  	// 		);
-	// }
-
-
-	
-	
-	/* 
-	* Login the user
-	*/
   	public login(params ,callback):any{
   		this.httpService.login(params).subscribe(
   				response => {
