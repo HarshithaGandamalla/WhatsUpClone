@@ -116,6 +116,8 @@ class Socket{
                    helper.insertMessages(data,( error , response)=>{
                        this.io.to(toSocketId).emit(`add-message-response`,data); 
                    });
+
+                   //add messages to room via io.to(clientInfo[socket.id].room).emit('add-message-response,data);
                }				
            });
 
