@@ -7,6 +7,8 @@ import { SocketService } from './../socket.service';
 import { HttpService } from './../http.service';
 import { ChatService } from './../chat.service';
 /* Importing services ends*/
+
+declare var $:any;
  
 @Component({
 	selector: 'app-home',
@@ -22,7 +24,8 @@ export class HomeComponent implements OnInit {
 	private overlayDisplay = false;
 	private selectedUserId = null;
 	private selectedSocketId = null;
-	private selectedUserName = null;	
+	private selectedUserName = null;
+		
 	/* 
 	* UI related variables ends
 	*/
@@ -36,6 +39,8 @@ export class HomeComponent implements OnInit {
 	private chatListUsers = [];
 	private message = '';
 	private messages = [];
+	private groupName = '';
+	private groupsArray=[];
 	/*
 	* Chat and message related variables ends
 	*/
@@ -51,6 +56,10 @@ export class HomeComponent implements OnInit {
  
 	ngOnInit() {
  
+		$(document).ready(function(){
+			// the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+			$('.modal').modal();
+		  });
 		/*
 		* getting userID from URL using 'route.snapshot'
 		*/		
@@ -116,6 +125,7 @@ export class HomeComponent implements OnInit {
 											* Updating entire chatlist if user logs in.
 											*/
 											this.chatListUsers = response.chatList;
+											console.log("chatlist: "+JSON.stringify(this.chatListUsers));
 										}
 									}else{
 										alert('Chat list failure.');
@@ -207,5 +217,28 @@ export class HomeComponent implements OnInit {
 				}
 			}
 		
+			addGroup(newGroup:string){
+				
+					if (newGroup) {
+					  
+						this.groupName=newGroup; //group name
+						this.groupsArray.push({
+							                    'groupName':newGroup,
+											    'message':'Successfully created group '+newGroup 
+											  });
+
+
+						this.messages.push({message:'Successfully created group '+newGroup});
+
+						//RegisterGroup
+
+						//alert("New group created with name:"+newGroup);
+
+					}
+					else{
+						alert("Please enter group name");
+						
+					}
 		
 		}
+	}
