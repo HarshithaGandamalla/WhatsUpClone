@@ -16,7 +16,10 @@ import { HomeComponent } from './home/home.component';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { ElasticDirective } from './directives/auto-grow.directive';
-
+import { HighlightSearch } from './highlightsearch.pipe';
+ 
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+ 
 
 const appRoutes:Routes = [
   {path : '' , component : LoginComponent},
@@ -31,6 +34,7 @@ const appRoutes:Routes = [
     LoginComponent,
     HomeComponent,
     ElasticDirective,
+    HighlightSearch,    
   ],
   imports: [
     BrowserModule,
@@ -44,12 +48,14 @@ const appRoutes:Routes = [
     FlexLayoutModule,
     MatCardModule,
     MatInputModule,
+    Ng2SearchPipeModule,
     MatSidenavModule,
     RouterModule.forRoot(appRoutes)
   ],
-//   exports: [
-//     ElasticDirective,
-// ],
+  exports: [
+    Ng2SearchPipeModule,
+    HighlightSearch    
+],
   providers: [],
   bootstrap: [AppComponent]
 })
