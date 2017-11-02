@@ -38,30 +38,7 @@ class Routes{
            }
        });
 
-    //    this.app.post('/emailCheck',(request,response) =>{
-    //     console.log(request+" req in routes.js");
-        
-    //                if (request.body.email === "") {
-    //                    response.status(412).json({
-    //                        error : true,
-    //                        message : `email cant be empty.`
-    //                    });
-    //                } else {
-    //                    helper.emailCheck( {
-    //                        email : request.body.email.toLowerCase()
-    //                    }, (count)=>{
-        
-    //                        let result = {};
-                           
-    //                        if (count > 0) {
-    //                            result.error = true;
-    //                        } else {
-    //                            result.error = false;
-    //                        }
-    //                        response.status(200).json(result);
-    //                    });
-    //                }
-    //            });
+    
 
        this.app.post('/registerUser',(request,response) =>{
 
@@ -212,11 +189,79 @@ class Routes{
                       }else{
 
                           messages.error = false;
-                       messages.messages = result;
+                          messages.message = result;
                           response.status(200).json(messages);
                       }
                });
            }
+       });
+
+       this.app.post('/registerGroup', (request,response) => {
+		console.log("In registrop node post");
+        
+          console.log("Request object:"+JSON.stringify(request.body));
+         
+          let username = request.body.username;
+          let groupName = request.body.groupName;
+          let groupsArray = [];
+
+          groupsArray.push(groupName);
+          
+          
+         
+          const data = {
+                     username:username,
+                     groupsArray:groupsArray
+           };
+
+           console.log("data.userId :"+data.username);
+
+          let registrationResponse = {};
+
+          console.log("username :"+data.username);
+          console.log("groupName :"+groupName);
+
+          if (username == ''|| username == null) {
+            
+            registrationResponse.error = true;
+            registrationResponse.message = `username cant be empty.`;
+            response.status(200).json(registrationResponse);
+          }
+          else if(groupName == ''|| groupName == null)
+          {            
+            registrationResponse.error = true;
+            registrationResponse.message = `groupName cant be empty.`;
+            response.status(200).json(registrationResponse);
+          }
+          else
+           {
+            
+            // if (!Array.isArray(this.groupsArray)) {
+            //    groupsArray= [];
+            // }
+            
+               
+               
+               
+               
+              helper.registerGroup( data , (error,result)=>{
+
+                  if (error) {
+
+                    registrationResponse.error = true;
+                    registrationResponse.message = `Server error.`;
+                    response.status(200).json(registrationResponse);
+
+                   }else{
+
+                    registrationResponse.error = false;
+                    registrationResponse.message = result;
+                    response.status(200).json(registrationResponse);
+                   }
+            });
+        }
+
+
        });
 
 
