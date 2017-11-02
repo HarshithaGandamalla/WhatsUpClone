@@ -81,8 +81,22 @@ export class ChatService {
               );
 	}
 	
-	public registerGroup():any{
+	/* 
+	* Method to add user to chat group.
+	*/
+	public registerGroup(groupUserAndName,callback):any{
 
+		console.log("In registrop grp chat service");
+		
+          this.httpService.registerGroup(
+			groupUserAndName)
+			.subscribe(
+			response => {
+				callback(false,response);
+			},
+			error => {
+				callback(true,'HTTP fail.');
+			});
 		
 	}
 
