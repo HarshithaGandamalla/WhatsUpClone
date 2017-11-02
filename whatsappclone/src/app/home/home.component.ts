@@ -1,22 +1,30 @@
+
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute ,Router } from '@angular/router';
- 
+
+
+declare var $:any;
+
  
 /* Importing services starts*/
 import { SocketService } from './../socket.service';
 import { HttpService } from './../http.service';
 import { ChatService } from './../chat.service';
+import { SearchService } from "../search.service";
 /* Importing services ends*/
 
-declare var $:any;
- 
+
+
 @Component({
 	selector: 'app-home',
   	templateUrl: './home.component.html',
   	styleUrls: ['./home.component.css'],
-  	providers : [ChatService,HttpService,SocketService]
+  	providers : [ChatService,HttpService,SocketService, SearchService]
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit{
+
+
 	
 	/*
 	* UI related variables starts
@@ -188,7 +196,7 @@ export class HomeComponent implements OnInit {
 		
 				
 	}
-		 
+			
 			logout(){
 				this.socketService.logout({userId : this.userId}).subscribe(response => {
 					this.router.navigate(['/']); /* Home page redirection */
