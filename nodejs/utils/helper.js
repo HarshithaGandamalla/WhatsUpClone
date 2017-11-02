@@ -70,6 +70,24 @@ class Helper{
        });
    }
 
+    /*
+   * Name of the Method : registerGroup
+   * Description : Add user to Group
+   * Parameter : 
+   *		1) data query object for MongoDB
+   *		2) callback function
+   * Return : callback 
+   */
+  registerGroup(data,callback){
+    this.Mongodb.onConnect( (db,ObjectID) => {
+        db.collection('groups').insertOne(data, (err, result) =>{
+            db.close();
+            callback(err,result);
+        });
+    });
+}
+
+
    /*
    * Name of the Method : userSessionCheck
    * Description : to check if user is online or not.

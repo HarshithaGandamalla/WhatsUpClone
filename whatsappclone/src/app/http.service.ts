@@ -61,4 +61,13 @@ export class HttpService {
 	    	.map( (response:Response) => response.json())
 	      	.catch( (error:any) => Observable.throw(error.json().error || `Server error`) );
 	}
+
+	
+	public registerGroup(params){
+		console.log("In registrop grp http service");
+		
+		return this.http.post(`${this.BASE_URL}registerGroup`,JSON.stringify(params),this.headerOptions)
+			.map( (response:Response) => response.json())
+			.catch( (error:any) => Observable.throw(error.json().error || `Server error`) );
+	}
 }
