@@ -275,18 +275,21 @@ export class HomeComponent implements OnInit{
 					   this.groupName=newGroup; //group name
 						//RegisterGroup
 						this.chatService.registerGroup(
-							{username:this.username,groupName:newGroup},
+							{   'username':this.username,
+								'userId':this.userId,
+								'groupName':newGroup
+							},
 							(error,response)=>
 							{
-								console.log("Error??:"+response.error);
                                if(!response.error){
-								console.log("No errror on add group");
 								
 							   	this.messages.push({message:'Successfully created group '+newGroup});
 							    this.groupsArray.push({
 									'groupName':newGroup,
 									'message':'Successfully created group '+newGroup 
 								  });
+							   }else{
+								   alert("ERROR registering group");
 							   }
 							
 							});
