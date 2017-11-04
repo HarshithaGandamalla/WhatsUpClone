@@ -11,14 +11,11 @@
   <div class="row">
     <div class="col s4">
 
-           
-        
-          
               <nav>
                 <div class="nav-wrapper black">
                     <ul id="nav-mobile" class="left hide-on-med-and-down">
                       <li><a href="#!">Profile</a></li>    
-                      <li> <a class="waves-effect waves-light modal-trigger" href="#modal1">New Group</a></li>   
+                      <li> <a class="waves-effect waves-light modal-trigger" data-target="modal1">New Group</a></li>   
                       <li><a class='dropdown-button waves-effect waves-light' href='#' data-activates='dropdown1'>Settings</a></li>    
                       <li id='logout' class="waves-effect waves-light" (click)="logout()" >Logout</li> 
                   </ul>
@@ -38,7 +35,12 @@
                       (keyup.enter)="addGroup(newGroup.value)">
                      <button class="btn modal-close" (click)="addGroup(newGroup.value)">Create Group</button> 
                   </div>
-                </div>
+             </div>
+
+            
+
+
+            
                         
 
               <form>
@@ -71,16 +73,16 @@
                     [class.selected-user]="isUserSelected(user._id)">
                       <!--<img src={{user.image}} alt="" class="circle">-->
                       <i class="material-icons circle">folder</i>
-                      <span class="title">{{ user.username| highligh : 'term'}}</span>
+                      <span class="title">{{ user.username}}</span>
                       <p>First Line <br> Second Line</p>
                       <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
                   </li>
                   
                   <li class="collection-item active avatar" 
-                    *ngFor="let group of groupsArray"
+                    *ngFor="let group of groupsArray |filter:ter"
                     (click)="selectedGroup(group)" 
                     >
-                    <span class="title">{{ group.groupName| highligh : 'term'}}</span>
+                    <span class="title">{{ group.groupName}}</span>
                   </li>
                 </ul>
               </div> 
@@ -126,7 +128,7 @@
         </ul>
             <div id="copyright">
               <div class="row">
-                <div class="col s12">
+                 <div class="col s12">
                     <div class="row">
                     <div class="input-field col s12">
                     <textarea auto-grow id="textarea1" 

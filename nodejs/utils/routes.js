@@ -62,30 +62,7 @@ class Routes{
            }
        });
 
-    //    this.app.post('/emailCheck',(request,response) =>{
-    //     console.log(request+" req in routes.js");
-        
-    //                if (request.body.email === "") {
-    //                    response.status(412).json({
-    //                        error : true,
-    //                        message : `email cant be empty.`
-    //                    });
-    //                } else {
-    //                    helper.emailCheck( {
-    //                        email : request.body.email.toLowerCase()
-    //                    }, (count)=>{
-        
-    //                        let result = {};
-                           
-    //                        if (count > 0) {
-    //                            result.error = true;
-    //                        } else {
-    //                            result.error = false;
-    //                        }
-    //                        response.status(200).json(result);
-    //                    });
-    //                }
-    //            });
+    
 
        this.app.post('/registerUser',(request,response) =>{
 
@@ -230,18 +207,106 @@ class Routes{
                      if (error) {
 
                           messages.error = true;
-                       messages.message = `Server error.`;
+                          messages.message = `Server error.`;
                           response.status(200).json(messages);
 
                       }else{
 
                           messages.error = false;
-                       messages.messages = result;
+                          messages.message = result;
                           response.status(200).json(messages);
                       }
                });
            }
        });
+
+       this.app.post('/registerGroup', (request,response) => {
+        
+         
+          let username = request.body.username.toLowerCase();
+          let groupName = request.body.groupName;
+          let userId = request.body.userId;
+
+          let registrationResponse = {}
+          
+          
+          let groupsArray=[];
+          groupsArray.push(groupName);
+
+          const data = {
+            username :username,
+            userId:userId,
+        };
+
+      //  console.log("data object:"+JSON.stringify(data));
+
+        if (request.body.groupName === "") {
+            response.status(412).json({
+                error : true,
+                message : `groupName cant be empty.`
+            });
+        } else {
+
+            helper.groupUserNameCheck(data, (count) => {
+                
+                if (count > 0) {
+                   //modify exsisting groups array of user
+
+                  helper.updateUserGroups( data ,groupName, (error,result)=>{
+                                     
+                                         if (error) {
+                                           // console.log("Not  updated");
+                                            
+                                                registrationResponse.error = true;
+                                                registrationResponse.message = `Server error.`;
+                                                response.status(200).json(registrationResponse);
+                        
+                                            }else{
+                        
+                                             //   console.log("Succesfully updated");
+                                             registrationResponse.error = false;
+                                             registrationResponse.message = result;
+                                             response.status(200).json(registrationResponse);
+                                            }
+
+
+                  });
+                    
+
+                } else {
+                  
+                  //console.log("No users found with name: "+data.username);
+                 //insert new entry in database
+                
+                    const registerGroupData = {
+                        username :data.username,
+                        userId:data.userId,
+                        groupsArray:groupsArray
+                    };
+
+                   //console.log("registerGroupData: "+JSON.stringify(registerGroupData));
+                    
+        
+                  helper.registerGroup( registerGroupData , (error,result)=>{
+
+                    if (error) {
+
+                        registrationResponse.error = true;
+                        registrationResponse.message = `Server error.`;
+                        response.status(200).json(registrationResponse);
+
+                    }else{
+
+                     registrationResponse.error = false;
+                     registrationResponse.message = result;
+                     response.status(200).json(registrationResponse);
+                    }
+              });
+          }
+                
+     });
+  }
+});
 
 
        this.app.get('*',(request,response) =>{
