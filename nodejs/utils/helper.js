@@ -139,9 +139,19 @@ class Helper{
        });
    }
 
+   getUsers(name, callback){
+    this.Mongodb.onConnect( (db,ObjectID) => {
+        db.collection('users').find({ 'username': { '$regex' : name} }).toArray( (err, result) => {
+        db.close();
+            callback(err,result);
+        });
+    });
+}
+
 
    getOfflineChatList(userId, callback){
     this.Mongodb.onConnect( (db,ObjectID) => {
+        
         db.collection('users').find({'online':'N' , socketId : { $ne : userId }}).toArray( (err, result) => {
         db.close();
             callback(err,result);
