@@ -109,7 +109,7 @@ export class LoginComponent{
                 password : this.password
             },(error , result)=>{
                 if(error) {
-                    alert("alertttttttQ!"+result);
+                    alert("alert!"+result);
                 }else{
                     if(!result.error) {
                         this.router.navigate(['/home/'+result.userId]);

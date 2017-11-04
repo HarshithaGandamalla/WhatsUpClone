@@ -8,7 +8,7 @@ import { Observable } from 'rxjs/Rx';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-
+   
 @Injectable()   
 
 export class HttpService {
@@ -30,13 +30,19 @@ export class HttpService {
 	  }
 
   	public userNameCheck(params){
-		console.log(JSON.stringify(params)+" username httpserveice");
 		
   		return this.http.post(`${this.BASE_URL}usernameCheck`,JSON.stringify(params),this.headerOptions)
   			.map( (response:Response) => response.json())
   			.catch( (error:any) => Observable.throw(error.json().error || `Server error`) );
 	  }
 	  
+	 public getUsers(params): any {
+		console.log(JSON.stringify(params)+" getUsers  httpserveice");
+		
+		return this.http.post(`${this.BASE_URL}search`,JSON.stringify(params), this.headerOptions)
+		.map( (response:Response) => response.json())
+		.catch( (error:any) => Observable.throw(error.json().error || `Server error`) );    }
+
 
 	public login(params){
         return this.http.post(`${this.BASE_URL}login`,JSON.stringify(params),this.headerOptions)
@@ -60,5 +66,12 @@ export class HttpService {
 		return this.http.post(`${this.BASE_URL}getMessages`,JSON.stringify(params),this.headerOptions)
 	    	.map( (response:Response) => response.json())
 	      	.catch( (error:any) => Observable.throw(error.json().error || `Server error`) );
+	}
+
+	
+	public registerGroup(params){		
+		return this.http.post(`${this.BASE_URL}registerGroup`,JSON.stringify(params),this.headerOptions)
+			.map( (response:Response) => response.json())
+			.catch( (error:any) => Observable.throw(error.json().error || `Server error`) );
 	}
 }

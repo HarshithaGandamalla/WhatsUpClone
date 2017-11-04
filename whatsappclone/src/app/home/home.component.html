@@ -1,106 +1,134 @@
 <div id="container">
     <nav>
       <div class="nav-wrapper  teal darken-4">
-        <span>Hello {{username}}</span>
+        <span>Hello {{username}}   
+        </span>
       </div>
     </nav>
+</div>
    
 <div class="container">
   <div class="row">
     <div class="col s4">
 
-            <nav>
+              <nav>
                 <div class="nav-wrapper black">
-                 
-                  <ul id="nav-mobile" class="left hide-on-med-and-down">
-                      <li class="col s4 waves-effect waves-light">Profile<li>
-                      <li class="col s4 waves-effect waves-light">Settings</li>    
-                      <li id='logout' class="col s4 waves-effect waves-light" (click)="logout()" >Logout</li> 
+                    <ul id="nav-mobile" class="left hide-on-med-and-down">
+                      <li><a href="#!">Profile</a></li>    
+                      <li> <a class="waves-effect waves-light modal-trigger" data-target="modal1">New Group</a></li>   
+                      <li><a class='dropdown-button waves-effect waves-light' href='#' data-activates='dropdown1'>Settings</a></li>    
+                      <li id='logout' class="waves-effect waves-light" (click)="logout()" >Logout</li> 
                   </ul>
                 </div>
               </nav>
 
-            <form>
-                <div class="input-field">
-                  <input id="search" type="search" required>
-                  <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                  <i class="material-icons">close</i>
-                </div>
-              </form>    
-                
-              <ul class="user-list">
-                  
-              <!-- click event to handle the selection : selectedUser() -->
-              <!-- adding a class to indicate the selection -->
-             
+              <ul id='dropdown1' class='dropdown-content'>
+                  <li><a href="#!">Profile</a></li>
+              </ul>
               
-            </ul>
-            <div class="row" >
+                <div id="modal1" class="modal">
+                  <div class="modal-content">
+                    <h4>Add Group Name</h4>
+                    <input #newGroup
+                      class="input" placeholder="Enter group name here.."
+                      [(ngModel)]="groupText"
+                      (keyup.enter)="addGroup(newGroup.value)">
+                     <button class="btn modal-close" (click)="addGroup(newGroup.value)">Create Group</button> 
+                  </div>
+             </div>
+
+            
+
+
+            
+                        
+
+              <form>
+                  <div>
+                      <input type="text" id="search-box" [(ngModel)]="term" name="search">
+                  </div>  
+              </form>    
+
+              
+                
+              <ul class="user-list">    
+              <!-- click event to handle the selection : selectedUser() -->
+              <!-- adding a class to indicate the selection --> 
+              </ul>
+
+              <div class="row" >
                 <div class="col s12"></div>
                 <li class="col s6 waves-effect waves-light btn"
                (click)="selectedUsersList=true">Online</li>
                 <li class="col s6 waves-effect waves-light btn"
                 (click)="selectedUsersList=false">Offline</li>
               </div>
-            
-              <div *ngIf="selectedUsersList">    
-              <ul class="collection">
-                <li class="collection-item active avatar" 
-                *ngFor="let user of chatListUsers"
-                (click)="selectedUser(user)" 
-                [class.selected-user]="isUserSelected(user._id)">
-                  <!--<img src={{user.image}} alt="" class="circle">-->
-                  <i class="material-icons circle">folder</i>
-                  <span class="title">{{ user.username}}</span>
-                  <p>First Line <br> Second Line</p>
-                  <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-                </li>
-              </ul> 
+              
+                
+              <div *ngIf="selectedUsersList">   
+                <ul class="collection">
+                  <li class="collection-item active avatar" 
+                    *ngFor="let user of chatListUsers |filter:term"
+                    (click)="selectedUser(user)" 
+                    [class.selected-user]="isUserSelected(user._id)">
+                      <!--<img src={{user.image}} alt="" class="circle">-->
+                      <i class="material-icons circle">folder</i>
+                      <span class="title">{{ user.username}}</span>
+                      <p>First Line <br> Second Line</p>
+                      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                  </li>
+                  
+                  <li class="collection-item active avatar" 
+                    *ngFor="let group of groupsArray |filter:ter"
+                    (click)="selectedGroup(group)" 
+                    >
+                    <span class="title">{{ group.groupName}}</span>
+                  </li>
+                </ul>
               </div> 
               
-    <div *ngIf="!selectedUsersList">
-        <ul class="collection">
-            <li class="collection-item active avatar" 
-            *ngFor="let user of chatOfflineUsers"
-            (click)="selectedUser(user)" 
-            [class.selected-user]="isUserSelected(user._id)">
-              <!--<img src={{user.image}} alt="" class="circle">-->
-              <i class="material-icons circle">folder</i>
-              <span class="title">{{ user.username}}</span>
-              <p>First Line <br> Second Line</p>
-              <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-            </li>
-          </ul> 
-    </div>
 
-
-        </div>
-        <div class="col s8">
-            <nav>
-              <div class="nav-wrapper black">
-                  <div *ngIf="selectedUserName" 
-                  class="opposite-user">
-                    Chatting with {{selectedUserName}}
-                </div>
+              <div *ngIf="!selectedUsersList">
+                <ul class="collection">
+                  <li class="collection-item active avatar" 
+                      *ngFor="let user of chatOfflineUsers |filter:term"
+                      (click)="selectedUser(user)" 
+                      [class.selected-user]="isUserSelected(user._id)">
+                        <!--<img src={{user.image}} alt="" class="circle">-->
+                        <i class="material-icons circle">folder</i>
+                        <span class="title">{{ user.username| highligh : 'term'}}</span>
+                        <p>First Line <br> Second Line</p>
+                        <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                  </li>
+                </ul> 
               </div>
-            </nav>
-            <ul class="message-thread">
-              
-           <li *ngFor="let message of messages" 
-           [ngStyle]="{
-            'display': inline-block,
-            'font-weight': 'bold',
-            'background-color': '#c51162 pink accent-4'
-          }"
-          [ngClass]="alignMessage(message.toUserId)?'
-          {card-panel teal lighten-2 , right-align }': '{card-panel black, left-align}'">       
-         
-              {{ message.message}}   
-          </li>
-            </ul>
+
+    </div>
+    <div class="col s8">
+        <nav>
+          <div class="nav-wrapper black">
+              <div *ngIf="selectedUserName" 
+              class="opposite-user">
+                Chatting with {{selectedUserName}}
+            </div>
+          </div>
+        </nav>
+        <ul class="message-thread">
+          <li *ngFor="let message of messages" 
+            [ngStyle]="{
+              'display': inline-block,
+              'font-weight': 'bold',
+              'background-color': '#c51162 pink accent-4'
+            }"
+            [ngClass]="alignMessage(message.toUserId)?'
+            {card-panel teal lighten-2 , right-align }': '{card-panel black, left-align}'">       
+          
+                {{ message.message}}   
+            </li>
+        </ul>
             <div id="copyright">
               <div class="row">
-                <div class="col s12">
+                 <div class="col s12">
                     <div class="row">
                     <div class="input-field col s12">
                     <textarea auto-grow id="textarea1" 
@@ -109,12 +137,12 @@
                     (keyup)="sendMessage($event)"></textarea>
                     </div>
                     </div>
-
-
                 </div>
-
-
-          </div>
-    </div>      
+              </div>
+            </div>      
+    </div> 
+  </div>
 </div>
+        
+    
 

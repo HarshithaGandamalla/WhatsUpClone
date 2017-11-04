@@ -79,6 +79,23 @@ export class ChatService {
                       callback(true,'HTTP fail.');
                   }
               );
-    }
+	}
+	
+	/* 
+	* Method to add user to chat group.
+	*/
+	public registerGroup(params,callback):any{
+
+		console.log("In registrop grp chat service");
+		
+          this.httpService.registerGroup(params).subscribe(
+			response => {
+				callback(false,response);
+			},
+			error => {
+				callback(true,'HTTP fail.');
+			});
+		
+	}
 
 }
