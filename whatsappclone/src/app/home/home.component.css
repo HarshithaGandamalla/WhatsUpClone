@@ -17,4 +17,7 @@
     width: 60px;
   }
 
+  :host ::ng-deep .highlight{
+    background-color: #F2E366;
+  }
   

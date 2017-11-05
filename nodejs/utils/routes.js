@@ -14,8 +14,32 @@ class Routes{
    /* creating app Routes starts */
    appRoutes(){
 
-       this.app.post('/usernameCheck',(request,response) =>{
+//    this.app.post('/search', function (request, response) {
+//         console.log("in app/search: request"+request.body);
+//         if (request.body.username === "") {
+//             response.status(412).json({
+//                 error : true,
+//                 message : `username cant be empty.`
+//             });
+//         } else {
+//             helper.getUsers(request.body),  (error,result)=>{
+//                 let res = {};
+//                 if (error) {
+//                     res.error = true;
+//                     res.list = [];
+//                     response.status(404).json(res);
+//                  }else{
+//                 res.error = false;
+//                 res.list= result;
+//                 response.status(200).json(res);
+//               }
+//             });
+//         }
+//       });
 
+       this.app.post('/usernameCheck',(request,response) =>{
+        console.log("in app/usernameCheck");
+        
            if (request.body.username === "") {
                response.status(412).json({
                    error : true,
