@@ -89,6 +89,48 @@ class Socket{
                                });
                            }
                        });
+
+
+           /**
+           * get the user's groups list
+           */
+
+           socket.on('groups-list',(data)=>{
+
+            console.log("grouplist request received"+JSON.stringify(data));
+            
+
+            let groupListResponse = {};
+            
+                           if (data.userId == '') {
+            
+                            groupListResponse.error = true;
+                            groupListResponse.message = `User does not exits.`;
+                               
+                            this.io.emit('groups-list-response',groupListResponse);
+            
+                           }else{
+            
+                               helper.getGroupsList( data,(err, UserGroupInfoResponse)=>{
+                                   
+                               console.log("grouplist response sent: "+JSON.stringify(UserGroupInfoResponse));
+                                console.log("array: "+JSON.stringify(UserGroupInfoResponse[0].groupsArray));
+                                
+                            
+                                   const data = {
+                                    error : false,                                      
+                                    groupList : UserGroupInfoResponse[0].groupsArray,
+                                   };
+                                //   this.io.emit('groups-list-response',data);
+                                   this.io.to(socket.id).emit('groups-list-response',data);
+                                      
+                                       
+                                   
+                               });
+                           }
+
+           });
+
            /**
            * send the messages to the user
            */
