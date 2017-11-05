@@ -49,7 +49,7 @@ export class HomeComponent implements OnInit{
 	private message = '';
 	private messages = [];
 	private groupName = '';
-	private groupsArray=[];
+	private groupsList=[];
 	/*
 	* Chat and message related variables ends
 	*/
@@ -134,12 +134,41 @@ export class HomeComponent implements OnInit{
 											* Updating entire chatlist if user logs in.
 											*/
 											this.chatListUsers = response.chatList;
-											console.log("chatlist: "+JSON.stringify(this.chatListUsers));
+										//	console.log("chatlist: "+JSON.stringify(this.chatListUsers));
 										}
 									}else{
 										alert('Chat list failure.');
 									}
 						  });	
+						  
+						 
+						  /* 
+						  * Code to update groups list of user goes here
+						  */
+						 
+						  this.socketService.getGroupsList(this.userId).subscribe(response=>{
+
+							//console.log("Trying to update groupslist");
+
+							if(!response.error){
+                                /* 
+							    * Updating entire groupslist if user logs in.
+								*/
+								console.log("Updated groupslist");
+								
+								for (var i = 0; i < response.groupList.length ; i++) {
+									this.groupsList.push({
+										'groupName': response.groupList[i]
+									});
+								}
+
+
+							}
+							else{
+								alert('Group list update failure.');
+							}
+
+						  });
 			
 
 
@@ -284,7 +313,7 @@ export class HomeComponent implements OnInit{
                                if(!response.error){
 								
 							   	this.messages.push({message:'Successfully created group '+newGroup});
-							    this.groupsArray.push({
+							    this.groupsList.push({
 									'groupName':newGroup,
 									'message':'Successfully created group '+newGroup 
 								  });

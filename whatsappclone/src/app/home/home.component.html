@@ -79,7 +79,7 @@
                   </li>
                   
                   <li class="collection-item active avatar" 
-                    *ngFor="let group of groupsArray |filter:ter"
+                    *ngFor="let group of groupsList |filter:ter"
                     (click)="selectedGroup(group)" 
                     >
                     <span class="title">{{ group.groupName}}</span>

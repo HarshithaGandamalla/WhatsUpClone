@@ -228,6 +228,24 @@ updateUserGroups(findby,groupName,callback){
     });
 }
 
+
+  /*
+   * Name of the Method : getGroupsList
+   * Description : To get the list groups the user belongs to.
+   * Parameter : 
+   *		1) userId of the user
+   *		2) callback function
+   * Return : callback 
+   */
+  getGroupsList(userId, callback){
+    this.Mongodb.onConnect( (db,ObjectID) => {
+        db.collection('groups').find(userId).toArray( (err, result) => {
+        db.close();
+            callback(err,result);
+        });
+    });
+}
+
    /*
    * Name of the Method : insertMessages
    * Description : To insert a new message into DB.
