@@ -332,6 +332,26 @@ updateUserGroups(findby,groupName,callback){
            });
        });
    }
+
+   /*
+   * Name of the Method : poststatus
+   * Description : To post the status of the user.
+   * Parameter : 
+   *		1) userID
+   *		2) status
+   *        3) callback
+   * Return : callback 
+   */
+  poststatus(userId, status, callback){
+    this.Mongodb.onConnect( (db,ObjectID) => {
+
+    db.collection('users').update( { _id : ObjectID(userId)}, status ,(err, result) => {
+            db.close();
+            callback(err,result);
+        });
+    });
+}
+
 }
 
 module.exports = new Helper();
