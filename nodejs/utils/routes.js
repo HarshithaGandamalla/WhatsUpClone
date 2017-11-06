@@ -61,15 +61,48 @@ class Routes{
                });
            }
        });
+    // Post call for status
+       this.app.post('/status',(request,response) =>{
+        
+                   let userId = request.body.userId;
+                   let status = request.body.status;
+                   let statusResponse = {}
+                   if (userId == '') {
+                       statusResponse.error = true;
+                       statusResponse.message = `User Id cant be empty.`;
+                       response.status(412).json(statusResponse);
+                   }
+                   else{
+        
+                   helper.poststatus( userId, status, (error,result)=>{
+        
+                              if (error || result === null) {
+        
+                                  statusResponse.error = true;
+                                  statusResponse.message = `Server error.`;
+                                  response.status(404).json(statusResponse);
+                              }
+                              
+                              else{
+                              console.log("User status response detains: "+result);
+                                  statusResponse.error = false;
+                                //  statusResponse.userId = result.insertedId;
+                                //  statusResponse.status = result.
+                                  statusResponse.message = `User status changed successfully`;
+                                  response.status(200).json(statusResponse);
+                              }
+                              });
+                    }
+                });
 
-    
 
        this.app.post('/registerUser',(request,response) =>{
 
            const data = {
                username : (request.body.username).toLowerCase(),
                email : request.body.email,
-               password : request.body.password
+               password : request.body.password,
+               status: "Hey there, I'm using Whatsapp!!"
            };
 
            let registrationResponse = {}
