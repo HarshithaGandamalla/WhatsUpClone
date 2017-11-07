@@ -80,12 +80,33 @@
                   
                   <li class="collection-item active avatar" 
                     *ngFor="let group of groupsList |filter:ter"
-                    (click)="selectedGroup(group)" 
-                    >
+                    (click)="selectedGroup(group)"
+                    [class.selected-group]="isGroupSelected(group.groupName)">
+                    <i class="material-icons circle">folder</i>                    
                     <span class="title">{{ group.groupName}}</span>
+                    <a class="waves-effect waves-light btn modal-trigger right" href="#modal2">Add</a>
+                    <!-- Add users -->
                   </li>
                 </ul>
               </div> 
+
+              <!-- Display all users registered -->
+              <div id="modal2" class="modal">
+                <div class="modal-content">
+                        <form action="#" id="mySelect">
+                            <p *ngFor="let user of chatListUsers; let i = index">
+                              <input type="checkbox" class="filled-in" id="test{{i}}" />
+                              <label for="test{{i}}">  {{ user.username}} </label>
+                            </p>
+                            <p *ngFor="let user of chatOfflineUsers">
+                                <input type="checkbox" class="filled-in" id="test1" />
+                                <label for="test1">  {{ user.username}} </label>
+                            </p>
+                          </form>
+                          <button class="btn modal-close" (click)="AddUsers()">Add users</button> 
+                          
+                </div>
+              </div>
               
 
               <div *ngIf="!selectedUsersList">
@@ -106,11 +127,17 @@
     </div>
     <div class="col s8">
         <nav>
+
+          
           <div class="nav-wrapper black">
               <div *ngIf="selectedUserName" 
               class="opposite-user">
                 Chatting with {{selectedUserName}}
             </div>
+            <div *ngIf="selectedGroupName" 
+            class="opposite-user">
+              Chatting in {{selectedGroupName}}
+          </div>
           </div>
         </nav>
         <ul class="message-thread">

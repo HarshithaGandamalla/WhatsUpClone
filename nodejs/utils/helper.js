@@ -248,7 +248,7 @@ updateUserGroups(findby,groupName,callback){
 
    /*
    * Name of the Method : insertMessages
-   * Description : To insert a new message into DB.
+   * Description : To insert a new message into messages collection in mongo.
    * Parameter : 
    *		1) data comprises of message,fromId,toId
    *		2) callback function
@@ -262,6 +262,24 @@ updateUserGroups(findby,groupName,callback){
            });
        });
    }
+
+    /*
+   * Name of the Method : insertGroupMessages
+   * Description : To insert a new message into groupmessages collection in mongo.
+   * Parameter : 
+   *		1) data comprises of message,groupName
+   *		2) callback function
+   * Return : callback 
+   */
+  insertGroupMessages(data,callback){
+      console.log("Trying to insert into groupmessages collection");
+    this.Mongodb.onConnect( (db,ObjectID) => {
+        db.collection('groupmessages').insertOne(data, (err, result) =>{
+            db.close();
+            callback(err,result);
+        });
+    });
+}
 
    /*
    * Name of the Method : getMessages
@@ -300,6 +318,23 @@ updateUserGroups(findby,groupName,callback){
            });
        });
    }
+
+
+   getGroupMessages(groupName, callback){
+    
+           const data = {
+              'groupName':groupName
+           };
+
+           this.Mongodb.onConnect( (db,ObjectID) => {
+               db.collection('groupmessages').find(data).sort({'timestamp':1}).toArray( (err, result) => {
+               db.close();
+                   callback(err,result);
+               });
+           });
+       }
+
+       
 
    /*
    * Name of the Method : logout

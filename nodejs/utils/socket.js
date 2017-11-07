@@ -96,8 +96,6 @@ class Socket{
            */
 
            socket.on('groups-list',(data)=>{
-
-            console.log("grouplist request received"+JSON.stringify(data));
             
 
             let groupListResponse = {};
@@ -112,16 +110,13 @@ class Socket{
                            }else{
             
                                helper.getGroupsList( data,(err, UserGroupInfoResponse)=>{
-                                   
-                               console.log("grouplist response sent: "+JSON.stringify(UserGroupInfoResponse));
-                                console.log("array: "+JSON.stringify(UserGroupInfoResponse[0].groupsArray));
-                                
+                                                                   
                             
                                    const data = {
                                     error : false,                                      
                                     groupList : UserGroupInfoResponse[0].groupsArray,
                                    };
-                                //   this.io.emit('groups-list-response',data);
+                                   
                                    this.io.to(socket.id).emit('groups-list-response',data);
                                       
                                        
@@ -159,10 +154,35 @@ class Socket{
                        this.io.to(toSocketId).emit(`add-message-response`,data); 
                    });
 
-                   //add messages to room via io.to(clientInfo[socket.id].room).emit('add-message-response,data);
                }				
            });
 
+
+           socket.on('group-message', (data) => {
+            
+            if (data.message === '') {
+                
+                this.io.to(socket.id).emit(`group-message-response`,`Message cant be empty`); 
+
+            }else if(data.fromUserIdGroup === ''){
+                
+                this.io.to(socket.id).emit(`group-message-response`,`Unexpected error, Login again.`); 
+
+            }else if(data.groupName === ''){
+                
+                this.io.to(socket.id).emit(`group-message-response`,`Select a group to chat.`); 
+
+            }else{
+                
+                data.timestamp = Math.floor(new Date() / 1000);
+
+
+                helper.insertGroupMessages(data,( error , response)=>{
+                    this.io.to(data.groupName).emit(`group-message-response`,data); //emits messages to given room name
+                });
+
+            }				
+        });
 
            /**
            * Logout the user

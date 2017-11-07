@@ -220,6 +220,38 @@ class Routes{
            }
        });
 
+       this.app.post('/getGroupMessages',(request,response) =>{
+       
+
+        console.log("groupmessage request body: "+JSON.stringify(request.body));
+        
+        let groupName = request.body.groupName;
+        let messages = {}
+                   
+                   if (groupName == '') {
+                       messages.error = true;
+                       messages.message = `groupName cant be empty.`;
+                       response.status(200).json(messages);
+                   }else{
+        
+                          helper.getGroupMessages(groupName, (error,result)=>{
+        
+                             if (error) {
+        
+                                  messages.error = true;
+                                  messages.message = `Server error.`;
+                                  response.status(200).json(messages);
+        
+                              }else{
+        
+                                  messages.error = false;
+                                  messages.message = result;
+                                  response.status(200).json(messages);
+                              }
+                       });
+                   }
+               });
+
        this.app.post('/registerGroup', (request,response) => {
         
          

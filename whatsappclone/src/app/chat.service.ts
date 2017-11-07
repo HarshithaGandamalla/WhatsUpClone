@@ -64,6 +64,21 @@ export class ChatService {
                       callback(true,'HTTP fail.');
                   }
               );
+	}
+	
+	
+  	/* 
+	* method to get the messages of given group
+	*/
+    public getGroupMessages(params ,callback):any{
+        this.httpService.getGroupMessages(params).subscribe(
+                  response => {
+                      callback(false,response);
+                  },
+                  error => {
+                      callback(true,'HTTP fail.');
+                  }
+              );
     }
 
 
