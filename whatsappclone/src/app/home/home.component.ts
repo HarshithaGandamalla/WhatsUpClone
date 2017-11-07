@@ -355,7 +355,7 @@ export class HomeComponent implements OnInit{
 								const data = {
 									groupName : this.selectedGroupName,
 									message : (this.message).trim(),
-									fromUserIdGroup : this.userId,
+									fromUserId : this.userId,
 									fromUser:this.username								
 								}
 

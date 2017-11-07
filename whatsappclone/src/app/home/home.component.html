@@ -147,9 +147,9 @@
               'font-weight': 'bold',
               'background-color': '#c51162 pink accent-4'
             }"
-            [ngClass]="alignMessage(message.toUserId)?'
-            {card-panel teal lighten-2 , right-align }': '{card-panel black, left-align}'">       
-          
+            [ngClass]="alignMessage(message.fromUserId)?'
+            {card-panel black, left-align}': ' {card-panel teal lighten-2 , right-align }'">       
+           
                 {{ message.message}}   
             </li>
         </ul>
