@@ -27,7 +27,7 @@ Run ng e2e to execute the end-to-end tests via [Protractor](http://www.protracto
   - Harshitha Gandamalla (harsh1thagandama@ufl.edu)
   - Hamsika Gandamalla (ghamsika@ufl.edu)
   - Manisha Katkam  (mkatkam@ufl.edu)
-  - Ajantha Ramineni (amineni@ufl.edu)
+  - Ajantha Ramineni (amineni95@ufl.edu)
   - Venkata Jayakrishna Thota(jaygre@ufl.edu) 
   
 
