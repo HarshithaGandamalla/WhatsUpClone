@@ -5,8 +5,8 @@
       </span>
     </div>
   </nav>
-</div>   
-
+</div>
+ 
 <div class="container">
 <div class="row">
   <div class="col s4">
@@ -14,8 +14,7 @@
             <nav>
               <div class="nav-wrapper black">
                   <ul id="nav-mobile" class="left hide-on-med-and-down">
-
-                    <li> <a class="waves-effect waves-light modal-trigger" data-target="modal2">Profile</a></li>
+                    <li><a href="#!">Profile</a></li>    
                     <li> <a class="waves-effect waves-light modal-trigger" data-target="modal1">New Group</a></li>   
                     <li><a class='dropdown-button waves-effect waves-light' href='#' data-activates='dropdown1'>Settings</a></li>    
                     <li id='logout' class="waves-effect waves-light" (click)="logout()" >Logout</li> 
@@ -26,11 +25,6 @@
             <ul id='dropdown1' class='dropdown-content'>
                 <li><a href="#!">Profile</a></li>
             </ul>
-            <div id="modal2" class="modal">
-                <div class="modal-content">
-                  <h4>Profile</h4>
-                </div>
-           </div>
             
               <div id="modal1" class="modal">
                 <div class="modal-content">
@@ -42,35 +36,22 @@
                    <button class="btn modal-close" (click)="addGroup(newGroup.value)">Create Group</button> 
                 </div>
            </div>
-
-          
-
-
-          
-                      
-
             <form>
                 <div>
                     <input type="text" id="search-box" [(ngModel)]="term" name="search">
                 </div>  
-            </form>    
-
-            
-              
+            </form>         
             <ul class="user-list">    
             <!-- click event to handle the selection : selectedUser() -->
             <!-- adding a class to indicate the selection --> 
             </ul>
-
             <div class="row" >
               <div class="col s12"></div>
               <li class="col s6 waves-effect waves-light btn"
              (click)="selectedUsersList=true">Online</li>
               <li class="col s6 waves-effect waves-light btn"
               (click)="selectedUsersList=false">Offline</li>
-            </div>
-            
-              
+            </div>          
             <div *ngIf="selectedUsersList">   
               <ul class="collection">
                 <li class="collection-item active avatar" 
@@ -86,12 +67,32 @@
                 
                 <li class="collection-item active avatar" 
                   *ngFor="let group of groupsList |filter:ter"
-                  (click)="selectedGroup(group)" 
-                  >
+                  (click)="selectedGroup(group)"
+                  [class.selected-group]="isGroupSelected(group.groupName)">
+                  <i class="material-icons circle">folder</i>                    
                   <span class="title">{{ group.groupName}}</span>
+                  <a class="waves-effect waves-light btn modal-trigger right" href="#modal2">Add</a>
+                  <!-- Add users -->
                 </li>
               </ul>
             </div> 
+
+            <!-- Display all users registered -->
+            <div id="modal2" class="modal">
+              <div class="modal-content">
+                      <form action="#" id="mySelect">
+                          <p *ngFor="let user of chatListUsers; let i = index">
+                            <input type="checkbox" class="filled-in" id="test{{i}}" />
+                            <label for="test{{i}}">  {{ user.username}} </label>
+                          </p>
+                          <p *ngFor="let user of chatOfflineUsers">
+                              <input type="checkbox" class="filled-in" id="test1" />
+                              <label for="test1">  {{ user.username}} </label>
+                          </p>
+                        </form>
+                        <button class="btn modal-close" (click)="AddUsers()">Add users</button>                
+              </div>
+            </div>
             
 
             <div *ngIf="!selectedUsersList">
@@ -109,14 +110,18 @@
               </ul> 
             </div>
 
-  </div>
-  <div class="col s8">
-      <nav>
+      </div>
+       <div class="col s8">
+      <nav>     
         <div class="nav-wrapper black">
             <div *ngIf="selectedUserName" 
             class="opposite-user">
               Chatting with {{selectedUserName}}
           </div>
+          <div *ngIf="selectedGroupName" 
+          class="opposite-user">
+            Chatting in {{selectedGroupName}}
+        </div>
         </div>
       </nav>
       <ul class="message-thread">
@@ -126,9 +131,9 @@
             'font-weight': 'bold',
             'background-color': '#c51162 pink accent-4'
           }"
-          [ngClass]="alignMessage(message.toUserId)?'
-          {card-panel teal lighten-2 , right-align }': '{card-panel black, left-align}'">       
-        
+          [ngClass]="alignMessage(message.fromUserId)?'
+          {card-panel black, left-align}': ' {card-panel teal lighten-2 , right-align }'">       
+         
               {{ message.message}}   
           </li>
       </ul>

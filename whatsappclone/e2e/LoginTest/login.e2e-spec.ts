@@ -35,19 +35,19 @@ describe('Login App', () => {
       function (alert) { alert.accept(); },
     );   
     page.navigateTo();
-    let email = page.getLoginFormEmail();
+   // let email = page.getLoginFormEmail();
     let password = page.getLoginFormPassword();
     let username = page.getLoginFormUsername();
     username.sendKeys('dimpu');
-    email.sendKeys('hamsikag15@gmail.com');
+   // email.sendKeys('hamsikag15@gmail.com');
     password.sendKeys('dimpu');
-    expect(email.getAttribute('value')).toEqual('hamsikag15@gmail.com');
+   // expect(email.getAttribute('value')).toEqual('hamsikag15@gmail.com');
     expect(password.getAttribute('value')).toEqual('dimpu');
     expect(username.getAttribute('value')).toEqual('dimpu');
     
     let btn = page.getLoginButton();
     btn.click();
-    expect(browser.getCurrentUrl()).toEqual('http://localhost:49152/home/59e503b3333b2d08d8edc3f0');
+    expect(browser.getCurrentUrl()).toEqual('http://localhost:49152/home/59fbd21d034f29380cf0024a');
     element(by.id('logout')).click();
 
 });
