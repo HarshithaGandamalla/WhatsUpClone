@@ -103,13 +103,13 @@ export class HomeComponent implements OnInit{
 				 			this.router.navigate(['/']); /* Home page redirection */
 				 		}else{
 				 			
-							 			this.username = response.username;
-							 			this.overlayDisplay = true;
+							 	this.username = response.username;
+						 		this.overlayDisplay = true;
 						 
 							 			/*
 											* making socket connection by passing UserId.
 											*/	
-											this.socketService.connectSocket(this.userId);
+										this.socketService.connectSocket(this.userId);
 						 
 											/* 
 											* Code to get the real time messages goes here

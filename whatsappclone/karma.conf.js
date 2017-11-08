@@ -28,6 +28,11 @@ module.exports = function (config) {
     logLevel: config.LOG_INFO,
     autoWatch: true,
     browsers: ['Chrome'],
-    singleRun: false
+    singleRun: false,
+    files: [
+      { pattern: './node_modules/jquery/dist/jquery.min.js', watched: false },   
+      { pattern: 'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js', watched: false },    
+      
+    ]
   });
 };
