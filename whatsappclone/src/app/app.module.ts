@@ -17,7 +17,6 @@ import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { ElasticDirective } from './directives/auto-grow.directive';
 import { HighlightSearch } from './highlightsearch.pipe';
- 
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
  
 
