@@ -25,20 +25,20 @@ describe('HomeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      declarations: [ HomeComponent ],      
       imports: [ 
         FormsModule,
         HttpModule,
         RouterTestingModule, // same any normal route config   
        ],
        providers : [ChatService,HttpService,SocketService, SearchService],
-      declarations: [ HomeComponent ]
     })
     
     
       fixture = TestBed.createComponent(HomeComponent);
       component = fixture.componentInstance;
       fixture.detectChanges();
-      el = fixture.debugElement.query(By.css('#theid')); 
+     // const input = fixture.debugElement.query(By.css('#theid')); 
       
 
   }));

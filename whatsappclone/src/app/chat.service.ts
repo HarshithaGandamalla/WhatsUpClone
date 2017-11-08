@@ -46,7 +46,7 @@ export class ChatService {
                   callback(false,response);
                 },
                 error => {
-                  callback(true,'HTTP fail.');
+                  callback(true,'Failed to register user. Server might be down.');
                 }
   			);
   	}
