@@ -158,13 +158,18 @@ export class HomeComponent implements OnInit{
                                 /* 
 							    * Updating entire groupslist if user logs in.
 								*/
-								//console.log("Updated groupslist");
 								
+
+								if(response.groupList!=null){
 								for (var i = 0; i < response.groupList.length ; i++) {
+
+									console.log("Updated groupslist:o "+JSON.stringify( response.groupList[i]));
+									
 									this.groupsList.push({
 										'groupName': response.groupList[i]
 									});
 								}
+							}
 
 
 							}
