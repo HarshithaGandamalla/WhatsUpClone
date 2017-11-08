@@ -18,6 +18,8 @@ var window = document.defaultView;
 var $ = require('jquery')(window);
 
 
+var window = document.defaultView;
+var $ = require('jquery')(window);
 
 
 describe('HomeComponent', () => {
@@ -29,6 +31,7 @@ describe('HomeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      declarations: [ HomeComponent ],      
       imports: [ 
         FormsModule,
         HttpModule,
@@ -36,10 +39,16 @@ describe('HomeComponent', () => {
         Ng2SearchPipeModule,
         BrowserModule
        ],
-      declarations: [ HomeComponent ],
       providers : [ChatService,HttpService,SocketService, SearchService]
     })
-    .compileComponents();
+    
+    
+      fixture = TestBed.createComponent(HomeComponent);
+      comp= fixture.componentInstance;
+      fixture.detectChanges();
+     // const input = fixture.debugElement.query(By.css('#theid')); 
+      
+
   }));
 
   beforeEach(() => {
@@ -51,10 +60,8 @@ describe('HomeComponent', () => {
     
   });
 
-  it('should be created', () => {
-    const fixture = TestBed.createComponent(HomeComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
+  it('should be set user chat name', () => {
+   
   });
 
   it('checks group button', async(() => {

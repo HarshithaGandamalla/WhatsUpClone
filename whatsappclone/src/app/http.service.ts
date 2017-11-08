@@ -17,7 +17,7 @@ export class HttpService {
 	* specifying Base URL.
 	*/
     private BASE_URL = 'http://localhost:4000/';
- results: boolean;
+    results: boolean;
     /* 
 	* Setting the Request headers.
 	*/

@@ -6,6 +6,7 @@ import { ActivatedRoute ,Router } from '@angular/router';
 
 declare var $:any;
 
+
  
 /* Importing services starts*/
 import { SocketService } from './../socket.service';
@@ -168,13 +169,18 @@ export class HomeComponent implements OnInit{
                                 /* 
 							    * Updating entire groupslist if user logs in.
 								*/
-								//console.log("Updated groupslist");
 								
+
+								if(response.groupList!=null){
 								for (var i = 0; i < response.groupList.length ; i++) {
+
+									console.log("Updated groupslist:o "+JSON.stringify( response.groupList[i]));
+									
 									this.groupsList.push({
 										'groupName': response.groupList[i]
 									});
 								}
+							}
 
 
 							}
@@ -263,7 +269,7 @@ export class HomeComponent implements OnInit{
 				this.selectedUserId = user._id;
 				this.selectedSocketId = user.socketId;
 				this.selectedUserName = user.username;
-				console.log("Selected user: "+JSON.stringify(user.username));
+			//	console.log("Selected user: "+JSON.stringify(user.username));
 				
 				/* 
 				* calling method to get the messages
