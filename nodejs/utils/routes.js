@@ -61,10 +61,6 @@ class Routes{
                });
            }
        });
-<<<<<<< HEAD
-
-    
-=======
     // Post call for status
        this.app.post('/status',(request,response) =>{
         
@@ -99,7 +95,6 @@ class Routes{
                     }
                 });
 
->>>>>>> 145102ab12dd87fe46aa7d275a7b2c3e058b3a91
 
        this.app.post('/registerUser',(request,response) =>{
 
@@ -258,8 +253,6 @@ class Routes{
            }
        });
 
-<<<<<<< HEAD
-=======
        this.app.post('/getGroupMessages',(request,response) =>{
        
 
@@ -292,7 +285,6 @@ class Routes{
                    }
                });
 
->>>>>>> 145102ab12dd87fe46aa7d275a7b2c3e058b3a91
        this.app.post('/registerGroup', (request,response) => {
         
          
