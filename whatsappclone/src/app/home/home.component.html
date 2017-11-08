@@ -1,159 +1,177 @@
-<div id="container">
-  <nav>
-    <div class="nav-wrapper  teal darken-4">
-      <span>Hello {{username}}   
-      </span>
-    </div>
-  </nav>
-</div>
- 
-<div class="container">
-<div class="row">
-  <div class="col s4">
+<div class="main">
+  <!-- Navbar goes here -->
+  <div id="container " style="height: inherit">
+    <nav class="main-nav">
+      <div class="nav-wrapper  teal darken-4">
+        <span>Hello {{username}}   
+        </span>
+        <!-- slide button -->
+        <a href="#" data-activates="slide-out" class="button-collapse" style="display: block!important">
+          <i class="material-icons">menu</i> 
+        </a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down" style=" height: inherit;padding-right: 20px;">
+            <li><a class='dropdown-button waves-effect waves-light' href='#' data-activates='dropdown1'>Settings</a></li>    
+            <li id='logout' class="waves-effect waves-light" (click)="logout()" >Logout</li>
+        </ul>
+      </div>
+    </nav>
 
-            <nav>
-              <div class="nav-wrapper black">
-                  <ul id="nav-mobile" class="left hide-on-med-and-down">
-                    <li><a href="#!">Profile</a></li>    
-                    <li> <a class="waves-effect waves-light modal-trigger" data-target="modal1">New Group</a></li>   
-                    <li><a class='dropdown-button waves-effect waves-light' href='#' data-activates='dropdown1'>Settings</a></li>    
-                    <li id='logout' class="waves-effect waves-light" (click)="logout()" >Logout</li> 
-                </ul>
-              </div>
-            </nav>
+    <!-- slide  content -->
+    <ul id="slide-out" class="side-nav scroll1" style="width: 25%;">
+      <li><div class="user-view">
+        <div class="background">
+          <img src="images/office.jpg">
+        </div>
+        <a href="#!user"><img class="circle" src="images/yuna.jpg"></a>
+        <a href="#!name"><span class="white-text name">John Doe</span></a>
+        <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+      </div></li>
+      <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+      <li><a href="#!">Second Link</a></li>
+      <li><div class="divider"></div></li>
+      <li><a class="subheader">Subheader</a></li>
+      <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+    </ul>
 
-            <ul id='dropdown1' class='dropdown-content'>
-                <li><a href="#!">Profile</a></li>
-            </ul>
-            
-              <div id="modal1" class="modal">
-                <div class="modal-content">
-                  <h4>Add Group Name</h4>
-                  <input #newGroup
-                    class="input" placeholder="Enter group name here.."
-                    [(ngModel)]="groupText"
-                    (keyup.enter)="addGroup(newGroup.value)">
-                   <button class="btn modal-close" (click)="addGroup(newGroup.value)">Create Group</button> 
-                </div>
-           </div>
-            <form>
-                <div>
-                    <input type="text" id="search-box" [(ngModel)]="term" name="search">
-                </div>  
-            </form>         
-            <ul class="user-list">    
+  <!-- Page Layout here -->
+  <div class="row main-content">
+      <!-- begin s4 column -->
+      <div class="col s3 no-padding scroll1" style="height: inherit;overflow-y: auto;">
+        <nav>
+          <div class="nav-wrapper black">
+              <ul id="nav-mobile" class="left hide-on-med-and-down">   
+                <li> <a class="waves-effect waves-light modal-trigger" data-target="modal1">New Group</a></li>   
+              </ul>
+          </div>
+        </nav>
+        <ul id='dropdown1' class='dropdown-content'>
+            <li><a href="#!">Profile</a></li>
+        </ul>
+        <!-- modal for new group -->
+        <div id="modal1" class="modal">
+          <div class="modal-content">
+            <h4>Add Group Name</h4>
+            <input #newGroup
+              class="input" placeholder="Enter group name here.."
+              [(ngModel)]="groupText"
+              (keyup.enter)="addGroup(newGroup.value)">
+              <button class="btn modal-close" (click)="addGroup(newGroup.value)">Create Group</button> 
+          </div>
+       </div>
+       <form>
+          <div>
+              <input type="text" placeholder="  Search contacts" id="search-box" [(ngModel)]="term" name="search">
+          </div>  
+        </form> 
+        <ul class="user-list">    
             <!-- click event to handle the selection : selectedUser() -->
             <!-- adding a class to indicate the selection --> 
+        </ul>
+        <nav class="nav-extended">  
+          <div class="nav-content">
+            <ul class="tabs tabs-transparent">
+              <li class="tab" (click)="selectedUsersList=true" style="width:50%"><a href="#test1" class="active">ONLINE</a></li>
+              <li class="tab" (click)="selectedUsersList=false" style="width:50%"><a  href="#test2">OFFLINE</a></li>
             </ul>
-            <div class="row" >
-              <div class="col s12"></div>
-              <li class="col s6 waves-effect waves-light btn"
-             (click)="selectedUsersList=true">Online</li>
-              <li class="col s6 waves-effect waves-light btn"
-              (click)="selectedUsersList=false">Offline</li>
-            </div>          
-            <div *ngIf="selectedUsersList">   
-              <ul class="collection">
-                <li class="collection-item active avatar" 
-                  *ngFor="let user of chatListUsers |filter:term"
-                  (click)="selectedUser(user)" 
-                  [class.selected-user]="isUserSelected(user._id)">
-                    <!--<img src={{user.image}} alt="" class="circle">-->
-                    <i class="material-icons circle">folder</i>
-                    <span class="title">{{ user.username}}</span>
-                    <p>First Line <br> Second Line</p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-                </li>
-                
-                <li class="collection-item active avatar" 
-                  *ngFor="let group of groupsList |filter:ter"
-                  (click)="selectedGroup(group)"
-                  [class.selected-group]="isGroupSelected(group.groupName)">
-                  <i class="material-icons circle">folder</i>                    
-                  <span class="title">{{ group.groupName}}</span>
-                  <a class="waves-effect waves-light btn modal-trigger right" href="#modal2">Add</a>
-                  <!-- Add users -->
-                </li>
-              </ul>
-            </div> 
-
-            <!-- Display all users registered -->
-            <div id="modal2" class="modal">
-              <div class="modal-content">
-                      <form action="#" id="mySelect">
-                          <p *ngFor="let user of chatListUsers; let i = index">
-                            <input type="checkbox" class="filled-in" id="test{{i}}" />
-                            <label for="test{{i}}">  {{ user.username}} </label>
-                          </p>
-                          <p *ngFor="let user of chatOfflineUsers">
-                              <input type="checkbox" class="filled-in" id="test1" />
-                              <label for="test1">  {{ user.username}} </label>
-                          </p>
-                        </form>
-                        <button class="btn modal-close" (click)="AddUsers()">Add users</button>                
-              </div>
-            </div>
-            
-
-            <div *ngIf="!selectedUsersList">
-              <ul class="collection">
-                <li class="collection-item active avatar" 
-                    *ngFor="let user of chatOfflineUsers |filter:term"
-                    (click)="selectedUser(user)" 
-                    [class.selected-user]="isUserSelected(user._id)">
-                      <!--<img src={{user.image}} alt="" class="circle">-->
-                      <i class="material-icons circle">folder</i>
-                      <span class="title">{{ user.username| highligh : 'term'}}</span>
-                      <p>First Line <br> Second Line</p>
-                      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-                </li>
-              </ul> 
-            </div>
-
-      </div>
-       <div class="col s8">
-      <nav>     
-        <div class="nav-wrapper black">
-            <div *ngIf="selectedUserName" 
-            class="opposite-user">
-              Chatting with {{selectedUserName}}
           </div>
-          <div *ngIf="selectedGroupName" 
-          class="opposite-user">
-            Chatting in {{selectedGroupName}}
+        </nav>
+        <!-- list of users -->
+        <div *ngIf="selectedUsersList">   
+          <ul class="collection">
+            <li class="collection-item active avatar" 
+              *ngFor="let user of chatListUsers |filter:term"
+              (click)="selectedUser(user)" 
+              [class.selected-user]="isUserSelected(user._id)">
+                <!--<img src={{user.image}} alt="" class="circle">-->
+                <i class="material-icons circle">folder</i>
+                <span class="title">{{ user.username}}</span>
+                <p>First Line <br> Second Line</p>
+                <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+            </li> 
+            <li class="collection-item active avatar" 
+              *ngFor="let group of groupsList |filter:ter"
+              (click)="selectedGroup(group)"
+              [class.selected-group]="isGroupSelected(group.groupName)">
+              <i class="material-icons circle">folder</i>                    
+              <span class="title">{{ group.groupName}}</span>
+              <a class="waves-effect waves-light btn modal-trigger right" href="#modal2">Add</a>
+              <!-- Add users -->
+            </li>
+          </ul>
+        </div> 
+        <!-- Display all users registered -->
+        <div id="modal2" class="modal">
+          <div class="modal-content">
+            <form action="#" id="mySelect">
+                <p *ngFor="let user of chatListUsers; let i = index">
+                  <input type="checkbox" class="filled-in" id="test{{i}}" />
+                  <label for="test{{i}}">  {{ user.username}} </label>
+                </p>
+                <p *ngFor="let user of chatOfflineUsers">
+                    <input type="checkbox" class="filled-in" id="test1" />
+                    <label for="test1">  {{ user.username}} </label>
+                </p>
+              </form>
+              <button class="btn modal-close" (click)="AddUsers()">Add users</button>                
+          </div>
         </div>
+        <div *ngIf="!selectedUsersList">
+          <ul class="collection">
+            <li class="collection-item active avatar" 
+                *ngFor="let user of chatOfflineUsers |filter:term"
+                (click)="selectedUser(user)" 
+                [class.selected-user]="isUserSelected(user._id)">
+                  <!--<img src={{user.image}} alt="" class="circle">-->
+                  <i class="material-icons circle">folder</i>
+                  <span class="title">{{ user.username| highligh : 'term'}}</span>
+                  <p>First Line <br> Second Line</p>
+                  <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+            </li>
+          </ul> 
         </div>
-      </nav>
-      <ul class="message-thread">
-        <li *ngFor="let message of messages" 
-          [ngStyle]="{
-            'display': inline-block,
-            'font-weight': 'bold',
-            'background-color': '#c51162 pink accent-4'
-          }"
-          [ngClass]="alignMessage(message.fromUserId)?'
-          {card-panel black, left-align}': ' {card-panel teal lighten-2 , right-align }'">       
-         
-              {{ message.message}}   
+      </div>
+        
+      <div class="col s9 no-padding scroll1" style="height: inherit;overflow-y: auto;">
+        <nav class="chat-title">     
+          <div class="nav-wrapper black">
+            <div *ngIf="selectedUserName" 
+              class="opposite-user">
+                Chatting with {{selectedUserName}}
+            </div>
+            <div *ngIf="selectedGroupName" 
+            class="opposite-user">
+              Chatting in {{selectedGroupName}}
+            </div>
+          </div>
+        </nav>
+        <ul class="message-thread">
+            <!-- <li class="clearfix"><blockquote class="me pull-right right">Hi</blockquote></li> -->
+            <!-- <li class="clearfix"><blockquote class="you pull-left left">Hello</blockquote></li> -->
+          <li class="clearfix" *ngFor="let message of messages" 
+            [ngStyle]="{
+              'display': inline-block,
+              'font-weight': 'bold',
+              'background-color': '#c51162 pink accent-4'
+            }"
+            [ngClass]="alignMessage(message.fromUserId)?'received': 'sent'">       
+            <blockquote >{{ message.message}}</blockquote>
           </li>
-      </ul>
+        </ul>
+        <div class="page-footer chat-footer">
           <div id="copyright">
-            <div class="row">
-               <div class="col s12">
-                  <div class="row">
-                  <div class="input-field col s12">
-                  <textarea auto-grow id="textarea1" 
-                  class="materialize-textarea" 
+            <div class="">
+              <div class="input-field">
+                  <input placeholder="Enter your text here" id="icon_prefix" type="text" class="validate"
                   [(ngModel)]="message" 
-                  (keyup)="sendMessage($event)"></textarea>
-                  </div>
-                  </div>
+                  (keyup)="sendMessage($event)">
               </div>
             </div>
-          </div>      
-  </div> 
+          </div> 
+        </div>
+      </div>
+      <!-- end of s8 column -->
+    </div>
+  </div>
 </div>
-</div>
-      
-  
 
+<!--- end of trailpart -->
