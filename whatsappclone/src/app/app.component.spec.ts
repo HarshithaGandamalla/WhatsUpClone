@@ -36,7 +36,8 @@ describe('Router: App', () => {
       declarations: [
         HomeComponent,
         LoginComponent,
-        AppComponent
+        AppComponent,
+        FormsModule
       ]
     });
 
@@ -45,14 +46,23 @@ describe('Router: App', () => {
 
     fixture = TestBed.createComponent(AppComponent); 
     router.initialNavigation(); 
-});
 
 
+    
 it('navigate to "" redirects you to /', fakeAsync(() => { 
   router.navigate(['']); 
   tick(); 
   expect(location.path()).toBe('/'); 
 }));
+
+it('navigate to "home" redirects you to /home', fakeAsync(() => { 
+  router.navigate(['home']); 
+  tick(); 
+  expect(location.path()).toBe('/home'); 
+}));
+
+});
+
 
   // it('navigate to "" redirects you to /', fakeAsync(() => {
   //   router.navigate(['']);

@@ -31,14 +31,13 @@
                   <h4>Add Group Name</h4>
                   <input #newGroup
                     class="input" placeholder="Enter group name here.."
-                    [(ngModel)]="groupText"
                     (keyup.enter)="addGroup(newGroup.value)">
                    <button class="btn modal-close" (click)="addGroup(newGroup.value)">Create Group</button> 
                 </div>
            </div>
             <form>
                 <div>
-                    <input type="text" id="search-box" [(ngModel)]="term" name="search">
+                    <input type="text" id="search-box" name="search">
                 </div>  
             </form>         
             <ul class="user-list">    
@@ -55,7 +54,7 @@
             <div *ngIf="selectedUsersList">   
               <ul class="collection">
                 <li class="collection-item active avatar" 
-                  *ngFor="let user of chatListUsers |filter:term"
+                  *ngFor="let user of chatListUsers"
                   (click)="selectedUser(user)" 
                   [class.selected-user]="isUserSelected(user._id)">
                     <!--<img src={{user.image}} alt="" class="circle">-->
@@ -66,7 +65,7 @@
                 </li>
                 
                 <li class="collection-item active avatar" 
-                  *ngFor="let group of groupsList |filter:ter"
+                  *ngFor="let group of groupsList"
                   (click)="selectedGroup(group)"
                   [class.selected-group]="isGroupSelected(group.groupName)">
                   <i class="material-icons circle">folder</i>                    
@@ -98,12 +97,12 @@
             <div *ngIf="!selectedUsersList">
               <ul class="collection">
                 <li class="collection-item active avatar" 
-                    *ngFor="let user of chatOfflineUsers |filter:term"
+                    *ngFor="let user of chatOfflineUsers"
                     (click)="selectedUser(user)" 
                     [class.selected-user]="isUserSelected(user._id)">
                       <!--<img src={{user.image}} alt="" class="circle">-->
                       <i class="material-icons circle">folder</i>
-                      <span class="title">{{ user.username| highligh : 'term'}}</span>
+                      <span class="title">{{ user.username}}</span>
                       <p>First Line <br> Second Line</p>
                       <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
                 </li>
@@ -113,7 +112,7 @@
       </div>
        <div class="col s8">
       <nav>     
-        <div class="nav-wrapper black">
+        <div id="theid" class="nav-wrapper black">
             <div *ngIf="selectedUserName" 
             class="opposite-user">
               Chatting with {{selectedUserName}}

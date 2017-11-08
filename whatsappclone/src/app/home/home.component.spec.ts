@@ -5,35 +5,54 @@ import { Router, RouterModule, ActivatedRoute } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { RouterTestingModule } from "@angular/router/testing";
 import {Location} from "@angular/common";
+import {DebugElement} from "@angular/core"; 
+import {By} from "@angular/platform-browser"; 
 
+import { SocketService } from './../socket.service';
+import { HttpService } from './../http.service';
+import { ChatService } from './../chat.service';
+import { SearchService } from "../search.service";
 
+var window = document.defaultView;
+var $ = require('jquery')(window);
 
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;
+  let el: DebugElement; 
+  
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [ 
         FormsModule,
         HttpModule,
-          RouterTestingModule, // same any normal route config   
+        RouterTestingModule, // same any normal route config   
        ],
+       providers : [ChatService,HttpService,SocketService, SearchService],
       declarations: [ HomeComponent ]
     })
-    .compileComponents();
+    
+    
+      fixture = TestBed.createComponent(HomeComponent);
+      component = fixture.componentInstance;
+      fixture.detectChanges();
+      el = fixture.debugElement.query(By.css('#theid')); 
+      
+
   }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(HomeComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+ 
+  // it('should be created', () => {
+  //   const fixture = TestBed.createComponent(HomeComponent);
+  //   const app = fixture.componentInstance;
+  //   expect(app).toBeTruthy();
+  // });
+
+  it('should be set user chat name', () => {
+   
   });
 
-  it('should be created', () => {
-    const fixture = TestBed.createComponent(HomeComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  });
+
 });

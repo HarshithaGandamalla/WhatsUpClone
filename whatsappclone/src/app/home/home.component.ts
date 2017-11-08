@@ -6,6 +6,7 @@ import { ActivatedRoute ,Router } from '@angular/router';
 
 declare var $:any;
 
+
  
 /* Importing services starts*/
 import { SocketService } from './../socket.service';
@@ -252,7 +253,7 @@ export class HomeComponent implements OnInit{
 				this.selectedUserId = user._id;
 				this.selectedSocketId = user.socketId;
 				this.selectedUserName = user.username;
-				console.log("Selected user: "+JSON.stringify(user.username));
+			//	console.log("Selected user: "+JSON.stringify(user.username));
 				
 				/* 
 				* calling method to get the messages
