@@ -33,6 +33,11 @@ export class HomeComponent implements OnInit{
 	private selectedUserId = null;
 	private selectedSocketId = null;
 	private selectedUserName = null;
+<<<<<<< HEAD
+=======
+	private selectedGroupName = null;
+	
+>>>>>>> 145102ab12dd87fe46aa7d275a7b2c3e058b3a91
 		
 	/* 
 	* UI related variables ends
@@ -49,7 +54,12 @@ export class HomeComponent implements OnInit{
 	private message = '';
 	private messages = [];
 	private groupName = '';
+<<<<<<< HEAD
 	private groupsArray=[];
+=======
+	private groupsList=[];
+	
+>>>>>>> 145102ab12dd87fe46aa7d275a7b2c3e058b3a91
 	/*
 	* Chat and message related variables ends
 	*/
@@ -134,12 +144,45 @@ export class HomeComponent implements OnInit{
 											* Updating entire chatlist if user logs in.
 											*/
 											this.chatListUsers = response.chatList;
+<<<<<<< HEAD
 											console.log("chatlist: "+JSON.stringify(this.chatListUsers));
+=======
+										//	console.log("chatlist: "+JSON.stringify(this.chatListUsers));
+>>>>>>> 145102ab12dd87fe46aa7d275a7b2c3e058b3a91
 										}
 									}else{
 										alert('Chat list failure.');
 									}
 						  });	
+						  
+						 
+						  /* 
+						  * Code to update groups list of user goes here
+						  */
+						 
+						  this.socketService.getGroupsList(this.userId).subscribe(response=>{
+
+							//console.log("Trying to update groupslist");
+
+							if(!response.error){
+                                /* 
+							    * Updating entire groupslist if user logs in.
+								*/
+								//console.log("Updated groupslist");
+								
+								for (var i = 0; i < response.groupList.length ; i++) {
+									this.groupsList.push({
+										'groupName': response.groupList[i]
+									});
+								}
+
+
+							}
+							else{
+								alert('Group list update failure.');
+							}
+
+						  });
 			
 
 
@@ -189,6 +232,16 @@ export class HomeComponent implements OnInit{
 									},100);
 								}
 							});
+
+							this.socketService.receiveGroupMessages().subscribe(response => {
+								//check if response type contains message key
+								if(this.selectedGroupName && this.selectedGroupName == response.groupName) {
+									this.messages.push(response);
+									setTimeout( () =>{
+											document.querySelector(`.message-thread`).scrollTop = document.querySelector(`.message-thread`).scrollHeight;
+									},100);
+								}
+							});
 				 	
 				 		}
 				 	});
@@ -204,25 +257,57 @@ export class HomeComponent implements OnInit{
 			}
 		
 			selectedUser(user):void{
+
+				this.selectedGroupName= null;
+
 				this.selectedUserId = user._id;
 				this.selectedSocketId = user.socketId;
 				this.selectedUserName = user.username;
-			 
+				console.log("Selected user: "+JSON.stringify(user.username));
+				
 				/* 
 				* calling method to get the messages
 				*/
 				this.chatService.getMessages({ userId : this.userId,toUserId :user._id} , ( error , response)=>{
 					if(!response.error) {
-						this.messages = response.messages;
+						//console.log("Messages requested: "+JSON.stringify(response));
+						this.messages = response.message;
 					}
 				});
 			}
 			 
 			isUserSelected(userId:string):boolean{
-				if(!this.selectedUserId) {
+				
+				if(!this.selectedUserId){
 					return false;
 				}
 				return this.selectedUserId === userId ? true : false;
+			}
+
+			selectedGroup(group):void{
+				
+				this.selectedUserName=null;
+				this.selectedUserId=null;
+
+				console.log("Selected group: "+JSON.stringify(group));
+				this.selectedGroupName = group.groupName;
+			 
+				/* 
+				* calling method to get the messages
+				*/
+				this.chatService.getGroupMessages({groupName:group.groupName} , ( error , response)=>{
+					if(!response.error) {
+						this.messages = response.message;
+					}
+				});
+			}
+
+			isGroupSelected(groupName:string):boolean{
+				if(!this.selectedGroupName) {
+					return false;
+				}
+				
+				return this.selectedGroupName === groupName ? true : false;
 			}
 			 
 			alignMessage(userId){
@@ -234,6 +319,9 @@ export class HomeComponent implements OnInit{
 			}
 			sendMessage(event){
 				if(event.keyCode === 13) {
+					console.log("Selected userid: "+this.selectedUserId);
+					console.log("Selected groupname: "+this.selectedGroupName);
+					
 					if(this.message === '' || this.message === null) {
 						alert(`Message can't be empty.`);
 					}else{
@@ -242,10 +330,13 @@ export class HomeComponent implements OnInit{
 							alert(`Message can't be empty.`);
 						}else if(this.userId === ''){
 							this.router.navigate(['/']);					
-						}else if(this.selectedUserId === ''){
-							alert(`Select a user to chat.`);
+						}else if((this.selectedUserId === ''||this.selectedUserId==null)&&(this.selectedGroupName === ''||this.selectedGroupName==null)){
+							alert(`Select a user or group to chat.`);
 						}else{
-			 
+						 
+							//  Chatting with user
+							if(this.selectedUserId!=null) 
+							{
 							const data = {
 								fromUserId : this.userId,
 								message : (this.message).trim(),
@@ -253,6 +344,10 @@ export class HomeComponent implements OnInit{
 								toSocketId : this.selectedSocketId,
 								fromSocketId : this.socketId
 							}
+
+							console.log("Message: selected userId "+this.selectedUserId);
+							console.log("Message when user s selected "+data.message);
+							
 							this.messages.push(data);
 							setTimeout( () =>{
 									document.querySelector(`.message-thread`).scrollTop = document.querySelector(`.message-thread`).scrollHeight;
@@ -263,6 +358,38 @@ export class HomeComponent implements OnInit{
 							*/
 							this.message = null;
 							this.socketService.sendMessage(data);
+							}
+							else if(this.selectedGroupName!=null){ //Chatting in group
+							
+								console.log("Chatting in group: selectedgroupname");
+								
+								const data = {
+									groupName : this.selectedGroupName,
+									message : (this.message).trim(),
+									fromUserId : this.userId,
+									fromUser:this.username								
+								}
+
+								
+
+								this.messages.push(data);
+								setTimeout( () =>{
+									document.querySelector(`.message-thread`).scrollTop = document.querySelector(`.message-thread`).scrollHeight;
+							},100);
+
+							/* 
+							* calling method to send the messages
+							*/
+							this.message = null;
+							this.socketService.sendGroupMessage(data);
+								
+
+
+
+							}else{
+								alert("ERROR!!");
+							}
+
 						}
 					}
 				}
@@ -272,7 +399,11 @@ export class HomeComponent implements OnInit{
 				
 				
 					if (newGroup) {
+<<<<<<< HEAD
 					   this.groupName=newGroup; //group name
+=======
+					   this.groupName=newGroup; 
+>>>>>>> 145102ab12dd87fe46aa7d275a7b2c3e058b3a91
 						//RegisterGroup
 						this.chatService.registerGroup(
 							{   'username':this.username,
@@ -284,7 +415,11 @@ export class HomeComponent implements OnInit{
                                if(!response.error){
 								
 							   	this.messages.push({message:'Successfully created group '+newGroup});
+<<<<<<< HEAD
 							    this.groupsArray.push({
+=======
+							    this.groupsList.push({
+>>>>>>> 145102ab12dd87fe46aa7d275a7b2c3e058b3a91
 									'groupName':newGroup,
 									'message':'Successfully created group '+newGroup 
 								  });
@@ -303,7 +438,16 @@ export class HomeComponent implements OnInit{
 		
 		}
 
+<<<<<<< HEAD
 		selectedGroup(){
 			
 		}
+=======
+
+		// To do functionality
+		AddUsers(){
+
+		}
+	
+>>>>>>> 145102ab12dd87fe46aa7d275a7b2c3e058b3a91
 	}

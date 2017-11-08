@@ -228,9 +228,27 @@ updateUserGroups(findby,groupName,callback){
     });
 }
 
+
+  /*
+   * Name of the Method : getGroupsList
+   * Description : To get the list groups the user belongs to.
+   * Parameter : 
+   *		1) userId of the user
+   *		2) callback function
+   * Return : callback 
+   */
+  getGroupsList(userId, callback){
+    this.Mongodb.onConnect( (db,ObjectID) => {
+        db.collection('groups').find(userId).toArray( (err, result) => {
+        db.close();
+            callback(err,result);
+        });
+    });
+}
+
    /*
    * Name of the Method : insertMessages
-   * Description : To insert a new message into DB.
+   * Description : To insert a new message into messages collection in mongo.
    * Parameter : 
    *		1) data comprises of message,fromId,toId
    *		2) callback function
@@ -244,6 +262,24 @@ updateUserGroups(findby,groupName,callback){
            });
        });
    }
+
+    /*
+   * Name of the Method : insertGroupMessages
+   * Description : To insert a new message into groupmessages collection in mongo.
+   * Parameter : 
+   *		1) data comprises of message,groupName
+   *		2) callback function
+   * Return : callback 
+   */
+  insertGroupMessages(data,callback){
+      console.log("Trying to insert into groupmessages collection");
+    this.Mongodb.onConnect( (db,ObjectID) => {
+        db.collection('groupmessages').insertOne(data, (err, result) =>{
+            db.close();
+            callback(err,result);
+        });
+    });
+}
 
    /*
    * Name of the Method : getMessages
@@ -283,6 +319,23 @@ updateUserGroups(findby,groupName,callback){
        });
    }
 
+
+   getGroupMessages(groupName, callback){
+    
+           const data = {
+              'groupName':groupName
+           };
+
+           this.Mongodb.onConnect( (db,ObjectID) => {
+               db.collection('groupmessages').find(data).sort({'timestamp':1}).toArray( (err, result) => {
+               db.close();
+                   callback(err,result);
+               });
+           });
+       }
+
+       
+
    /*
    * Name of the Method : logout
    * Description : To logout the loggedin user.
@@ -314,6 +367,26 @@ updateUserGroups(findby,groupName,callback){
            });
        });
    }
+
+   /*
+   * Name of the Method : poststatus
+   * Description : To post the status of the user.
+   * Parameter : 
+   *		1) userID
+   *		2) status
+   *        3) callback
+   * Return : callback 
+   */
+  poststatus(userId, status, callback){
+    this.Mongodb.onConnect( (db,ObjectID) => {
+
+    db.collection('users').update( { _id : ObjectID(userId)}, status ,(err, result) => {
+            db.close();
+            callback(err,result);
+        });
+    });
+}
+
 }
 
 module.exports = new Helper();

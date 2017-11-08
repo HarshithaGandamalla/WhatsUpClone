@@ -6,10 +6,13 @@ import {Location} from "@angular/common";
 import {TestBed, fakeAsync, tick} from '@angular/core/testing';
 import {RouterTestingModule} from "@angular/router/testing";
 import { Router, RouterModule } from "@angular/router";
+import {Routes} from "@angular/router";
+
 import { LoginComponent } from "./login/login.component";
 import { HomeComponent } from "./home/home.component";
 import { async } from "@angular/core/testing";
 import { FormsModule } from '@angular/forms';
+
 
 
 
@@ -19,56 +22,45 @@ describe('Router: App', () => {
   let location: Location;
   let router: Router;
   let fixture;
+
+  const appRoutes:Routes = [
+    {path : '' , component : LoginComponent},
+    {path:'home',component: HomeComponent},
+    {path : 'home/:userid' , component : HomeComponent}
+  ];
   
-  beforeEach(async(() => {
-         TestBed.configureTestingModule({
-      imports: [    
-        RouterTestingModule.withRoutes([
-        {path : '' , component : LoginComponent},
-        {path:'home',component: HomeComponent},
-        {path : 'home/:userid' , component : HomeComponent},     
-    ]),
-      RouterModule,        
-      FormsModule,
-      HttpModule,
-      ],
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [RouterTestingModule.withRoutes(appRoutes)], 
       declarations: [
-        LoginComponent,
         HomeComponent,
+        LoginComponent,
         AppComponent
       ]
     });
 
-    router = TestBed.get(Router);
-    location = TestBed.get(Location);
+    router = TestBed.get(Router); 
+    location = TestBed.get(Location); 
 
-    fixture = TestBed.createComponent(AppComponent);
-    router.initialNavigation();
-  }));
+    fixture = TestBed.createComponent(AppComponent); 
+    router.initialNavigation(); 
+});
 
-  it('fakeAsync works', fakeAsync(() => {
-    let promise = new Promise((resolve) => {
-      setTimeout(resolve, 10)
-    });
-    let done = false;
-    promise.then(() => done = true);
-    tick(50);
-    expect(done).toBeTruthy();
-  }));
 
-  it('navigate to "home" redirects you to /home', fakeAsync(() => {
-    router.navigate(['home']);
-    tick(50);
-    expect(location.path()).toBe('/home');
-  }));
+it('navigate to "" redirects you to /', fakeAsync(() => { 
+  router.navigate(['']); 
+  tick(); 
+  expect(location.path()).toBe('/'); 
+}));
 
-  it('navigate to "" redirects you to /', fakeAsync(() => {
-    router.navigate(['']);
-    tick(50);
-    expect(location.path()).toBe('/');
-  }));
+  // it('navigate to "" redirects you to /', fakeAsync(() => {
+  //   router.navigate(['']);
+  //   tick(50);
+  //   expect(location.path()).toBe('/');
+  // }));
 
-  
+});
 
   
   // it('navigate to "search" takes you to /', fakeAsync(() => {
@@ -76,7 +68,6 @@ describe('Router: App', () => {
   //   tick(50);
   //   expect(location.path()).toBe('/search');
   // }));
-});
 
 // describe('AppComponent', () => {
 //   beforeEach(async(() => {

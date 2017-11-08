@@ -61,15 +61,53 @@ class Routes{
                });
            }
        });
+<<<<<<< HEAD
 
     
+=======
+    // Post call for status
+       this.app.post('/status',(request,response) =>{
+        
+                   let userId = request.body.userId;
+                   let status = request.body.status;
+                   let statusResponse = {}
+                   if (userId == '') {
+                       statusResponse.error = true;
+                       statusResponse.message = `User Id cant be empty.`;
+                       response.status(412).json(statusResponse);
+                   }
+                   else{
+        
+                   helper.poststatus( userId, status, (error,result)=>{
+        
+                              if (error || result === null) {
+        
+                                  statusResponse.error = true;
+                                  statusResponse.message = `Server error.`;
+                                  response.status(404).json(statusResponse);
+                              }
+                              
+                              else{
+                              console.log("User status response detains: "+result);
+                                  statusResponse.error = false;
+                                //  statusResponse.userId = result.insertedId;
+                                //  statusResponse.status = result.
+                                  statusResponse.message = `User status changed successfully`;
+                                  response.status(200).json(statusResponse);
+                              }
+                              });
+                    }
+                });
+
+>>>>>>> 145102ab12dd87fe46aa7d275a7b2c3e058b3a91
 
        this.app.post('/registerUser',(request,response) =>{
 
            const data = {
                username : (request.body.username).toLowerCase(),
                email : request.body.email,
-               password : request.body.password
+               password : request.body.password,
+               status: "Hey there, I'm using Whatsapp!!"
            };
 
            let registrationResponse = {}
@@ -220,6 +258,41 @@ class Routes{
            }
        });
 
+<<<<<<< HEAD
+=======
+       this.app.post('/getGroupMessages',(request,response) =>{
+       
+
+        console.log("groupmessage request body: "+JSON.stringify(request.body));
+        
+        let groupName = request.body.groupName;
+        let messages = {}
+                   
+                   if (groupName == '') {
+                       messages.error = true;
+                       messages.message = `groupName cant be empty.`;
+                       response.status(200).json(messages);
+                   }else{
+        
+                          helper.getGroupMessages(groupName, (error,result)=>{
+        
+                             if (error) {
+        
+                                  messages.error = true;
+                                  messages.message = `Server error.`;
+                                  response.status(200).json(messages);
+        
+                              }else{
+        
+                                  messages.error = false;
+                                  messages.message = result;
+                                  response.status(200).json(messages);
+                              }
+                       });
+                   }
+               });
+
+>>>>>>> 145102ab12dd87fe46aa7d275a7b2c3e058b3a91
        this.app.post('/registerGroup', (request,response) => {
         
          
