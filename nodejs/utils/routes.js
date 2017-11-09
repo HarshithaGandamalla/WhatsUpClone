@@ -105,21 +105,23 @@ class Routes{
                status: "Hey there, I'm using Whatsapp!!"
            };
 
+           console.log("email should be empty: "+data.email);
+
            let registrationResponse = {}
 
-           if(data.username === '') {
+           if(data.username === ''|| data.username==null) {
 
                registrationResponse.error = true;
                registrationResponse.message = `username cant be empty.`;
                response.status(412).json(registrationResponse);
 
-           }else if(data.email === ''){
+           }else if(data.email === ''|| data.email==null){
                            
                registrationResponse.error = true;
                registrationResponse.message = `email cant be empty.`;
                response.status(412).json(registrationResponse);
 
-           }else if(data.password === ''){
+           }else if(data.password === ''|| data.password==null){
                            
                registrationResponse.error = true;
                registrationResponse.message = `password cant be empty.`;

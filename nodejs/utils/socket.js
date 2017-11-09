@@ -111,10 +111,20 @@ class Socket{
             
                                helper.getGroupsList( data,(err, UserGroupInfoResponse)=>{
                                                                    
-                            
+                                   console.log("Groupslist array: "+JSON.stringify(UserGroupInfoResponse[0]));
+                                    
+                                   let array=[];
+
+                                   if(UserGroupInfoResponse[0]!=null)
+                                     {
+                                        array=UserGroupInfoResponse[0].groupsArray; 
+                                     }
+                                     else{
+                                        array=[];
+                                     }
                                    const data = {
                                     error : false,                                      
-                                    groupList : UserGroupInfoResponse[0].groupsArray,
+                                    groupList : array
                                    };
                                    
                                    this.io.to(socket.id).emit('groups-list-response',data);

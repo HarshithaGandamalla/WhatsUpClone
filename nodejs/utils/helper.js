@@ -68,6 +68,8 @@ class Helper{
       
            db.collection('users').insertOne(data, (err, result) =>{
                db.close();
+               console.log("regnuser");
+               console.log(JSON.stringify(result));
                callback(err,result);
            });
        });
