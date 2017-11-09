@@ -33,7 +33,7 @@ var should = require('should');
               done();
     });
     
-    it('should not register user when email id is not entered', function() {
+    xit('should not register user when email id is not entered', function() {
         return chai
             .request('http://localhost:4000')
             .post('/registerUser')
@@ -60,7 +60,7 @@ var should = require('should');
     });
 
 
-    describe(' for user login',function(){
+    xdescribe(' for user login',function(){
         
        it('should login user when  valid parameters are passed', function() {
            return chai

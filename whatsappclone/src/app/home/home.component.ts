@@ -6,6 +6,7 @@ import { ActivatedRoute ,Router } from '@angular/router';
 
 declare var $:any;
 
+
  
 /* Importing services starts*/
 import { SocketService } from './../socket.service';
@@ -71,6 +72,17 @@ export class HomeComponent implements OnInit{
 		$(document).ready(function(){
 			// the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
 			$('.modal').modal();
+			$(".button-collapse").sideNav();
+
+			//these are hacks to come out with proper alignment of div
+			//not recommended but time constraint
+			//set height of chat box
+			$(".main-content").height(window.innerHeight - parseInt($(".main-nav").css('height'),10));
+			$(".main-content").css({marginBottom: "0px"});
+			$(".message-thread").height(parseInt($(".main-content").css('height'),10) - parseInt($(".chat-title").css('height'),10) - parseInt($(".chat-footer").css('height'),10));
+			$(".message-thread").css({overflow: "hidden",margin: "0", overflowY: "scroll"});
+			$('.message-thread').css('background-image', 'url("http://subtlepatterns.com/patterns/geometry2.png")');
+			$(".message-thread").addClass("scroll1");
 		  });
 		/*
 		* getting userID from URL using 'route.snapshot'
@@ -92,13 +104,13 @@ export class HomeComponent implements OnInit{
 				 			this.router.navigate(['/']); /* Home page redirection */
 				 		}else{
 				 			
-							 			this.username = response.username;
-							 			this.overlayDisplay = true;
+							 	this.username = response.username;
+						 		this.overlayDisplay = true;
 						 
 							 			/*
 											* making socket connection by passing UserId.
 											*/	
-											this.socketService.connectSocket(this.userId);
+										this.socketService.connectSocket(this.userId);
 						 
 											/* 
 											* Code to get the real time messages goes here
@@ -157,13 +169,18 @@ export class HomeComponent implements OnInit{
                                 /* 
 							    * Updating entire groupslist if user logs in.
 								*/
-								//console.log("Updated groupslist");
 								
+
+								if(response.groupList!=null){
 								for (var i = 0; i < response.groupList.length ; i++) {
+
+									console.log("Updated groupslist:o "+JSON.stringify( response.groupList[i]));
+									
 									this.groupsList.push({
 										'groupName': response.groupList[i]
 									});
 								}
+							}
 
 
 							}
@@ -252,7 +269,7 @@ export class HomeComponent implements OnInit{
 				this.selectedUserId = user._id;
 				this.selectedSocketId = user.socketId;
 				this.selectedUserName = user.username;
-				console.log("Selected user: "+JSON.stringify(user.username));
+			//	console.log("Selected user: "+JSON.stringify(user.username));
 				
 				/* 
 				* calling method to get the messages
@@ -423,6 +440,10 @@ export class HomeComponent implements OnInit{
 		// To do functionality
 		AddUsers(){
 
+		}
+
+		Settings(){
+			
 		}
 	
 	}

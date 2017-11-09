@@ -18,17 +18,17 @@ export class LoginComponent{
   	private password = null;
 
   	private isuserNameAvailable = false;
-  	private userTypingTimeout= 500;
-      private typingTimer = null;
+  	private userTypingTimeout= 1000;
+    private typingTimer = null;
       
-      private isemailAvailable = false;
+    private isemailAvailable = false;
   	private userTypingTimeoutEmail= 500;
   	private typingTimerEmail = null;
 
   	constructor(
       	private chatService : ChatService,
   		private router :Router
-  	){	}
+  	){}
 
   	public onkeyup(event){
   		clearTimeout(this.typingTimer);
@@ -37,8 +37,11 @@ export class LoginComponent{
   	  			'username' : this.username
   	  		}, (response)=>{
   	  			if(response.error) {
+                    console.log("User cant register already in db");
+                    
   	  				this.isuserNameAvailable = true;
   	  			}else{
+                    console.log("User can register not in db");
   	  				this.isuserNameAvailable = false;
   	  			}
   	  		});
@@ -50,25 +53,7 @@ export class LoginComponent{
       }
       
 
-    //   public onkeyupEmail(event){
-    //     clearTimeout(this.typingTimerEmail);
-    //     this.typingTimerEmail = setTimeout( ()=>{
-    //         this.chatService.checkEmailCheck({
-    //               'email' : this.email
-    //           }, (response)=>{
-    //               if(response.error) {
-    //                   this.isemailAvailable = true;
-    //               }else{
-    //                   this.isemailAvailable = false;
-    //               }
-    //           });
-    //     }, this.userTypingTimeoutEmail);
-    //     console.log(this.isemailAvailable +" emailavailable??")
-    // }
 
-    // public onkeydownEmail(event){
-    //   clearTimeout(this.typingTimerEmail);
-    // }
 
   	public login():void{
 
@@ -82,7 +67,7 @@ export class LoginComponent{
                   'password' : this.password,
             },(error , result)=>{
                 if(error) {
-                    alert(result);
+                    alert("User not found ,please register");
                 }else{
                     if(!result.error) {
                         this.router.navigate(['/home/'+result.userId]);
@@ -109,7 +94,7 @@ export class LoginComponent{
                 password : this.password
             },(error , result)=>{
                 if(error) {
-                    alert("alert!"+result);
+                    alert("alert! "+result);
                 }else{
                     if(!result.error) {
                         this.router.navigate(['/home/'+result.userId]);
@@ -120,7 +105,7 @@ export class LoginComponent{
             });
         }
         else{
-            alert(`Register with new credentials.`);
+            alert("Please login. User already registered.");
         }
 
     }
