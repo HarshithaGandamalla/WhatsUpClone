@@ -154,10 +154,6 @@ class Socket{
                        this.io.to(toSocketId).emit(`add-message-response`,data); 
                    });
 
-<<<<<<< HEAD
-                   //add messages to room via io.to(clientInfo[socket.id].room).emit('add-message-response,data);
-=======
->>>>>>> 145102ab12dd87fe46aa7d275a7b2c3e058b3a91
                }				
            });
 

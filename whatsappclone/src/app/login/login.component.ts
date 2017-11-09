@@ -31,11 +31,12 @@ export class LoginComponent{
   	){	}
 
   	public onkeyup(event){
-  		clearTimeout(this.typingTimer);
+          clearTimeout(this.typingTimer);
   		this.typingTimer = setTimeout( ()=>{
   			this.chatService.checkUserNameCheck({
   	  			'username' : this.username
   	  		}, (response)=>{
+                    console.log(response);
   	  			if(response.error) {
   	  				this.isuserNameAvailable = true;
   	  			}else{

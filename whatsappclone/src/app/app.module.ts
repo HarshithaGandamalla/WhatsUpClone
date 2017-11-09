@@ -17,10 +17,7 @@ import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { ElasticDirective } from './directives/auto-grow.directive';
 import { HighlightSearch } from './highlightsearch.pipe';
-<<<<<<< HEAD
-=======
  
->>>>>>> 145102ab12dd87fe46aa7d275a7b2c3e058b3a91
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
  
 

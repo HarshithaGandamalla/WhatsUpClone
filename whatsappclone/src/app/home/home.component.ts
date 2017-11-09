@@ -33,11 +33,8 @@ export class HomeComponent implements OnInit{
 	private selectedUserId = null;
 	private selectedSocketId = null;
 	private selectedUserName = null;
-<<<<<<< HEAD
-=======
 	private selectedGroupName = null;
 	
->>>>>>> 145102ab12dd87fe46aa7d275a7b2c3e058b3a91
 		
 	/* 
 	* UI related variables ends
@@ -54,12 +51,8 @@ export class HomeComponent implements OnInit{
 	private message = '';
 	private messages = [];
 	private groupName = '';
-<<<<<<< HEAD
-	private groupsArray=[];
-=======
-	private groupsList=[];
+	private groupsList= [];
 	
->>>>>>> 145102ab12dd87fe46aa7d275a7b2c3e058b3a91
 	/*
 	* Chat and message related variables ends
 	*/
@@ -144,11 +137,7 @@ export class HomeComponent implements OnInit{
 											* Updating entire chatlist if user logs in.
 											*/
 											this.chatListUsers = response.chatList;
-<<<<<<< HEAD
-											console.log("chatlist: "+JSON.stringify(this.chatListUsers));
-=======
 										//	console.log("chatlist: "+JSON.stringify(this.chatListUsers));
->>>>>>> 145102ab12dd87fe46aa7d275a7b2c3e058b3a91
 										}
 									}else{
 										alert('Chat list failure.');
@@ -399,11 +388,7 @@ export class HomeComponent implements OnInit{
 				
 				
 					if (newGroup) {
-<<<<<<< HEAD
-					   this.groupName=newGroup; //group name
-=======
 					   this.groupName=newGroup; 
->>>>>>> 145102ab12dd87fe46aa7d275a7b2c3e058b3a91
 						//RegisterGroup
 						this.chatService.registerGroup(
 							{   'username':this.username,
@@ -415,11 +400,7 @@ export class HomeComponent implements OnInit{
                                if(!response.error){
 								
 							   	this.messages.push({message:'Successfully created group '+newGroup});
-<<<<<<< HEAD
-							    this.groupsArray.push({
-=======
 							    this.groupsList.push({
->>>>>>> 145102ab12dd87fe46aa7d275a7b2c3e058b3a91
 									'groupName':newGroup,
 									'message':'Successfully created group '+newGroup 
 								  });
@@ -438,16 +419,10 @@ export class HomeComponent implements OnInit{
 		
 		}
 
-<<<<<<< HEAD
-		selectedGroup(){
-			
-		}
-=======
 
 		// To do functionality
 		AddUsers(){
 
 		}
 	
->>>>>>> 145102ab12dd87fe46aa7d275a7b2c3e058b3a91
 	}
