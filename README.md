@@ -10,11 +10,11 @@ The application is buit with the following architecture:
 #### Installation:
 
 Steps to get the development environment running:
-    1. Clone/download the repository 
-    2. Run npm install in both the folders 'whatsappclone' (frontend) and 'nodejs' (backend). This will download all the dependencies            listed in package.json file.  
-    3. Run npm start to start the Angular 2 project.
-    4. Navigate to http://localhost:4200/. 
-    5. Run npm start in the nodejs folder to start the server on http://localhost:4000/.
+   * Clone/download the repository 
+   * Run npm install in both the folders 'whatsappclone' (frontend) and 'nodejs' (backend). This will download all the dependencies            listed in package.json file.  
+   * Run npm start to start the Angular 2 project.
+   * Navigate to http://localhost:4200/. 
+   * Run npm start in the nodejs folder to start the server on http://localhost:4000/.
 ## Running unit tests
 
 Run ng test to execute the unit tests via [Karma](https://karma-runner.github.io/1.0/index.html).
