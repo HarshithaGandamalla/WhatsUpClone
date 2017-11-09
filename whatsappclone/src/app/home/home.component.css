@@ -116,3 +116,6 @@ blockquote.pull-left {
   margin: 3px 0;
   float: left!important;
 }
+.emoji{
+  display:inline-block;
+}

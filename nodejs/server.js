@@ -53,5 +53,4 @@ class Server{
 
 const app = new Server();
 app.appExecute();
-
-module.exports = app;
+module.exports = app

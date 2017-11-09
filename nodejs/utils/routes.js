@@ -14,34 +14,11 @@ class Routes{
    /* creating app Routes starts */
    appRoutes(){
 
-//    this.app.post('/search', function (request, response) {
-//         console.log("in app/search: request"+request.body);
-//         if (request.body.username === "") {
-//             response.status(412).json({
-//                 error : true,
-//                 message : `username cant be empty.`
-//             });
-//         } else {
-//             helper.getUsers(request.body),  (error,result)=>{
-//                 let res = {};
-//                 if (error) {
-//                     res.error = true;
-//                     res.list = [];
-//                     response.status(404).json(res);
-//                  }else{
-//                 res.error = false;
-//                 res.list= result;
-//                 response.status(200).json(res);
-//               }
-//             });
-//         }
-//       });
-
        this.app.post('/usernameCheck',(request,response) =>{
-        console.log("in app/usernameCheck");
+       // console.log("in app/usernameCheck");
         
-           if (request.body.username === "") {
-               response.status(412).json({
+           if (request.body.username === "" || request.body.username==undefined ) {
+               response.status(200).json({
                    error : true,
                    message : `username cant be empty.`
                });
@@ -67,22 +44,21 @@ class Routes{
                    let userId = request.body.userId;
                    let status = request.body.status;
                    let statusResponse = {}
-                   if (userId == '') {
-                       statusResponse.error = true;
+                   if (userId == ''|| userId== undefined ) {
                        statusResponse.message = `User Id cant be empty.`;
-                       response.status(412).json(statusResponse);
+                       response.status(200).json(statusResponse);
                    }
                    else{
         
                    helper.poststatus( userId, status, (error,result)=>{
         
-                              if (error || result === null) {
-        
+                              if (error || result === null||result===undefined) {
+                                console.log(" status error: ");
+                                
                                   statusResponse.error = true;
                                   statusResponse.message = `Server error.`;
-                                  response.status(404).json(statusResponse);
+                                  response.status(200).json(statusResponse);
                               }
-                              
                               else{
                               console.log("User status response detains: "+result);
                                   statusResponse.error = false;
@@ -98,37 +74,47 @@ class Routes{
 
        this.app.post('/registerUser',(request,response) =>{
 
-           const data = {
-               username : (request.body.username).toLowerCase(),
-               email : request.body.email,
-               password : request.body.password,
-               status: "Hey there, I'm using Whatsapp!!"
-           };
 
-           console.log("email should be empty: "+data.email);
+            let username = request.body.username;
+            let email = request.body.email;
+            let password = request.body.password;
+            let satus =  "Hey there, I'm using Whatsapp!!";
 
            let registrationResponse = {}
 
-           if(data.username === ''|| data.username==null) {
+           console.log("request.body.email: "+JSON.stringify(request.body));
+           console.log("email "+email);
+           
 
+           if(typeof username=='undefined'||username==null||username=="") {
+
+            console.log("USername not defined!");
                registrationResponse.error = true;
                registrationResponse.message = `username cant be empty.`;
-               response.status(412).json(registrationResponse);
+               response.status(200).json(registrationResponse);
 
-           }else if(data.email === ''|| data.email==null){
+           }else if(email ==''||email==undefined||email==null){
                            
                registrationResponse.error = true;
                registrationResponse.message = `email cant be empty.`;
-               response.status(412).json(registrationResponse);
+               response.status(200).json(registrationResponse);
 
-           }else if(data.password === ''|| data.password==null){
+           }else if(password === ''||password===undefined||password===null){
                            
                registrationResponse.error = true;
                registrationResponse.message = `password cant be empty.`;
-               response.status(412).json(registrationResponse);
+               response.status(200).json(registrationResponse);
 
            }else{
                
+            
+           const data = {
+            username : (request.body.username).toLowerCase(),
+            email : request.body.email,
+            password : request.body.password,
+            status: "Hey there, I'm using Whatsapp!!"
+        };
+
                data.timestamp = Math.floor(new Date() / 1000);
                data.online = 'Y' ;
                data.socketId = '' ;
@@ -154,27 +140,32 @@ class Routes{
 
        this.app.post('/login',(request,response) =>{
 
-           const data = {
-               username : (request.body.username).toLowerCase(),
-               password : request.body.password
-           };
+
+        let username = request.body.username;
+        let password = request.body.password;
+
+         
 
            let loginResponse = {}
 
-           if(data.username === '' || data.username === null) {
+           if(username === '' || username === null||username==undefined) {
 
                loginResponse.error = true;
                loginResponse.message = `username cant be empty.`;
-               response.status(412).json(loginResponse);
+               response.status(200).json(loginResponse);
 
-           }else if(data.password === '' || data.password === null){
+           }else if(password === '' ||password==undefined|| password === null){
                            
                loginResponse.error = true;
                loginResponse.message = `password cant be empty.`;
-               response.status(412).json(loginResponse);
+               response.status(200).json(loginResponse);
 
            }else{
 
+            const data = {
+                username : (request.body.username).toLowerCase(),
+                password : request.body.password
+            };
                   helper.login( data, (error,result)=>{
 
                       if (error || result === null) {
@@ -197,11 +188,11 @@ class Routes{
            let userId = request.body.userId;
            let sessionCheckResponse = {}
            
-           if (userId == '') {
+           if (userId == ''||userId===undefined) {
 
                sessionCheckResponse.error = true;
                sessionCheckResponse.message = `User Id cant be empty.`;
-               response.status(412).json(sessionCheckResponse);
+               response.status(200).json(sessionCheckResponse);
 
            }else{
 
@@ -213,7 +204,7 @@ class Routes{
 
                           sessionCheckResponse.error = true;
                        sessionCheckResponse.message = `Server error.`;
-                          response.status(503).json(sessionCheckResponse);
+                          response.status(200).json(sessionCheckResponse);
                       }else{
 
                           sessionCheckResponse.error = false;
