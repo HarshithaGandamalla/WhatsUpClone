@@ -5,12 +5,15 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
-    "expect": "^21.2.1",
+    "emoticonsole": "0.0.1",
     "express": "^4.16.2",
     "mongodb": "^2.2.33",
+    "ng2-emoji": "^0.2.0",
+    "node-emoji": "^1.8.1",
     "socket.io": "^2.0.3"
   },
   "devDependencies": {
+    "jquery": "^3.2.1",
     "supertest": "^3.0.0"
   },
   "scripts": {

@@ -17,7 +17,7 @@ import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { ElasticDirective } from './directives/auto-grow.directive';
 import { HighlightSearch } from './highlightsearch.pipe';
- 
+import { Ng2EmojiModule } from 'ng2-emoji';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
  
 
@@ -48,7 +48,9 @@ const appRoutes:Routes = [
     MatInputModule,
     Ng2SearchPipeModule,
     MatSidenavModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    // Include the Emoticon Library
+    Ng2EmojiModule.forRoot()
   ],
   exports: [
     Ng2SearchPipeModule,
