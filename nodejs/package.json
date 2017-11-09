@@ -10,6 +10,7 @@
     "cors": "^2.8.4",
     "emoticonsole": "0.0.1",
     "express": "^4.16.2",
+    "mocha": "^4.0.1",
     "mocha-multi": "^0.11.1",
     "mongodb": "^2.2.33",
     "ng2-emoji": "^0.2.0",
@@ -19,11 +20,13 @@
     "zone.js": "^0.8.4"
   },
   "devDependencies": {
+    "istanbul": "^0.4.5",
     "jquery": "^3.2.1",
     "supertest": "^3.0.0"
   },
   "scripts": {
     "test": "mocha",
+    "coverage":"istanbul cover _mocha test-server.js",
     "start": "node server.js"
   },
   "author": "",
