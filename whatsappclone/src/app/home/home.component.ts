@@ -441,5 +441,9 @@ export class HomeComponent implements OnInit{
 		AddUsers(){
 
 		}
+
+		Settings(){
+			
+		}
 	
 	}

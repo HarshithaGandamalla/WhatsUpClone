@@ -19,7 +19,8 @@ import { ElasticDirective } from './directives/auto-grow.directive';
 import { HighlightSearch } from './highlightsearch.pipe';
 import { Ng2EmojiModule } from 'ng2-emoji';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
- 
+import {APP_BASE_HREF} from '@angular/common';
+
 
 const appRoutes:Routes = [
   {path : '' , component : LoginComponent},
@@ -32,7 +33,7 @@ const appRoutes:Routes = [
     LoginComponent,
     HomeComponent,
     ElasticDirective,
-    HighlightSearch,    
+    HighlightSearch   
   ],
   imports: [
     BrowserModule,
@@ -56,7 +57,8 @@ const appRoutes:Routes = [
     Ng2SearchPipeModule,
     HighlightSearch    
 ],
-  providers: [],
+  providers: [{ provide: APP_BASE_HREF, useValue: '/' }
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
