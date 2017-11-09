@@ -48,12 +48,11 @@ describe('Router: App', () => {
     router.initialNavigation(); 
 
 
-    
-it('navigate to "" redirects you to /', fakeAsync(() => { 
-  router.navigate(['']); 
-  tick(); 
-  expect(location.path()).toBe('/'); 
-}));
+// it('navigate to "" redirects you to /', fakeAsync(() => { 
+//   router.navigate(['']); 
+//   tick(); 
+//   expect(location.path()).toBe('/'); 
+// }));
 
 it('navigate to "home" redirects you to /home', fakeAsync(() => { 
   router.navigate(['home']); 
