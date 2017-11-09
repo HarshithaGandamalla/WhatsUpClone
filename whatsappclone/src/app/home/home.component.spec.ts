@@ -18,15 +18,14 @@ var window = document.defaultView;
 var $ = require('jquery')(window);
 
 
-var window = document.defaultView;
-var $ = require('jquery')(window);
-
 
 describe('HomeComponent', () => {
   let comp: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;
   let searchspy : jasmine.Spy;
   let group_name:  HTMLInputElement;
+  let logout:   HTMLElement;
+  let settings:   HTMLElement;
   
 
   beforeEach(async(() => {
@@ -60,9 +59,6 @@ describe('HomeComponent', () => {
     
   });
 
-  it('should be set user chat name', () => {
-   
-  });
 
   it('checks group button', async(() => {
     searchspy = spyOn(comp, 'addGroup').and.callThrough();
@@ -75,16 +71,32 @@ describe('HomeComponent', () => {
     });      
   }));
 
-  // it('checks logout button', async(() => {
-  //   searchspy = spyOn(comp, 'logout').and.callThrough();
-  //   const  btns = fixture.debugElement.queryAll(By.css('button'));
-  //   breakfast_html = btns[1].nativeElement;
+  it('should be set user chat name', () => {
     
-  //   breakfast_html.click();
-  //    fixture.whenStable().then(()=>{
-  //     expect(comp.SearchByTags).toHaveBeenCalled(); 
-  //   });      
-  //   }));
+   });
+
+
+  it('checks logout button', async(() => {
+    searchspy = spyOn(comp, 'logout').and.callThrough();
+    const  list = fixture.debugElement.queryAll(By.css('li'));
+    logout = list[1].nativeElement;
+    
+    logout.click();
+     fixture.whenStable().then(()=>{
+      expect(comp.logout).toHaveBeenCalled(); 
+    });      
+    }));
+
+    it('checks settings button', async(() => {
+      searchspy = spyOn(comp, 'Settings').and.callThrough();
+      const  list = fixture.debugElement.queryAll(By.css('li'));
+      settings = list[0].nativeElement;
+      
+      settings.click();
+       fixture.whenStable().then(()=>{
+        expect(comp.Settings).toHaveBeenCalled(); 
+      });      
+      }));
 
 
 

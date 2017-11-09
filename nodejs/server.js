@@ -53,4 +53,9 @@ class Server{
 
 const app = new Server();
 app.appExecute();
+<<<<<<< HEAD
 module.exports = app
+=======
+
+module.exports = app;
+>>>>>>> 2d7dcf3fef553b18a987fe8888a7fff90f4b8ed6

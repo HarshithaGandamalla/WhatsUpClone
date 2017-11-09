@@ -454,14 +454,21 @@ export class HomeComponent implements OnInit{
 						"userId":element.userId,
 						"groupName" :this.selectedGroupName
 					},
-			(error,response)=>
-			{
-			   if(!response.error){
-				console.log("Added users successfully");
-			   }else{
-				   alert("ERROR adding user to group");
-			   }
+					(error,response)=>
+					{
+					   if(!response.error){
+						console.log("Added users successfully");
+					   }else{
+						   alert("ERROR adding user to group");
+					   }
+					});
 			});
-		});
-	}
+		}
+			
+		Settings(){
+				
+		}
 }
+	
+	
+	
