@@ -104,7 +104,7 @@
           <div class="modal-content">
             <form action="#" id="mySelect">
                 <p *ngFor="let user of chatListUsers; let i = index">
-                  <input type="checkbox" class="filled-in" id="test{{i}}" />
+                  <input type="checkbox" class="filled-in" id="test{{i}}" (click)="AddUser(user.username,user._id)"/>
                   <label for="test{{i}}">  {{ user.username}} </label>
                 </p>
                 <p *ngFor="let user of chatOfflineUsers">
