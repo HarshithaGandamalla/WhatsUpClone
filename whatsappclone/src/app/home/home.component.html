@@ -154,7 +154,11 @@
               'background-color': '#c51162 pink accent-4'
             }"
             [ngClass]="alignMessage(message.fromUserId)?'received': 'sent'">       
-            <blockquote >{{ message.message}}</blockquote>
+            <blockquote >
+                <div class="message-container" [innerHTML]=" message.message | emojis">
+                </div>
+            </blockquote>
+            
           </li>
         </ul>
         <div class="page-footer chat-footer">
@@ -164,6 +168,7 @@
                   <input placeholder="Enter your text here" id="icon_prefix" type="text" class="validate"
                   [(ngModel)]="message" 
                   (keyup)="sendMessage($event)">
+                  
               </div>
             </div>
           </div> 
