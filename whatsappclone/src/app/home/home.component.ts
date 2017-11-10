@@ -174,7 +174,7 @@ export class HomeComponent implements OnInit{
 								if(response.groupList!=null){
 								for (var i = 0; i < response.groupList.length ; i++) {
 
-									console.log("Updated groupslist:o "+JSON.stringify( response.groupList[i]));
+									//console.log("Updated groupslist:o "+JSON.stringify( response.groupList[i]));
 									
 									this.groupsList.push({
 										'groupName': response.groupList[i]
