@@ -28,7 +28,7 @@
   },
   "scripts": {
     "test": "mocha",
-    "coverage":"istanbul cover _mocha test-server.js",
+    "coverage": "istanbul cover _mocha test-server.js",
     "start": "node server.js"
   },
   "author": "",
