@@ -19,12 +19,12 @@ describe('Reg App', () => {
     let email = page.getLoginFormEmail();
     let password = page.getLoginFormPassword();
     let username = page.getLoginFormUsername();
-    username.sendKeys('New user2');
+    username.sendKeys('dimpu');
     email.sendKeys('hamsikag15@gmail.com');
     password.sendKeys('dimpu');
     expect(email.getAttribute('value')).toEqual('hamsikag15@gmail.com');
     expect(password.getAttribute('value')).toEqual('dimpu');
-    expect(username.getAttribute('value')).toEqual('New user2');
+    expect(username.getAttribute('value')).toEqual('dimpu');
     expect(element(by.id('isuserNameAvailable'))).toBeTruthy;
     let btn = page.getRegButton();
     btn.click();
@@ -32,7 +32,7 @@ describe('Reg App', () => {
     var timeoutInMilliseconds = 100000;
     browser.wait(browser.ExpectedConditions.alertIsPresent(), timeoutInMilliseconds);
     var alertDialog = browser.switchTo().alert();
-    expect(alertDialog.getText()).toEqual("Register with new credentials."); 
+    expect(alertDialog.getText()).toEqual("Please login. User already registered."); 
     
         
    

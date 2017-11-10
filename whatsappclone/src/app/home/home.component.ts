@@ -52,7 +52,8 @@ export class HomeComponent implements OnInit{
 	private message = '';
 	private messages = [];
 	private groupName = '';
-	private groupsList=[];
+	private groupsList= [];
+	private newUserstoGroup = [];
 	
 	/*
 	* Chat and message related variables ends
@@ -437,13 +438,37 @@ export class HomeComponent implements OnInit{
 		}
 
 
-		// To do functionality
+		AddUser(username, userId){
+		 this.newUserstoGroup.push({
+			 "username" : username,
+			 "userId" : userId,
+		 });
+		}
+
 		AddUsers(){
-
+			this.newUserstoGroup.forEach(element => {
+				console.log(element.username+ " was added to "+this.selectedGroupName);
+				this.chatService.registerGroup(
+					{   
+						"username":element.username,
+						"userId":element.userId,
+						"groupName" :this.selectedGroupName
+					},
+					(error,response)=>
+					{
+					   if(!response.error){
+						console.log("Added users successfully");
+					   }else{
+						   alert("ERROR adding user to group");
+					   }
+					});
+			});
 		}
-
-		Settings(){
 			
+		Settings(){
+				
 		}
+}
 	
-	}
+	
+	
