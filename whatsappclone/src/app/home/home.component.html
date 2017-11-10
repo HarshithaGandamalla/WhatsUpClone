@@ -94,7 +94,7 @@
               [class.selected-group]="isGroupSelected(group.groupName)">
               <i class="material-icons circle">folder</i>                    
               <span class="title">{{ group.groupName}}</span>
-              <a class="waves-effect waves-light btn modal-trigger right" href="#modal2">Add</a>
+              <a class="waves-effect waves-light btn modal-trigger right" href="#modal2" (click)="getUsers()">Add</a>
               <!-- Add users -->
             </li>
           </ul>
@@ -103,14 +103,14 @@
         <div id="modal2" class="modal">
           <div class="modal-content">
             <form action="#" id="mySelect">
-                <p *ngFor="let user of chatListUsers; let i = index">
+                <p *ngFor="let user of allUsers; let i = index">
                   <input type="checkbox" class="filled-in" id="test{{i}}" (click)="AddUser(user.username,user._id)"/>
                   <label for="test{{i}}">  {{ user.username}} </label>
                 </p>
-                <p *ngFor="let user of chatOfflineUsers">
-                    <input type="checkbox" class="filled-in" id="test1" />
-                    <label for="test1">  {{ user.username}} </label>
-                </p>
+                <!-- <p *ngFor="let user of chatOfflineUsers; let j = index">
+                    <input type="checkbox" class="filled-in" id="test{{j}}" (click)="AddUser(user.username,user._id)"/>
+                    <label for="test{{j}}">  {{ user.username}} </label>
+                </p> -->
               </form>
               <button class="btn modal-close" (click)="AddUsers()">Add users</button>                
           </div>

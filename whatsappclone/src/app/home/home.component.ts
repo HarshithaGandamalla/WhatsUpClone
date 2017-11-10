@@ -54,6 +54,7 @@ export class HomeComponent implements OnInit{
 	private groupName = '';
 	private groupsList= [];
 	private newUserstoGroup = [];
+	private allUsers = [];
 	
 	/*
 	* Chat and message related variables ends
@@ -95,7 +96,7 @@ export class HomeComponent implements OnInit{
 		}
 			
 		else{
-		 
+		           
 					/*
 					* function to check if user is logged in or not starts
 					*/	
@@ -249,7 +250,6 @@ export class HomeComponent implements OnInit{
 									},100);
 								}
 							});
-				 	
 				 		}
 				 	});
 			}
@@ -436,7 +436,15 @@ export class HomeComponent implements OnInit{
 					}
 		
 		}
-
+		getUsers(){
+			console.log("in getUsers");
+			this.chatListUsers.forEach(element => {
+			this.allUsers.push(element);
+			});
+			this.chatOfflineUsers.forEach(element => {
+				this.allUsers.push(element);
+				});
+		}
 
 		AddUser(username, userId){
 		 this.newUserstoGroup.push({
