@@ -436,6 +436,26 @@ export class HomeComponent implements OnInit{
 					}
 		
 		}
+
+updateStatus(status:string){
+			
+				   this.status=status;
+				    console.log(status +" id dttaud");
+					//RegisterGroup
+					this.chatService.updateStatus(
+						{   "status":this.status,
+						     "userId":this.userId
+						},
+						(error,response)=>
+						{
+						   if(!response.error){
+							   alert("Status updated Successfully");
+						   }else{
+							   alert("ERROR updating status");
+						   }						
+						});
+	}
+
 		getUsers(){
 			console.log("in getUsers");
 			this.chatListUsers.forEach(element => {
