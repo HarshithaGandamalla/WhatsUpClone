@@ -55,7 +55,8 @@ export class HomeComponent implements OnInit{
 	private groupsList= [];
 	private newUserstoGroup = [];
 	private allUsers = [];
-	
+	private status = null;
+  
 	/*
 	* Chat and message related variables ends
 	*/
