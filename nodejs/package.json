@@ -3,9 +3,8 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "test": "nyc --reporter=html mocha --recursive",
-    "test-coverage": "nyc --reporter=html mocha --recursive"
+    "test": "mocha",
+    "start": "node server.js"
   },
   "dependencies": {
     "@angular/core": "^4.0.0",
@@ -13,6 +12,7 @@
     "chai": "^4.1.2",
     "chai-http": "^3.0.0",
     "cors": "^2.8.4",
+    "debug": "^3.1.0",
     "emoticonsole": "0.0.1",
     "express": "^4.16.2",
     "mocha": "^4.0.1",
@@ -33,13 +33,6 @@
     "nyc": "^11.3.0",
     "supertest": "^3.0.0"
   },
-<<<<<<< HEAD
-=======
-  "scripts": {
-    "test": "mocha",
-    "start": "node server.js"
-  },
->>>>>>> 6ad976cfe8c0af5d93229ac3613b0c1f2b48851f
   "author": "",
   "license": "ISC",
   "keywords": [],
