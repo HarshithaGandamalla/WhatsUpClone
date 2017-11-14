@@ -42,8 +42,12 @@
               <ul id="nav-mobile" class="left hide-on-med-and-down">   
                 <li> <a class="waves-effect waves-light modal-trigger" data-target="modal1">New Group</a></li>   
               </ul>
+              <ul id="nav-mobile" class="left hide-on-med-and-down">   
+                <li> <a class="waves-effect waves-light modal-trigger" data-target="modal2">Update Status</a></li>   
+              </ul>
           </div>
         </nav>
+        
         <ul id='dropdown1' class='dropdown-content'>
             <li><a href="#!">Profile</a></li>
         </ul>
@@ -56,6 +60,17 @@
               [(ngModel)]="groupText"
               (keyup.enter)="addGroup(newGroup.value)">
               <button class="btn modal-close" (click)="addGroup(newGroup.value)">Create Group</button> 
+          </div>
+       </div>
+         <!-- modal for status update -->
+         <div id="modal2" class="modal">
+          <div class="modal-content">
+            <h4>Update Status</h4>
+            <input #newGroup
+              class="input" placeholder="Enter new status here.."
+              [(ngModel)]="status"
+              (keyup.enter)="updateStatus(newGroup.value)">
+              <button class="btn modal-close" (click)="updateStatus(newGroup.value)">Update Status</button> 
           </div>
        </div>
        <form>

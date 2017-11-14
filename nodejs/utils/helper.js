@@ -370,8 +370,8 @@ updateUserGroups(findby,groupName,callback){
        });
    }
 
-   /*
-   * Name of the Method : poststatus
+  /*
+   * Name of the Method : updateStatus
    * Description : To post the status of the user.
    * Parameter : 
    *		1) userID
@@ -379,10 +379,11 @@ updateUserGroups(findby,groupName,callback){
    *        3) callback
    * Return : callback 
    */
-  poststatus(userId, status, callback){
+  updateStatus(userId, status, callback){    
     this.Mongodb.onConnect( (db,ObjectID) => {
-
-    db.collection('users').update( { _id : ObjectID(userId)}, status ,(err, result) => {
+    //console.log("Status : .........."+status);
+    db.collection('users').update( { _id : ObjectID(userId)} ,{$set: {'status':status} } ,(err, result) => {
+    //db.collection('users').findAndModify( data ,[], {$set: {'status': status}},{},(err, result) => {
             db.close();
             callback(err,result);
         });

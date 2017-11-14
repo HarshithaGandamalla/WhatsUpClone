@@ -33,6 +33,13 @@
     "nyc": "^11.3.0",
     "supertest": "^3.0.0"
   },
+<<<<<<< HEAD
+=======
+  "scripts": {
+    "test": "mocha",
+    "start": "node server.js"
+  },
+>>>>>>> 6ad976cfe8c0af5d93229ac3613b0c1f2b48851f
   "author": "",
   "license": "ISC",
   "keywords": [],

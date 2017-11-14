@@ -38,40 +38,33 @@ class Routes{
                });
            }
        });
+    
     // Post call for status
-       this.app.post('/status',(request,response) =>{
+       this.app.post('/updateStatus',(request,response) =>{
         
                    let userId = request.body.userId;
                    let status = request.body.status;
                    let statusResponse = {}
-                   if (userId == ''|| userId== undefined ) {
-                       statusResponse.message = `User Id cant be empty.`;
-                       response.status(200).json(statusResponse);
-                   }
-                   else{
-        
-                   helper.poststatus( userId, status, (error,result)=>{
+                   //console.log("In routes req: " +request);
+                   helper.updateStatus( userId, status, (error,result)=>{
         
                               if (error || result === null||result===undefined) {
                                 console.log(" status error: ");
                                 
                                   statusResponse.error = true;
-                                  statusResponse.message = `Server error.`;
+                                  statusResponse.message = `Server error in routes.`;
                                   response.status(200).json(statusResponse);
                               }
                               else{
-                              console.log("User status response detains: "+result);
+                              console.log("User status response details: "+result);
                                   statusResponse.error = false;
-                                //  statusResponse.userId = result.insertedId;
-                                //  statusResponse.status = result.
                                   statusResponse.message = `User status changed successfully`;
                                   response.status(200).json(statusResponse);
                               }
                               });
-                    }
+                            
                 });
-
-
+    
        this.app.post('/registerUser',(request,response) =>{
 
 
