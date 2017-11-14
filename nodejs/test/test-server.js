@@ -362,22 +362,22 @@ describe('login user',function(){
 
     describe('user session check',function(){
         
-       it('pass when valid parameters are passed', function() {
-           return chai
-               .request('http://localhost:4000')
-               .post('/userSessionCheck')
-               .send( {
-                "userId" :"59fbd21d034f29380cf0024a"
-               })
-               .then(function(res) {
-                   expect(res).to.have.status(200);
+    //    it('pass when valid parameters are passed', function() {
+    //        return chai
+    //            .request('http://localhost:4000')
+    //            .post('/userSessionCheck')
+    //            .send( {
+    //             "userId" :"59fbd21d034f29380cf0024a"
+    //            })
+    //            .then(function(res) {
+    //                expect(res).to.have.status(200);
                    
-                   // res.body.SUCCESS.name.should.equal('Java');
-                   expect(res.body.message).to.equal('User logged in.');
+    //                // res.body.SUCCESS.name.should.equal('Java');
+    //                expect(res.body.message).to.equal('User logged in.');
                    
-                 });
-                 done();
-       });
+    //              });
+    //              done();
+    //    });
 
          
        it('not pass when invalid parameters are passed', function() {

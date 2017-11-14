@@ -2,6 +2,11 @@
   "name": "nodejs",
   "version": "1.0.0",
   "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "nyc --reporter=html mocha --recursive",
+    "test-coverage": "nyc --reporter=html mocha --recursive"
+  },
   "dependencies": {
     "@angular/core": "^4.0.0",
     "body-parser": "^1.18.2",
@@ -22,14 +27,11 @@
     "zone.js": "^0.8.4"
   },
   "devDependencies": {
+    "coveralls": "^3.0.0",
     "istanbul": "^0.4.5",
     "jquery": "^3.2.1",
+    "nyc": "^11.3.0",
     "supertest": "^3.0.0"
-  },
-  "scripts": {
-    "test": "mocha",
-    "coverage": "istanbul cover _mocha test-server.js",
-    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",

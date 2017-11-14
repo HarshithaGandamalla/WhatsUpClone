@@ -15,8 +15,6 @@ import {MatSidenavModule} from '@angular/material';
 import { HomeComponent } from './home/home.component';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
-import { ElasticDirective } from './directives/auto-grow.directive';
-import { HighlightSearch } from './highlightsearch.pipe';
 import { Ng2EmojiModule } from 'ng2-emoji';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import {APP_BASE_HREF} from '@angular/common';
@@ -31,9 +29,7 @@ const appRoutes:Routes = [
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent,
-    ElasticDirective,
-    HighlightSearch   
+    HomeComponent   
   ],
   imports: [
     BrowserModule,
@@ -54,9 +50,8 @@ const appRoutes:Routes = [
     Ng2EmojiModule.forRoot()
   ],
   exports: [
-    Ng2SearchPipeModule,
-    HighlightSearch    
-],
+    Ng2SearchPipeModule
+  ],
   providers: [{ provide: APP_BASE_HREF, useValue: '/' }
 ],
   bootstrap: [AppComponent]

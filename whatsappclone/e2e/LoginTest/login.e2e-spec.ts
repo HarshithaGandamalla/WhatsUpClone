@@ -47,7 +47,7 @@ describe('Login App', () => {
     
     let btn = page.getLoginButton();
     btn.click();
-    expect(browser.getCurrentUrl()).toEqual('http://localhost:49152/home/59fbd21d034f29380cf0024a');
+    expect(browser.getCurrentUrl()).toEqual('http://localhost:49152/home/5a04b05097749137b491e193');
     element(by.id('logout')).click();
 
 });
