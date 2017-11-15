@@ -100,7 +100,8 @@
                 <!--<img src={{user.image}} alt="" class="circle">-->
                 <i class="material-icons circle">folder</i>
                 <span class="title">{{ user.username}}</span>
-                <p>First Line <br> Second Line</p>
+                <p> <br></p>
+                <p><span class="title">{{ user.status}}</span></p>
                 <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
             </li> 
             <li class="collection-item active avatar" 
@@ -170,7 +171,7 @@
             }"
             [ngClass]="alignMessage(message.fromUserId)?'received': 'sent'">       
             <blockquote >
-                <div class="message-container" [innerHTML]=" message.message">
+                <div class="message-container" [innerHTML]=" message.message | emojis">
                 </div>
             </blockquote>
             
