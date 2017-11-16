@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">53.33% </span>
+        <span class="strong">60% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>32/60</span>
+        <span class='fraction'>36/60</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">38.24% </span>
+        <span class="strong">52.94% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>13/34</span>
+        <span class='fraction'>18/34</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">40% </span>
+        <span class="strong">50% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>4/10</span>
+        <span class='fraction'>5/10</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">50.91% </span>
+        <span class="strong">58.18% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>28/55</span>
+        <span class='fraction'>32/55</span>
       </div>
     </div>
   </div>
@@ -171,21 +171,21 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -217,9 +217,9 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -252,8 +252,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -329,10 +329,10 @@ export class LoginComponent{
 &nbsp;
   	public login():void{
 &nbsp;
-        <span class="missing-if-branch" title="else path not taken" >E</span>if(this.username === '' || this.username === null) {
+        if(this.username === '' || this.username === null) {
             alert(`Username can't be empty.`);
-        }else <span class="cstat-no" title="statement not covered" >if(this.password === '' || this.password === null ){</span>
-<span class="cstat-no" title="statement not covered" >            alert(`Password can't be empty.`);</span>
+        }else <span class="missing-if-branch" title="else path not taken" >E</span>if(this.password === '' || this.password === null ){
+            alert(`Password can't be empty.`);
         }else{
 <span class="cstat-no" title="statement not covered" >            this.chatService.login({</span>
                   'username' : this.username,
@@ -364,9 +364,9 @@ export class LoginComponent{
                 username : this.username,
                 email : this.email,
                 password : this.password
-            },<span class="fstat-no" title="function not covered" >(</span>error , result)=&gt;{
-<span class="cstat-no" title="statement not covered" >                if(error) {</span>
-<span class="cstat-no" title="statement not covered" >                    alert("alert! "+result);</span>
+            },(error , result)=&gt;{
+                <span class="missing-if-branch" title="else path not taken" >E</span>if(error) {
+                    alert("alert! "+result);
                 }else{
 <span class="cstat-no" title="statement not covered" >                    if(!result.error) {</span>
 <span class="cstat-no" title="statement not covered" >                        this.router.navigate(['/home/'+result.userId]);</span>
@@ -388,7 +388,7 @@ export class LoginComponent{
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Nov 12 2017 21:16:10 GMT-0500 (Eastern Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Nov 16 2017 15:19:30 GMT-0500 (Eastern Standard Time)
 </div>
 </div>
 <script src="..\..\..\prettify.js"></script>

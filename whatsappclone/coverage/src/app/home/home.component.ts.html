@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">34.43% </span>
+        <span class="strong">34.03% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>63/183</span>
+        <span class='fraction'>65/191</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">19.57% </span>
+        <span class="strong">19.15% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>18/92</span>
+        <span class='fraction'>18/94</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">15.38% </span>
+        <span class="strong">14.63% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>6/39</span>
+        <span class='fraction'>6/41</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">33.33% </span>
+        <span class="strong">32.97% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>58/174</span>
+        <span class='fraction'>60/182</span>
       </div>
     </div>
   </div>
@@ -525,7 +525,28 @@
 480
 481
 482
-483</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -571,6 +592,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-yes">11x</span>
@@ -959,6 +981,26 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1064,7 +1106,8 @@ export class HomeComponent implements OnInit{
 	private groupsList= [];
 	private newUserstoGroup = [];
 	private allUsers = [];
-	
+	private status = null;
+  
 	/*
 	* Chat and message related variables ends
 	*/
@@ -1445,6 +1488,26 @@ export class HomeComponent implements OnInit{
 					}
 		
 		}
+&nbsp;
+<span class="fstat-no" title="function not covered" >updateStatus(</span>status:string){
+			
+<span class="cstat-no" title="statement not covered" >				   this.status=status;</span>
+<span class="cstat-no" title="statement not covered" >				    console.log(status +" id dttaud");</span>
+					//RegisterGroup
+<span class="cstat-no" title="statement not covered" >					this.chatService.updateStatus(</span>
+						{   "status":this.status,
+						     "userId":this.userId
+						},
+<span class="fstat-no" title="function not covered" >						(</span>error,response)=&gt;
+						{
+<span class="cstat-no" title="statement not covered" >						   if(!response.error){</span>
+<span class="cstat-no" title="statement not covered" >							   alert("Status updated Successfully");</span>
+						   }else{
+<span class="cstat-no" title="statement not covered" >							   alert("ERROR updating status");</span>
+						   }						
+						});
+	}
+&nbsp;
 <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >		getUsers(){</span></span>
 <span class="cstat-no" title="statement not covered" >			console.log("in getUsers");</span>
 <span class="cstat-no" title="statement not covered" >			this.chatListUsers.forEach(<span class="fstat-no" title="function not covered" >element =&gt; {</span></span>
@@ -1495,7 +1558,7 @@ export class HomeComponent implements OnInit{
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Nov 12 2017 21:16:10 GMT-0500 (Eastern Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Nov 16 2017 15:19:30 GMT-0500 (Eastern Standard Time)
 </div>
 </div>
 <script src="..\..\..\prettify.js"></script>

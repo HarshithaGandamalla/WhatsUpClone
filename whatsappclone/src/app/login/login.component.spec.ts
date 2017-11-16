@@ -22,7 +22,7 @@ describe('LoginComponent', () => {
   let regSpy: jasmine.Spy;
   
   
-  beforeEach(async(() => {
+  beforeEach(fakeAsync(() => {
     TestBed.configureTestingModule({
       imports: [ 
         FormsModule,
@@ -31,26 +31,43 @@ describe('LoginComponent', () => {
        ],
       declarations: [ LoginComponent ]
     })
-    .compileComponents();
+    .compileComponents().then(() => {
+      fixture = TestBed.createComponent(LoginComponent);
+      component = fixture.componentInstance;
+      fixture.detectChanges();
+      const h5s = fixture.debugElement.queryAll(By.css('h5'));
+      h5 = h5s[0].nativeElement;
+      const inputs = fixture.debugElement.queryAll(By.css('input'));
+      const buttons = fixture.debugElement.queryAll(By.css('button'));
+     
+      login_btn=buttons[0].nativeElement;
+      reg_btn=fixture.debugElement.query(By.css('#btn_login')).nativeElement;
+      
+      username_HtmlElement = fixture.debugElement.query(By.css('#username')).nativeElement;
+      email_HtmlElement =  fixture.debugElement.query(By.css('#email')).nativeElement;
+      password_HtmlElement = fixture.debugElement.query(By.css('#password')).nativeElement;
+      
+    });;
   }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(LoginComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-    const h5s = fixture.debugElement.queryAll(By.css('h5'));
-    h5 = h5s[0].nativeElement;
-    const inputs = fixture.debugElement.queryAll(By.css('input'));
-    const buttons = fixture.debugElement.queryAll(By.css('button'));
+  // beforeEach(() => {
+  //   fixture = TestBed.createComponent(LoginComponent);
+  //   component = fixture.componentInstance;
+  //   fixture.detectChanges();
+  //   const h5s = fixture.debugElement.queryAll(By.css('h5'));
+  //   h5 = h5s[0].nativeElement;
+  //   const inputs = fixture.debugElement.queryAll(By.css('input'));
+  //   const buttons = fixture.debugElement.queryAll(By.css('button'));
    
-    login_btn=buttons[0].nativeElement;
-    reg_btn=buttons[1].nativeElement;
+  //   login_btn=buttons[0].nativeElement;
+  //   reg_btn=buttons[1].nativeElement;
     
-    username_HtmlElement = inputs[0].nativeElement;
-    email_HtmlElement = inputs[1].nativeElement;
-    password_HtmlElement = inputs[2].nativeElement;
+  //   username_HtmlElement = inputs[0].nativeElement;
+  //   email_HtmlElement = inputs[1].nativeElement;
+  //   password_HtmlElement = inputs[2].nativeElement;
     
-  });
+  // });
+
 
   it('should be created', () => {
     expect(component).toBeTruthy();
@@ -84,7 +101,7 @@ describe('LoginComponent', () => {
               reg_btn.click();
             });
         
-            it('should invoke the onRegisterSubmit function', async(() => {
+            it('should invoke the onRegisterSubmit function', fakeAsync(() => {
               fixture.whenStable().then(() => {
                 expect(component.registerUser).toHaveBeenCalled();
               });
@@ -97,10 +114,10 @@ describe('LoginComponent', () => {
       
           beforeEach(() => {
             regSpy = spyOn(component, 'login');
-            reg_btn.click();
+            login_btn.click();
           });
       
-          it('should invoke the login function', async(() => {
+          it('should invoke the login function', fakeAsync(() => {
             fixture.whenStable().then(() => {
               expect(component.login).toHaveBeenCalled();
             });
@@ -109,45 +126,77 @@ describe('LoginComponent', () => {
 
   });
 
-  describe('when the user logs with empty username throws alert', () => {
-    function setInputValue(selector: string, value: string) {
-      fixture.detectChanges();
-      tick();
-  
-      let input = fixture.debugElement.query(By.css(selector)).nativeElement;
-      input.value = value;
-      input.dispatchEvent(new Event('input'));
-      tick();
-    }
+    describe('when the user logs with empty username throws alert', () => {
+   
    
     beforeEach(() => {
-      spyOn(window, 'alert');     
-      login_btn.click();  
+      spyOn(window, 'alert');       
     });
 
-        it('should throw alert', fakeAsync(() => {
-          fixture.whenStable().then(() => {
+        it('should throw suername cant be empty alert', fakeAsync(() => {
+          fixture.whenStable().then(() => {           
+            login_btn.click();
             expect(username_HtmlElement.textContent).toEqual('');        
             expect(window.alert).toHaveBeenCalledWith("Username can't be empty.");         
           });
         }));
 
-        it('should throw alert', fakeAsync(() => {
+        it('should throw password cant be empty alert', fakeAsync(() => {
+          fixture.detectChanges();
           fixture.whenStable().then(() => {
-            setInputValue("username", 'dimpu');            
+            
+            let input = fixture.debugElement.query(By.css('#username')).nativeElement;
+            expect(input.value).toBe('');
+            input.value = "dimpu";
+            input.dispatchEvent(new Event('input'));
+            fixture.detectChanges();
             expect(password_HtmlElement.textContent).toEqual('');
-            expect(window.alert).toHaveBeenCalledWith("Password can't be empty.");         
-          });
+            expect(input.value).toBe('dimpu');
+            login_btn.click();
+             expect(window.alert).toHaveBeenCalledWith("Password can't be empty.");                  
+           });
         }));
 
-        // it('should throw alert', async(() => {
-        //   fixture.whenStable().then(() => {
-        //     expect(password_HtmlElement.textContent).toEqual('');
-        //     expect(window.alert).toHaveBeenCalledWith("Password can't be empty.");         
-        //   });
-        // }));
+      
+});
 
 
+describe('when the user registers with empty username throws alert', () => {
+  
+  
+   beforeEach(() => {
+     spyOn(window, "alert");
+         
+   });
+
+       it('should throw username cant be empty alert', fakeAsync(() => 
+       {
+        fixture.detectChanges();
+        
+        let input = fixture.debugElement.query(By.css('#username')).nativeElement;
+        let email = fixture.debugElement.query(By.css('#email')).nativeElement;
+        let password = fixture.debugElement.query(By.css('#password')).nativeElement;
+
+        expect(input.value).toBe('');
+        input.value="newperson";
+        input.dispatchEvent(new Event('input'));
+        fixture.detectChanges();
+        expect(input.value).toEqual('newperson');
+        
+        expect(email.value).toBe('');        
+        email.value="newemail"; 
+        input.dispatchEvent(new Event('input'));
+        fixture.detectChanges();
+        expect(email.value).toEqual('newemail');    
+        expect(password.value).toEqual('');
+        reg_btn.click();
+        fixture.detectChanges();
+        //  fixture.whenStable().then(() => {    
+        //    expect(component).toHaveBeenCalled();         
+        //  });
+       }));
 });
 
 });
+
+
