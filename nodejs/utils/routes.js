@@ -16,7 +16,8 @@ class Routes{
 
        this.app.post('/usernameCheck',(request,response) =>{
        // console.log("in app/usernameCheck");
-        
+       console.log("User session request: "+JSON.stringify(request));
+       
            if (request.body.username === "" || request.body.username==undefined ) {
                response.status(200).json({
                    error : true,
@@ -27,6 +28,8 @@ class Routes{
                    username : request.body.username.toLowerCase()
                }, (count)=>{
 
+                console.log("User name response: "+JSON.stringify(result));
+                
                    let result = {};
                    
                    if (count > 0) {
@@ -188,6 +191,8 @@ class Routes{
            let userId = request.body.userId;
            let sessionCheckResponse = {}
            
+           console.log("User session request: "+JSON.stringify(request));
+
            if (userId == ''||userId===undefined) {
 
                sessionCheckResponse.error = true;
@@ -199,6 +204,8 @@ class Routes{
                   helper.userSessionCheck( { 
                       userId : userId,
                   }, (error,result)=>{
+                    console.log("User session response: "+JSON.stringify(result));
+                    
                       
                       if (error || result === null) {
 

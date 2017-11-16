@@ -67,6 +67,9 @@ export class LoginComponent{
                   'username' : this.username,
                   'password' : this.password,
             },(error , result)=>{
+
+                console.log("login response :"+JSON.stringify(result));
+                
                 if(error) {
                     alert("User not found ,please register");
                 }else{
@@ -94,6 +97,9 @@ export class LoginComponent{
                 email : this.email,
                 password : this.password
             },(error , result)=>{
+               
+                console.log("register response :"+JSON.stringify(result));
+                
                 if(error) {
                     alert("alert! "+result);
                 }else{

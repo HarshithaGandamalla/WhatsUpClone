@@ -12,6 +12,7 @@ import {By} from "@angular/platform-browser";
 import { SocketService } from './../socket.service';
 import { HttpService } from './../http.service';
 import { ChatService } from './../chat.service';
+import { Ng2EmojiModule } from 'ng2-emoji';
 import { SearchService } from "../search.service";
 
 var window = document.defaultView;
@@ -36,7 +37,8 @@ describe('HomeComponent', () => {
         HttpModule,
         RouterTestingModule, // same any normal route config   
         Ng2SearchPipeModule,
-        BrowserModule
+        BrowserModule,
+        Ng2EmojiModule,
        ],
       providers : [ChatService,HttpService,SocketService, SearchService]
     })

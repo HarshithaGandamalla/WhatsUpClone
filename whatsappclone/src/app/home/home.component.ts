@@ -274,8 +274,13 @@ export class HomeComponent implements OnInit{
 				
 				/* 
 				* calling method to get the messages
+
 				*/
+
+				
 				this.chatService.getMessages({ userId : this.userId,toUserId :user._id} , ( error , response)=>{
+					console.log("Selected user response: "+JSON.stringify(response));
+					
 					if(!response.error) {
 						//console.log("Messages requested: "+JSON.stringify(response));
 						this.messages = response.message;
@@ -303,6 +308,8 @@ export class HomeComponent implements OnInit{
 				* calling method to get the messages
 				*/
 				this.chatService.getGroupMessages({groupName:group.groupName} , ( error , response)=>{
+					console.log("Selected group response: "+JSON.stringify(response));
+					
 					if(!response.error) {
 						this.messages = response.message;
 					}
@@ -415,6 +422,8 @@ export class HomeComponent implements OnInit{
 							},
 							(error,response)=>
 							{
+
+								console.log("Addgroup response: "+JSON.stringify(response));
                                if(!response.error){
 								
 							   	this.messages.push({message:'Successfully created group '+newGroup});

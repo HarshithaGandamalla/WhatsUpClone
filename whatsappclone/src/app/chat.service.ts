@@ -15,6 +15,9 @@ export class ChatService {
 	* check if username already exists.
 	*/
 	public checkUserNameCheck(params,callback){
+
+		console.log("checkUserNameCheck request :"+JSON.stringify(params));
+		
 		this.httpService.userNameCheck(params).subscribe(
   				response => {
   					callback(response);
@@ -26,6 +29,8 @@ export class ChatService {
 	}
 
   	public login(params ,callback):any{
+		console.log("login request :"+JSON.stringify(params));
+		
   		this.httpService.login(params).subscribe(
   				response => {
   					callback(false,response);
@@ -41,6 +46,8 @@ export class ChatService {
 	* method to add new users
 	*/
   	public registerUser(params,callback):any{
+		console.log("registerUser request :"+JSON.stringify(params));
+		
   		this.httpService.registerUser(params).subscribe(
   				response => {
                   callback(false,response);
@@ -56,6 +63,8 @@ export class ChatService {
 	* method to get the messages between two users
 	*/
     public getMessages(params ,callback):any{
+		console.log("getMessages request :"+JSON.stringify(params));
+		
         this.httpService.getMessages(params).subscribe(
                   response => {
                       callback(false,response);
@@ -71,6 +80,8 @@ export class ChatService {
 	* method to get the messages of given group
 	*/
     public getGroupMessages(params ,callback):any{
+		console.log("getGroupMessages request :"+JSON.stringify(params));
+		
         this.httpService.getGroupMessages(params).subscribe(
                   response => {
                       callback(false,response);
@@ -101,7 +112,7 @@ export class ChatService {
 	*/
 	public registerGroup(params,callback):any{
 
-		console.log("In registrop grp chat service");
+		console.log("In registrop grp chat service:"+JSON.stringify(params));
 		
           this.httpService.registerGroup(params).subscribe(
 			response => {
