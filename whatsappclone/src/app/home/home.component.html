@@ -104,7 +104,7 @@
                 <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
             </li> 
             <li class="collection-item active avatar" 
-              *ngFor="let group of groupsList |filter:ter"
+              *ngFor="let group of groupsList |filter:term"
               (click)="selectedGroup(group)"
               [class.selected-group]="isGroupSelected(group.groupName)">
               <i class="material-icons circle">folder</i>                    

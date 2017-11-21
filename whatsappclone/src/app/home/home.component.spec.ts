@@ -12,7 +12,7 @@ import {By} from "@angular/platform-browser";
 import { SocketService } from './../socket.service';
 import { HttpService } from './../http.service';
 import { ChatService } from './../chat.service';
-import { SearchService } from "../search.service";
+
 
 var window = document.defaultView;
 var $ = require('jquery')(window);
@@ -26,11 +26,12 @@ describe('HomeComponent', () => {
   let group_name:  HTMLInputElement;
   let logout:   HTMLElement;
   let settings:   HTMLElement;
+  let filter : Ng2SearchPipeModule;
   
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomeComponent ],      
+      declarations: [ HomeComponent],      
       imports: [ 
         FormsModule,
         HttpModule,
@@ -38,7 +39,7 @@ describe('HomeComponent', () => {
         Ng2SearchPipeModule,
         BrowserModule
        ],
-      providers : [ChatService,HttpService,SocketService, SearchService]
+      providers : [ChatService,HttpService,SocketService, Ng2SearchPipeModule]
     })
     
     

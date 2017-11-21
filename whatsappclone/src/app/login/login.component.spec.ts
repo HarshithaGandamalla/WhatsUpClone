@@ -30,6 +30,7 @@ describe('LoginComponent', () => {
         RouterTestingModule, // same any normal route config   
        ],
       declarations: [ LoginComponent ]
+      
     })
     .compileComponents().then(() => {
       fixture = TestBed.createComponent(LoginComponent);
@@ -165,11 +166,13 @@ describe('when the user registers with empty username throws alert', () => {
   
   
    beforeEach(() => {
-     spyOn(window, "alert");
+    fixture = TestBed.createComponent(LoginComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();     spyOn(window, "alert");
          
    });
 
-       it('should throw username cant be empty alert', fakeAsync(() => 
+       it('should throw username cant be empty alert', async(() => 
        {
         fixture.detectChanges();
         
@@ -191,9 +194,7 @@ describe('when the user registers with empty username throws alert', () => {
         expect(password.value).toEqual('');
         reg_btn.click();
         fixture.detectChanges();
-        //  fixture.whenStable().then(() => {    
-        //    expect(component).toHaveBeenCalled();         
-        //  });
+        expect(window.alert).toBeDefined;
        }));
 });
 

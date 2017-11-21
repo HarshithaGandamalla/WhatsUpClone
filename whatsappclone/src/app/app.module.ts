@@ -19,6 +19,7 @@ import { Ng2EmojiModule } from 'ng2-emoji';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import {APP_BASE_HREF} from '@angular/common';
 
+import { ActivatedRoute } from '@angular/router';
 
 const appRoutes:Routes = [
   {path : '' , component : LoginComponent},

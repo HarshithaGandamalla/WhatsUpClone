@@ -109,9 +109,9 @@ it('search should getUSers according to search', fakeAsync(() => {
       body: JSON.stringify(response)
     }));
   });
-  service.getUsers("team").subscribe((res) => {
-    expect(res).toBeTruthy;
-    });
+  // service.getUsers("team").subscribe((res) => {
+  //   expect(res).toBeTruthy;
+  //   });
   }));
 
 

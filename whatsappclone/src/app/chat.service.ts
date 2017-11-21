@@ -122,9 +122,7 @@ export class ChatService {
 				console.log(JSON.stringify(response)+" in res");
 				callback(false,response);
 			},
-			error => {
-				console.log(error+" in error");
-				
+			error => {			
 				callback(true,'HTTP status fail.');
 			});
 	}

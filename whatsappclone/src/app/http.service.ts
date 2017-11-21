@@ -35,13 +35,6 @@ export class HttpService {
   			.map( (response:Response) => response.json())
   			.catch( (error:any) => Observable.throw(error.json().error || `Server error`) );
 	  }
-	  
-	 public getUsers(params): any {
-		console.log(JSON.stringify(params)+" getUsers  httpserveice");
-		
-		return this.http.post(`${this.BASE_URL}search`,JSON.stringify(params), this.headerOptions)
-		.map( (response:Response) => response.json())
-		.catch( (error:any) => Observable.throw(error.json().error || `Server error`) );    }
 
 
 	public login(params){

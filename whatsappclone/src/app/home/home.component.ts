@@ -2,6 +2,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute ,Router } from '@angular/router';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 declare var $:any;
@@ -12,7 +13,6 @@ declare var $:any;
 import { SocketService } from './../socket.service';
 import { HttpService } from './../http.service';
 import { ChatService } from './../chat.service';
-import { SearchService } from "../search.service";
 /* Importing services ends*/
 
 
@@ -21,7 +21,7 @@ import { SearchService } from "../search.service";
 	selector: 'app-home',
   	templateUrl: './home.component.html',
   	styleUrls: ['./home.component.css'],
-  	providers : [ChatService,HttpService,SocketService, SearchService]
+	  providers : [ChatService,HttpService,SocketService]	  
 })
 export class HomeComponent implements OnInit{
 
