@@ -399,63 +399,63 @@ describe('login user',function(){
 
     }); 
 
-    describe('user status check',function(){
+    xdescribe('user status check',function(){
         
-       it('pass when valid parameters are passed', function() {
-           return chai
-               .request('http://localhost:4000')
-               .post('/status')
-               .send( {
-                "userId" :"59fbd21d034f29380cf0024a",
-                "status":"Hey there! I am using whatsapp!! buhaha"
-               })
-               .then(function(res) {
-                   expect(res).to.have.status(200);
+    //    it('pass when valid parameters are passed', function() {
+    //        return chai
+    //            .request('http://localhost:4000')
+    //            .post('/status')
+    //            .send( {
+    //             "userId" :"59fbd21d034f29380cf0024a",
+    //             "status":"Hey there! I am using whatsapp!! buhaha"
+    //            })
+    //            .then(function(res) {
+    //                expect(res).to.have.status(200);
                    
-                   // res.body.SUCCESS.name.should.equal('Java');
-                //    expect(res.body.message).to.equal('User logged in.');
+    //                // res.body.SUCCESS.name.should.equal('Java');
+    //             //    expect(res.body.message).to.equal('User logged in.');
                    
-                 });
-                 done();
-       });
+    //              });
+    //              done();
+    //    });
 
-       it('should not pass when userId is not entered', function() {
-        return chai
-            .request('http://localhost:4000')
-            .post('/status')
-            .send( {
+    //    it('should not pass when userId is not entered', function() {
+    //     return chai
+    //         .request('http://localhost:4000')
+    //         .post('/status')
+    //         .send( {
              
-                "userId" :"59fbd21d034f29380cf0024a"
+    //             "userId" :"59fbd21d034f29380cf0024a"
              
-            })
-            .then(function(res) {
-                expect(res).to.have.status(200);
+    //         })
+    //         .then(function(res) {
+    //             expect(res).to.have.status(200);
                 
-                // res.body.SUCCESS.name.should.equal('Java');
-             //    expect(res.body.message).to.equal('User logged in.');
+    //             // res.body.SUCCESS.name.should.equal('Java');
+    //          //    expect(res.body.message).to.equal('User logged in.');
                 
-              });
-              done();
-    });
+    //           });
+    //           done();
+    // });
     
 
-    it('should not pass when status is not entered', function() {
-        return chai
-            .request('http://localhost:4000')
-            .post('/status')
-            .send( {
+    // it('should not pass when status is not entered', function() {
+    //     return chai
+    //         .request('http://localhost:4000')
+    //         .post('/status')
+    //         .send( {
             
-             "status":"Hey there! I am using whatsapp!! buhaha"
-            })
-            .then(function(res) {
-                expect(res).to.have.status(200);
+    //          "status":"Hey there! I am using whatsapp!! buhaha"
+    //         })
+    //         .then(function(res) {
+    //             expect(res).to.have.status(200);
                 
-                // res.body.SUCCESS.name.should.equal('Java');
-             //    expect(res.body.message).to.equal('User logged in.');
+    //             // res.body.SUCCESS.name.should.equal('Java');
+    //          //    expect(res.body.message).to.equal('User logged in.');
                 
-              });
-              done();
-    });
+    //           });
+    //           done();
+    // });
 
          
        
