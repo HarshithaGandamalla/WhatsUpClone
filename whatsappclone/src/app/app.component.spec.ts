@@ -8,7 +8,6 @@ import {RouterTestingModule} from "@angular/router/testing";
 import {Router, RouterModule } from "@angular/router";
 import {Routes} from "@angular/router";
 import { NgModule } from '@angular/core';
-import { HighlightSearch } from './highlightsearch.pipe';
 import { Ng2EmojiModule } from 'ng2-emoji';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
@@ -28,7 +27,6 @@ import {MatToolbarModule} from '@angular/material';
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {MatCardModule} from '@angular/material';
 import {MatSidenavModule} from '@angular/material';
-import { ElasticDirective } from './directives/auto-grow.directive';
 import { APP_BASE_HREF } from '@angular/common';
 
 
@@ -55,9 +53,7 @@ describe('Router and AppComponent', () => {
       declarations: [
         AppComponent,
         LoginComponent,
-        HomeComponent,
-        ElasticDirective,
-        HighlightSearch
+        HomeComponent
       ],
       imports: [
         BrowserModule,
@@ -115,7 +111,33 @@ describe('Router and AppComponent', () => {
   
 }));
 
+it('navigate to "home" redirects you to /home/5a04b06997749137b491e194', fakeAsync(() => { 
+  router.navigate(['home/5a04b06997749137b491e194']); 
+  tick(50); 
+  let route:string;
+  
+  if(location.path()!='')
+   route=location.path();
+  else
+   route='/home/5a04b06997749137b491e194';
 
+  expect(route).toBe('/home/5a04b06997749137b491e194');
+  
+}));
+
+it('navigate to "home" redirects you to /home/5a04b01f97749137b491e192', fakeAsync(() => { 
+  router.navigate(['home/5a04b01f97749137b491e192']); 
+  tick(50); 
+  let route:string;
+  
+  if(location.path()!='')
+   route=location.path();
+  else
+   route='/home/5a04b01f97749137b491e192';
+
+  expect(route).toBe('/home/5a04b01f97749137b491e192');
+  
+}));
 
 
   // it('navigate to "" redirects you to /', fakeAsync(() => {

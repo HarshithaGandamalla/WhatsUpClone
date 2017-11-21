@@ -5,9 +5,10 @@ import { FormsModule } from '@angular/forms';
 import { RouterTestingModule } from "@angular/router/testing";
 import {Location} from "@angular/common";
 import { LoginComponent } from './login.component';
-
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
+var window = document.defaultView;
+var $ = require('jquery')(window);
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -107,5 +108,46 @@ describe('LoginComponent', () => {
 
 
   });
+
+  describe('when the user logs with empty username throws alert', () => {
+    function setInputValue(selector: string, value: string) {
+      fixture.detectChanges();
+      tick();
+  
+      let input = fixture.debugElement.query(By.css(selector)).nativeElement;
+      input.value = value;
+      input.dispatchEvent(new Event('input'));
+      tick();
+    }
+   
+    beforeEach(() => {
+      spyOn(window, 'alert');     
+      login_btn.click();  
+    });
+
+        it('should throw alert', fakeAsync(() => {
+          fixture.whenStable().then(() => {
+            expect(username_HtmlElement.textContent).toEqual('');        
+            expect(window.alert).toHaveBeenCalledWith("Username can't be empty.");         
+          });
+        }));
+
+        it('should throw alert', fakeAsync(() => {
+          fixture.whenStable().then(() => {
+            setInputValue("username", 'dimpu');            
+            expect(password_HtmlElement.textContent).toEqual('');
+            expect(window.alert).toHaveBeenCalledWith("Password can't be empty.");         
+          });
+        }));
+
+        // it('should throw alert', async(() => {
+        //   fixture.whenStable().then(() => {
+        //     expect(password_HtmlElement.textContent).toEqual('');
+        //     expect(window.alert).toHaveBeenCalledWith("Password can't be empty.");         
+        //   });
+        // }));
+
+
+});
 
 });

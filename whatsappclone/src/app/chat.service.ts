@@ -123,5 +123,21 @@ export class ChatService {
 			});
 		
 	}
+  
+  /* 
+	* Method to add update status of the user.
+	*/
+	public updateStatus(params,callback):any{
+          this.httpService.updateStatus(params).subscribe(
+			response => {
+				console.log(JSON.stringify(response)+" in res");
+				callback(false,response);
+			},
+			error => {
+				console.log(error+" in error");
+				
+				callback(true,'HTTP status fail.');
+			});
+	}
 
 }

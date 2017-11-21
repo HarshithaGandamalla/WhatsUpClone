@@ -54,7 +54,9 @@ export class HomeComponent implements OnInit{
 	private groupName = '';
 	private groupsList= [];
 	private newUserstoGroup = [];
-	
+	private allUsers = [];
+	private status = null;
+  
 	/*
 	* Chat and message related variables ends
 	*/
@@ -95,7 +97,7 @@ export class HomeComponent implements OnInit{
 		}
 			
 		else{
-		 
+		           
 					/*
 					* function to check if user is logged in or not starts
 					*/	
@@ -249,7 +251,6 @@ export class HomeComponent implements OnInit{
 									},100);
 								}
 							});
-				 	
 				 		}
 				 	});
 			}
@@ -446,6 +447,34 @@ export class HomeComponent implements OnInit{
 		
 		}
 
+updateStatus(status:string){
+			
+				   this.status=status;
+				    console.log(status +" id dttaud");
+					//RegisterGroup
+					this.chatService.updateStatus(
+						{   "status":this.status,
+						     "userId":this.userId
+						},
+						(error,response)=>
+						{
+						   if(!response.error){
+							   alert("Status updated Successfully");
+						   }else{
+							   alert("ERROR updating status");
+						   }						
+						});
+	}
+
+		getUsers(){
+			console.log("in getUsers");
+			this.chatListUsers.forEach(element => {
+			this.allUsers.push(element);
+			});
+			this.chatOfflineUsers.forEach(element => {
+				this.allUsers.push(element);
+				});
+		}
 
 		AddUser(username, userId){
 		 this.newUserstoGroup.push({

@@ -80,4 +80,11 @@ export class HttpService {
 			.map( (response:Response) => response.json())
 			.catch( (error:any) => Observable.throw(error.json().error || `Server error`) );
 	}
+  
+  	public updateStatus(params){		
+		return this.http.post(`${this.BASE_URL}updateStatus`,JSON.stringify(params),this.headerOptions)
+			.map( (response:Response) => response.json())
+			.catch( (error:any) => Observable.throw(error.json().error || `Server error`) );
+	}
+  
 }

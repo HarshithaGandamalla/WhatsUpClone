@@ -24,4 +24,8 @@ export class LoginPage {
         return element(by.id('submit_login'));
         }
 
+      getRegisterButton(){
+        return element(by.id('btn_login'));
+      }
+
 }
