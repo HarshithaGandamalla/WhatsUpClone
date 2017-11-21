@@ -69,8 +69,8 @@
   },
   "scripts": {
     "start": "node server.js",
-    "test": "node_modules/.bin/istanbul cover node_modules/.bin/_mocha -- -u exports --compilers js:babel-register --timeout 60000",
-    "test1": "node_modules/.bin/mocha --compilers js:babel-core/register --reporter spec --slow 50 --timeout 60000",
+    "test1": "node_modules/.bin/istanbul cover  ./node_modules/mocha/bin/_mocha -- -u exports --compilers js:babel-register --timeout 60000",
+    "test": "node_modules/.bin/istanbul cover  --include-all-sources ./node_modules/mocha/bin/_mocha  test/*.js ",
     "testworking?": "cross-env NODE_ENV=test nyc --reporter=lcov --reporter=text mocha test/*.js",
     "testdoubt": "babel-node ./node_modules/istanbul/lib/cli.js --include-all-sources cover ./node_modules/mocha/bin/_mocha -- ./test/ -R spec --recursive",
     "test2": "babel-node ./node_modules/istanbul/lib/cli.js cover node_modules/.bin/_mocha --report text --check-coverage -- --timeout 5000 -u tdd --recursive test/test.js",
