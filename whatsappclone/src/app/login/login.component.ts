@@ -93,15 +93,6 @@ export class LoginComponent{
                 email : this.email,
                 password : this.password
             },(error , result)=>{
-<<<<<<< HEAD
-               
-                console.log("register response :"+JSON.stringify(result));
-                
-                if(error) {
-                    alert("alert! "+result);
-                }else{
-                    if(!result.error) {
-=======
                 if(error) 
                 {
                     alert(result);
@@ -110,7 +101,6 @@ export class LoginComponent{
                 {
                     if(!result.error) 
                     {
->>>>>>> cf5b43df9ef8e30077165cc201e5e8fe17cfffb7
                         this.router.navigate(['/home/'+result.userId]);
                     }
                     else
