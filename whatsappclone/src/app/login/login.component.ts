@@ -20,10 +20,6 @@ export class LoginComponent{
   	private isuserNameAvailable = false;
   	private userTypingTimeout= 1000;
     private typingTimer = null;
-      
-    private isemailAvailable = false;
-  	private userTypingTimeoutEmail= 500;
-  	private typingTimerEmail = null;
 
   	constructor(
       	private chatService : ChatService,
@@ -33,16 +29,12 @@ export class LoginComponent{
   	public onkeyup(event){
           clearTimeout(this.typingTimer);
   		this.typingTimer = setTimeout( ()=>{
-  			this.chatService.checkUserNameCheck({
+  		    	this.chatService.checkUserNameCheck({
   	  			'username' : this.username
   	  		}, (response)=>{
-                    console.log(response);
   	  			if(response.error) {
-                    console.log("User cant register already in db");
-                    
   	  				this.isuserNameAvailable = true;
   	  			}else{
-                    console.log("User can register not in db");
   	  				this.isuserNameAvailable = false;
   	  			}
   	  		});
@@ -52,17 +44,14 @@ export class LoginComponent{
   	public onkeydown(event){
 		clearTimeout(this.typingTimer);
       }
-      
-
-
-
   	public login():void{
 
         if(this.username === '' || this.username === null) {
             alert(`Username can't be empty.`);
         }else if(this.password === '' || this.password === null ){
             alert(`Password can't be empty.`);
-        }else{
+        }
+        else{
             this.chatService.login({
                   'username' : this.username,
                   'password' : this.password,
@@ -80,35 +69,47 @@ export class LoginComponent{
         }
   	}
 
-    public registerUser():void{
-        
-        if(this.username === '') {
-            alert(`Username can't be empty.`);
-        }else if(this.email === ''){
-            alert(`Email can't be empty.`);
-        }else if(this.password === ''){
-            alert(`Password can't be empty.`);
-        }else if(!this.isuserNameAvailable){
+    public registerUser():void
+    {          
+        if(this.username === '' ||  this.username === null) 
+        {
+            alert(`Username can't be empty for registration.`);
+        }
+        else if(this.email === '' || this.email === null)
+        {
+            alert(`Email can't be empty for registration.`);
+        }
+        else if(this.password === '' || this.password === null)
+        {
+            alert(`Password can't be empty for registration.`);            
+        }
+        else if(!this.isuserNameAvailable)
+        {
            this.chatService.registerUser({
                 username : this.username,
                 email : this.email,
                 password : this.password
             },(error , result)=>{
-                if(error) {
-                    alert("alert! "+result);
-                }else{
-                    if(!result.error) {
+                if(error) 
+                {
+                    alert(result);
+                }
+                else
+                {
+                    if(!result.error) 
+                    {
                         this.router.navigate(['/home/'+result.userId]);
-                    }else{
+                    }
+                    else
+                    {
                         alert(`Registration failure.`);
                     }
                 }
             });
         }
-        else{
-            alert("Please login. User already registered.");
+        else
+        {
+        alert('There is already an existing account with the same username. Please choose a new unique username');
         }
-
     }
-
 }
