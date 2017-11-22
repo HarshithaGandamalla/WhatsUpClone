@@ -59,7 +59,7 @@
               class="input" placeholder="Enter group name here.."
               [(ngModel)]="groupText"
               (keyup.enter)="addGroup(newGroup.value)">
-              <button class="btn modal-close" (click)="addGroup(newGroup.value)">Create Group</button> 
+              <button id="newgroup" class="btn modal-close" (click)="addGroup(newGroup.value)">Create Group</button> 
           </div>
        </div>
          <!-- modal for status update -->
@@ -172,7 +172,7 @@
             }"
             [ngClass]="alignMessage(message.fromUserId)?'received': 'sent'">       
             <blockquote >
-                <div class="message-container" [innerHTML]=" message.message | emojis">
+                <div class="message-container" [innerHTML]=" message.message">
                 </div>
             </blockquote>
             

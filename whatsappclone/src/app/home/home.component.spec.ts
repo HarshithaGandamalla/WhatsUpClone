@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed , fakeAsync, tick} from '@angular/core/testing';
-import { HttpModule } from '@angular/http';
+import { HttpModule, Http } from '@angular/http';
 import { HomeComponent } from './home.component';
 import { Router, RouterModule, ActivatedRoute } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -7,98 +7,99 @@ import { RouterTestingModule } from "@angular/router/testing";
 import {Location} from "@angular/common";
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { BrowserModule  } from '@angular/platform-browser';
-import {DebugElement} from "@angular/core"; 
+import { DebugElement, Type } from "@angular/core"; 
 import {By} from "@angular/platform-browser";        
 import { SocketService } from './../socket.service';
 import { HttpService } from './../http.service';
 import { ChatService } from './../chat.service';
+import { TranslateModule, TranslateLoader, TranslateStaticLoader, TranslateService } from "ng2-translate";
+import { Ng2EmojiModule } from "ng2-emoji";
+import { appRoutes } from "../app.module"
+import {LoginComponent } from '../login/login.component';
+import { Observable } from "rxjs/Observable";
 
 
 var window = document.defaultView;
-var $ = require('jquery')(window);
+import { Route, ActivatedRouteSnapshot, UrlSegment, Params, Data, ParamMap } from '@angular/router';
 
-
-
+export class MockActivatedRoute implements ActivatedRoute{
+    snapshot : ActivatedRouteSnapshot;
+    url : Observable<UrlSegment[]>;
+    params : Observable<Params>;
+    queryParams : Observable<Params>;
+    fragment : Observable<string>;
+    data : Observable<Data>;
+    outlet : string;
+    component : Type<any>|string;
+    routeConfig : Route;
+    root : ActivatedRoute;
+    parent : ActivatedRoute;
+    firstChild : ActivatedRoute;
+    children : ActivatedRoute[];
+    pathFromRoot : ActivatedRoute[];
+    toString() : string{
+        return "";
+    };
+    paramMap: Observable<ParamMap>;
+    queryParamMap: Observable<ParamMap>;
+}
 describe('HomeComponent', () => {
-  let comp: HomeComponent;
+  let component: HomeComponent;
+  let loginComp : LoginComponent;
   let fixture: ComponentFixture<HomeComponent>;
-  let searchspy : jasmine.Spy;
-  let group_name:  HTMLInputElement;
-  let logout:   HTMLElement;
-  let settings:   HTMLElement;
-  let filter : Ng2SearchPipeModule;
-  
-
-  beforeEach(async(() => {
+  let regSpy: jasmine.Spy;
+  let location: Location;
+  let router: ActivatedRoute;
+  let service:ChatService;
+  beforeEach(fakeAsync(() => {
+    router = new MockActivatedRoute();
+    router.params = Observable.of({userid: "59e503b3333b2d08d8edc3f0"})
     TestBed.configureTestingModule({
-      declarations: [ HomeComponent],      
       imports: [ 
         FormsModule,
         HttpModule,
-        RouterTestingModule, // same any normal route config   
-        Ng2SearchPipeModule,
-        BrowserModule
+        RouterTestingModule.withRoutes(appRoutes),
+        Ng2SearchPipeModule
        ],
-      providers : [ChatService,HttpService,SocketService, Ng2SearchPipeModule]
-    })
-    
-    
-      fixture = TestBed.createComponent(HomeComponent);
-      comp= fixture.componentInstance;
-      fixture.detectChanges();
-     // const input = fixture.debugElement.query(By.css('#theid')); 
+       providers: [
+        ChatService,
+        HttpService,
+        // {
+        //   provide: ActivatedRoute, useValue: {
+        //     params: Observable.of({userid: "59e503b3333b2d08d8edc3f0"})
+        //   }
+        // }
+       ],
+       
+      declarations: [ HomeComponent, LoginComponent]
       
+    })
+    .compileComponents().then(() => {
+      fixture = TestBed.createComponent(HomeComponent);
+      component = fixture.componentInstance;
+      fixture.detectChanges();
+    });
+    router = TestBed.get(Router);
+    location = TestBed.get(Location);
 
+    fixture = TestBed.createComponent(HomeComponent);
+    service = TestBed.get(ChatService);
+    
   }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(HomeComponent);
-    comp = fixture.componentInstance;
-    fixture.detectChanges();
-    const input = fixture.debugElement.queryAll(By.css('input'));
-    group_name = input[0].nativeElement;
-    
+
+  it('should be created', () => {
+    expect(component).toBeTruthy();
   });
 
-
-  it('checks group button', async(() => {
-    searchspy = spyOn(comp, 'addGroup').and.callThrough();
-    const addGroupBtn = fixture.debugElement.nativeElement.querySelector('button');
-    addGroupBtn.click();
-    fixture.whenStable().then(()=>{
-     expect(comp.addGroup).toHaveBeenCalled() 
-     expect(group_name.textContent).toEqual('');
-     
-    });      
-  }));
-
-  it('should be set user chat name', () => {
+  describe('On page load', () => {
     
-   });
-
-
-  it('checks logout button', async(() => {
-    searchspy = spyOn(comp, 'logout').and.callThrough();
-    const  list = fixture.debugElement.queryAll(By.css('li'));
-    logout = list[1].nativeElement;
-    
-    logout.click();
-     fixture.whenStable().then(()=>{
-      expect(comp.logout).toHaveBeenCalled(); 
-    });      
-    }));
-
-    it('checks settings button', async(() => {
-      searchspy = spyOn(comp, 'Settings').and.callThrough();
-      const  list = fixture.debugElement.queryAll(By.css('li'));
-      settings = list[0].nativeElement;
+        it('should display a blank password input field', () => {
+       
+          service.userSessionCheck("59e503b3333b2d08d8edc3f0", (res) => {
+            expect(res).toBeTruthy;
+            });
+        });
       
-      settings.click();
-       fixture.whenStable().then(()=>{
-        expect(comp.Settings).toHaveBeenCalled(); 
-      });      
-      }));
-
-
-
-});
+      });
+    });

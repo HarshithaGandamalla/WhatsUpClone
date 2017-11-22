@@ -36,9 +36,9 @@ module.exports = function (config) {
     browsers: ['Chrome'],
     singleRun: false,
     files: [
+      'https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js',      
       { pattern: './node_modules/jquery/dist/jquery.min.js', watched: false },   
       { pattern: 'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js', watched: false },    
-      'https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js',
       
     ]
   });

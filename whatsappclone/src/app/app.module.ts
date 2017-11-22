@@ -18,10 +18,11 @@ import { FormsModule } from '@angular/forms';
 import { Ng2EmojiModule } from 'ng2-emoji';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import {APP_BASE_HREF} from '@angular/common';
+import { TranslateModule, TranslatePipe } from 'ng2-translate/ng2-translate';
 
 import { ActivatedRoute } from '@angular/router';
 
-const appRoutes:Routes = [
+export const appRoutes:Routes = [
   {path : '' , component : LoginComponent},
   {path:'home',component: HomeComponent},
   {path : 'home/:userid' , component : HomeComponent}
@@ -47,15 +48,16 @@ const appRoutes:Routes = [
     Ng2SearchPipeModule,
     MatSidenavModule,
     RouterModule.forRoot(appRoutes),
-    // Include the Emoticon Library
-    Ng2EmojiModule.forRoot()
+    Ng2EmojiModule.forRoot(),
+    TranslateModule.forRoot()
   ],
   exports: [
     Ng2SearchPipeModule
-  ],
+    ],
+  
   providers: [{ provide: APP_BASE_HREF, useValue: '/' }
 ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent,]
 })
 export class AppModule { }
 

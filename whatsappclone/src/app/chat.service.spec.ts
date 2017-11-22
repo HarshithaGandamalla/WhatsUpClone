@@ -100,8 +100,10 @@ describe('Service: Chat ', () => {
     });
     service.updateStatus("dimpu",(res) =>{
         expect(res).toBeTruthy;
-        }
-    )
+        })
+        service.registerUser({"username":"user","email":"email","password":"pass"}, (res)=>{
+          expect(res).toBeTruthy; 
+        })
 }));
 
 

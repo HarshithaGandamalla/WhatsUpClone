@@ -69,7 +69,8 @@ export class HomeComponent implements OnInit{
 		private route :ActivatedRoute,
 		private router :Router
 	) { }
- 
+
+	
 	ngOnInit() {
  
 		$(document).ready(function(){
@@ -91,6 +92,9 @@ export class HomeComponent implements OnInit{
 		* getting userID from URL using 'route.snapshot'
 		*/		
 		this.userId = this.route.snapshot.params['userid'];
+
+	
+	 
  
 		if(this.userId === '' || typeof this.userId == 'undefined') {
 			this.router.navigate(['/']);
