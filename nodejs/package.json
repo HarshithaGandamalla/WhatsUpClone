@@ -2,17 +2,33 @@
   "name": "nodejs",
   "version": "1.0.0",
   "main": "server.js",
-  "scripts": {
-    "test": "mocha",
-    "start": "node server.js"
+  "nyc": {
+    "require": [
+      "babel-register"
+    ],
+    "include": [],
+    "exclude": [],
+    "all": true,
+    "check-coverage": true,
+    "sourceMap": false,
+    "instrument": false
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ],
+    "env": {
+      "test": {
+        "plugins": [
+          "istanbul"
+        ]
+      }
+    }
   },
   "dependencies": {
     "@angular/core": "^4.0.0",
-    "accepts": "^1.3.4",
-    "after": "^0.8.2",
-    "base64id": "^1.0.0",
+    "babel-istanbul": "^0.12.2",
     "body-parser": "^1.18.2",
-    "chai": "^4.1.2",
     "chai-http": "^3.0.0",
     "component-emitter": "^1.2.1",
     "cookie": "^0.3.1",
@@ -48,11 +64,39 @@
     "zone.js": "^0.8.4"
   },
   "devDependencies": {
-    "coveralls": "^3.0.0",
-    "istanbul": "^0.4.5",
+    "@angular/cli": "^1.5.0",
+    "@angular/compiler": "^5.0.1",
+    "@angular/compiler-cli": "^5.0.1",
+    "babel-plugin-istanbul": "^4.1.5",
+    "babel-register": "^6.26.0",
+    "chai": "^4.1.2",
+    "cross-env": "^5.1.1",
     "jquery": "^3.2.1",
-    "nyc": "^11.3.0",
-    "supertest": "^3.0.0"
+    "nyc": "^10.3.2",
+    "request": "^2.83.0",
+    "supertest": "^3.0.0",
+    "typescript": "^2.4.2",
+    "babel": "^6.5.2",
+    "babel-cli": "^6.10.1",
+    "babel-core": "^6.10.4",
+    "babel-preset-es2015": "^6.9.0",
+    "coveralls": "^2.11.9",
+    "esdoc": "^0.4.7",
+    "eslint": "^3.0.1",
+    "istanbul": "^1.0.0-alpha.2",
+    "mocha": "^2.5.3",
+    "should": "^8.3.1"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test1": "node_modules/.bin/istanbul cover  ./node_modules/mocha/bin/_mocha -- -u exports --compilers js:babel-register --timeout 60000",
+    "test": "node_modules/.bin/istanbul cover  --include-all-sources ./node_modules/mocha/bin/_mocha  test/*.js ",
+    "testworking?": "cross-env NODE_ENV=test nyc --reporter=lcov --reporter=text mocha test/*.js",
+    "testdoubt": "babel-node ./node_modules/istanbul/lib/cli.js --include-all-sources cover ./node_modules/mocha/bin/_mocha -- ./test/ -R spec --recursive",
+    "test2": "babel-node ./node_modules/istanbul/lib/cli.js cover node_modules/.bin/_mocha --report text --check-coverage -- --timeout 5000 -u tdd --recursive test/test.js",
+    "test21": "./node_modules/.bin/istanbul --include-all-sources cover  %APPDATA%/npm/node_modules/mocha/bin/_mocha  -- --compilers js:babel-core/register  test/*.js",
+    "test111": "babel-node ./node_modules/.bin/babel-istanbul cover  ./node_modules/mocha/bin/_mocha  test/*.js ",
+    "test11": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha --require --compilers js:babel-core/register./node_modules/dotenv/config -- --timeout 10000 --recursive test/test.js"
   },
   "author": "",
   "license": "ISC",

@@ -16,7 +16,8 @@ class Routes{
 
        this.app.post('/usernameCheck',(request,response) =>{
        // console.log("in app/usernameCheck");
-        
+       console.log("User session request: "+JSON.stringify(request));
+       
            if (request.body.username === "" || request.body.username==undefined ) {
                response.status(200).json({
                    error : true,
@@ -27,6 +28,8 @@ class Routes{
                    username : request.body.username.toLowerCase()
                }, (count)=>{
 
+                console.log("User name response: "+JSON.stringify(result));
+                
                    let result = {};
                    
                    if (count > 0) {
@@ -118,7 +121,7 @@ class Routes{
 
                           registrationResponse.error = true;
                        registrationResponse.message = `Server error.`;
-                          response.status(404).json(registrationResponse);
+                          response.status(200).json(registrationResponse);
                       }else{
 
                         console.log("User registration response detains: "+result);
@@ -165,7 +168,7 @@ class Routes{
 
                           loginResponse.error = true;
                        loginResponse.message = `Server error.`;
-                          response.status(404).json(loginResponse);
+                          response.status(200).json(loginResponse);
                       }else{
                           loginResponse.error = false;
                           loginResponse.userId = result._id;
@@ -181,6 +184,8 @@ class Routes{
            let userId = request.body.userId;
            let sessionCheckResponse = {}
            
+           console.log("User session request: "+JSON.stringify(request));
+
            if (userId == ''||userId===undefined) {
 
                sessionCheckResponse.error = true;
@@ -192,6 +197,8 @@ class Routes{
                   helper.userSessionCheck( { 
                       userId : userId,
                   }, (error,result)=>{
+                    console.log("User session response: "+JSON.stringify(result));
+                    
                       
                       if (error || result === null) {
 
@@ -292,7 +299,7 @@ class Routes{
       //  console.log("data object:"+JSON.stringify(data));
 
         if (request.body.groupName === "") {
-            response.status(412).json({
+            response.status(200).json({
                 error : true,
                 message : `groupName cant be empty.`
             });

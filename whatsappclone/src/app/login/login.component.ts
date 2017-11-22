@@ -56,6 +56,9 @@ export class LoginComponent{
                   'username' : this.username,
                   'password' : this.password,
             },(error , result)=>{
+
+                console.log("login response :"+JSON.stringify(result));
+                
                 if(error) {
                     alert("User not found ,please register");
                 }else{
