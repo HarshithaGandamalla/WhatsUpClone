@@ -12,20 +12,11 @@ import {By} from "@angular/platform-browser";
 import { SocketService } from './../socket.service';
 import { HttpService } from './../http.service';
 import { ChatService } from './../chat.service';
-<<<<<<< HEAD
 import { TranslateModule, TranslateLoader, TranslateStaticLoader, TranslateService } from "ng2-translate";
 import { Ng2EmojiModule } from "ng2-emoji";
 import { appRoutes } from "../app.module"
 import {LoginComponent } from '../login/login.component';
 import { Observable } from "rxjs/Observable";
-=======
-import { Ng2EmojiModule } from 'ng2-emoji';
-import { SearchService } from "../search.service";
-
-var window = document.defaultView;
-var $ = require('jquery')(window);
-
->>>>>>> a4637f2dcfc492b1b9d8b1bdc268dcdd32615aa4
 
 
 var window = document.defaultView;
