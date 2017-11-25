@@ -20,7 +20,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import {APP_BASE_HREF} from '@angular/common';
 
 
-const appRoutes:Routes = [
+export const appRoutes:Routes = [
   {path : '' , component : LoginComponent},
   {path:'home',component: HomeComponent},
   {path : 'home/:userid' , component : HomeComponent}
