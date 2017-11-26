@@ -218,7 +218,6 @@ describe('when the user registers ', () => {
    });
  
          it('should throw username cant be empty alert', fakeAsync(() => {
-          spyOn(window, 'alert');
           fixture.detectChanges();
           
            fixture.whenStable().then(() => {           
