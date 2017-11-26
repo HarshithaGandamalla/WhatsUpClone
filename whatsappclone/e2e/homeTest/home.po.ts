@@ -33,4 +33,9 @@ export class HomePage {
   getOffline(){
     return element(by.id('offline'));
   }
+  
+   getChatFooter(){
+    return element(by.id('icon_prefix'));
+  }
+  
 }
