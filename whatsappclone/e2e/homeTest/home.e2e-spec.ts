@@ -8,10 +8,18 @@ describe('whatsappclone App', () => {
     page = new HomePage();
   });
 
-  // it('should display messages between current user and selected user', () => {
-  //  page.navigateTo();
-    
-  //   expect(page.getParagraphText()).toEqual('Hello');
-  // });
+  it('should have gone into the home page', () => 
+  {
+    page.navigateTo();
+    expect(browser.getCurrentUrl()).toEqual('http://localhost:49159/home/5a137b30a75e121758df3713');
+  });
+
+  it('should have the correct title', () => 
+  {
+    page.navigateTo();
+    expect(browser.getTitle()).toEqual('Whatsappclone');
+  });
+
+  
 });
 
