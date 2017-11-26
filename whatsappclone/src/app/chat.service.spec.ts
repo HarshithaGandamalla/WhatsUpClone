@@ -14,11 +14,14 @@ import {ChatService} from './chat.service';
 import { HttpService } from './http.service';
 
 
+
 describe('Service: Chat ', () => {
 
   let service: ChatService;
   let backend: MockBackend;
   let httpservice: HttpService;
+ 
+
   
 
   beforeEach(() => {
@@ -28,7 +31,7 @@ describe('Service: Chat ', () => {
         ChatService,
         HttpService,
         MockBackend,
-        BaseRequestOptions,
+        BaseRequestOptions,        
         {
           provide: Jsonp,
           useFactory: (backend, options) => new Jsonp(backend, options),
@@ -105,7 +108,6 @@ describe('Service: Chat ', () => {
           expect(res).toBeTruthy; 
         })
 }));
-
 
   });
 

@@ -78,11 +78,11 @@ export class LoginComponent{
 
     public registerUser():void{
         
-        if(this.username === '') {
+        if(this.username === '' || this.username === null) {
             alert(`Username can't be empty.`);
-        }else if(this.email === ''){
+        }else if(this.email === '' || this.email === null ){
             alert(`Email can't be empty.`);
-        }else if(this.password === ''){
+        }else if(this.password === '' || this.password === null ){
             alert(`Password can't be empty.`);
         }else if(!this.isuserNameAvailable){
            this.chatService.registerUser({
