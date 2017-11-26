@@ -15,7 +15,7 @@ export class HomePage {
   }
 
   getUserText(){
-    return element(by.className('jay')).getText();
+    return element(by.className('greeting-message')).getText();
   }
 
   getSettings(){
@@ -27,10 +27,10 @@ export class HomePage {
   }
 
   getOnline(){
-    return element(by.className('active'));
+    return element(by.id('online'));
   }
 
   getOffline(){
-    return element(by.className('inactive'));
+    return element(by.id('offline'));
   }
 }

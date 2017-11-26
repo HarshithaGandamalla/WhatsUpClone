@@ -3,7 +3,7 @@
   <div id="container " style="height: inherit">
     <nav class="main-nav">
       <div class="nav-wrapper  teal darken-4">
-        <span>Hello {{username}}   
+        <span class = "greeting-message">Hello {{username}}   
         </span>
         <!-- slide button -->
         <a href="#" data-activates="slide-out" class="button-collapse" style="display: block!important">
@@ -85,8 +85,8 @@
         <nav class="nav-extended">  
           <div class="nav-content">
             <ul class="tabs tabs-transparent">
-              <button class="waves-effect waves-light btn" (click)="selectedUsersList=true" style="width:50%">ONLINE</button>
-              <button class="waves-effect waves-light btn" (click)="selectedUsersList=false" style="width:50%">OFFLINE</button>
+              <button id = "online" class="waves-effect waves-light btn" (click)="selectedUsersList=true" style="width:50%">ONLINE</button>
+              <button id = "offline" class="waves-effect waves-light btn" (click)="selectedUsersList=false" style="width:50%">OFFLINE</button>
             </ul>
           </div>
         </nav>

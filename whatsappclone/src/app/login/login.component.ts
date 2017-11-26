@@ -60,12 +60,12 @@ export class LoginComponent{
                 console.log("login response :"+JSON.stringify(result));
                 
                 if(error) {
-                    alert("User not found ,please register");
+                    alert("Invalid Credentials");
                 }else{
                     if(!result.error) {
                         this.router.navigate(['/home/'+result.userId]);
                     }else{
-                        alert(`Invalid Credentials`);
+                        alert(`User not found ,please register`);
                     }
                 }
             });
@@ -76,15 +76,15 @@ export class LoginComponent{
     {          
         if(this.username === '' ||  this.username === null) 
         {
-            alert(`Username can't be empty.`);
+            alert(`Username can't be empty for registration.`);
         }
         else if(this.email === '' || this.email === null)
         {
-            alert(`Email can't be empty.`);
+            alert(`Email can't be empty for registration.`);
         }
         else if(this.password === '' || this.password === null)
         {
-            alert(`Password can't be empty.`);            
+            alert(`Password can't be empty for registration.`);            
         }
         else if(!this.isuserNameAvailable)
         {
