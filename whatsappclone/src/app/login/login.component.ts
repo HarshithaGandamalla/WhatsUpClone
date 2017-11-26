@@ -36,13 +36,9 @@ export class LoginComponent{
   			this.chatService.checkUserNameCheck({
   	  			'username' : this.username
   	  		}, (response)=>{
-                    console.log(response);
-  	  			if(response.error) {
-                    console.log("User cant register already in db");
-                    
+  	  			if(response.error) {                   
   	  				this.isuserNameAvailable = true;
   	  			}else{
-                    console.log("User can register not in db");
   	  				this.isuserNameAvailable = false;
   	  			}
   	  		});

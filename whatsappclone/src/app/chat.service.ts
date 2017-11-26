@@ -99,10 +99,7 @@ export class ChatService {
 	/* 
 	* Method to add user to chat group.
 	*/
-	public registerGroup(params,callback):any{
-
-		console.log("In registrop grp chat service");
-		
+	public registerGroup(params,callback):any{		
           this.httpService.registerGroup(params).subscribe(
 			response => {
 				callback(false,response);
@@ -122,9 +119,7 @@ export class ChatService {
 				console.log(JSON.stringify(response)+" in res");
 				callback(false,response);
 			},
-			error => {
-				console.log(error+" in error");
-				
+			error => {			
 				callback(true,'HTTP status fail.');
 			});
 	}

@@ -74,7 +74,7 @@ describe('LoginComponent', () => {
       const buttons = fixture.debugElement.queryAll(By.css('button'));
      
       login_btn=buttons[0].nativeElement;
-      reg_btn=fixture.debugElement.query(By.css('#btn_login')).nativeElement;
+      reg_btn=buttons[1].nativeElement;
       
       username_HtmlElement = fixture.debugElement.query(By.css('#username')).nativeElement;
       email_HtmlElement =  fixture.debugElement.query(By.css('#email')).nativeElement;
@@ -145,7 +145,7 @@ describe('LoginComponent', () => {
 
   });
 
-    describe('when the user logs with empty username throws alert', () => {
+    describe('when the user logs ', () => {
    
    
     beforeEach(() => {
@@ -176,10 +176,6 @@ describe('LoginComponent', () => {
              expect(window.alert).toHaveBeenCalledWith("Password can't be empty.");                  
            });
         }));
-
-       
-
-      
 });
 
 describe('when the user logs with empty username throws alert', () => {
@@ -212,116 +208,44 @@ describe('when the user logs with empty username throws alert', () => {
   });
 
 
-describe('when the user registers with empty username throws alert', () => {
+describe('when the user registers ', () => {
   
   
-   beforeEach(() => {   
-    spyOn(window, "alert");
+   beforeEach(() => {  
+    spyOn(window, 'alert');
+    spyOn(service, 'registerUser');
+    
    });
+ 
+         it('should throw username cant be empty alert', fakeAsync(() => {
+          spyOn(window, 'alert');
+          fixture.detectChanges();
+          
+           fixture.whenStable().then(() => {           
+             reg_btn.click();
+             expect(username_HtmlElement.textContent).toEqual('');        
+             expect(window.alert).toHaveBeenCalledWith("Username can't be empty.");         
+           });
+         }));
+ 
+         it('should throw password cant be empty alert', fakeAsync(() => {
+           fixture.detectChanges();
+           fixture.whenStable().then(() => {
+             
+             let input = fixture.debugElement.query(By.css('#username')).nativeElement;
+             expect(input.value).toBe('');
+             input.value = "dimpu";
+             input.dispatchEvent(new Event('input'));
+             fixture.detectChanges();
+             expect(password_HtmlElement.textContent).toEqual('');
+             expect(input.value).toBe('dimpu');
+             reg_btn.click();
+              expect(window.alert).toHaveBeenCalledWith("Password can't be empty.");                  
+            });
+         }));
+ });
 
-       it('should throw email cant be empty alert', async(() => 
-       {
-        fixture.detectChanges();
-        let input = fixture.debugElement.query(By.css('#username')).nativeElement;
-        let email = fixture.debugElement.query(By.css('#email')).nativeElement;
-        let password = fixture.debugElement.query(By.css('#password')).nativeElement;
-       
-
-        expect(input.value).toBe('');
-        input.value="newperson";
-        input.dispatchEvent(new Event('input'));
-        fixture.detectChanges();
-
-        
-        expect(input.value).toEqual('newperson');       
-        email.value="newperson";
-        input.dispatchEvent(new Event('input'));
-        fixture.detectChanges();
-        expect(password.value).toBe('');     
-
-        reg_btn.click();
-        fixture.detectChanges();
-        expect(window.alert).toHaveBeenCalledWith("Email can't be empty for registration.");
-       }));
-
-
-       it('should throw username cant be empty alert', fakeAsync(() => 
-               {
-               fixture.detectChanges();
-               
-               let input = fixture.debugElement.query(By.css('#username')).nativeElement;
-              let email = fixture.debugElement.query(By.css('#email')).nativeElement;
-               let password = fixture.debugElement.query(By.css('#password')).nativeElement;
-                expect(input.value).toBe('');
-               input.value="newperson";
-               input.dispatchEvent(new Event('input'));
-               fixture.detectChanges();
-               expect(input.value).toEqual('newperson');
-               
-               expect(email.value).toBe('');        
-               email.value="newemail"; 
-               input.dispatchEvent(new Event('input'));
-               fixture.detectChanges();
-               expect(email.value).toEqual('newemail');    
-               expect(password.value).toEqual('');
-               reg_btn.click();
-               fixture.detectChanges();
-       }));
-
-       it('should throw password cant be empty alert', fakeAsync(() => 
-       {
-        fixture.detectChanges();
-        let input = fixture.debugElement.query(By.css('#username')).nativeElement;
-        let email = fixture.debugElement.query(By.css('#email')).nativeElement;
-        let password = fixture.debugElement.query(By.css('#password')).nativeElement;
-       
-
-        expect(input.value).toBe('');
-        input.value="newperson";
-        input.dispatchEvent(new Event('input'));
-        fixture.detectChanges();
-
-        
-        email.value="newperson";
-        email.dispatchEvent(new Event('input'));
-        fixture.detectChanges();
-        expect(password.value).toBe('');     
-
-        reg_btn.click();
-        fixture.detectChanges();       
-        reg_btn.click();
-        expect(window.alert).toHaveBeenCalledWith("Password can't be empty for registration.");
-       }));
-
-       it('register user with correct credentials', fakeAsync(() => 
-       {
-        fixture.detectChanges();
-        let input = fixture.debugElement.query(By.css('#username')).nativeElement;
-        let email = fixture.debugElement.query(By.css('#email')).nativeElement;
-        let password = fixture.debugElement.query(By.css('#password')).nativeElement;
-       
-
-        expect(input.value).toBe('');
-        input.value="newperson";
-        input.dispatchEvent(new Event('input'));
-        fixture.detectChanges();
-
-        
-        email.value="newperson";
-        email.dispatchEvent(new Event('input'));
-        fixture.detectChanges();
-        password.value="newperson";
-        password.dispatchEvent(new Event('input'));
-        fixture.detectChanges();
-        reg_btn.click();
-     
-        expect(service.registerUser).toHaveBeenCalled;
-      }));
-});
-
-
-
-describe('when the user registers with empty username throws alert', () => {
+describe('key up key down', () => {
   
   
    beforeEach(() => {   
