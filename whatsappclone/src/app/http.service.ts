@@ -35,6 +35,8 @@ export class HttpService {
   			.map( (response:Response) => response.json())
   			.catch( (error:any) => Observable.throw(error.json().error || `Server error`) );
 	  }
+	  
+	
 
 
 	public login(params){

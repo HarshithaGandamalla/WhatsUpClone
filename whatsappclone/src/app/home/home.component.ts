@@ -21,7 +21,7 @@ import { ChatService } from './../chat.service';
 	selector: 'app-home',
   	templateUrl: './home.component.html',
   	styleUrls: ['./home.component.css'],
-	  providers : [ChatService,HttpService,SocketService]	  
+  	providers : [ChatService,HttpService,SocketService]
 })
 export class HomeComponent implements OnInit{
 
