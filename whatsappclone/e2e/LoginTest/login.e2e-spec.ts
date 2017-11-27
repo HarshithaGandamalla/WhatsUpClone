@@ -79,6 +79,19 @@ describe('Login App', () => {
    alertDialog.dismiss();
 });
 
+it('should allow user to login with empty email', () => 
+{
+  page.navigateTo();
+  let password = page.getLoginFormPassword();
+  let username = page.getLoginFormUsername();
+  let email = page.getLoginFormEmail();
+  username.sendKeys('e2e');
+  password.sendKeys('e2e'); 
+  email.sendKeys('');  
+  let btn = page.getLoginButton();
+  btn.click();
+});
+
 it('should not allow unregistered users', () => 
 {
   page.navigateTo();

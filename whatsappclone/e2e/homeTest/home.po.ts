@@ -38,4 +38,11 @@ export class HomePage {
     return element(by.id('icon_prefix'));
   }
   
+  getStatus(){
+    return element(by.id('status3')).getText();
+  }
+
+  getGroup(){
+    return element(by.id('newgroup')).getText();
+  }
 }

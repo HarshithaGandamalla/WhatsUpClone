@@ -58,13 +58,8 @@ describe('whatsappclone App', () => {
     page.getOnline().click();
   });
 
-  it('should check all the online users', () => 
-  {
-    page.navigateTo();
-    page.getOnline().click();
-  });
 
-  it('should not send a without recipient', () => 
+  it('should not send a message without recipient', () => 
   {
     page.navigateTo();
     var chat = page.getChatFooter();
@@ -75,51 +70,51 @@ describe('whatsappclone App', () => {
     alertDialog.dismiss();
   });
   
-  
-  it('should not register a group without group name', () => 
+  it('should find update status', () => 
   {
     page.navigateTo();
-    var newg = element(by.id('group1'));
-    newg.click();
-    var input = element(by.id('newgroup'));
-    input.sendKeys("",protractor.Key.ENTER);
-    browser.wait(browser.ExpectedConditions.alertIsPresent(), 5000);
-    var alertDialog = browser.switchTo().alert();
-    expect(alertDialog.getText()).toEqual("Please enter group name");
-    alertDialog.dismiss();
+    var text = page.getStatus();
+    expect(text).toEqual("");
+  });
+  
+  it('should find create group', () => 
+  {
+    page.navigateTo();
+    var text = page.getGroup();
+    expect(text).toEqual("");
   });
 
-  it('should successfully update status', () => 
-  {
-    page.navigateTo();
-    var newg = element(by.id('status1'));
-    newg.click();
-    var input = element(by.id('newstatus'));
-    input.sendKeys("I can update status",protractor.Key.ENTER);
-    browser.wait(browser.ExpectedConditions.alertIsPresent(), 5000);
-    var alertDialog = browser.switchTo().alert();
-    expect(alertDialog.getText()).toEqual("Status updated Successfully");
-    alertDialog.dismiss();
-  });
+  // it('should not register a group without group name', () => 
+  // {
+  //   page.navigateTo();
+  //   var newg = element(by.id('group1'));
+  //   newg.click();
+  //   var input = element(by.id('group2'));
+  //   input.sendKeys("",protractor.Key.ENTER);
+  //   browser.wait(browser.ExpectedConditions.alertIsPresent(), 5000);
+  //   var alertDialog = browser.switchTo().alert();
+  //   expect(alertDialog.getText()).toEqual("Please enter group name");
+  //   alertDialog.dismiss();
+  // });
+
+  // it('should successfully update status', () => 
+  // {
+  //   page.navigateTo();
+  //   var newg = element(by.id('status1'));
+  //   newg.click();
+  //   var input = element(by.id('newstatus'));
+  //   input.sendKeys("I can update status",protractor.Key.ENTER);
+  //   browser.wait(browser.ExpectedConditions.alertIsPresent(), 5000);
+  //   var alertDialog = browser.switchTo().alert();
+  //   expect(alertDialog.getText()).toEqual("Status updated Successfully");
+  //   alertDialog.dismiss();
+  // });
 
   it('should successfully find the search box', () => 
   {
     page.navigateTo();
     var search = element(by.id('search-box'));
     expect(search).toBeTruthy();
-  });
-
-  it('should successfully update status', () => 
-  {
-    page.navigateTo();
-    var newg = element(by.id('status1'));
-    newg.click();
-    var input = element(by.id('newstatus'));
-    input.sendKeys("I can update status",protractor.Key.ENTER);
-    browser.wait(browser.ExpectedConditions.alertIsPresent(), 5000);
-    var alertDialog = browser.switchTo().alert();
-    expect(alertDialog.getText()).toEqual("Status updated Successfully");
-    alertDialog.dismiss();
   });
   
 });
