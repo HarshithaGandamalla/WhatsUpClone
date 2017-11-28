@@ -51,6 +51,12 @@ export class HttpService {
   			.catch( (error:any) => Observable.throw(error.json().error || `Server error`) );
   	}
 
+	 public deregisterGroup(params){
+		return this.http.post(`${this.BASE_URL}deregisterGroup`,JSON.stringify(params),this.headerOptions)
+			.map( (response:Response) => response.json())
+			.catch( (error:any) => Observable.throw(error.json().error || `Server error`) );
+	}
+
     public userSessionCheck(params){
         return this.http.post(`${this.BASE_URL}userSessionCheck`,JSON.stringify(params),this.headerOptions)
             .map( (response:Response) => response.json())

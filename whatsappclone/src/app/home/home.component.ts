@@ -54,6 +54,7 @@ export class HomeComponent implements OnInit{
 	private groupName = '';
 	private groupsList= [];
 	private newUserstoGroup = [];
+	private removedUsersfromGroup = [];
 	private allUsers = [];
 	private status = null;
   
@@ -114,6 +115,7 @@ export class HomeComponent implements OnInit{
 							 	this.username = response.username;
 						 		this.overlayDisplay = true;
 						 
+								
 							 			/*
 											* making socket connection by passing UserId.
 											*/	
@@ -158,6 +160,14 @@ export class HomeComponent implements OnInit{
 											this.chatListUsers = response.chatList;
 										//	console.log("chatlist: "+JSON.stringify(this.chatListUsers));
 										}
+
+										this.chatListUsers.forEach(element => {
+											this.allUsers.push(element);
+											});
+											this.chatOfflineUsers.forEach(element => {
+												this.allUsers.push(element);
+												});
+												
 									}else{
 										alert('Chat list failure.');
 									}
@@ -470,14 +480,9 @@ updateStatus(status:string){
 						});
 	}
 
+
 		getUsers(){
-			console.log("in getUsers");
-			this.chatListUsers.forEach(element => {
-			this.allUsers.push(element);
-			});
-			this.chatOfflineUsers.forEach(element => {
-				this.allUsers.push(element);
-				});
+			
 		}
 
 		AddUser(username, userId){
@@ -502,6 +507,35 @@ updateStatus(status:string){
 						console.log("Added users successfully");
 					   }else{
 						   alert("ERROR adding user to group");
+					   }
+					});
+			});
+		}
+
+		
+		DeleteUser(username, userId){
+			console.log("userid in del user: "+userId);
+			this.removedUsersfromGroup.push({
+				"username" : username,
+				"userId" : userId,
+			});
+		   }
+
+		DeleteUsers(){
+			this.removedUsersfromGroup.forEach(element => {
+				console.log(element.username+ " was removed with id "+element.userId);
+				this.chatService.deregisterGroup(
+					{   
+						"username":element.username,
+						"userId":element.userId,
+						"groupName" :this.selectedGroupName
+					},
+					(error,response)=>
+					{
+					   if(!response.error){
+						console.log("Deleted users successfully");
+					   }else{
+						   alert("ERROR deleting user to group");
 					   }
 					});
 			});

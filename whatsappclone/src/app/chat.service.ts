@@ -120,6 +120,23 @@ export class ChatService {
 			});
 		
 	}
+
+
+	
+	/* 
+	* Method to remove user from chat group.
+	*/
+	public deregisterGroup(params,callback):any{		
+		this.httpService.deregisterGroup(params).subscribe(
+		  response => {
+			  callback(false,response);
+		  },
+		  error => {
+			  callback(true,'HTTP fail.');
+		  });
+	  
+  }
+  
   
   /* 
 	* Method to add update status of the user.

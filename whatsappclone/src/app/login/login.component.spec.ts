@@ -39,12 +39,13 @@ describe('LoginComponent', () => {
   let httpservice: HttpService;
   
   let backend: MockBackend;
+  
   let mockRouter = {
     navigate: jasmine.createSpy('navigate')
   };
   
  
-  beforeEach(fakeAsync(() => {
+  beforeEach((() => {
     TestBed.configureTestingModule({
       imports: [ 
         FormsModule,
@@ -70,11 +71,12 @@ describe('LoginComponent', () => {
       ],
       declarations: [ LoginComponent ]
       
-    })
-    .compileComponents().then(() => {
+    });
+  
       fixture = TestBed.createComponent(LoginComponent);
       component = fixture.componentInstance;
       fixture.detectChanges();
+      
       const h5s = fixture.debugElement.queryAll(By.css('h5'));
       h5 = h5s[0].nativeElement;
       const inputs = fixture.debugElement.queryAll(By.css('input'));
@@ -87,7 +89,7 @@ describe('LoginComponent', () => {
       email_HtmlElement =  fixture.debugElement.query(By.css('#email')).nativeElement;
       password_HtmlElement = fixture.debugElement.query(By.css('#password')).nativeElement;
       
-    });
+    
 
     backend = TestBed.get(MockBackend);  
     service = TestBed.get(ChatService);
@@ -230,7 +232,7 @@ describe('when the user registers ', () => {
            fixture.whenStable().then(() => {           
              reg_btn.click();
              expect(username_HtmlElement.textContent).toEqual('');        
-             expect(window.alert).toHaveBeenCalledWith("Username can't be empty.");         
+             expect(window.alert).toHaveBeenCalledWith("Username can't be empty for registration.");         
            });
          }));
  
@@ -246,7 +248,7 @@ describe('when the user registers ', () => {
              expect(email_HtmlElement.textContent).toEqual('');
              expect(input.value).toBe('dimpu');
              reg_btn.click();
-              expect(window.alert).toHaveBeenCalledWith("Email can't be empty.");                  
+              expect(window.alert).toHaveBeenCalledWith("Email can't be empty for registration.");                  
             });
          }));
 
@@ -267,7 +269,7 @@ describe('when the user registers ', () => {
             fixture.detectChanges();
             expect(email.value).toBe('Email');
             reg_btn.click();
-             expect(window.alert).toHaveBeenCalledWith("Password can't be empty.");                  
+             expect(window.alert).toHaveBeenCalledWith("Password can't be empty for registration.");                  
            });
         }));
 
@@ -373,7 +375,7 @@ describe('testing error cases', () => {
           inputpass.dispatchEvent(new Event('input'));
           fixture.detectChanges();
           login_btn.click();
-          expect(window.alert).toHaveBeenCalledWith("Invalid Credentials");                  
+          expect(window.alert).toHaveBeenCalledWith("Username can't be empty.");                  
           
           
       
@@ -411,7 +413,7 @@ describe('testing error cases', () => {
           email.dispatchEvent(new Event('input'));
           fixture.detectChanges();
           reg_btn.click();
-          expect(window.alert).toHaveBeenCalledWith("Registration failure.");                  
+          expect(window.alert).toHaveBeenCalledWith("Username can't be empty for registration.");                  
           
           
       

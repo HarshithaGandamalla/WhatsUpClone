@@ -17,7 +17,7 @@
     </nav>
 
     <!-- slide  content -->
-    <ul id="slide-out" class="side-nav scroll1" style="width: 25%;">
+    <!-- <ul id="slide-out" class="side-nav scroll1" style="width: 25%;">
       <li><div class="user-view">
         <div class="background">
           <img src="images/office.jpg">
@@ -31,7 +31,7 @@
       <li><div class="divider"></div></li>
       <li><a class="subheader">Subheader</a></li>
       <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
-    </ul>
+    </ul> -->
 
   <!-- Page Layout here -->
   <div class="row main-content">
@@ -110,27 +110,38 @@
               [class.selected-group]="isGroupSelected(group.groupName)">
               <i class="material-icons circle">folder</i>                    
               <span class="title">{{ group.groupName}}</span>
-              <a class="waves-effect waves-light btn modal-trigger right" href="#modal2" (click)="getUsers()">Add</a>
+              <a class="waves-effect waves-light btn modal-trigger right" href="#modal3" (click)="getUsers()">Add</a>
+              <a class="waves-effect waves-light btn modal-trigger right" href="#modal4" (click)="getUsers()">Delete</a>
+              
               <!-- Add users -->
             </li>
           </ul>
         </div> 
         <!-- Display all users registered -->
-        <div id="modal2" class="modal">
+        <div id="modal3" class="modal">
           <div class="modal-content">
             <form action="#" id="mySelect">
                 <p *ngFor="let user of allUsers; let i = index">
                   <input type="checkbox" class="filled-in" id="test{{i}}" (click)="AddUser(user.username,user._id)"/>
                   <label for="test{{i}}">  {{ user.username}} </label>
                 </p>
-                <!-- <p *ngFor="let user of chatOfflineUsers; let j = index">
-                    <input type="checkbox" class="filled-in" id="test{{j}}" (click)="AddUser(user.username,user._id)"/>
-                    <label for="test{{j}}">  {{ user.username}} </label>
-                </p> -->
               </form>
               <button class="btn modal-close" (click)="AddUsers()">Add users</button>                
           </div>
         </div>
+
+        <div id="modal4" class="modal">
+          <div class="modal-content">
+            <form action="#" id="mySelect2">
+                <p *ngFor="let user of newUserstoGroup; let i = index">
+                  <input type="checkbox" class="filled-in" id="testdelete{{i}}" (click)="DeleteUser(user.username,user.userId)"/>
+                  <label for="testdelete{{i}}">  {{ user.username}} </label>
+                </p>
+              </form>
+              <button class="btn modal-close" (click)="DeleteUsers()">Delete users</button>                
+          </div>
+        </div>
+
         <div *ngIf="!selectedUsersList">
           <ul class="collection">
             <li class="collection-item active avatar" 

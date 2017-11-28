@@ -92,6 +92,21 @@ class Helper{
     });
 }
 
+fetchGroups(data,groupName,callback){
+    this.Mongodb.onConnect( (db,ObjectID) => {
+
+
+        db.collection("groups").findOneAndUpdate(data,{$pull: {groupsArray:groupName}},(err, result)=> {
+            console.log(result);
+            console.log("Result of fetch groups: "+result);
+            
+            db.close();
+            callback(result);
+            
+          });
+    });
+}
+
 updateUserGroups(findby,groupName,callback){
     this.Mongodb.onConnect( (db,ObjectID) => {
         db.collection('groups').findAndModify(findby ,[], {$addToSet: {'groupsArray': groupName}},{upsert:true,new:true},(err, result) => {

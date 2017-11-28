@@ -14,10 +14,14 @@ class Routes{
    /* creating app Routes starts */
    appRoutes(){
 
+<<<<<<< HEAD
        this.app.post('/usernameCheck',(request,response) =>{
        // console.log("in app/usernameCheck");
   //     console.log("User session request: "+JSON.stringify(request));
        
+=======
+       this.app.post('/usernameCheck',(request,response) =>{       
+>>>>>>> Mocked backed for testing and added delete from group functionality
            if (request.body.username === "" || request.body.username==undefined ) {
                response.status(200).json({
                    error : true,
@@ -27,8 +31,11 @@ class Routes{
                helper.userNameCheck( {
                    username : request.body.username.toLowerCase()
                }, (count)=>{
+<<<<<<< HEAD
 
             //    console.log("User name response: "+JSON.stringify(result));
+=======
+>>>>>>> Mocked backed for testing and added delete from group functionality
                 
                    let result = {};
                    
@@ -77,9 +84,12 @@ class Routes{
             let satus =  "Hey there, I'm using Whatsapp!!";
 
            let registrationResponse = {}
+<<<<<<< HEAD
 
         //   console.log("request.body.email: "+JSON.stringify(request.body));
         //   console.log("email "+email);
+=======
+>>>>>>> Mocked backed for testing and added delete from group functionality
            
 
            if(typeof username=='undefined'||username==null||username=="") {
@@ -183,8 +193,12 @@ class Routes{
 
            let userId = request.body.userId;
            let sessionCheckResponse = {}
+<<<<<<< HEAD
            
            //console.log("User session request: "+JSON.stringify(request));
+=======
+        
+>>>>>>> Mocked backed for testing and added delete from group functionality
 
            if (userId == ''||userId===undefined) {
 
@@ -244,10 +258,13 @@ class Routes{
        });
 
        this.app.post('/getGroupMessages',(request,response) =>{
+<<<<<<< HEAD
        
 
       //  console.log("groupmessage request body: "+JSON.stringify(request.body));
         
+=======
+>>>>>>> Mocked backed for testing and added delete from group functionality
         let groupName = request.body.groupName;
         let messages = {}
                    
@@ -359,6 +376,43 @@ class Routes{
      });
   }
 });
+
+this.app.post('/deregisterGroup', (request,response) => {
+    
+     
+      let username = request.body.username.toLowerCase();
+      let groupName = request.body.groupName;
+      let userId = request.body.userId;
+      
+      let deregistrationResponse = {}
+      
+      
+      let groupsArray=[];
+      groupsArray.push(groupName);
+
+      const data = {
+        username :username,
+        userId:userId,
+    };
+
+    console.log("Deregistering "+username+" "+userId);
+
+    if (request.body.groupName === "") {
+        response.status(200).json({
+            error : true,
+            message : `groupName cant be empty.`
+        });
+    } else {
+
+        helper.fetchGroups(data,groupName, (count) => {
+            
+           console.log("Fetched: "+count);
+
+            
+ });
+}
+});
+
 
 
        this.app.get('*',(request,response) =>{
