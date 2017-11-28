@@ -317,12 +317,8 @@ describe('login user',function(){
             // .field('myparam' , 'test')
             //.set('content-type', 'application/x-www-form-urlencoded')
             .send( {
-            
-             
-             "username": "dimpu",
-            
-             "userId" : "59ffe4201f33fe33c839aeba"
-                              
+             "username": "dimpu", 
+             "userId" : "59ffe4201f33fe33c839aeba"          
             })
             .then(function(res) {
                 expect(res).to.have.status(200);

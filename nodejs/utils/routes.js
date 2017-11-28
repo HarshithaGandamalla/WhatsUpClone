@@ -14,7 +14,10 @@ class Routes{
    /* creating app Routes starts */
    appRoutes(){
 
-       this.app.post('/usernameCheck',(request,response) =>{       
+       this.app.post('/usernameCheck',(request,response) =>{
+       // console.log("in app/usernameCheck");
+  //     console.log("User session request: "+JSON.stringify(request));
+       
            if (request.body.username === "" || request.body.username==undefined ) {
                response.status(200).json({
                    error : true,
@@ -24,6 +27,8 @@ class Routes{
                helper.userNameCheck( {
                    username : request.body.username.toLowerCase()
                }, (count)=>{
+
+            //    console.log("User name response: "+JSON.stringify(result));
                 
                    let result = {};
                    
@@ -72,6 +77,9 @@ class Routes{
             let satus =  "Hey there, I'm using Whatsapp!!";
 
            let registrationResponse = {}
+
+        //   console.log("request.body.email: "+JSON.stringify(request.body));
+        //   console.log("email "+email);
            
 
            if(typeof username=='undefined'||username==null||username=="") {
@@ -175,7 +183,8 @@ class Routes{
 
            let userId = request.body.userId;
            let sessionCheckResponse = {}
-        
+           
+           //console.log("User session request: "+JSON.stringify(request));
 
            if (userId == ''||userId===undefined) {
 
@@ -235,6 +244,10 @@ class Routes{
        });
 
        this.app.post('/getGroupMessages',(request,response) =>{
+       
+
+      //  console.log("groupmessage request body: "+JSON.stringify(request.body));
+        
         let groupName = request.body.groupName;
         let messages = {}
                    
