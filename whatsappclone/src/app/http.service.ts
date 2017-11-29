@@ -87,5 +87,18 @@ export class HttpService {
 			.map( (response:Response) => response.json())
 			.catch( (error:any) => Observable.throw(error.json().error || `Server error`) );
 	}
+
+	public updateProfilepic(params){		
+		return this.http.post(`${this.BASE_URL}updateProfilepic`,JSON.stringify(params),this.headerOptions)
+			.map( (response:Response) => response.json())
+			.catch( (error:any) => Observable.throw(error.json().error || `Server error`) );
+	}
+
+	public getprofile(params){	
+		console.log("Entered HTTP Service");	
+		return this.http.post(`${this.BASE_URL}getprofile`,JSON.stringify(params),this.headerOptions)
+			.map( (response:Response) => response.json())
+			.catch( (error:any) => Observable.throw(error.json().error || `Server error`) );
+	}
   
 }

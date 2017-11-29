@@ -36,8 +36,7 @@ class Routes{
                });
            }
        });
-    
-    // Post call for status
+
        this.app.post('/updateStatus',(request,response) =>{
         
                    let userId = request.body.userId;
@@ -62,6 +61,123 @@ class Routes{
                               });
                             
                 });
+
+
+    
+    // Post call for status
+       this.app.post('/getprofile',(request,response) =>{
+        console.log("Hello ");
+
+        let userId = request.body.userId;
+        let getProfileResponse = {}
+
+
+        if (userId == ''||userId===undefined) {
+
+            getProfileResponse.error = true;
+            getProfileResponse.message = `User Id cant be empty.`;
+            response.status(200).json(getProfileResponse);
+
+        }else{
+
+               helper.getprofile( { 
+                   userId : userId,
+               }, (error,result)=>{
+                   
+                   if (error || result === null) {
+
+                    getProfileResponse.error = true;
+                    getProfileResponse.message = `Server error.`;
+                       response.status(200).json(getProfileResponse);
+                   }else{
+
+                    console.log(JSON.stringify(result));
+                    getProfileResponse.error = false;
+                    getProfileResponse.username = result.username;
+                    getProfileResponse.message = `User logged in.`;
+                    getProfileResponse.imgurl = result.img;
+                    response.status(200).json(getProfileResponse);
+                   }
+            });
+        }
+                    
+    });
+
+    this.app.post('/getprofile',(request,response) =>{
+        
+                   let userId = request.body.userId;
+                   let sessionCheckResponse = {}
+                   
+                   if (userId == ''||userId===undefined) {
+        
+                       sessionCheckResponse.error = true;
+                       sessionCheckResponse.message = `User Id cant be empty.`;
+                       response.status(200).json(sessionCheckResponse);
+        
+                   }else{
+        
+                          helper.userSessionCheck( { 
+                              userId : userId,
+                          }, (error,result)=>{
+                              
+                              if (error || result === null) {
+        
+                                  sessionCheckResponse.error = true;
+                               sessionCheckResponse.message = `Server error.`;
+                                  response.status(200).json(sessionCheckResponse);
+                              }else{
+        
+                                    sessionCheckResponse.error = false;
+                                    sessionCheckResponse.username = result.username;
+                                    sessionCheckResponse.message = `User logged in.`;
+                                    response.status(200).json(sessionCheckResponse);
+                              }
+                       });
+                   }
+               });
+        
+
+
+
+        this.app.post('/updateProfilepic',(request,response) =>{
+            
+                        let filename = request.body.filename;
+                        let file = request.body.file;
+                        let userId = request.body.userId;
+                        let profilepicResponse = {}
+
+                        var AWS = require('aws-sdk');
+                        var config = require('configure.json');
+                        AWS.config.loadFromPath('configure.json');
+
+                        var s3 = new AWS.S3();
+                        var bucketName= "profilepic"+ userId;
+                        s3BucketMgt.isBucketExist(bucketName,config,function(data){
+                            // If Bucket doesn't exists Create a new one
+                         if(data.status==false)
+                         {
+                            console.log("error in isBucketExist:"+data.error);
+                            //   Creating Bucket
+                            var bucketParams = {Bucket: bucketName};
+                            s3.createBucket(bucketParams)
+                            var s3Bucket = new AWS.S3( { params: {Bucket: bucketName} } )
+                         }
+                         var img_data = {Key: userId+"profilepic", Body: file};
+                         s3Bucket.putObject(img_data, function(err, data){
+                            if (err) 
+                              { console.log('Error uploading data: ', data); 
+                              } else {
+                                console.log('succesfully uploaded the image!');
+                              }
+                          });
+                          var urlParams = {Bucket: bucketName, Key: userId+"profilepic"};
+                          s3Bucket.getSignedUrl('getObject', urlParams, function(err, url){
+                            console.log('the url of the image is', url);
+                          })
+                        
+                        });
+                                 
+                    });
     
        this.app.post('/registerUser',(request,response) =>{
 
@@ -69,7 +185,8 @@ class Routes{
             let username = request.body.username;
             let email = request.body.email;
             let password = request.body.password;
-            let satus =  "Hey there, I'm using Whatsapp!!";
+            let status =  "Hey there, I'm using Whatsapp!!";
+            
 
            let registrationResponse = {}
            
@@ -100,29 +217,33 @@ class Routes{
             username : (request.body.username).toLowerCase(),
             email : request.body.email,
             password : request.body.password,
-            status: "Hey there, I'm using Whatsapp!!"
+            status: "Hey there, I'm using Whatsapp!!",
+            img: "http://support.plymouth.edu/kb_images/Yammer/default.jpeg"
         };
 
                data.timestamp = Math.floor(new Date() / 1000);
                data.online = 'Y' ;
                data.socketId = '' ;
+               
 
-                  helper.registerUser( data, (error,result)=>{
+                helper.registerUser( data, (error,result)=>{
+                    console.log("result when reg:  "+JSON.stringify(result));
 
-                      if (error) {
+                    if (error) {
 
-                          registrationResponse.error = true;
-                       registrationResponse.message = `Server error.`;
-                          response.status(200).json(registrationResponse);
-                      }else{
+
+                        registrationResponse.error = true;
+                        registrationResponse.message = `Server error.`;
+                        response.status(404).json(registrationResponse);
+                    }else{
 
                         console.log("User registration response detains: "+result);
-                          registrationResponse.error = false;
-                          registrationResponse.userId = result.insertedId;
-                       registrationResponse.message = `User registration successful.`;
-                          response.status(200).json(registrationResponse);
-                      }
-               });
+                        registrationResponse.error = false;
+                        registrationResponse.userId = result.insertedId;
+                        registrationResponse.message = `User registration successful.`;
+                        response.status(200).json(registrationResponse);
+                    }
+                });
            }
        });
 

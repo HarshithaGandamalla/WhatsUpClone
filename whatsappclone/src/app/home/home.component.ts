@@ -1,9 +1,9 @@
 
-
+declare var require: any;
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute ,Router } from '@angular/router';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-
+<any>require('aws-sdk/dist/aws-sdk');
 
 declare var $:any;
 
@@ -57,7 +57,7 @@ export class HomeComponent implements OnInit{
 	private removedUsersfromGroup = [];
 	private allUsers = [];
 	private status = null;
-  
+	private profile_img = '';
 	/*
 	* Chat and message related variables ends
 	*/
@@ -102,6 +102,36 @@ export class HomeComponent implements OnInit{
 		}
 			
 		else{
+
+
+				
+				this.chatService.updateStatus(
+						{
+							"userId":this.userId
+						},
+						(error,response)=>
+						{
+							if(!response.error){
+								alert("Status updated Successfully");
+							}else{
+								alert("ERROR updating status");
+							}						
+					});
+
+					this.chatService.getprofile(this.userId,( error, response )=>{
+				
+						if(error) {
+							console.log(error);
+							this.router.navigate(['/']); /* Home page redirection */
+						}
+						else
+						{
+							console.log("*************");
+							console.log(JSON.stringify(response));
+							console.log("**************");
+							this.profile_img = response.imgurl;
+						}
+					});
 		           
 					/*
 					* function to check if user is logged in or not starts
@@ -111,8 +141,9 @@ export class HomeComponent implements OnInit{
 				 		if(error) {
 				 			this.router.navigate(['/']); /* Home page redirection */
 				 		}else{
+
 				 			
-							 	this.username = response.username;
+								 this.username = response.username;
 						 		this.overlayDisplay = true;
 						 
 								
@@ -158,7 +189,8 @@ export class HomeComponent implements OnInit{
 											* Updating entire chatlist if user logs in.
 											*/
 											this.chatListUsers = response.chatList;
-										//	console.log("chatlist: "+JSON.stringify(this.chatListUsers));
+											console.log("IIIIIIIIIIIIIIIIIIIIIIIII");
+											console.log("chatlist: "+JSON.stringify(this.chatListUsers));
 										}
 
 										this.chatListUsers.forEach(element => {
@@ -543,6 +575,31 @@ updateStatus(status:string){
 			
 		Settings(){
 				
+		}
+		fileEvent(fileInput:any){
+
+			let file = fileInput.target.files[0];
+			this.chatService.updateProfilepic(
+				{   
+					"userId":this.userId,
+					"filename":file.name,
+					"file":file
+				},
+				(error,response)=>
+				{
+				   if(!response.error){
+					   alert("Status updated Successfully");
+				   }else{
+					   alert("ERROR updating status");
+				   }						
+				});
+
+			// Access Keys needs to be changed
+
+			// AWSService.config.accessKeyId = 'AKIAINOO6VT2L4UKJJQQ';
+			// AWSService.config.secretAccessKey = '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';
+			
+			// Creating an AWS Bucket for the User
 		}
 }
 	

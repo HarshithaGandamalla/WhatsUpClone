@@ -279,6 +279,14 @@ updateUserGroups(findby,groupName,callback){
            });
        });
    }
+   getprofile(data,callback){
+        this.Mongodb.onConnect( (db,ObjectID) => {
+            db.collection('users').findOne( { _id : ObjectID(data.userId)}, (err, result) => {
+                db.close();
+                callback(err,result);
+            });
+        });
+    }
 
     /*
    * Name of the Method : insertGroupMessages

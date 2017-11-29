@@ -2,8 +2,11 @@
   <!-- Navbar goes here -->
   <div id="container " style="height: inherit">
     <nav class="main-nav">
+      <!-- Put a Small Image of profile pic here -->
       <div class="nav-wrapper  teal darken-4">
-        <span class = "greeting-message">Hello {{username}}   
+
+        <span>Hello {{username}}
+          
         </span>
         <!-- slide button -->
         <a href="#" data-activates="slide-out" class="button-collapse" style="display: block!important">
@@ -17,21 +20,37 @@
     </nav>
 
     <!-- slide  content -->
-    <!-- <ul id="slide-out" class="side-nav scroll1" style="width: 25%;">
+    <ul id="slide-out" class="side-nav scroll1" style="width: 25%;">
       <li><div class="user-view">
         <div class="background">
-          <img src="images/office.jpg">
+          <img src="https://userscontent2.emaze.com/images/8946394a-a3cf-499e-a733-d5ccfe180b47/750f1f40ee0c6d21b9ba93a28a18d231.jpg">
         </div>
-        <a href="#!user"><img class="circle" src="images/yuna.jpg"></a>
+        <a href="#!user"><img class="circle" src={{profile_img}}></a>
+        
         <a href="#!name"><span class="white-text name">John Doe</span></a>
         <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
       </div></li>
-      <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+      <li>
+        <div>
+          <form action="#">
+            <div class="file-field input-field">
+              <div class="btn">
+                <span>Upload profile pic</span>
+                <input name="profilepic" type="file" id="profile-pic-upload" (change) = "fileEvent($event)">
+              </div>
+              <br>
+              <div class="file-path-wrapper">
+                <input class="file-path validate" type="text" placeholder="Upload one or more files">
+              </div>
+            </div>
+          </form>
+        </div>
+      </li>
       <li><a href="#!">Second Link</a></li>
       <li><div class="divider"></div></li>
       <li><a class="subheader">Subheader</a></li>
       <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
-    </ul> -->
+    </ul>
 
   <!-- Page Layout here -->
   <div class="row main-content">
@@ -97,8 +116,8 @@
               *ngFor="let user of chatListUsers |filter:term"
               (click)="selectedUser(user)" 
               [class.selected-user]="isUserSelected(user._id)">
-                <!--<img src={{user.image}} alt="" class="circle">-->
-                <i class="material-icons circle">folder</i>
+                <img src={{user.img}} alt="" class="circle">
+                <!-- <i class="material-icons circle">folder</i> -->
                 <span class="title">{{ user.username}}</span>
                 <p> <br></p>
                 <p><span class="title">{{ user.status}}</span></p>
@@ -108,7 +127,8 @@
               *ngFor="let group of groupsList |filter:term"
               (click)="selectedGroup(group)"
               [class.selected-group]="isGroupSelected(group.groupName)">
-              <i class="material-icons circle">folder</i>                    
+              <img src="" alt="" class="circle">
+              <!-- <i class="material-icons circle">folder</i>                     -->
               <span class="title">{{ group.groupName}}</span>
               <a class="waves-effect waves-light btn modal-trigger right" href="#modal3" (click)="getUsers()">Add</a>
               <a class="waves-effect waves-light btn modal-trigger right" href="#modal4" (click)="getUsers()">Delete</a>
@@ -148,11 +168,12 @@
                 *ngFor="let user of chatOfflineUsers |filter:term"
                 (click)="selectedUser(user)" 
                 [class.selected-user]="isUserSelected(user._id)">
-                  <!--<img src={{user.image}} alt="" class="circle">-->
-                  <i class="material-icons circle">folder</i>
-                   <span class="title">{{ user.username}}</span>
-                <p> <br></p>
-                <p><span class="title">{{ user.status}}</span></p>
+
+                  <img src={{user.img}} alt="" class="circle">
+                  <!-- <i class="material-icons circle">folder</i> -->
+                  <span class="title">{{ user.username}}</span>
+                  <p>First Line <br> Second Line</p>
+
                   <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
             </li>
           </ul> 

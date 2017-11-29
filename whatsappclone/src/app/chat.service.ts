@@ -92,6 +92,17 @@ export class ChatService {
               );
     }
 
+	public getprofile(userId ,callback):any{
+        this.httpService.getprofile({userId : userId}).subscribe(
+                  response => {
+					  console.log("Leading HTTP Request");
+                      callback(false,response);
+                  },
+                  error => {
+                      callback(true,'HTTP fail.');
+                  }
+              );
+    }
 
     /* 
 	* Method to check the session of user.
@@ -151,5 +162,19 @@ export class ChatService {
 				callback(true,'HTTP status fail.');
 			});
 	}
+
+	public updateProfilepic(params,callback):any{
+		this.httpService.updateProfilepic(params).subscribe(
+		  response => {
+			  console.log("OOOOOOOOOOOOOOOO");
+			  console.log(JSON.stringify(response)+" in res");
+			  callback(false,response);
+		  },
+		  error => {
+			  console.log(error+" in error");
+			  
+			  callback(true,'HTTP status fail.');
+		  });
+  }
 
 }
