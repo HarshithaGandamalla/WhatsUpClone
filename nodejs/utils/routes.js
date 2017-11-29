@@ -357,8 +357,8 @@ this.app.post('/deregisterGroup', (request,response) => {
       let deregistrationResponse = {}
       
       
-      let groupsArray=[];
-      groupsArray.push(groupName);
+    //   let groupsArray=[];
+    //   groupsArray.push(groupName);
 
       const data = {
         username :username,
@@ -374,18 +374,208 @@ this.app.post('/deregisterGroup', (request,response) => {
         });
     } else {
 
-        helper.fetchGroups(data,groupName, (count) => {
+        helper.fetchGroups(data,groupName, (result) => {
             
-           console.log("Fetched: "+count);
+            //pulled from collection
+           console.log("Fetched: "+JSON.stringify(result));
+            
+      });
+}
+});
 
+this.app.post('/deregisterUsers', (request,response) => {
+    
+     
+      let username = request.body.username.toLowerCase();
+      let groupName = request.body.groupName;
+      let userId = request.body.userId;
+      
+      let deregistrationResponse = {}
+
+
+      const pullvalue={
+          "username":username,
+          "userId":userId
+      }
+      
+     
+
+      const data = {
+        groupName :groupName,
+    };
+
+    //console.log("Deregistering "+username+" "+userId);
+
+    if (request.body.groupName === "") {
+        response.status(200).json({
+            error : true,
+            message : `groupName cant be empty.`
+        });
+    } else {
+
+        helper.pullUserFromGroup(data,pullvalue, (result) => {
             
- });
+            //pulled from collection return original i believe
+           console.log("Fetched: "+JSON.stringify(result));
+            
+      });
 }
 });
 
 
+  this.app.post('/addGroupUsers',(request,response) =>{
+    
+    let userarray= request.body.userarray;
+    let groupName = request.body.groupName;
+    
+    let messages = {}
+    let registrationResponse = {}
+
+    // let array=[];
+    // array=userarray;
+    
+
+
+    console.log("Userarray: "+userarray);
+    // const val = {
+
+    //     "username":username,
+    //     "userId":userId
+    // }
+    // let usersArray=[];
+    // usersArray.push(val);
+
+    const data = {
+        groupName:groupName
+  };
+               
+               if (groupName == ''||groupName==undefined||groupName==null) {
+                   messages.error = true;
+                   messages.message = `groupName cant be empty.`;
+                   response.status(200).json(messages);
+               }else{
+                helper.UserIdCheckInGroup(data, (count) => {
+                    
+                    if (count > 0) {
+                        console.log("group revelant userid array found");
+                       //modify exsisting groups array of user
+                       userarray.forEach(element => {
+                        
+                        let val={
+                            "username":element.username,
+                            "userId":element.userId 
+                        }
+
+                      helper.updateGroupUsersList( data ,val, (error,result)=>{
+                                         
+                       
+                        
+                             if (error) {
+                                               // console.log("Not  updated");
+                                                
+                                      registrationResponse.error = true;
+                                     registrationResponse.message = `Server error.`;
+                                     response.status(200).json(registrationResponse);
+                            
+                                    }else{
+                            
+                                                 // console.log("Succesfully updated");
+                                     registrationResponse.error = false;
+                                        registrationResponse.message = result;
+                                     response.status(200).json(registrationResponse);
+                                    }
+    
+    
+                      });
+                        
+                    });
+    
+                    } else {
+                      
+                      console.log("No group relevant users found: ");
+                     //insert new entry in database
+                    
+                        const registerUserData = {
+                            userIdArray:userarray,
+                            groupName:groupName
+                        };
+    
+                        
+            
+                      helper.registerUserId( registerUserData , (error,result)=>{
+    
+                        if (error) {
+    
+                            registrationResponse.error = true;
+                            registrationResponse.message = `Server error.`;
+                            response.status(200).json(registrationResponse);
+    
+                        }else{
+    
+                         registrationResponse.error = false;
+                         registrationResponse.message = result;
+                         response.status(200).json(registrationResponse);
+                        }
+                  });
+              }
+                    
+         });
+               }
+           });
+
+           this.app.post('/fetchMembers',(request,response) =>{
+            
+                let groupName = request.body.groupName;
+                       
+                       const data = {
+                        groupName:groupName
+                  };
+
+                  let messages = {}
+                  let registrationResponse = {}
+
+
+                       if (groupName == ''||groupName==undefined||groupName==null) {
+                           messages.error = true;
+                           messages.message = `groupName cant be empty.`;
+                           response.status(200).json(messages);
+                       }else{
+            
+                              helper.getMembers(data, (error,result)=>{
+            
+                                if (error){
+                                    
+                                            registrationResponse.error = true;
+                                            registrationResponse.message = `Server error.`;
+                                            response.status(200).json(registrationResponse);
+                                    
+                                        }else{
+                                    
+                                             console.log("Fetched members result: "+JSON.stringify(result));
+                                             registrationResponse.error = false;
+                                             registrationResponse.message = result;
+                                             response.status(200).json(registrationResponse);
+                                         }
+                           });
+                       }
+                   });
+
+
 
        this.app.get('*',(request,response) =>{
+        let userId = request.body.userId;
+         helper.logout(userId,(error,result)=>{
+                              
+                             if (error) {
+                
+                                    console.log("Error logging out on *");
+                
+                                }else{
+                
+                                    console.log("Successfully logged out on  *");
+                                        
+                                 }
+         });       
            response.sendFile(path.join(__dirname,'../dist/index.html'));
        });
        

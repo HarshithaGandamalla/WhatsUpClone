@@ -57,6 +57,13 @@ export class HttpService {
 			.catch( (error:any) => Observable.throw(error.json().error || `Server error`) );
 	}
 
+
+	public deregisterUsers(params){
+		return this.http.post(`${this.BASE_URL}deregisterUsers`,JSON.stringify(params),this.headerOptions)
+			.map( (response:Response) => response.json())
+			.catch( (error:any) => Observable.throw(error.json().error || `Server error`) );
+	}
+
     public userSessionCheck(params){
         return this.http.post(`${this.BASE_URL}userSessionCheck`,JSON.stringify(params),this.headerOptions)
             .map( (response:Response) => response.json())
@@ -65,6 +72,12 @@ export class HttpService {
 
 	public getMessages(params){
 		return this.http.post(`${this.BASE_URL}getMessages`,JSON.stringify(params),this.headerOptions)
+	    	.map( (response:Response) => response.json())
+	      	.catch( (error:any) => Observable.throw(error.json().error || `Server error`) );
+	}
+
+	public fetchMembers(params){
+		return this.http.post(`${this.BASE_URL}fetchMembers`,JSON.stringify(params),this.headerOptions)
 	    	.map( (response:Response) => response.json())
 	      	.catch( (error:any) => Observable.throw(error.json().error || `Server error`) );
 	}
@@ -78,6 +91,12 @@ export class HttpService {
 	
 	public registerGroup(params){		
 		return this.http.post(`${this.BASE_URL}registerGroup`,JSON.stringify(params),this.headerOptions)
+			.map( (response:Response) => response.json())
+			.catch( (error:any) => Observable.throw(error.json().error || `Server error`) );
+	}
+
+	public addGroupUsers(params){		
+		return this.http.post(`${this.BASE_URL}addGroupUsers`,JSON.stringify(params),this.headerOptions)
 			.map( (response:Response) => response.json())
 			.catch( (error:any) => Observable.throw(error.json().error || `Server error`) );
 	}

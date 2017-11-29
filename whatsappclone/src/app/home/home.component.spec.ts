@@ -124,16 +124,14 @@ describe('HomeComponent', () => {
 
 
  
-  it('should be created', () => {
-    expect(component).toBeTruthy();
+    it('should be created', () => {
+      expect(component).toBeTruthy();
     
-  });
+    });
 
       describe('On page load', () => {
     
         it('usersession check should run', () => {
-       
-       //    console.log("Parasm: "+this.params);
             service.userSessionCheck("59e503b3333b2d08d8edc3f0", (res) => {
             expect(res).toBeTruthy;
             });

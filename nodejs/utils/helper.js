@@ -92,14 +92,42 @@ class Helper{
     });
 }
 
+   /*
+   * Name of the Method : UserIdCheckInGroup
+   * Description : To check is the group is already in usergroup collection of database.
+   * Parameter : 
+   *		1) data query object for MongDB
+   *		2) callback function
+   * Return : callback 
+   */
+  UserIdCheckInGroup(data,callback){
+    this.Mongodb.onConnect( (db,ObjectID) => {
+        db.collection('groupusers').find(data).count( (err, result) => {
+            db.close();
+            callback(result);
+        });
+    });
+}
+
 fetchGroups(data,groupName,callback){
     this.Mongodb.onConnect( (db,ObjectID) => {
 
-
         db.collection("groups").findOneAndUpdate(data,{$pull: {groupsArray:groupName}},(err, result)=> {
             console.log(result);
-            console.log("Result of fetch groups: "+result);
+            console.log("Result of fetch groups: "+JSON.stringify(result));
             
+            db.close();
+            callback(result);
+            
+          });
+    });
+}
+
+pullUserFromGroup(data,val,callback){
+    this.Mongodb.onConnect( (db,ObjectID) => {
+
+
+        db.collection("groupusers").findOneAndUpdate(data,{$pull: {userIdArray:val}},(err, result)=> {            
             db.close();
             callback(result);
             
@@ -110,6 +138,15 @@ fetchGroups(data,groupName,callback){
 updateUserGroups(findby,groupName,callback){
     this.Mongodb.onConnect( (db,ObjectID) => {
         db.collection('groups').findAndModify(findby ,[], {$addToSet: {'groupsArray': groupName}},{upsert:true,new:true},(err, result) => {
+            db.close();
+            callback(err,result.value);
+        });
+    });
+}
+
+updateGroupUsersList(findby,val,callback){
+    this.Mongodb.onConnect( (db,ObjectID) => {
+        db.collection('groupusers').findAndModify(findby ,[], {$addToSet: {'userIdArray': val}},{upsert:true,new:true},(err, result) => {
             db.close();
             callback(err,result.value);
         });
@@ -136,6 +173,28 @@ updateUserGroups(findby,groupName,callback){
             callback(err,result);
         });
     });
+}
+
+    /*
+   * Name of the Method : registerUserId
+   * Description : Add user to Group
+   * Parameter : 
+   *		1) data query object for MongoDB
+   *		2) callback function
+   * Return : callback 
+   */
+  registerUserId(data,callback){
+    
+        //check if user is already associated wuth a group list
+        console.log("groupName: "+data.groupName);
+    
+        this.Mongodb.onConnect( (db,ObjectID) => {
+            db.collection('groupusers').insertOne(data, (err, result) =>{
+                db.close();
+                callback(err,result);
+            });
+        });
+    }
     
     //    this.Mongodb.onConnect( (db,ObjectID) => {
     //         db.collection('groups').findAndModify({username:data.username} ,[], {$addToSet: {'groupsArray':data.groupName}},{upsert:true,new:true},(err, result) => {
@@ -153,7 +212,7 @@ updateUserGroups(findby,groupName,callback){
 
 //else create new group list for the user
    
-}
+
 
 
    /*
@@ -257,6 +316,23 @@ updateUserGroups(findby,groupName,callback){
   getGroupsList(userId, callback){
     this.Mongodb.onConnect( (db,ObjectID) => {
         db.collection('groups').find(userId).toArray( (err, result) => {
+        db.close();
+            callback(err,result);
+        });
+    });
+}
+
+/*
+   * Name of the Method : getMembers
+   * Description : To get the  users list of group.
+   * Parameter : 
+   *		1) groupName of group
+   *		2) callback function
+   * Return : callback 
+   */
+  getMembers(groupName, callback){
+    this.Mongodb.onConnect( (db,ObjectID) => {
+        db.collection('groupusers').find(groupName).toArray( (err, result) => {
         db.close();
             callback(err,result);
         });

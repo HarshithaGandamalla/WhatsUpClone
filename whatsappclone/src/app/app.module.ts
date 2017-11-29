@@ -19,8 +19,8 @@ import { Ng2EmojiModule } from 'ng2-emoji';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import {APP_BASE_HREF} from '@angular/common';
 import { TranslateModule, TranslatePipe } from 'ng2-translate/ng2-translate';
-
 import { ActivatedRoute } from '@angular/router';
+import * as _ from "lodash";
 
 export const appRoutes:Routes = [
   {path : '' , component : LoginComponent},

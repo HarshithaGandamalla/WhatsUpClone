@@ -21,7 +21,7 @@ class Socket{
 
                let chatListResponse = {};
 
-               if (data.userId == '') {
+               if (data.userId === ''||data.userId===undefined||data.userId===null) {
 
                    chatListResponse.error = true;
                    chatListResponse.message = `User does not exits.`;
@@ -58,7 +58,7 @@ class Socket{
             
                            let chatListResponse = {};
             
-                           if (data.userId == '') {
+                           if (data.userId === ''||data.userId===undefined||data.userId===null) {
             
                                chatListResponse.error = true;
                                chatListResponse.message = `User does not exits.`;
@@ -100,7 +100,7 @@ class Socket{
 
             let groupListResponse = {};
             
-                           if (data.userId == '') {
+                           if (data.userId === '') {
             
                             groupListResponse.error = true;
                             groupListResponse.message = `User does not exits.`;
