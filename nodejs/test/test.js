@@ -395,73 +395,244 @@ describe('login user',function(){
 
     }); 
 
-    xdescribe('user status check',function(){
+    describe('user status check',function(){
         
-    //    it('pass when valid parameters are passed', function() {
-    //        return chai
-    //            .request('http://localhost:4000')
-    //            .post('/status')
-    //            .send( {
-    //             "userId" :"59fbd21d034f29380cf0024a",
-    //             "status":"Hey there! I am using whatsapp!! buhaha"
-    //            })
-    //            .then(function(res) {
-    //                expect(res).to.have.status(200);
+       it('pass when valid parameters are passed', function() {
+           return chai
+               .request('http://localhost:4000')
+               .post('/updateStatus')
+               .send( {
+                "userId" :"5a1f0baddd889909ccb548a7",
+                "status":"Hey there! I am using whatsapp!! buhaha"
+               })
+               .then(function(res) {
+                   expect(res).to.have.status(200);
                    
-    //                // res.body.SUCCESS.name.should.equal('Java');
-    //             //    expect(res.body.message).to.equal('User logged in.');
+                   // res.body.SUCCESS.name.should.equal('Java');
+                //    expect(res.body.message).to.equal('User logged in.');
                    
-    //              });
-    //              done();
-    //    });
+                 });
+                 done();
+       });
 
-    //    it('should not pass when userId is not entered', function() {
-    //     return chai
-    //         .request('http://localhost:4000')
-    //         .post('/status')
-    //         .send( {
+       it('should not pass when userId is not entered', function() {
+        return chai
+            .request('http://localhost:4000')
+            .post('/updateStatus')
+            .send( {
              
-    //             "userId" :"59fbd21d034f29380cf0024a"
+                "userId" :"5a1f0baddd889909ccb548a7"
              
-    //         })
-    //         .then(function(res) {
-    //             expect(res).to.have.status(200);
+            })
+            .then(function(res) {
+                expect(res).to.have.status(200);
                 
-    //             // res.body.SUCCESS.name.should.equal('Java');
-    //          //    expect(res.body.message).to.equal('User logged in.');
+                // res.body.SUCCESS.name.should.equal('Java');
+             //    expect(res.body.message).to.equal('User logged in.');
                 
-    //           });
-    //           done();
-    // });
+              });
+              done();
+    });
     
 
-    // it('should not pass when status is not entered', function() {
-    //     return chai
-    //         .request('http://localhost:4000')
-    //         .post('/status')
-    //         .send( {
+    it('should not pass when status is not entered', function() {
+        return chai
+            .request('http://localhost:4000')
+            .post('/updateStatus')
+            .send( {
             
-    //          "status":"Hey there! I am using whatsapp!! buhaha"
-    //         })
-    //         .then(function(res) {
-    //             expect(res).to.have.status(200);
+             "status":"Hey there! I am using whatsapp!! buhaha"
+            })
+            .then(function(res) {
+                expect(res).to.have.status(200);
                 
-    //             // res.body.SUCCESS.name.should.equal('Java');
-    //          //    expect(res.body.message).to.equal('User logged in.');
+                // res.body.SUCCESS.name.should.equal('Java');
+             //    expect(res.body.message).to.equal('User logged in.');
                 
-    //           });
-    //           done();
-    // });
+              });
+              done();
+    });
 
-         
-       
 
+    describe('Group de-registration check',function(){
+        
+       it('pass when valid parameters are passed', function() {
+           return chai
+               .request('http://localhost:4000')
+               .post('/updateStatus')
+               .send( {
+                "username" :"becky",
+                "groupName":"Holiday Plans!",
+                "userId":"5a1f0baddd889909ccb548a7"
+               })
+               .then(function(res) {
+                   expect(res).to.have.status(200);
+                   
+                   // res.body.SUCCESS.name.should.equal('Java');
+                //    expect(res.body.message).to.equal('User logged in.');
+                   
+                 });
+                 done();
+       });
+
+       it('should not pass when groupName is not entered', function() {
+        return chai
+            .request('http://localhost:4000')
+            .post('/updateStatus')
+            .send( {
+             
+                "userId" :"5a1f0baddd889909ccb548a7",
+                "username" :"becky"
+                
+             
+            })
+            .then(function(res) {
+                expect(res).to.have.status(200);
+                
+                // res.body.SUCCESS.name.should.equal('Java');
+             //    expect(res.body.message).to.equal('User logged in.');
+                
+              });
+              done();
+    });
+    
     }); 
+
+
+    describe('User group de-registration check',function(){
+        
+       it('pass when valid parameters are passed', function() {
+           return chai
+               .request('http://localhost:4000')
+               .post('/updateStatus')
+               .send( {
+                "username" :"becky",
+                "groupName":"Holiday Plans!",
+                "userId":"5a1f0baddd889909ccb548a7"
+               })
+               .then(function(res) {
+                   expect(res).to.have.status(200);
+                   
+                   // res.body.SUCCESS.name.should.equal('Java');
+                //    expect(res.body.message).to.equal('User logged in.');
+                   
+                 });
+                 done();
+       });
+
+       it('should not pass when groupName is not entered', function() {
+        return chai
+            .request('http://localhost:4000')
+            .post('/updateStatus')
+            .send( {
+             
+                "userId" :"5a1f0baddd889909ccb548a7",
+                "username" :"becky"
+                
+             
+            })
+            .then(function(res) {
+                expect(res).to.have.status(200);
+                
+                // res.body.SUCCESS.name.should.equal('Java');
+             //    expect(res.body.message).to.equal('User logged in.');
+                
+              });
+              done();
+    });
+    
+    }); 
+
+
+    
+    describe('User group registration check',function(){
+        
+       it('pass when valid parameters are passed', function() {
+           return chai
+               .request('http://localhost:4000')
+               .post('/updateStatus')
+               .send( {
+                "userarray" :"[]",
+                "groupName":"Holiday Plans!",
+               })
+               .then(function(res) {
+                   expect(res).to.have.status(200);
+                   
+                   // res.body.SUCCESS.name.should.equal('Java');
+                //    expect(res.body.message).to.equal('User logged in.');
+                   
+                 });
+                 done();
+       });
+
+       it('should not pass when groupName is not entered', function() {
+        return chai
+            .request('http://localhost:4000')
+            .post('/updateStatus')
+            .send( {
+             
+                "groupName" :"",
+                "userarray" :"[]"
+                
+             
+            })
+            .then(function(res) {
+                expect(res).to.have.status(200);
+                
+                // res.body.SUCCESS.name.should.equal('Java');
+             //    expect(res.body.message).to.equal('User logged in.');
+                
+              });
+              done();
+    });
+    
+    }); 
+
+    describe('fetch members from group check',function(){
+        
+       it('pass when valid parameters are passed', function() {
+           return chai
+               .request('http://localhost:4000')
+               .post('/updateStatus')
+               .send( {
+                "groupName":"Holiday Plans!",
+               })
+               .then(function(res) {
+                   expect(res).to.have.status(200);
+                   
+                   // res.body.SUCCESS.name.should.equal('Java');
+                //    expect(res.body.message).to.equal('User logged in.');
+                   
+                 });
+                 done();
+       });
+
+       it('should not pass when groupName is not entered', function() {
+        return chai
+            .request('http://localhost:4000')
+            .post('/updateStatus')
+            .send( {
+                "groupName" :""  
+             })
+            .then(function(res) {
+                expect(res).to.have.status(200);
+                
+                // res.body.SUCCESS.name.should.equal('Java');
+             //    expect(res.body.message).to.equal('User logged in.');
+                
+              });
+              done();
+    });
+    
+    }); 
+
+
+    
 
     
    
 
-
+    });
     
        
 

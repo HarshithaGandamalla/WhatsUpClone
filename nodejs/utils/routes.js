@@ -487,7 +487,7 @@ this.app.post('/deregisterGroup', (request,response) => {
         userId:userId,
     };
 
-    console.log("Deregistering "+username+" "+userId);
+   // console.log("Deregistering "+username+" "+userId);
 
     if (request.body.groupName === "") {
         response.status(200).json({
@@ -500,6 +500,11 @@ this.app.post('/deregisterGroup', (request,response) => {
             
             //pulled from collection
            console.log("Fetched: "+JSON.stringify(result));
+
+           response.status(200).json({
+            error : false,
+            message : `De registration successful!.`
+        });
             
       });
 }
@@ -539,6 +544,10 @@ this.app.post('/deregisterUsers', (request,response) => {
             
             //pulled from collection return original i believe
            console.log("Fetched: "+JSON.stringify(result));
+           response.status(200).json({
+            error : false,
+            message : `pulled user from group successfully.`
+        });
             
       });
 }
@@ -647,7 +656,7 @@ this.app.post('/deregisterUsers', (request,response) => {
 
            this.app.post('/fetchMembers',(request,response) =>{
             
-                let groupName = request.body.groupName;
+                let  groupName= request.body.groupName;
                        
                        const data = {
                         groupName:groupName

@@ -202,12 +202,7 @@ export class HomeComponent implements OnInit{
 										}
 
 										//track list of all users
-									   this.chatListUsers.forEach(element => {
-											this.allUsers.push(element);
-											});
-										this.chatOfflineUsers.forEach(element => {
-												this.allUsers.push(element);
-											});
+									  
 
 											console.log("ALL users...: "+JSON.stringify(this.allUsers));
 												
@@ -283,6 +278,14 @@ export class HomeComponent implements OnInit{
 									*/
 									this.chatOfflineUsers = response.chatList;
 								}
+
+								this.chatListUsers.forEach(element => {
+									this.allUsers.push(element);
+									});
+								this.chatOfflineUsers.forEach(element => {
+										this.allUsers.push(element);
+								});
+
 							}else{
 								alert('Chat list failure.');
 							}
@@ -511,7 +514,7 @@ this.chatService.getMessages({ userId : this.userId,toUserId :user._id} , ( erro
      updateStatus(status:string){
 			
 				   this.status=status;
-				    console.log(status +" id dttaud");
+				  //  console.log(status +" id dttaud");
 					//RegisterGroup
 					this.chatService.updateStatus(
 						{   "status":this.status,
@@ -617,6 +620,7 @@ this.chatService.getMessages({ userId : this.userId,toUserId :user._id} , ( erro
 					{
 						//this.exsistingUsers.length=0;
 
+						console.log("All users: "+JSON.stringify(this.allUsers));
 						let j=0;
 						for(j=0;j<this.allUsers.length;j++){
 							
