@@ -680,7 +680,7 @@ this.app.post('/deregisterUsers', (request,response) => {
 
 
 
-       this.app.get('*',(request,response) =>{
+       this.app.get('/*',(request,response) =>{
          //  console.log("Request on * "+JSON.stringify(request));
         let userId = request.body.userId;
         let socketId=request.body.socketId;
