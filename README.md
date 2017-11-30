@@ -14,18 +14,25 @@ This is our term project for CEN 5035, Software Engineering course. This applica
  
  Steps to get the development environment running:
  
-* Clone/download the repository 
- * Run npm install in both the folders 'whatsappclone' (frontend) and 'nodejs' (backend). This will download all the dependencies listed in package.json file(You need to install depedencies only once).  
+  * Clone/download the repository 
+  * Run npm install in both the folders 'whatsappclone' (frontend) and 'nodejs' (backend). This will download all the dependencies listed in package.json file(You need to install depedencies only once).  
   * Run npm start to start the Angular 2 project and navigate to http://localhost:4200/. 
-   * Run npm start in the nodejs folder to start the server on http://localhost:4000/.
+  * Run npm start in the nodejs folder to start the server on http://localhost:4000/.
 	
 ## Running unit tests
+To execute the unit tests via [Karma](https://karma-runner.github.io/1.0/index.html). 
  
-Run ng test to execute the unit tests via [Karma](https://karma-runner.github.io/1.0/index.html). Before running the tests, make sure    you are already running the application using the above steps. 
+Run ng test 
+
+Before running the tests, make sure    you are already running the application using the above steps. 
  
 ## Running end-to-end tests
+
+To execute the end-to-end tests via [Protractor](http://www.protractortest.org/#/).
  
-Run ng e2e to execute the end-to-end tests via [Protractor](http://www.protractortest.org/#/). Before running the tests, make sure      you are already running the application using the above steps. 
+Run ng e2e 
+
+Before running the tests, make sure you are already running the application using the above steps. 
 
 ## More Information
 
