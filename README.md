@@ -2,7 +2,7 @@
 
 ## Description
 
-This is our term project for CEN 5035, Software Engineering course. This application provides real-time instant messaging services * * similar to Whatsapp Web. Users can have one-one chat as well as create groups for group chat.   
+This is our term project for CEN 5035, Software Engineering course. This application provides real-time instant messaging services similar to Whatsapp Web. Users can have one-one chat as well as create groups for group chat.   
  
  ## Technologies Involved
  
@@ -35,8 +35,8 @@ Please read the wiki page in this repository for detailed documentation(Backend 
    
    | Name | UFID | Github Profile Name | UF Mail ID 
    | :------------- | :-------------: |  :-------------: | -------------: |
-   | Harshitha Gandamalla  | Content Cell  | HamsikaG | harsh1thagandama@ufl.edu  |
-   | Hamsika Gandamalla  | Content Cell  | HarshithaGandamalla  | ghamsika@ufl.edu  |
-   | Manisha Katkam  |   | manishakatkam  | mkatkam@ufl.edu  | 
-   | Ajantha Ramineni  |   | AjanthaRamineni  | amineni95@ufl.edu  |
+   | Harshitha Gandamalla  | 4993-5697  | HamsikaG | harsh1thagandama@ufl.edu  |
+   | Hamsika Gandamalla  | 5110-1448 | HarshithaGandamalla  | ghamsika@ufl.edu  |
+   | Manisha Katkam  | 4965-5179  | manishakatkam  | mkatkam@ufl.edu  | 
+   | Ajantha Ramineni  | 8451-8329 | AjanthaRamineni  | amineni95@ufl.edu  |
    | Venkata Jayakrishna Thota  | 0929-6863  | JayakrishnaThota  | jaygre@ufl.edu |
