@@ -35,8 +35,8 @@ Please read the wiki page in this repository for detailed documentation(Backend 
    
    | Name | UFID | Github Profile Name | UF Mail ID 
    | :------------- | :-------------: |  :-------------: | -------------: |
-   | Harshitha Gandamalla  | 4993-5697  | HamsikaG | harsh1thagandama@ufl.edu  |
-   | Hamsika Gandamalla  | 5110-1448 | HarshithaGandamalla  | ghamsika@ufl.edu  |
+   | Harshitha Gandamalla  | 4993-5697  | HarshithaGandamalla | harsh1thagandama@ufl.edu  |
+   | Hamsika Gandamalla  | 5110-1448 | HamsikaG  | ghamsika@ufl.edu  |
    | Manisha Katkam  | 4965-5179  | manishakatkam  | mkatkam@ufl.edu  | 
    | Ajantha Ramineni  | 8451-8329 | AjanthaRamineni  | amineni95@ufl.edu  |
    | Venkata Jayakrishna Thota  | 0929-6863  | JayakrishnaThota  | jaygre@ufl.edu |
