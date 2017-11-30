@@ -141,6 +141,7 @@ class Routes{
 
         this.app.post('/updateProfilepic',(request,response) =>{
             
+                        console.log(JSON.stringify(request));
                         let filename = request.body.filename;
                         let file = request.body.file;
                         let userId = request.body.userId;
