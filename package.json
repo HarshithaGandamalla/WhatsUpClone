@@ -13,7 +13,7 @@
     "pree2e": "webdriver-manager update",
     "preinstall": "npm install -g http-server",
     "postinstall": "ng build --prod",
-    "compodoc": "./node_modules/.bin/compodoc -p src/tsconfig.app.json" 
+    "compodoc": "./node_modules/.bin/compodoc -p src/tsconfig.app.json -s" 
   },
   "private": true,
   "dependencies": {
