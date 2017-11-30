@@ -1,0 +1,230 @@
+<div class="main">
+  <!-- Navbar goes here -->
+  <div id="container " style="height: inherit">
+    <nav class="main-nav">
+      <!-- Put a Small Image of profile pic here -->
+      <div class="nav-wrapper  teal darken-4">
+
+        <span>Hello {{username}}
+          
+        </span>
+        <!-- slide button -->
+        <a href="#" data-activates="slide-out" class="button-collapse" style="display: block!important">
+          <i class="material-icons">menu</i> 
+        </a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down" style=" height: inherit;padding-right: 20px;">
+            <li><a class='dropdown-button waves-effect waves-light' (click)="Settings()" data-activates='dropdown1'>Settings</a></li>    
+            <li id='logout' class="waves-effect waves-light" (click)="logout()" >Logout</li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- slide  content -->
+    <ul id="slide-out" class="side-nav scroll1" style="width: 25%;">
+      <li><div class="user-view">
+        <div class="background">
+          <img src="https://userscontent2.emaze.com/images/8946394a-a3cf-499e-a733-d5ccfe180b47/750f1f40ee0c6d21b9ba93a28a18d231.jpg">
+        </div>
+        <a href="#!user"><img class="circle" src={{profile_img}}></a>
+        
+        <a href="#!name"><span class="white-text name">John Doe</span></a>
+        <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+      </div></li>
+      <li>
+        <div>
+          <form action="#">
+            <div class="file-field input-field">
+              <div class="btn">
+                <span>Upload profile pic</span>
+                <input name="profilepic" type="file" id="profile-pic-upload" (change) = "fileEvent($event)">
+              </div>
+              <br>
+              <div class="file-path-wrapper">
+                <input class="file-path validate" type="text" placeholder="Upload one or more files">
+              </div>
+            </div>
+          </form>
+        </div>
+      </li>
+      <li><a href="#!">Second Link</a></li>
+      <li><div class="divider"></div></li>
+      <li><a class="subheader">Subheader</a></li>
+      <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+    </ul>
+
+  <!-- Page Layout here -->
+  <div class="row main-content">
+      <!-- begin s4 column -->
+      <div class="col s3 no-padding scroll1" style="height: inherit;overflow-y: auto;">
+        <nav>
+          <div class="nav-wrapper black">
+              <ul id="nav-mobile" class="left hide-on-med-and-down">   
+                <li> <a class="waves-effect waves-light modal-trigger" data-target="modal1">New Group</a></li>   
+              </ul>
+              <ul id="nav-mobile" class="left hide-on-med-and-down">   
+                <li> <a class="waves-effect waves-light modal-trigger" data-target="modal2">Update Status</a></li>   
+              </ul>
+          </div>
+        </nav>
+        
+        <ul id='dropdown1' class='dropdown-content'>
+            <li><a href="#!">Profile</a></li>
+        </ul>
+        <!-- modal for new group -->
+        <div id="modal1" class="modal">
+          <div class="modal-content">
+            <h4>Add Group Name</h4>
+            <input #newGroup
+              class="input" placeholder="Enter group name here.."
+              (keyup.enter)="addGroup(newGroup.value)">
+              <button id="newgroup" class="btn modal-close" (click)="addGroup(newGroup.value)">Create Group</button> 
+          </div>
+       </div>
+         <!-- modal for status update -->
+         <div id="modal2" class="modal">
+          <div class="modal-content">
+            <h4>Update Status</h4>
+            <input #newStatus
+              class="input" placeholder="Enter new status here.."
+              [(ngModel)]="status"
+              (keyup.enter)="updateStatus(newStatus.value)">
+              <button id = "status3" class="btn modal-close" (click)="updateStatus(newStatus.value)">Update Status</button> 
+          </div>
+       </div>
+       <form>
+          <div>
+              <input type="text" placeholder="  Search contacts" id="search-box" name="search">
+          </div>  
+        </form> 
+        <ul class="user-list">    
+            <!-- click event to handle the selection : selectedUser() -->
+            <!-- adding a class to indicate the selection --> 
+        </ul>
+        <nav class="nav-extended">  
+          <div class="nav-content">
+            <ul class="tabs tabs-transparent">
+              <button id = "online" class="waves-effect waves-light btn" (click)="selectedUsersList=true" style="width:50%">ONLINE</button>
+              <button id = "offline" class="waves-effect waves-light btn" (click)="selectedUsersList=false" style="width:50%">OFFLINE</button>
+            </ul>
+          </div>
+        </nav>
+        <!-- list of users -->
+        <div *ngIf="selectedUsersList">   
+          <ul class="collection">
+            <li class="collection-item active avatar" 
+              *ngFor="let user of chatListUsers |filter:term"
+              (click)="selectedUser(user)" 
+              [class.selected-user]="isUserSelected(user._id)">
+                <img src={{user.img}} alt="" class="circle">
+                <!-- <i class="material-icons circle">folder</i> -->
+                <span class="title">{{ user.username}}</span>
+                <p> <br></p>
+                <p><span class="title">{{ user.status}}</span></p>
+                <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+            </li> 
+            <li class="collection-item active avatar" 
+              *ngFor="let group of groupsList |filter:term"
+              (click)="selectedGroup(group)"
+              [class.selected-group]="isGroupSelected(group.groupName)">
+              <img src="" alt="" class="circle">
+              <!-- <i class="material-icons circle">folder</i>                     -->
+              <span class="title">{{ group.groupName}}</span>
+              <a class="waves-effect waves-light btn modal-trigger right" href="#modal3" (click)="populateNonMembers(group.groupName)">Add</a>
+              <a class="waves-effect waves-light btn modal-trigger right" href="#modal4" (click)="populateMembers(group.groupName)">Delete</a>
+              
+              <!-- Add users -->
+            </li>
+          </ul>
+        </div> 
+        <!-- Display all users registered -->
+        <div id="modal3" class="modal">
+          <div class="modal-content">
+            <form action="#" id="mySelect">
+                <p *ngFor="let user of exsistingUsers; let i = index">
+                  <input type="checkbox" class="filled-in" id="test{{i}}" (click)="AddUser(user.username,user.userId)"/>
+                  <label for="test{{i}}">  {{ user.username}} </label>
+                </p>
+              </form>
+              <button class="btn modal-close" (click)="AddUsers()">Add users</button>                
+          </div>
+        </div>
+
+        <div id="modal4" class="modal">
+          <div class="modal-content">
+            <form action="#" id="mySelect2">
+                <p *ngFor="let user of newUserstoGroup; let i = index">
+                  <input type="checkbox" class="filled-in" id="testdelete{{i}}" (click)="DeleteUser(user.username,user.userId)"/>
+                  <label for="testdelete{{i}}">  {{ user.username}} </label>
+                </p>
+              </form>
+              <button class="btn modal-close" (click)="DeleteUsers()">Delete users</button>                
+          </div>
+        </div>
+
+        <div *ngIf="!selectedUsersList">
+          <ul class="collection">
+            <li class="collection-item active avatar" 
+                *ngFor="let user of chatOfflineUsers |filter:term"
+                (click)="selectedUser(user)" 
+                [class.selected-user]="isUserSelected(user._id)">
+
+                  <img src={{user.img}} alt="" class="circle">
+                  <!-- <i class="material-icons circle">folder</i> -->
+                  <span class="title">{{ user.username}}</span>
+                  <p>First Line <br> Second Line</p>
+
+                  <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+            </li>
+          </ul> 
+        </div>
+      </div>
+        
+      <div class="col s9 no-padding scroll1" style="height: inherit;overflow-y: auto;">
+        <nav class="chat-title">     
+          <div class="nav-wrapper black">
+            <div *ngIf="selectedUserName" 
+              class="opposite-user">
+                Chatting with {{selectedUserName}}
+            </div>
+            <div *ngIf="selectedGroupName" 
+            class="opposite-user">
+              Chatting in {{selectedGroupName}}
+            </div>
+          </div>
+        </nav>
+        <ul class="message-thread">
+            <!-- <li class="clearfix"><blockquote class="me pull-right right">Hi</blockquote></li> -->
+            <!-- <li class="clearfix"><blockquote class="you pull-left left">Hello</blockquote></li> -->
+          <li class="clearfix" *ngFor="let message of messages" 
+            [ngStyle]="{
+              'display': inline-block,
+              'font-weight': 'bold',
+              'background-color': '#c51162 pink accent-4'
+            }"
+            [ngClass]="alignMessage(message.fromUserId)?'received': 'sent'">       
+            <blockquote >
+                <div class="message-container" [innerHTML]="message.message">
+                </div>
+            </blockquote>
+            
+          </li>
+        </ul>
+        <div class="page-footer chat-footer">
+          <div id="copyright">
+            <div class="">
+              <div class="input-field">
+                  <input placeholder="Enter your text here" id="icon_prefix" type="text" class="validate"
+                  [(ngModel)]="message" 
+                  (keyup)="sendMessage($event)">
+                  
+              </div>
+            </div>
+          </div> 
+        </div>
+      </div>
+      <!-- end of s8 column -->
+    </div>
+  </div>
+</div>
+
+<!--- end of trailpart -->
