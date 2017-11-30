@@ -104,6 +104,18 @@ export class ChatService {
               );
     }
 
+	public fetchMembers(params ,callback):any{
+		console.log("Entered Fetch Components");
+        this.httpService.fetchMembers(params).subscribe(
+                  response => {
+                      callback(false,response);
+                  },
+                  error => {
+                      callback(true,'HTTP fail.');
+                  }
+              );
+	}
+
     /* 
 	* Method to check the session of user.
 	*/
@@ -139,6 +151,35 @@ export class ChatService {
 	*/
 	public deregisterGroup(params,callback):any{		
 		this.httpService.deregisterGroup(params).subscribe(
+		  response => {
+			  callback(false,response);
+		  },
+		  error => {
+			  callback(true,'HTTP fail.');
+		  });
+	  
+  }
+  
+  	
+	/* 
+	* Method to remove users from  group list.
+	*/
+	public deregisterUsers(params,callback):any{		
+		this.httpService.deregisterUsers(params).subscribe(
+		  response => {
+			  callback(false,response);
+		  },
+		  error => {
+			  callback(true,'HTTP fail.');
+		  });
+	  
+  }
+  
+  /* 
+	* Method to maintain user list of group.
+	*/
+	public addGroupUsers(params,callback):any{		
+		this.httpService.addGroupUsers(params).subscribe(
 		  response => {
 			  callback(false,response);
 		  },

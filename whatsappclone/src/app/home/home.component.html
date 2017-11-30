@@ -85,11 +85,11 @@
          <div id="modal2" class="modal">
           <div class="modal-content">
             <h4>Update Status</h4>
-            <input #newGroup
+            <input #newStatus
               class="input" placeholder="Enter new status here.."
               [(ngModel)]="status"
-              (keyup.enter)="updateStatus(newGroup.value)">
-              <button id = "status3" class="btn modal-close" (click)="updateStatus(newGroup.value)">Update Status</button> 
+              (keyup.enter)="updateStatus(newStatus.value)">
+              <button id = "status3" class="btn modal-close" (click)="updateStatus(newStatus.value)">Update Status</button> 
           </div>
        </div>
        <form>
@@ -130,8 +130,8 @@
               <img src="" alt="" class="circle">
               <!-- <i class="material-icons circle">folder</i>                     -->
               <span class="title">{{ group.groupName}}</span>
-              <a class="waves-effect waves-light btn modal-trigger right" href="#modal3" (click)="getUsers()">Add</a>
-              <a class="waves-effect waves-light btn modal-trigger right" href="#modal4" (click)="getUsers()">Delete</a>
+              <a class="waves-effect waves-light btn modal-trigger right" href="#modal3" (click)="populateNonMembers(group.groupName)">Add</a>
+              <a class="waves-effect waves-light btn modal-trigger right" href="#modal4" (click)="populateMembers(group.groupName)">Delete</a>
               
               <!-- Add users -->
             </li>
@@ -141,8 +141,8 @@
         <div id="modal3" class="modal">
           <div class="modal-content">
             <form action="#" id="mySelect">
-                <p *ngFor="let user of allUsers; let i = index">
-                  <input type="checkbox" class="filled-in" id="test{{i}}" (click)="AddUser(user.username,user._id)"/>
+                <p *ngFor="let user of exsistingUsers; let i = index">
+                  <input type="checkbox" class="filled-in" id="test{{i}}" (click)="AddUser(user.username,user.userId)"/>
                   <label for="test{{i}}">  {{ user.username}} </label>
                 </p>
               </form>
