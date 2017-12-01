@@ -4,6 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute ,Router } from '@angular/router';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 <any>require('aws-sdk/dist/aws-sdk');
+import * as _ from "lodash";
+
 
 declare var $:any;
 
@@ -53,11 +55,18 @@ export class HomeComponent implements OnInit{
 	private messages = [];
 	private groupName = '';
 	private groupsList= [];
+
+	private selectedUserstoAdd=[];
+	private selectedUserstoDelete=[];
+
 	private newUserstoGroup = [];
 	private removedUsersfromGroup = [];
+	private exsistingUsers=[];
+
 	private allUsers = [];
 	private status = null;
 	private profile_img = '';
+	private profile_url = '';
 	/*
 	* Chat and message related variables ends
 	*/
@@ -101,22 +110,8 @@ export class HomeComponent implements OnInit{
 			this.router.navigate(['/']);
 		}
 			
-		else{
-
-
+		else{				
 				
-				this.chatService.updateStatus(
-						{
-							"userId":this.userId
-						},
-						(error,response)=>
-						{
-							if(!response.error){
-								alert("Status updated Successfully");
-							}else{
-								alert("ERROR updating status");
-							}						
-					});
 
 					this.chatService.getprofile(this.userId,( error, response )=>{
 				
@@ -193,12 +188,15 @@ export class HomeComponent implements OnInit{
 											console.log("chatlist: "+JSON.stringify(this.chatListUsers));
 										}
 
-										this.chatListUsers.forEach(element => {
+										//track list of all users
+									   this.chatListUsers.forEach(element => {
 											this.allUsers.push(element);
 											});
-											this.chatOfflineUsers.forEach(element => {
+										this.chatOfflineUsers.forEach(element => {
 												this.allUsers.push(element);
-												});
+											});
+
+											console.log("ALL users...: "+JSON.stringify(this.allUsers));
 												
 									}else{
 										alert('Chat list failure.');
@@ -325,7 +323,7 @@ export class HomeComponent implements OnInit{
 				*/
 
 				
-				this.chatService.getMessages({ userId : this.userId,toUserId :user._id} , ( error , response)=>{
+this.chatService.getMessages({ userId : this.userId,toUserId :user._id} , ( error , response)=>{
 					console.log("Selected user response: "+JSON.stringify(response));
 					
 					if(!response.error) {
@@ -456,11 +454,20 @@ export class HomeComponent implements OnInit{
 				}
 			}
 		
+
 			addGroup(newGroup:string){
 				
+				console.log("New group name: "+newGroup);
 				
-					if (newGroup) {
-					   this.groupName=newGroup; 
+					if (newGroup ===null||newGroup ===''||newGroup===undefined) {
+						
+						alert("Please enter group name");
+						
+					}
+					else
+					{
+
+						this.groupName=newGroup; 
 						//RegisterGroup
 						this.chatService.registerGroup(
 							{   'username':this.username,
@@ -484,17 +491,12 @@ export class HomeComponent implements OnInit{
 							
 							});
 
-					}
-					else
-					{
-						alert("Please enter group name");
 						
 					}
 		
 		}
 
-updateStatus(status:string){
-			
+     updateStatus(status:string){
 				   this.status=status;
 				    console.log(status +" id dttaud");
 					//RegisterGroup
@@ -513,21 +515,223 @@ updateStatus(status:string){
 	}
 
 
-		getUsers(){
-			
+     	populateMembers(groupNameToPopulate){
+			this.chatService.fetchMembers(
+				{  
+					 "groupName":groupNameToPopulate,
+				},
+				(error,response)=>
+				{
+				
+					console.log("Response on fecth: "+JSON.stringify(response));
+				   if(!response.error){
+
+					console.log("Members: "+JSON.stringify(response.message[0]));
+					let j=0;
+
+					this.newUserstoGroup.length=0;
+
+					//let updatemembers=[];
+
+					if(response.message[0]!=null)
+					{
+						for(j=0;j<response.message[0].userIdArray.length;j++)
+					{
+						let value={
+							"username":response.message[0].userIdArray[j].username,
+							"userId":response.message[0].userIdArray[j].userId
+						}
+					//	updatemembers.push(value);
+						this.newUserstoGroup.push(value);
+						
+					}
+
+				//	this.newUserstoGroup=updatemembers;
+					
+				   }
+
+				   }else{
+					   console.log("ERROR populating members");
+				   }						
+				});
 		}
 
+		populateNonMembers(groupName){
+			
+		//	let diff = this.allUsers.filter(x => this.newUserstoGroup.indexOf(x) < 0 );
+			
+			//console.log("diff  members: "+JSON.stringify(diff));
+			
+			this.exsistingUsers.length=0;
+
+
+			this.chatService.fetchMembers(
+				{  
+					 "groupName":groupName,
+				},
+				(error,response)=>
+				{
+				
+					//console.log("Response on fecth: "+JSON.stringify(response));
+				   if(!response.error){
+
+					//console.log("Members: "+JSON.stringify(response.message[0]));
+					let j=0;
+
+					let exsistingmembers=[];
+
+					
+					if(response.message[0]!=null)
+					{
+						for(j=0;j<response.message[0].userIdArray.length;j++)
+					{
+						// let value={
+						// 	"username":response.message[0].userIdArray[j].username,
+						// 	"userId":response.message[0].userIdArray[j].userId
+						// }
+						if(exsistingmembers.indexOf(response.message[0].userIdArray[j].username)<0)
+						  exsistingmembers.push(response.message[0].userIdArray[j].username);
+						
+					}
+
+					console.log("Exsisting users: "+exsistingmembers);
+
+					
+				   }
+
+
+					if(this.allUsers!=null)
+					{
+						//this.exsistingUsers.length=0;
+
+						let j=0;
+						for(j=0;j<this.allUsers.length;j++){
+							
+							let check = {
+								"username":this.allUsers[j].username,
+								"userId":this.allUsers[j]._id
+							}
+							 
+							let notMember=false;
+
+						
+							if(exsistingmembers.indexOf(this.allUsers[j].username)<0){
+								console.log("Not a member: "+check.username);
+								notMember=true;
+							}
+								
+							  if(this.exsistingUsers.length==0 && notMember){
+								console.log("adding..: "+check.username);
+								
+									this.exsistingUsers.push(check);
+								 
+								}else{
+
+									if(notMember){
+										let k=0;
+										let alreaypresent=false;
+										for(k=0;k<this.exsistingUsers.length;k++)
+										{	
+											console.log("In loop with: "+this.exsistingUsers[k].username+" "+this.allUsers[j].username);
+											console.log("In loop with: "+this.exsistingUsers[k].userId+" "+this.allUsers[j]._id);
+											
+									         if(this.exsistingUsers[k].username==this.allUsers[j].username && this.exsistingUsers[k].userId==this.allUsers[j]._id ){
+												console.log("Not a member: but already added: "+check.username);
+												
+												alreaypresent=true;
+											 }
+										}
+
+										if(!alreaypresent){
+											console.log("Not a member: also not  added: adding "+check.username);
+											
+											this.exsistingUsers.push(check);
+											
+										}
+									
+									}
+
+								}
+									
+									
+								
+
+							
+
+							
+
+							// if(exsistingmembers.indexOf(this.allUsers[j].username)<0 && this.exsistingUsers.indexOf(check)<0){
+								
+							// 	console.log("not a memener of exs users: "+this.allUsers[j].username);
+								
+							// 	let val={
+							// 		"username":this.allUsers[j].username,
+							// 		"userId":this.allUsers[j]._id
+							// 	}
+
+							// 	if(this.exsistingUsers.indexOf(val)<0)
+							// 	this.exsistingUsers.push(val);
+							// }
+							//console.log("AllUSERS!! "+JSON.stringify(this.allUsers));
+						}
+					}
+
+				   }else{
+					   console.log("ERROR populating members");
+				   }						
+				});
+			
+		   }
+			
+
+		
+
 		AddUser(username, userId){
-		 this.newUserstoGroup.push({
-			 "username" : username,
-			 "userId" : userId,
-		 });
+          console.log("Trying to add: "+username);
+			let i;
+			let obj = {
+				"username" : username,
+				"userId" : userId,
+			};
+			let bool=false;
+
+			if(this.selectedUserstoAdd!=null &&this.selectedUserstoAdd.length!=0 )
+			{
+				for (i = 0; i < this.selectedUserstoAdd.length; i++) {
+				
+					console.log("this.selectedUserstoAdd[i]: "+JSON.stringify(this.selectedUserstoAdd[i]));
+				if(_.isEqual(obj,this.selectedUserstoAdd[i]))
+			     {
+					console.log("Already exsists!!");
+					this.selectedUserstoAdd.splice(i, 1);
+                    bool=true;
+				 }
+			}
+		}
+		
+			if(!bool)
+			{
+			console.log("does not  exsist!");
+			this.selectedUserstoAdd.push(obj);
+          	}
 		}
 
 		AddUsers(){
-			this.newUserstoGroup.forEach(element => {
+
+
+ 
+			if(_.isEmpty(this.selectedUserstoAdd)||this.selectedUserstoAdd==null||this.selectedUserstoAdd==undefined){
+ 
+				alert("Please select users to Add.");
+
+			}else{
+
+				console.log("IS not empty!");
+			this.selectedUserstoAdd.forEach(element => {
 				console.log(element.username+ " was added to "+this.selectedGroupName);
-				this.chatService.registerGroup(
+
+				//registering user to grouparray
+				 this.chatService.registerGroup(
 					{   
 						"username":element.username,
 						"userId":element.userId,
@@ -541,21 +745,60 @@ updateStatus(status:string){
 						   alert("ERROR adding user to group");
 					   }
 					});
-			});
+
+				});
+
+					this.chatService.addGroupUsers(
+						{   
+							"userarray":this.selectedUserstoAdd,							
+							"groupName" :this.selectedGroupName
+						},
+						(error,response)=>
+						{
+						   if(!response.error){
+							console.log("group users updated");
+						   }else{
+							   alert("ERROR updating userlist for group");
+						   }
+						});
+	
+					}
+
 		}
 
 		
 		DeleteUser(username, userId){
 			console.log("userid in del user: "+userId);
-			this.removedUsersfromGroup.push({
+           
+			let i;
+			let obj={
 				"username" : username,
 				"userId" : userId,
-			});
-		   }
+			};
+			let bool=false;
+
+			if(this.selectedUserstoDelete!=null &&this.selectedUserstoDelete.length!=0 ){
+			
+			for (i = 0; i < this.selectedUserstoDelete.length; i++) {
+				
+				if(_.isEqual(obj,this.selectedUserstoDelete[i]))
+				{
+				  this.selectedUserstoDelete.splice(i, 1);	
+                  bool=true;
+				}
+			}
+		}
+			if(!bool)
+			this.selectedUserstoDelete.push(obj);
+		}
+
+		
 
 		DeleteUsers(){
-			this.removedUsersfromGroup.forEach(element => {
+			this.selectedUserstoDelete.forEach(element => {
+
 				console.log(element.username+ " was removed with id "+element.userId);
+
 				this.chatService.deregisterGroup(
 					{   
 						"username":element.username,
@@ -570,37 +813,84 @@ updateStatus(status:string){
 						   alert("ERROR deleting user to group");
 					   }
 					});
+
+					this.chatService.deregisterUsers(
+						{   
+							"username":element.username,
+							"userId":element.userId,
+							"groupName" :this.selectedGroupName
+						},
+						(error,response)=>
+						{
+						   if(!response.error){
+							console.log("removed user from group listsuccessfully");
+						   }else{
+							   alert("ERROR removeing user from group lists");
+						   }
+						});
+
+
+					//pull from groupuser collection also!!!
 			});
 		}
 			
 		Settings(){
 				
 		}
+
 		fileEvent(fileInput:any){
 
 			let file = fileInput.target.files[0];
-			this.chatService.updateProfilepic(
-				{   
-					"userId":this.userId,
-					"filename":file.name,
-					"file":file
-				},
-				(error,response)=>
+			console.log(file);
+			var AWSService = (<any>window).AWS;
+			AWSService.config.accessKeyId = 'AKIAIVBW6BO5TNNGUNCQ';
+			AWSService.config.secretAccessKey = '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';
+			var bucketName= "profilepic"+ this.userId;
+			var bucket = new AWSService.S3({params: {Bucket: bucketName}});
+			var fileName = this.userId+"profilepic";
+			var baseUrl="";
+			var params = {Key: fileName, ACL: 'public-read', Body: file};
+			bucket.upload(params, function (err, data) {
+				if(err){
+					baseUrl = "error";
+					alert('Failed to upload picture');
+				}
+				else	
 				{
-				   if(!response.error){
-					   alert("Status updated Successfully");
-				   }else{
-					   alert("ERROR updating status");
-				   }						
-				});
-
-			// Access Keys needs to be changed
-
-			// AWSService.config.accessKeyId = 'AKIAINOO6VT2L4UKJJQQ';
-			// AWSService.config.secretAccessKey = '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';
+					// console.log(data.Location);
+					baseUrl = data.Location;
+					baseUrl = 'https://' + bucketName + '.s3.amazonaws.com/'+fileName;
+					console.log("New URL");	
+					console.log(baseUrl);
+					this.profile_img = baseUrl; 
+				}
+				
+			}); 
 			
-			// Creating an AWS Bucket for the User
+
+			var millisecondsToWait = 6000;
+			setTimeout(function() {
+				// console.log("MY URL is "+baseUrl);
+				// // Whatever you want to do after the wait
+				// this.profile_img = baseUrl; 
+				// console.log("URL ISSSSS"+baseUrl);
+				this.chatService.updatePic(
+					{   
+						"url":"https://profilepic5a206b2c57c5da2bf4ed1b9f.s3.amazonaws.com/5a206b2c57c5da2bf4ed1b9fprofilepic",
+						"userId":this.userId
+					},
+					(error,response)=>
+					{
+						if(!response.error){
+							alert("Picture updated Successfully");
+						}else{
+							alert("ERROR updating picture");
+							console.log(error);
+						}						
+					}); 
+			}, millisecondsToWait);
 		}
+
 }
 	
 	
