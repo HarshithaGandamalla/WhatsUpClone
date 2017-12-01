@@ -2,7 +2,7 @@
 'use strict';
 
 const helper = require('./helper');
-
+const async = require('async');
 class Routes{
 
    constructor(app){
@@ -62,7 +62,34 @@ class Routes{
                             
                 });
 
-
+                this.app.post('/updatePic',(request,response) =>{
+                    
+                                console.log("Posted Request");
+                               let userId = request.body.userId;
+                               let url = request.body.url;
+                               console.log("Routes.JS");
+                               console.log(url);
+                               let picResponse = {}
+                               //console.log("In routes req: " +request);
+                               helper.updatePic( userId, url, (error,result)=>{
+                    
+                                          if (error || result === null||result===undefined) {
+                                            console.log(" status error: ");
+                                            
+                                              picResponse.error = true;
+                                              picResponse.message = `Server error in routes.`;
+                                              response.status(200).json(picResponse);
+                                          }
+                                          else{
+                                          console.log("User status response details: "+result);
+                                              picResponse.error = false;
+                                              picResponse.message = `User status changed successfully`;
+                                              response.status(200).json(picResponse);
+                                          }
+                                          });
+                                        
+                            });
+            
     
     // Post call for status
        this.app.post('/getprofile',(request,response) =>{
@@ -103,81 +130,94 @@ class Routes{
                     
     });
 
-    this.app.post('/getprofile',(request,response) =>{
-        
-                   let userId = request.body.userId;
-                   let sessionCheckResponse = {}
-                   
-                   if (userId == ''||userId===undefined) {
-        
-                       sessionCheckResponse.error = true;
-                       sessionCheckResponse.message = `User Id cant be empty.`;
-                       response.status(200).json(sessionCheckResponse);
-        
-                   }else{
-        
-                          helper.userSessionCheck( { 
-                              userId : userId,
-                          }, (error,result)=>{
-                              
-                              if (error || result === null) {
-        
-                                  sessionCheckResponse.error = true;
-                               sessionCheckResponse.message = `Server error.`;
-                                  response.status(200).json(sessionCheckResponse);
-                              }else{
-        
-                                    sessionCheckResponse.error = false;
-                                    sessionCheckResponse.username = result.username;
-                                    sessionCheckResponse.message = `User logged in.`;
-                                    response.status(200).json(sessionCheckResponse);
-                              }
-                       });
-                   }
-               });
-        
-
-
-
         this.app.post('/updateProfilepic',(request,response) =>{
             
+                        // console.log(JSON.stringify(request));
                         let filename = request.body.filename;
+                        console.log("UUUUUUUUUUUUUUUUUUUUUU");
+                        console.log(filename);
                         let file = request.body.file;
                         let userId = request.body.userId;
+
+                        console.log("UUUUUUUUUUUUUUUUUUUUUU");
+                        console.log(userId);
                         let profilepicResponse = {}
-
+                        console.log("Jay IS AN IDIOT");
                         var AWS = require('aws-sdk');
-                        var config = require('configure.json');
-                        AWS.config.loadFromPath('configure.json');
-
-                        var s3 = new AWS.S3();
+                        AWS.config.update({ accessKeyId: 'AKIAIVBW6BO5TNNGUNCQ', secretAccessKey: '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' });
+                        var s3 = new AWS.S3({region: 'us-west-1'});
                         var bucketName= "profilepic"+ userId;
-                        s3BucketMgt.isBucketExist(bucketName,config,function(data){
-                            // If Bucket doesn't exists Create a new one
-                         if(data.status==false)
-                         {
-                            console.log("error in isBucketExist:"+data.error);
-                            //   Creating Bucket
-                            var bucketParams = {Bucket: bucketName};
-                            s3.createBucket(bucketParams)
-                            var s3Bucket = new AWS.S3( { params: {Bucket: bucketName} } )
-                         }
-                         var img_data = {Key: userId+"profilepic", Body: file};
-                         s3Bucket.putObject(img_data, function(err, data){
-                            if (err) 
-                              { console.log('Error uploading data: ', data); 
-                              } else {
-                                console.log('succesfully uploaded the image!');
-                              }
-                          });
-                          var urlParams = {Bucket: bucketName, Key: userId+"profilepic"};
-                          s3Bucket.getSignedUrl('getObject', urlParams, function(err, url){
+                        var fs = require('fs')
+                        var input = fs.createReadStream(file);
+                        const bucketParams = {
+                            Bucket : bucketName
+                         };  
+
+                        s3.headBucket(bucketParams, function(err, data) {
+                            console.log("getting access to bucket");
+                            if (err) {
+                                    console.log("ErrorHeadBucket", err)
+                                    s3.createBucket(bucketParams, function(err, data) {
+                                        if (err) {
+                                            console.log("Error", err);
+                                        } else {
+                                            console.log("Created Bucket Successfully");
+                                        }
+                                });
+                            } 
+                        })
+                        var img_data = {
+                                        Bucket: bucketName, 
+                                        Key: userId+"profilepic", 
+                                        ACL: 'public-read', 
+                                        Body: image
+                                    };
+
+                        s3.putObject(img_data, function (err, data) {
+                            if (err) {
+                                console.log("Error uploading image: ", err);
+                                // callback(err, null)
+                            } else {
+                                console.log("Successfully uploaded image on S3");
+                                console.log(data);
+                                // callback(null, data)
+                            }
+                        })  
+                        // s3.upload(img_data, function(err, res){
+                        //    if (err) 
+                        //      { 
+                        //         console.log('Error uploading data'); 
+                        //         console.log(err);
+                        //      } else {
+                        //        console.log('succesfully uploaded the image!');
+                        //        console.log(res);
+                        //      }
+                        //  });
+                        var urlParams = {Bucket: bucketName, Key: userId+"profilepic"};
+                        s3.getSignedUrl('getObject', urlParams, function(err, url){
                             console.log('the url of the image is', url);
-                          })
-                        
+                            helper.updateprofilepic( userId, url, (error,result)=>{
+                                
+                                if (error || result === null||result===undefined) {
+                                console.log(" status error: ");
+                                
+                                    profilepicResponse.error = true;
+                                    profilepicResponse.message = `Server error in routes.`;
+                                    response.status(200).json(profilepicResponse);
+                                }
+                                else{
+                                console.log("User status response details: "+result);
+                                    profilepicResponse.error = false;
+                                    profilepicResponse.message = `User profile pic changed successfully`;
+                                    profilepicResponse.url = url;
+                                    response.status(200).json(profilepicResponse);
+                                }
+
+                            });
+
                         });
                                  
-                    });
+        });
     
        this.app.post('/registerUser',(request,response) =>{
 
@@ -218,7 +258,7 @@ class Routes{
             email : request.body.email,
             password : request.body.password,
             status: "Hey there, I'm using Whatsapp!!",
-            img: "http://support.plymouth.edu/kb_images/Yammer/default.jpeg"
+            img: "http://www.cdn.innesvienna.net//Content/user-default.png"
         };
 
                data.timestamp = Math.floor(new Date() / 1000);
@@ -478,8 +518,8 @@ this.app.post('/deregisterGroup', (request,response) => {
       let deregistrationResponse = {}
       
       
-      let groupsArray=[];
-      groupsArray.push(groupName);
+    //   let groupsArray=[];
+    //   groupsArray.push(groupName);
 
       const data = {
         username :username,
@@ -495,18 +535,208 @@ this.app.post('/deregisterGroup', (request,response) => {
         });
     } else {
 
-        helper.fetchGroups(data,groupName, (count) => {
+        helper.fetchGroups(data,groupName, (result) => {
             
-           console.log("Fetched: "+count);
+            //pulled from collection
+           console.log("Fetched: "+JSON.stringify(result));
+            
+      });
+}
+});
 
+this.app.post('/deregisterUsers', (request,response) => {
+    
+     
+      let username = request.body.username.toLowerCase();
+      let groupName = request.body.groupName;
+      let userId = request.body.userId;
+      
+      let deregistrationResponse = {}
+
+
+      const pullvalue={
+          "username":username,
+          "userId":userId
+      }
+      
+     
+
+      const data = {
+        groupName :groupName,
+    };
+
+    //console.log("Deregistering "+username+" "+userId);
+
+    if (request.body.groupName === "") {
+        response.status(200).json({
+            error : true,
+            message : `groupName cant be empty.`
+        });
+    } else {
+
+        helper.pullUserFromGroup(data,pullvalue, (result) => {
             
- });
+            //pulled from collection return original i believe
+           console.log("Fetched: "+JSON.stringify(result));
+            
+      });
 }
 });
 
 
+  this.app.post('/addGroupUsers',(request,response) =>{
+    
+    let userarray= request.body.userarray;
+    let groupName = request.body.groupName;
+    
+    let messages = {}
+    let registrationResponse = {}
+
+    // let array=[];
+    // array=userarray;
+    
+
+
+    console.log("Userarray: "+userarray);
+    // const val = {
+
+    //     "username":username,
+    //     "userId":userId
+    // }
+    // let usersArray=[];
+    // usersArray.push(val);
+
+    const data = {
+        groupName:groupName
+  };
+               
+               if (groupName == ''||groupName==undefined||groupName==null) {
+                   messages.error = true;
+                   messages.message = `groupName cant be empty.`;
+                   response.status(200).json(messages);
+               }else{
+                helper.UserIdCheckInGroup(data, (count) => {
+                    
+                    if (count > 0) {
+                        console.log("group revelant userid array found");
+                       //modify exsisting groups array of user
+                       userarray.forEach(element => {
+                        
+                        let val={
+                            "username":element.username,
+                            "userId":element.userId 
+                        }
+
+                      helper.updateGroupUsersList( data ,val, (error,result)=>{
+                                         
+                       
+                        
+                             if (error) {
+                                               // console.log("Not  updated");
+                                                
+                                      registrationResponse.error = true;
+                                     registrationResponse.message = `Server error.`;
+                                     response.status(200).json(registrationResponse);
+                            
+                                    }else{
+                            
+                                                 // console.log("Succesfully updated");
+                                     registrationResponse.error = false;
+                                        registrationResponse.message = result;
+                                     response.status(200).json(registrationResponse);
+                                    }
+    
+    
+                      });
+                        
+                    });
+    
+                    } else {
+                      
+                      console.log("No group relevant users found: ");
+                     //insert new entry in database
+                    
+                        const registerUserData = {
+                            userIdArray:userarray,
+                            groupName:groupName
+                        };
+    
+                        
+            
+                      helper.registerUserId( registerUserData , (error,result)=>{
+    
+                        if (error) {
+    
+                            registrationResponse.error = true;
+                            registrationResponse.message = `Server error.`;
+                            response.status(200).json(registrationResponse);
+    
+                        }else{
+    
+                         registrationResponse.error = false;
+                         registrationResponse.message = result;
+                         response.status(200).json(registrationResponse);
+                        }
+                  });
+              }
+                    
+         });
+               }
+           });
+
+           this.app.post('/fetchMembers',(request,response) =>{
+            
+                let groupName = request.body.groupName;
+                       
+                       const data = {
+                        groupName:groupName
+                  };
+
+                  let messages = {}
+                  let registrationResponse = {}
+
+
+                       if (groupName == ''||groupName==undefined||groupName==null) {
+                           messages.error = true;
+                           messages.message = `groupName cant be empty.`;
+                           response.status(200).json(messages);
+                       }else{
+            
+                              helper.getMembers(data, (error,result)=>{
+            
+                                if (error){
+                                    
+                                            registrationResponse.error = true;
+                                            registrationResponse.message = `Server error.`;
+                                            response.status(200).json(registrationResponse);
+                                    
+                                        }else{
+                                    
+                                             console.log("Fetched members result: "+JSON.stringify(result));
+                                             registrationResponse.error = false;
+                                             registrationResponse.message = result;
+                                             response.status(200).json(registrationResponse);
+                                         }
+                           });
+                       }
+                   });
+
+
 
        this.app.get('*',(request,response) =>{
+        let userId = request.body.userId;
+         helper.logout(userId,(error,result)=>{
+                              
+                             if (error) {
+                
+                                    console.log("Error logging out on *");
+                
+                                }else{
+                
+                                    console.log("Successfully logged out on  *");
+                                        
+                                 }
+         });       
            response.sendFile(path.join(__dirname,'../dist/index.html'));
        });
        
