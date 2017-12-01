@@ -1,0 +1,2079 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>whatsappclone documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	    <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">whatsappclone documentation</a>
+            <button type="button" class="btn btn-default btn-menu fa fa-bars" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+            <div id="book-search-input" role="search">
+                <input type="text" placeholder="Type to search">
+            </div>
+            <nav>
+            
+                <ul class="list">
+            
+                    <li class="title">
+                        <a href="../">whatsappclone documentation</a>
+                    </li>
+            
+                    <li class="divider"></li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../"><span class="fa fa-home"></span>Getting started</a>
+                        <ul class="links">
+                                <li class="link">
+                                    <a href="../" >
+                                        <span class="fa fa-th"></span>Overview
+                                    </a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="./modules.html" >
+                            <span class="fa fa-archive"></span>
+                            <span>Modules</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-modules-links"
+                            ></span>
+                        </a>
+                        <ul class="links collapse in"
+                                id="xs-modules-links"
+                            >
+                                <li class="link">
+                                    <a href="../modules/AppModule.html" >AppModule</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple">
+                            <span class="fa fa-cogs"></span>
+                            <span>Components</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-components-links"
+                                ></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-components-links"
+                            >
+                                <li class="link">
+                                    <a href="../components/AppComponent.html" >AppComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/HomeComponent.html"  class="active" >HomeComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/LoginComponent.html" >LoginComponent</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../routes.html" ><span class="fa fa-code-fork"></span>Routes</a>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple">
+                            <span class="fa fa-long-arrow-down"></span>
+                            <span>Injectables</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-injectables-links"
+                                ></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-injectables-links"
+                            >
+                                <li class="link">
+                                    <a href="../injectables/ChatService.html" >ChatService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/HttpService.html" >HttpService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/SocketService.html" >SocketService</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../miscellaneous.html" ><span class="fa fa-cubes"></span>Miscellaneous</a>
+                    </li>
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../coverage.html" ><span class="fa fa-tasks"></span>Documentation coverage</a>
+                    </li>
+            
+                    <li class="divider"></li>
+                    <li class="copyright">
+                            Documentation generated using <a href="https://compodoc.github.io/compodoc/" target="_blank">
+                                        <img src="..//images/compodoc-vectorise.svg" class="img-responsive">
+                            </a>
+                    </li>
+            
+                </ul>
+            
+            </nav>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <nav>
+                   
+                       <ul class="list">
+                   
+                           <li class="title">
+                               <a href="../">whatsappclone documentation</a>
+                           </li>
+                   
+                           <li class="divider"></li>
+                   
+                               <div id="book-search-input" role="search">
+                                   <input type="text" placeholder="Type to search">
+                               </div>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../"><span class="fa fa-home"></span>Getting started</a>
+                               <ul class="links">
+                                       <li class="link">
+                                           <a href="../" >
+                                               <span class="fa fa-th"></span>Overview
+                                           </a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="./modules.html" >
+                                   <span class="fa fa-archive"></span>
+                                   <span>Modules</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#modules-links"
+                                   ></span>
+                               </a>
+                               <ul class="links collapse in"
+                                       id="modules-links"
+                   >
+                                       <li class="link">
+                                           <a href="../modules/AppModule.html" >AppModule</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple">
+                                   <span class="fa fa-cogs"></span>
+                                   <span>Components</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#components-links"
+                   ></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="components-links"
+                   >
+                                       <li class="link">
+                                           <a href="../components/AppComponent.html" >AppComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/HomeComponent.html"  class="active" >HomeComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/LoginComponent.html" >LoginComponent</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../routes.html" ><span class="fa fa-code-fork"></span>Routes</a>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple">
+                                   <span class="fa fa-long-arrow-down"></span>
+                                   <span>Injectables</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#injectables-links"
+                   ></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="injectables-links"
+                   >
+                                       <li class="link">
+                                           <a href="../injectables/ChatService.html" >ChatService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/HttpService.html" >HttpService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/SocketService.html" >SocketService</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../miscellaneous.html" ><span class="fa fa-cubes"></span>Miscellaneous</a>
+                           </li>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../coverage.html" ><span class="fa fa-tasks"></span>Documentation coverage</a>
+                           </li>
+                   
+                           <li class="divider"></li>
+                           <li class="copyright">
+                                   Documentation generated using <a href="https://compodoc.github.io/compodoc/" target="_blank">
+                                               <img src="..//images/compodoc-vectorise.svg" class="img-responsive">
+                                   </a>
+                           </li>
+                   
+                       </ul>
+                   
+                   </nav>
+               </div>
+               <div class="content component">
+                   <div class="content-data">
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>HomeComponent</li>
+</ol>
+
+
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#infos" id="infos-tab" role="tab" data-toggle="tab">Infos</a>
+        </li>
+        <li>
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab">Source</a>
+        </li>
+    </ul>
+
+    <div class="tab-content">
+        <div class="tab-pane fade active in" id="infos"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/home/home.component.ts</code>
+</p>
+
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">providers</td>
+                <td class="col-md-9">
+                    <code>
+                        ChatService
+                        HttpService
+                        SocketService
+                    </code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-home</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>home.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>home.component.html</code></td>
+            </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+    <section>
+        <h3 id="constructor">Constructor</h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>constructor(chatService: <a href="../injectables/ChatService.html" >ChatService</a>, socketService: <a href="../injectables/SocketService.html" >SocketService</a>, route: <a href="https://angular.io/docs/ts/latest/api/router/index/ActivatedRoute-interface.html" target="_blank" >ActivatedRoute</a>, router: <a href="https://angular.io/docs/ts/latest/api/router/index/Router-class.html" target="_blank" >Router</a>)</code>
+                        </td>
+                    </tr>
+    
+                </tbody>
+            </table>
+    </section>
+
+    <section>
+        <h3 id="methods">Methods</h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> logout</b>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    <code>logout()</code>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>void</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> selectedUser</b>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    <code>selectedUser(user: any)</code>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>void</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> isUserSelected</b>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    <code>isUserSelected(userId: string)</code>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>boolean</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> selectedGroup</b>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    <code>selectedGroup(group: any)</code>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>void</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> isGroupSelected</b>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    <code>isGroupSelected(groupName: string)</code>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>boolean</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> alignMessage</b>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    <code>alignMessage(userId: any)</code>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>void</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> userToggle</b>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    <code>userToggle()</code>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>void</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> sendMessage</b>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    <code>sendMessage(event: any)</code>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>void</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> addGroup</b>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    <code>addGroup(newGroup: string)</code>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>void</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> updateStatus</b>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    <code>updateStatus(status: string)</code>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>void</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> populateMembers</b>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    <code>populateMembers(groupNameToPopulate: any)</code>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>void</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> populateNonMembers</b>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    <code>populateNonMembers(groupName: any)</code>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>void</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> AddUser</b>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    <code>AddUser(username: any, userId: any)</code>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>void</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> AddUsers</b>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    <code>AddUsers()</code>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>void</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> DeleteUser</b>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    <code>DeleteUser(username: any, userId: any)</code>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>void</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> DeleteUsers</b>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    <code>DeleteUsers()</code>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>void</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> Settings</b>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    <code>Settings()</code>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>void</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> fileEvent</b>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    <code>fileEvent(fileInput: any)</code>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>void</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </section>
+
+    <section>
+        <h3 id="inputs">Properties</h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b><span class="modifier">Public</span> allUsers</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-circle"></span><code>allUsers:     <code>any[]</code>
+    </bcode>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b><span class="modifier">Public</span> chatListUsers</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-circle"></span><code>chatListUsers:     <code>any[]</code>
+    </bcode>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b><span class="modifier">Public</span> chatOfflineUsers</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-circle"></span><code>chatOfflineUsers:     <code>any[]</code>
+    </bcode>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b><span class="modifier">Public</span> exsistingUsers</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-circle"></span><code>exsistingUsers:     <code>any[]</code>
+    </bcode>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b><span class="modifier">Public</span> groupName</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-circle"></span><code>groupName:     <code>string</code>
+    </bcode>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b><span class="modifier">Public</span> groupsList</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-circle"></span><code>groupsList:     <code>any[]</code>
+    </bcode>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b><span class="modifier">Public</span> message</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-circle"></span><code>message:     <code>string</code>
+    </bcode>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b><span class="modifier">Public</span> messages</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-circle"></span><code>messages:     <code>any[]</code>
+    </bcode>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b><span class="modifier">Public</span> newUserstoGroup</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-circle"></span><code>newUserstoGroup:     <code>any[]</code>
+    </bcode>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b><span class="modifier">Public</span> overlayDisplay</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-circle"></span><code>overlayDisplay:     <code>boolean</code>
+    </bcode>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Default value: </i><code>false</code>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b><span class="modifier">Public</span> profile_img</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-circle"></span><code>profile_img:     <code>string</code>
+    </bcode>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b><span class="modifier">Public</span> removedUsersfromGroup</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-circle"></span><code>removedUsersfromGroup:     <code>any[]</code>
+    </bcode>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b><span class="modifier">Public</span> selectedGroupName</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-circle"></span><code>selectedGroupName:     <code>any</code>
+    </bcode>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b><span class="modifier">Public</span> selectedSocketId</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-circle"></span><code>selectedSocketId:     <code>any</code>
+    </bcode>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b><span class="modifier">Public</span> selectedUserId</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-circle"></span><code>selectedUserId:     <code>any</code>
+    </bcode>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b><span class="modifier">Public</span> selectedUserName</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-circle"></span><code>selectedUserName:     <code>any</code>
+    </bcode>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b><span class="modifier">Public</span> selectedUsersList</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-circle"></span><code>selectedUsersList:     <code>boolean</code>
+    </bcode>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Default value: </i><code>true</code>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b><span class="modifier">Public</span> selectedUserstoAdd</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-circle"></span><code>selectedUserstoAdd:     <code>any[]</code>
+    </bcode>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b><span class="modifier">Public</span> selectedUserstoDelete</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-circle"></span><code>selectedUserstoDelete:     <code>any[]</code>
+    </bcode>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b><span class="modifier">Public</span> socketId</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-circle"></span><code>socketId:     <code>any</code>
+    </bcode>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b><span class="modifier">Public</span> status</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-circle"></span><code>status:     <code>any</code>
+    </bcode>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b><span class="modifier">Public</span> userId</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-circle"></span><code>userId:     <code>any</code>
+    </bcode>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b><span class="modifier">Public</span> username</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-circle"></span><code>username:     <code>any</code>
+    </bcode>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </section>
+</div>
+        <div class="tab-pane fade tab-source-code" id="source">
+            <pre><code class="hljs javascript">declare var require: any;
+import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { ActivatedRoute ,Router } from &#x27;@angular/router&#x27;;
+import { Ng2SearchPipeModule } from &#x27;ng2-search-filter&#x27;;
+&lt;any&gt;require(&#x27;aws-sdk/dist/aws-sdk&#x27;);
+import * as _ from &quot;lodash&quot;;
+
+
+declare var $:any;
+
+
+ 
+/* Importing services starts*/
+import { SocketService } from &#x27;./../socket.service&#x27;;
+import { HttpService } from &#x27;./../http.service&#x27;;
+import { ChatService } from &#x27;./../chat.service&#x27;;
+/* Importing services ends*/
+
+
+
+@Component({
+	selector: &#x27;app-home&#x27;,
+  	templateUrl: &#x27;./home.component.html&#x27;,
+  	styleUrls: [&#x27;./home.component.css&#x27;],
+  	providers : [ChatService,HttpService,SocketService]
+})
+export class HomeComponent implements OnInit{
+
+
+	
+	/*
+	* UI related variables starts
+	*/
+	public overlayDisplay &#x3D; false;
+	public selectedUserId &#x3D; null;
+	public selectedSocketId &#x3D; null;
+	public selectedUserName &#x3D; null;
+	public selectedGroupName &#x3D; null;
+	
+		
+	/* 
+	* UI related variables ends
+	*/
+ 
+	/*
+	* Chat and message related variables starts
+	*/
+	public username &#x3D; null;
+	public userId &#x3D; null;
+	public socketId &#x3D; null;
+	public chatListUsers &#x3D; [];
+	public chatOfflineUsers &#x3D; [];
+	public message &#x3D; &#x27;&#x27;;
+	public messages &#x3D; [];
+	public groupName &#x3D; &#x27;&#x27;;
+	public groupsList&#x3D; [];
+
+	public selectedUserstoAdd&#x3D;[];
+	public selectedUserstoDelete&#x3D;[];
+
+	public newUserstoGroup &#x3D; [];
+	public removedUsersfromGroup &#x3D; [];
+	public exsistingUsers&#x3D;[];
+
+	public allUsers &#x3D; [];
+	public status &#x3D; null;
+	public profile_img &#x3D; &#x27;&#x27;;
+	/*
+	* Chat and message related variables ends
+	*/
+	public selectedUsersList &#x3D; true;
+ 
+ 
+	constructor( 
+   	private chatService : ChatService,
+	  private socketService : SocketService,
+	  private route :ActivatedRoute,
+	  private router :Router
+	) { }
+
+	
+	ngOnInit() {
+ 
+		$(document).ready(function(){
+			// the &quot;href&quot; attribute of the modal trigger must specify the modal ID that wants to be triggered
+			$(&#x27;.modal&#x27;).modal();
+			$(&quot;.button-collapse&quot;).sideNav();
+
+			//these are hacks to come out with proper alignment of div
+			//not recommended but time constraint
+			//set height of chat box
+			$(&quot;.main-content&quot;).height(window.innerHeight - parseInt($(&quot;.main-nav&quot;).css(&#x27;height&#x27;),10));
+			$(&quot;.main-content&quot;).css({marginBottom: &quot;0px&quot;});
+			$(&quot;.message-thread&quot;).height(parseInt($(&quot;.main-content&quot;).css(&#x27;height&#x27;),10) - parseInt($(&quot;.chat-title&quot;).css(&#x27;height&#x27;),10) - parseInt($(&quot;.chat-footer&quot;).css(&#x27;height&#x27;),10));
+			$(&quot;.message-thread&quot;).css({overflow: &quot;hidden&quot;,margin: &quot;0&quot;, overflowY: &quot;scroll&quot;});
+			$(&#x27;.message-thread&#x27;).css(&#x27;background-image&#x27;, &#x27;url(&quot;http://subtlepatterns.com/patterns/geometry2.png&quot;)&#x27;);
+			$(&quot;.message-thread&quot;).addClass(&quot;scroll1&quot;);
+		  });
+		/*
+		* getting userID from URL using &#x27;route.snapshot&#x27;
+		*/		
+		this.userId &#x3D; this.route.snapshot.params[&#x27;userid&#x27;];
+
+	
+	 
+ 
+		if(this.userId &#x3D;&#x3D;&#x3D; &#x27;&#x27; || typeof this.userId &#x3D;&#x3D; &#x27;undefined&#x27;) {
+			this.router.navigate([&#x27;/&#x27;]);
+		}
+			
+		else{
+
+
+				
+				this.chatService.updateStatus(
+						{
+							&quot;userId&quot;:this.userId
+						},
+						(error,response)&#x3D;&gt;
+						{
+							if(!response.error){
+								alert(&quot;Status updated Successfully&quot;);
+							}else{
+								alert(&quot;ERROR updating status&quot;);
+							}						
+					});
+
+					this.chatService.getprofile(this.userId,( error, response )&#x3D;&gt;{
+				
+						if(error) {
+							console.log(error);
+							this.router.navigate([&#x27;/&#x27;]); /* Home page redirection */
+						}
+						else
+						{
+							console.log(&quot;*************&quot;);
+							console.log(JSON.stringify(response));
+							console.log(&quot;**************&quot;);
+							this.profile_img &#x3D; response.imgurl;
+						}
+					});
+		           
+					/*
+					* function to check if user is logged in or not starts
+					*/	
+					this.chatService.userSessionCheck(this.userId,( error, response )&#x3D;&gt;{
+				 		
+				 		if(error) {
+				 			this.router.navigate([&#x27;/&#x27;]); /* Home page redirection */
+				 		}else{
+
+				 			
+								 this.username &#x3D; response.username;
+						 		this.overlayDisplay &#x3D; true;
+						 
+								
+							 			/*
+											* making socket connection by passing UserId.
+											*/	
+										this.socketService.connectSocket(this.userId);
+						 
+											/* 
+											* Code to get the real time messages goes here
+											*/
+						 
+											/* 
+											* Code for Real time chat list update goes here
+											*/
+											
+								this.socketService.getChatList(this.userId).subscribe(response &#x3D;&gt; {
+									
+									if(!response.error) {
+										
+										if(response.singleUser) {
+						
+											/* 
+											* Removing duplicate user from chat list array.
+											*/
+											if(this.chatListUsers.length &gt; 0) {
+												this.chatListUsers &#x3D; this.chatListUsers.filter(function( obj ) {
+													return obj._id !&#x3D;&#x3D; response.chatList._id;
+												});
+											}
+						
+											/* 
+											* Adding new online user into chat list array
+											*/
+											this.chatListUsers.push(response.chatList);
+						
+										}else if(response.userDisconnected){
+											this.chatListUsers &#x3D; this.chatListUsers.filter(function( obj ) {
+												return obj.socketId !&#x3D;&#x3D; response.socketId;
+											});
+										}else{
+											/* 
+											* Updating entire chatlist if user logs in.
+											*/
+											this.chatListUsers &#x3D; response.chatList;
+											console.log(&quot;IIIIIIIIIIIIIIIIIIIIIIIII&quot;);
+											console.log(&quot;chatlist: &quot;+JSON.stringify(this.chatListUsers));
+										}
+
+										//track list of all users
+									  
+
+											console.log(&quot;ALL users...: &quot;+JSON.stringify(this.allUsers));
+												
+									}else{
+										alert(&#x27;Chat list failure.&#x27;);
+									}
+						  });	
+						  
+						 
+						  /* 
+						  * Code to update groups list of user goes here
+						  */
+						 
+						  this.socketService.getGroupsList(this.userId).subscribe(response&#x3D;&gt;{
+
+							//console.log(&quot;Trying to update groupslist&quot;);
+
+							if(!response.error){
+                                /* 
+							    * Updating entire groupslist if user logs in.
+								*/
+								
+
+								if(response.groupList!&#x3D;null){
+								for (var i &#x3D; 0; i &lt; response.groupList.length ; i++) {
+
+									//console.log(&quot;Updated groupslist:o &quot;+JSON.stringify( response.groupList[i]));
+									
+									this.groupsList.push({
+										&#x27;groupName&#x27;: response.groupList[i]
+									});
+								}
+							}
+
+
+							}
+							else{
+								alert(&#x27;Group list update failure.&#x27;);
+							}
+
+						  });
+			
+
+
+
+						  this.socketService.getOfflineChatList(this.userId).subscribe(response &#x3D;&gt; {
+							
+							if(!response.error) {
+								
+								if(response.singleUser) {
+				
+									/* 
+									* Removing duplicate user from chat list array.
+									*/
+									if(this.chatOfflineUsers.length &gt; 0) {
+										this.chatOfflineUsers &#x3D; this.chatOfflineUsers.filter(function( obj ) {
+											return obj._id !&#x3D;&#x3D; response.chatList._id;
+										});
+									}
+				
+									/* 
+									* Adding new offline user into chat list array
+									*/
+									this.chatOfflineUsers.push(response.chatList);
+				
+								}else if(response.userDisconnected){
+									this.chatOfflineUsers &#x3D; this.chatOfflineUsers.filter(function( obj ) {
+										return obj.socketId !&#x3D;&#x3D; response.socketId;
+									});
+								}else{
+									/* 
+									* Updating entire chatlist if user logs out.
+									*/
+									this.chatOfflineUsers &#x3D; response.chatList;
+								}
+
+								this.chatListUsers.forEach(element &#x3D;&gt; {
+									this.allUsers.push(element);
+									});
+								this.chatOfflineUsers.forEach(element &#x3D;&gt; {
+										this.allUsers.push(element);
+								});
+
+							}else{
+								alert(&#x27;Chat list failure.&#x27;);
+							}
+				  });	
+	
+
+
+							  this.socketService.receiveMessages().subscribe(response &#x3D;&gt; {
+								if(this.selectedUserId &amp;&amp; this.selectedUserId &#x3D;&#x3D; response.fromUserId) {
+									this.messages.push(response);
+									setTimeout( () &#x3D;&gt;{
+											document.querySelector(&#x60;.message-thread&#x60;).scrollTop &#x3D; document.querySelector(&#x60;.message-thread&#x60;).scrollHeight;
+									},100);
+								}
+							});
+
+							this.socketService.receiveGroupMessages().subscribe(response &#x3D;&gt; {
+								//check if response type contains message key
+								if(this.selectedGroupName &amp;&amp; this.selectedGroupName &#x3D;&#x3D; response.groupName) {
+									this.messages.push(response);
+									setTimeout( () &#x3D;&gt;{
+											document.querySelector(&#x60;.message-thread&#x60;).scrollTop &#x3D; document.querySelector(&#x60;.message-thread&#x60;).scrollHeight;
+									},100);
+								}
+							});
+				 		}
+				 	});
+			}
+		
+				
+	}
+			
+			logout(){
+				this.socketService.logout({userId : this.userId}).subscribe(response &#x3D;&gt; {
+					this.router.navigate([&#x27;/&#x27;]); /* Home page redirection */
+				});
+			}
+		
+			selectedUser(user):void{
+
+				this.selectedGroupName&#x3D; null;
+
+				this.selectedUserId &#x3D; user._id;
+				this.selectedSocketId &#x3D; user.socketId;
+				this.selectedUserName &#x3D; user.username;
+			//	console.log(&quot;Selected user: &quot;+JSON.stringify(user.username));
+				
+				/* 
+				* calling method to get the messages
+
+				*/
+
+				
+this.chatService.getMessages({ userId : this.userId,toUserId :user._id} , ( error , response)&#x3D;&gt;{
+					console.log(&quot;Selected user response: &quot;+JSON.stringify(response));
+					
+					if(!response.error) {
+						//console.log(&quot;Messages requested: &quot;+JSON.stringify(response));
+						this.messages &#x3D; response.message;
+					}
+				});
+			}
+			 
+			isUserSelected(userId:string):boolean{
+				
+				if(!this.selectedUserId){
+					return false;
+				}
+				return this.selectedUserId &#x3D;&#x3D;&#x3D; userId ? true : false;
+			}
+
+			selectedGroup(group):void{
+				
+				this.selectedUserName&#x3D;null;
+				this.selectedUserId&#x3D;null;
+
+				console.log(&quot;Selected group: &quot;+JSON.stringify(group));
+				this.selectedGroupName &#x3D; group.groupName;
+			 
+				/* 
+				* calling method to get the messages
+				*/
+				this.chatService.getGroupMessages({groupName:group.groupName} , ( error , response)&#x3D;&gt;{
+					console.log(&quot;Selected group response: &quot;+JSON.stringify(response));
+					
+					if(!response.error) {
+						this.messages &#x3D; response.message;
+					}
+				});
+			}
+
+			isGroupSelected(groupName:string):boolean{
+				if(!this.selectedGroupName) {
+					return false;
+				}
+				
+				return this.selectedGroupName &#x3D;&#x3D;&#x3D; groupName ? true : false;
+			}
+			 
+			alignMessage(userId){
+				return this.userId &#x3D;&#x3D;&#x3D; userId ? false : true;
+			}
+
+			userToggle(){
+				this.selectedUsersList &#x3D; !this.selectedUsersList;
+			}
+			sendMessage(event){
+				if(event.keyCode &#x3D;&#x3D;&#x3D; 13) {
+					console.log(&quot;Selected userid: &quot;+this.selectedUserId);
+					console.log(&quot;Selected groupname: &quot;+this.selectedGroupName);
+					
+					if(this.message &#x3D;&#x3D;&#x3D; &#x27;&#x27; || this.message &#x3D;&#x3D;&#x3D; null) {
+						alert(&#x60;Message can&#x27;t be empty.&#x60;);
+					}else{
+			 
+						if (this.message &#x3D;&#x3D;&#x3D; &#x27;&#x27;) {
+							alert(&#x60;Message can&#x27;t be empty.&#x60;);
+						}else if(this.userId &#x3D;&#x3D;&#x3D; &#x27;&#x27;){
+							this.router.navigate([&#x27;/&#x27;]);					
+						}else if((this.selectedUserId &#x3D;&#x3D;&#x3D; &#x27;&#x27;||this.selectedUserId&#x3D;&#x3D;null)&amp;&amp;(this.selectedGroupName &#x3D;&#x3D;&#x3D; &#x27;&#x27;||this.selectedGroupName&#x3D;&#x3D;null)){
+							alert(&#x60;Select a user or group to chat.&#x60;);
+						}else{
+						 
+							//  Chatting with user
+							if(this.selectedUserId!&#x3D;null) 
+							{
+							const data &#x3D; {
+								fromUserId : this.userId,
+								message : (this.message).trim(),
+								toUserId : this.selectedUserId,
+								toSocketId : this.selectedSocketId,
+								fromSocketId : this.socketId
+							}
+
+							console.log(&quot;Message: selected userId &quot;+this.selectedUserId);
+							console.log(&quot;Message when user s selected &quot;+data.message);
+							
+							this.messages.push(data);
+							setTimeout( () &#x3D;&gt;{
+									document.querySelector(&#x60;.message-thread&#x60;).scrollTop &#x3D; document.querySelector(&#x60;.message-thread&#x60;).scrollHeight;
+							},100);
+							
+							/* 
+							* calling method to send the messages
+							*/
+							this.message &#x3D; null;
+							this.socketService.sendMessage(data);
+							}
+							else if(this.selectedGroupName!&#x3D;null){ //Chatting in group
+							
+								console.log(&quot;Chatting in group: selectedgroupname&quot;);
+								
+								const data &#x3D; {
+									groupName : this.selectedGroupName,
+									message : (this.message).trim(),
+									fromUserId : this.userId,
+									fromUser:this.username								
+								}
+
+								
+
+								this.messages.push(data);
+								setTimeout( () &#x3D;&gt;{
+									document.querySelector(&#x60;.message-thread&#x60;).scrollTop &#x3D; document.querySelector(&#x60;.message-thread&#x60;).scrollHeight;
+							},100);
+
+							/* 
+							* calling method to send the messages
+							*/
+							this.message &#x3D; null;
+							this.socketService.sendGroupMessage(data);
+								
+
+
+
+							}else{
+								alert(&quot;ERROR!!&quot;);
+							}
+
+						}
+					}
+				}
+			}
+		
+			addGroup(newGroup:string){
+				
+				console.log(&quot;New group name: &quot;+newGroup);
+				
+					if (newGroup &#x3D;&#x3D;&#x3D;null||newGroup &#x3D;&#x3D;&#x3D;&#x27;&#x27;||newGroup&#x3D;&#x3D;&#x3D;undefined) {
+						
+						alert(&quot;Please enter group name&quot;);
+						
+					}
+					else
+					{
+
+						this.groupName&#x3D;newGroup; 
+						//RegisterGroup
+						this.chatService.registerGroup(
+							{   &#x27;username&#x27;:this.username,
+								&#x27;userId&#x27;:this.userId,
+								&#x27;groupName&#x27;:newGroup
+							},
+							(error,response)&#x3D;&gt;
+							{
+
+								console.log(&quot;Addgroup response: &quot;+JSON.stringify(response));
+                               if(!response.error){
+								
+							   	this.messages.push({message:&#x27;Successfully created group &#x27;+newGroup});
+							    this.groupsList.push({
+									&#x27;groupName&#x27;:newGroup,
+									&#x27;message&#x27;:&#x27;Successfully created group &#x27;+newGroup 
+								  });
+							   }else{
+								   alert(&quot;ERROR registering group&quot;);
+							   }
+							
+							});
+
+						
+					}
+		
+		}
+
+     updateStatus(status:string){
+			
+				   this.status&#x3D;status;
+				  //  console.log(status +&quot; id dttaud&quot;);
+					//RegisterGroup
+					this.chatService.updateStatus(
+						{   &quot;status&quot;:this.status,
+						     &quot;userId&quot;:this.userId
+						},
+						(error,response)&#x3D;&gt;
+						{
+						   if(!response.error){
+							   alert(&quot;Status updated Successfully&quot;);
+						   }else{
+							   alert(&quot;ERROR updating status&quot;);
+						   }						
+						});
+	}
+
+
+     	populateMembers(groupNameToPopulate){
+			this.chatService.fetchMembers(
+				{  
+					 &quot;groupName&quot;:groupNameToPopulate,
+				},
+				(error,response)&#x3D;&gt;
+				{
+				
+					console.log(&quot;Response on fecth: &quot;+JSON.stringify(response));
+				   if(!response.error){
+
+					console.log(&quot;Members: &quot;+JSON.stringify(response.message[0]));
+					let j&#x3D;0;
+
+					this.newUserstoGroup.length&#x3D;0;
+
+					//let updatemembers&#x3D;[];
+
+					if(response.message[0]!&#x3D;null)
+					{
+						for(j&#x3D;0;j&lt;response.message[0].userIdArray.length;j++)
+					{
+						let value&#x3D;{
+							&quot;username&quot;:response.message[0].userIdArray[j].username,
+							&quot;userId&quot;:response.message[0].userIdArray[j].userId
+						}
+					//	updatemembers.push(value);
+						this.newUserstoGroup.push(value);
+						
+					}
+
+				//	this.newUserstoGroup&#x3D;updatemembers;
+					
+				   }
+
+				   }else{
+					   console.log(&quot;ERROR populating members&quot;);
+				   }						
+				});
+		}
+
+		populateNonMembers(groupName){
+			
+		//	let diff &#x3D; this.allUsers.filter(x &#x3D;&gt; this.newUserstoGroup.indexOf(x) &lt; 0 );
+			
+			//console.log(&quot;diff  members: &quot;+JSON.stringify(diff));
+			
+			this.exsistingUsers.length&#x3D;0;
+
+
+			this.chatService.fetchMembers(
+				{  
+					 &quot;groupName&quot;:groupName,
+				},
+				(error,response)&#x3D;&gt;
+				{
+				
+					//console.log(&quot;Response on fecth: &quot;+JSON.stringify(response));
+				   if(!response.error){
+
+					//console.log(&quot;Members: &quot;+JSON.stringify(response.message[0]));
+					let j&#x3D;0;
+
+					let exsistingmembers&#x3D;[];
+
+					
+					if(response.message[0]!&#x3D;null)
+					{
+						for(j&#x3D;0;j&lt;response.message[0].userIdArray.length;j++)
+					{
+						// let value&#x3D;{
+						// 	&quot;username&quot;:response.message[0].userIdArray[j].username,
+						// 	&quot;userId&quot;:response.message[0].userIdArray[j].userId
+						// }
+						if(exsistingmembers.indexOf(response.message[0].userIdArray[j].username)&lt;0)
+						  exsistingmembers.push(response.message[0].userIdArray[j].username);
+						
+					}
+
+					console.log(&quot;Exsisting users: &quot;+exsistingmembers);
+
+					
+				   }
+
+
+					if(this.allUsers!&#x3D;null)
+					{
+						//this.exsistingUsers.length&#x3D;0;
+
+						console.log(&quot;All users: &quot;+JSON.stringify(this.allUsers));
+						let j&#x3D;0;
+						for(j&#x3D;0;j&lt;this.allUsers.length;j++){
+							
+							let check &#x3D; {
+								&quot;username&quot;:this.allUsers[j].username,
+								&quot;userId&quot;:this.allUsers[j]._id
+							}
+							 
+							let notMember&#x3D;false;
+
+						
+							if(exsistingmembers.indexOf(this.allUsers[j].username)&lt;0){
+								console.log(&quot;Not a member: &quot;+check.username);
+								notMember&#x3D;true;
+							}
+								
+							  if(this.exsistingUsers.length&#x3D;&#x3D;0 &amp;&amp; notMember){
+								console.log(&quot;adding..: &quot;+check.username);
+								
+									this.exsistingUsers.push(check);
+								 
+								}else{
+
+									if(notMember){
+										let k&#x3D;0;
+										let alreaypresent&#x3D;false;
+										for(k&#x3D;0;k&lt;this.exsistingUsers.length;k++)
+										{	
+											console.log(&quot;In loop with: &quot;+this.exsistingUsers[k].username+&quot; &quot;+this.allUsers[j].username);
+											console.log(&quot;In loop with: &quot;+this.exsistingUsers[k].userId+&quot; &quot;+this.allUsers[j]._id);
+											
+									         if(this.exsistingUsers[k].username&#x3D;&#x3D;this.allUsers[j].username &amp;&amp; this.exsistingUsers[k].userId&#x3D;&#x3D;this.allUsers[j]._id ){
+												console.log(&quot;Not a member: but already added: &quot;+check.username);
+												
+												alreaypresent&#x3D;true;
+											 }
+										}
+
+										if(!alreaypresent){
+											console.log(&quot;Not a member: also not  added: adding &quot;+check.username);
+											
+											this.exsistingUsers.push(check);
+											
+										}
+									
+									}
+
+								}
+									
+									
+								
+
+							
+
+							
+
+							// if(exsistingmembers.indexOf(this.allUsers[j].username)&lt;0 &amp;&amp; this.exsistingUsers.indexOf(check)&lt;0){
+								
+							// 	console.log(&quot;not a memener of exs users: &quot;+this.allUsers[j].username);
+								
+							// 	let val&#x3D;{
+							// 		&quot;username&quot;:this.allUsers[j].username,
+							// 		&quot;userId&quot;:this.allUsers[j]._id
+							// 	}
+
+							// 	if(this.exsistingUsers.indexOf(val)&lt;0)
+							// 	this.exsistingUsers.push(val);
+							// }
+							//console.log(&quot;AllUSERS!! &quot;+JSON.stringify(this.allUsers));
+						}
+					}
+
+				   }else{
+					   console.log(&quot;ERROR populating members&quot;);
+				   }						
+				});
+			
+		   }
+			
+
+		
+
+		AddUser(username, userId){
+          console.log(&quot;Trying to add: &quot;+username);
+			let i;
+			let obj &#x3D; {
+				&quot;username&quot; : username,
+				&quot;userId&quot; : userId,
+			};
+			let bool&#x3D;false;
+
+			if(this.selectedUserstoAdd!&#x3D;null &amp;&amp;this.selectedUserstoAdd.length!&#x3D;0 )
+			{
+				for (i &#x3D; 0; i &lt; this.selectedUserstoAdd.length; i++) {
+				
+					console.log(&quot;this.selectedUserstoAdd[i]: &quot;+JSON.stringify(this.selectedUserstoAdd[i]));
+				if(_.isEqual(obj,this.selectedUserstoAdd[i]))
+			     {
+					console.log(&quot;Already exsists!!&quot;);
+					this.selectedUserstoAdd.splice(i, 1);
+                    bool&#x3D;true;
+				 }
+			}
+		}
+		
+			if(!bool)
+			{
+			console.log(&quot;does not  exsist!&quot;);
+			this.selectedUserstoAdd.push(obj);
+          	}
+		}
+
+		AddUsers(){
+
+
+ 
+			if(_.isEmpty(this.selectedUserstoAdd)||this.selectedUserstoAdd&#x3D;&#x3D;null||this.selectedUserstoAdd&#x3D;&#x3D;undefined){
+ 
+				alert(&quot;Please select users to Add.&quot;);
+
+			}else{
+
+				console.log(&quot;IS not empty!&quot;);
+			this.selectedUserstoAdd.forEach(element &#x3D;&gt; {
+				console.log(element.username+ &quot; was added to &quot;+this.selectedGroupName);
+
+				//registering user to grouparray
+				 this.chatService.registerGroup(
+					{   
+						&quot;username&quot;:element.username,
+						&quot;userId&quot;:element.userId,
+						&quot;groupName&quot; :this.selectedGroupName
+					},
+					(error,response)&#x3D;&gt;
+					{
+					   if(!response.error){
+						console.log(&quot;Added users successfully&quot;);
+					   }else{
+						   alert(&quot;ERROR adding user to group&quot;);
+					   }
+					});
+
+				});
+
+					this.chatService.addGroupUsers(
+						{   
+							&quot;userarray&quot;:this.selectedUserstoAdd,							
+							&quot;groupName&quot; :this.selectedGroupName
+						},
+						(error,response)&#x3D;&gt;
+						{
+						   if(!response.error){
+							console.log(&quot;group users updated&quot;);
+						   }else{
+							   alert(&quot;ERROR updating userlist for group&quot;);
+						   }
+						});
+	
+					}
+
+		}
+
+		
+		DeleteUser(username, userId){
+			console.log(&quot;userid in del user: &quot;+userId);
+           
+			let i;
+			let obj&#x3D;{
+				&quot;username&quot; : username,
+				&quot;userId&quot; : userId,
+			};
+			let bool&#x3D;false;
+
+			if(this.selectedUserstoDelete!&#x3D;null &amp;&amp;this.selectedUserstoDelete.length!&#x3D;0 ){
+			
+			for (i &#x3D; 0; i &lt; this.selectedUserstoDelete.length; i++) {
+				
+				if(_.isEqual(obj,this.selectedUserstoDelete[i]))
+				{
+				  this.selectedUserstoDelete.splice(i, 1);	
+                  bool&#x3D;true;
+				}
+			}
+		}
+			if(!bool)
+			this.selectedUserstoDelete.push(obj);
+		}
+
+		
+
+		DeleteUsers(){
+			this.selectedUserstoDelete.forEach(element &#x3D;&gt; {
+
+				console.log(element.username+ &quot; was removed with id &quot;+element.userId);
+
+				this.chatService.deregisterGroup(
+					{   
+						&quot;username&quot;:element.username,
+						&quot;userId&quot;:element.userId,
+						&quot;groupName&quot; :this.selectedGroupName
+					},
+					(error,response)&#x3D;&gt;
+					{
+					   if(!response.error){
+						console.log(&quot;Deleted users successfully&quot;);
+					   }else{
+						   alert(&quot;ERROR deleting user to group&quot;);
+					   }
+					});
+
+					this.chatService.deregisterUsers(
+						{   
+							&quot;username&quot;:element.username,
+							&quot;userId&quot;:element.userId,
+							&quot;groupName&quot; :this.selectedGroupName
+						},
+						(error,response)&#x3D;&gt;
+						{
+						   if(!response.error){
+							console.log(&quot;removed user from group listsuccessfully&quot;);
+						   }else{
+							   alert(&quot;ERROR removeing user from group lists&quot;);
+						   }
+						});
+
+
+					//pull from groupuser collection also!!!
+			});
+		}
+			
+		Settings(){
+				
+		}
+		fileEvent(fileInput:any){
+
+			let file &#x3D; fileInput.target.files[0];
+			this.chatService.updateProfilepic(
+				{   
+					&quot;userId&quot;:this.userId,
+					&quot;filename&quot;:file.name,
+					&quot;file&quot;:file
+				},
+				(error,response)&#x3D;&gt;
+				{
+				   if(!response.error){
+					   alert(&quot;Status updated Successfully&quot;);
+				   }else{
+					   alert(&quot;ERROR updating status&quot;);
+				   }						
+				});
+
+			// Access Keys needs to be changed
+
+			// AWSService.config.accessKeyId &#x3D; &#x27;AKIAINOO6VT2L4UKJJQQ&#x27;;
+			// AWSService.config.secretAccessKey &#x3D; &#x27;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&#x27;;
+			
+			// Creating an AWS Bucket for the User
+		}
+}
+	
+	
+	
+</code></pre>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+           </div>
+       </div>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/search/search.js"></script>
+       <script src="../js/search/lunr.min.js"></script>
+       <script src="../js/search/search-lunr.js"></script>
+
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/highlight.pack.js"></script>
+       <script src="../js/libs/highlightjs-line-numbers.min.js"></script>
+       <script src="../js/search/search_index.js"></script>
+       <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                hljs.initHighlightingOnLoad();
+                hljs.initLineNumbersOnLoad();
+            });
+       </script>
+
+    </body>
+</html>

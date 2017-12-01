@@ -1,0 +1,1 @@
+Folder for gifs for showing the front end functionality to the user as part of the documentation in the wiki page
