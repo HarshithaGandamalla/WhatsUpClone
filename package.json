@@ -7,9 +7,10 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "compodoc": "./node_modules/.bin/compodoc -p src/tsconfig.app.json -s" ,
+    "test": "node_modules/.bin/istanbul cover  ./node_modules/mocha/bin/_mocha  test/*.js ",    
     "postinstall": "ng build --aot -prod"
   },
   "private": true,
