@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-node_modules/
-=======
 whatsappclone\node_modules
 nodejs\node_modules
 nodejs/npm-debug.log
 whatsappclone/npm-debug.log
->>>>>>> 27314032a84d95752fd8224f5cef073aa54d1694

@@ -577,19 +577,20 @@ this.app.post('/deregisterUsers', (request,response) => {
                     if (count > 0) {
                         console.log("group revelant userid array found");
                        //modify exsisting groups array of user
-                       userarray.forEach(element => {
+                     //  userarray.forEach(element => {
                         
-                        let val={
-                            "username":element.username,
-                            "userId":element.userId 
-                        }
+                        // let val={
+                        //     "username":element.username,
+                        //     "userId":element.userId 
+                        // }
 
-                      helper.updateGroupUsersList( data ,val, (error,result)=>{
+                      helper.updateGroupUsersList( data ,userarray, (error,result)=>{
                                          
                        
                         
                              if (error) {
-                                               // console.log("Not  updated");
+                                    
+                                    // console.log("Not  updated");
                                                 
                                       registrationResponse.error = true;
                                      registrationResponse.message = `Server error.`;
@@ -599,14 +600,14 @@ this.app.post('/deregisterUsers', (request,response) => {
                             
                                         console.log("Succesfully updated: "+JSON.stringify(result));
                                      registrationResponse.error = false;
-                                        registrationResponse.message = result;
+                                     registrationResponse.message = 'Succesfull';
                                      response.status(200).json(registrationResponse);
                                     }
     
     
                       });
                         
-                    });
+                  //  });
     
                     } else {
                       
