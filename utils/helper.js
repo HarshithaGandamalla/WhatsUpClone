@@ -146,7 +146,7 @@ updateUserGroups(findby,groupName,callback){
 
 updateGroupUsersList(findby,val,callback){
     this.Mongodb.onConnect( (db,ObjectID) => {
-        db.collection('groupusers').findAndModify(findby ,[], {$addToSet: {'userIdArray': val}},{upsert:true,new:true},(err, result) => {
+        db.collection('groupusers').findAndModify(findby ,[], {$push:  {'userIdArray':{$each:val} }},{upsert:true,new:true},(err, result) => {
             db.close();
             callback(err,result.value);
         });
