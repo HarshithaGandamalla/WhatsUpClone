@@ -11,7 +11,7 @@ describe('whatsappclone App', () => {
   it('should have gone into the home page', () => 
   {
     page.navigateTo();
-    expect(browser.getCurrentUrl()).toEqual('http://localhost:49159/home/5a137b30a75e121758df3713');
+    expect(browser.getCurrentUrl()).toEqual('http://localhost:49157/home/5a206b2c57c5da2bf4ed1b9f');
   });
 
   it('should have the correct title', () => 
@@ -23,13 +23,13 @@ describe('whatsappclone App', () => {
   it('should have the correct userId', () => 
   {
     page.navigateTo();
-    expect(browser.getCurrentUrl()).toContain('5a137b30a75e121758df3713');
+    expect(browser.getCurrentUrl()).toContain('5a206b2c57c5da2bf4ed1b9f');
   });
 
   it('should have the correct username', () => 
   {
     page.navigateTo();
-    expect(page.getUserText()).toContain('jay');
+    expect(page.getUserText()).toContain('Hello');
   });
 
   it('should have user settings', () => 
