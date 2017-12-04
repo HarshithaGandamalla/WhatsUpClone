@@ -13,13 +13,13 @@ import { HttpService } from './../http.service';
 })
 export class LoginComponent{
 
-	private username = null;
-  	private email = null;
-  	private password = null;
+	public username = null;
+  	public email = null;
+  	public password = null;
 
-  	private isuserNameAvailable = false;
-  	private userTypingTimeout= 1000;
-    private typingTimer = null;
+  	public isuserNameAvailable = false;
+  	public userTypingTimeout= 1000;
+    public typingTimer = null;
 
   	constructor(
       	private chatService : ChatService,

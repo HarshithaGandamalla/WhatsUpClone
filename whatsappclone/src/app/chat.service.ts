@@ -92,6 +92,29 @@ export class ChatService {
               );
     }
 
+	public getprofile(userId ,callback):any{
+        this.httpService.getprofile({userId : userId}).subscribe(
+                  response => {
+					  console.log("Leading HTTP Request");
+                      callback(false,response);
+                  },
+                  error => {
+                      callback(true,'HTTP fail.');
+                  }
+              );
+    }
+
+	public fetchMembers(params ,callback):any{
+		console.log("Entered Fetch Components");
+        this.httpService.fetchMembers(params).subscribe(
+                  response => {
+                      callback(false,response);
+                  },
+                  error => {
+                      callback(true,'HTTP fail.');
+                  }
+              );
+	}
 
     /* 
 	* Method to check the session of user.
@@ -137,6 +160,35 @@ export class ChatService {
 	  
   }
   
+  	
+	/* 
+	* Method to remove users from  group list.
+	*/
+	public deregisterUsers(params,callback):any{		
+		this.httpService.deregisterUsers(params).subscribe(
+		  response => {
+			  callback(false,response);
+		  },
+		  error => {
+			  callback(true,'HTTP fail.');
+		  });
+	  
+  }
+  
+  /* 
+	* Method to maintain user list of group.
+	*/
+	public addGroupUsers(params,callback):any{		
+		this.httpService.addGroupUsers(params).subscribe(
+		  response => {
+			  callback(false,response);
+		  },
+		  error => {
+			  callback(true,'HTTP fail.');
+		  });
+	  
+  }
+  
   
   /* 
 	* Method to add update status of the user.
@@ -151,5 +203,19 @@ export class ChatService {
 				callback(true,'HTTP status fail.');
 			});
 	}
+
+	public updateProfilepic(params,callback):any{
+		this.httpService.updateProfilepic(params).subscribe(
+		  response => {
+			  console.log("OOOOOOOOOOOOOOOO");
+			  console.log(JSON.stringify(response)+" in res");
+			  callback(false,response);
+		  },
+		  error => {
+			  console.log(error+" in error");
+			  
+			  callback(true,'HTTP status fail.');
+		  });
+  }
 
 }

@@ -61,7 +61,8 @@
     "socket.io-client": "^2.0.4",
     "socket.io-parser": "^3.1.2",
     "ultron": "^1.1.0",
-    "zone.js": "^0.8.4"
+    "zone.js": "^0.8.4",
+    "aws-sdk": "^2.156.0"
   },
   "devDependencies": {
     "@angular/cli": "^1.5.0",

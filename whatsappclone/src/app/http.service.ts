@@ -57,6 +57,13 @@ export class HttpService {
 			.catch( (error:any) => Observable.throw(error.json().error || `Server error`) );
 	}
 
+
+	public deregisterUsers(params){
+		return this.http.post(`${this.BASE_URL}deregisterUsers`,JSON.stringify(params),this.headerOptions)
+			.map( (response:Response) => response.json())
+			.catch( (error:any) => Observable.throw(error.json().error || `Server error`) );
+	}
+
     public userSessionCheck(params){
         return this.http.post(`${this.BASE_URL}userSessionCheck`,JSON.stringify(params),this.headerOptions)
             .map( (response:Response) => response.json())
@@ -65,6 +72,13 @@ export class HttpService {
 
 	public getMessages(params){
 		return this.http.post(`${this.BASE_URL}getMessages`,JSON.stringify(params),this.headerOptions)
+	    	.map( (response:Response) => response.json())
+	      	.catch( (error:any) => Observable.throw(error.json().error || `Server error`) );
+	}
+
+	public fetchMembers(params){
+		console.log("Entered HTTP Service");
+		return this.http.post(`${this.BASE_URL}fetchMembers`,JSON.stringify(params),this.headerOptions)
 	    	.map( (response:Response) => response.json())
 	      	.catch( (error:any) => Observable.throw(error.json().error || `Server error`) );
 	}
@@ -81,9 +95,28 @@ export class HttpService {
 			.map( (response:Response) => response.json())
 			.catch( (error:any) => Observable.throw(error.json().error || `Server error`) );
 	}
+
+	public addGroupUsers(params){		
+		return this.http.post(`${this.BASE_URL}addGroupUsers`,JSON.stringify(params),this.headerOptions)
+			.map( (response:Response) => response.json())
+			.catch( (error:any) => Observable.throw(error.json().error || `Server error`) );
+	}
   
   	public updateStatus(params){		
 		return this.http.post(`${this.BASE_URL}updateStatus`,JSON.stringify(params),this.headerOptions)
+			.map( (response:Response) => response.json())
+			.catch( (error:any) => Observable.throw(error.json().error || `Server error`) );
+	}
+
+	public updateProfilepic(params){		
+		return this.http.post(`${this.BASE_URL}updateProfilepic`,JSON.stringify(params),this.headerOptions)
+			.map( (response:Response) => response.json())
+			.catch( (error:any) => Observable.throw(error.json().error || `Server error`) );
+	}
+
+	public getprofile(params){	
+		console.log("Entered HTTP Service");	
+		return this.http.post(`${this.BASE_URL}getprofile`,JSON.stringify(params),this.headerOptions)
 			.map( (response:Response) => response.json())
 			.catch( (error:any) => Observable.throw(error.json().error || `Server error`) );
 	}
