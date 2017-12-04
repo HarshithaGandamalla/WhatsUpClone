@@ -137,48 +137,34 @@ class Routes{
                });
         
 
-
-
-        this.app.post('/updateProfilepic',(request,response) =>{
-            
-                        console.log(JSON.stringify(request));
-                        let filename = request.body.filename;
-                        let file = request.body.file;
-                        let userId = request.body.userId;
-                        let profilepicResponse = {}
-
-                        var AWS = require('aws-sdk');
-                        var config = require('configure.json');
-                        AWS.config.loadFromPath('configure.json');
-
-                        var s3 = new AWS.S3();
-                        var bucketName= "profilepic"+ userId;
-                        s3BucketMgt.isBucketExist(bucketName,config,function(data){
-                            // If Bucket doesn't exists Create a new one
-                         if(data.status==false)
-                         {
-                            console.log("error in isBucketExist:"+data.error);
-                            //   Creating Bucket
-                            var bucketParams = {Bucket: bucketName};
-                            s3.createBucket(bucketParams)
-                            var s3Bucket = new AWS.S3( { params: {Bucket: bucketName} } )
-                         }
-                         var img_data = {Key: userId+"profilepic", Body: file};
-                         s3Bucket.putObject(img_data, function(err, data){
-                            if (err) 
-                              { console.log('Error uploading data: ', data); 
-                              } else {
-                                console.log('succesfully uploaded the image!');
-                              }
-                          });
-                          var urlParams = {Bucket: bucketName, Key: userId+"profilepic"};
-                          s3Bucket.getSignedUrl('getObject', urlParams, function(err, url){
-                            console.log('the url of the image is', url);
-                          })
-                        
+               this.app.post('/updatePic',(request,response) =>{
+                
+                        console.log("Posted Request");
+                           let userId = request.body.userId;
+                           let url = request.body.url;
+                           console.log("Routes.JS");
+                           console.log("url is" +url);
+                           let picResponse = {}
+                           console.log("In routes req: " +request);
+                           helper.updatePic( userId, url, (error,result)=>{
+                
+                                      if (error || result === null||result===undefined) {
+                                        console.log(" status error: ");
+                                        
+                                          picResponse.error = true;
+                                          picResponse.message = `Server error in routes.`;
+                                          response.status(200).json(picResponse);
+                                      }
+                                      else{
+                                      console.log("User status response details: "+result);
+                                          picResponse.error = false;
+                                          picResponse.message = `User status changed successfully`;
+                                          response.status(200).json(picResponse);
+                                      }
+                                      });
+                                    
                         });
-                                 
-                    });
+        
     
        this.app.post('/registerUser',(request,response) =>{
 
@@ -241,6 +227,27 @@ class Routes{
                         console.log("User registration response detains: "+result);
                         registrationResponse.error = false;
                         registrationResponse.userId = result.insertedId;
+                        let bucketName = "profilepic"+ result.insertedId;
+                        var AWS = require('aws-sdk');
+                        AWS.config.update({ accessKeyId: 'Your AWS Access Key', secretAccessKey: 'Your AWS Secret Key'});
+                        var s3 = new AWS.S3({region: 'us-west-1'});
+                        const bucketParams = {
+                            Bucket : bucketName
+                         };  
+                        s3.headBucket(bucketParams, function(err, data) {
+                            console.log("getting access to bucket");
+                            console.log(JSON.stringify(bucketParams))
+                            if (err) {
+                                    console.log("ErrorHeadBucket", err)
+                                    s3.createBucket(bucketParams, function(err, data) {
+                                        if (err) {
+                                            console.log("Error", err);
+                                        } else {
+                                            console.log("Created Bucket Successfully");
+                                        }
+                                });
+                            } 
+                        })
                         registrationResponse.message = `User registration successful.`;
                         response.status(200).json(registrationResponse);
                     }

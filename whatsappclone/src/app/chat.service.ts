@@ -204,18 +204,30 @@ export class ChatService {
 			});
 	}
 
-	public updateProfilepic(params,callback):any{
-		this.httpService.updateProfilepic(params).subscribe(
+	public updatePic(params,callback):any{
+		console.log(JSON.stringify(params));
+		this.httpService.updatePic(params).subscribe(
 		  response => {
-			  console.log("OOOOOOOOOOOOOOOO");
 			  console.log(JSON.stringify(response)+" in res");
 			  callback(false,response);
 		  },
-		  error => {
-			  console.log(error+" in error");
-			  
+		  error => {			
 			  callback(true,'HTTP status fail.');
 		  });
   }
+
+// 	public updateProfilepic(params,callback):any{
+// 		this.httpService.updateProfilepic(params).subscribe(
+// 		  response => {
+// 			  console.log("OOOOOOOOOOOOOOOO");
+// 			  console.log(JSON.stringify(response)+" in res");
+// 			  callback(false,response);
+// 		  },
+// 		  error => {
+// 			  console.log(error+" in error");
+			  
+// 			  callback(true,'HTTP status fail.');
+// 		  });
+//   }
 
 }

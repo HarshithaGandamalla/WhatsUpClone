@@ -37,7 +37,7 @@ public selectedUserId = null;
 public selectedSocketId = null;
 public selectedUserName = null;
 public selectedGroupName = null;
-
+public selectedEmail = '';
 	
 /* 
 * UI related variables ends
@@ -152,6 +152,10 @@ ngOnInit() {
 
 						
 								this.username = response.username;
+								this.selectedEmail = response.email;
+								console.log(this.selectedEmail);
+								this.status = response.status;
+								console.log(this.status);
 							this.overlayDisplay = true;
 						
 							
@@ -858,30 +862,56 @@ this.chatService.getMessages({ userId : this.userId,toUserId :user._id} , ( erro
 			
 	}
 	fileEvent(fileInput:any){
-
-		let file = fileInput.target.files[0];
-		this.chatService.updateProfilepic(
-			{   
-				"userId":this.userId,
-				"filename":file.name,
-				"file":file
-			},
-			(error,response)=>
-			{
-				if(!response.error){
-					alert("Status updated Successfully");
-				}else{
-					alert("ERROR updating status");
-				}						
-			});
-
-		// Access Keys needs to be changed
-
-		// AWSService.config.accessKeyId = 'AKIAINOO6VT2L4UKJJQQ';
-		// AWSService.config.secretAccessKey = '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';
 		
-		// Creating an AWS Bucket for the User
-	}
+					let file = fileInput.target.files[0];
+					console.log(file);
+					var AWSService = (<any>window).AWS;
+					AWSService.config.accessKeyId ='Your AWS Access Key';
+					AWSService.config.secretAccessKey ='Your AWS Secret Key';
+					var bucketName= "profilepic"+ this.userId;
+					var bucket = new AWSService.S3({params: {Bucket: bucketName}});
+					var fileName = "profilepic"+this.userId;
+					var baseUrl="";
+					var usrImgId = this.userId;
+					let that = this;
+					console.log("ooooooooooooooooooo");
+					console.log(usrImgId);
+					var params = {Key: fileName,  ACL: 'public-read', Body: file};
+					bucket.upload(params, function (err, data) {
+						if(err){
+							baseUrl = "error";
+							alert('Failed to upload picture');
+							console.log(err);
+						}
+						else	
+						{
+							console.log(data);
+							baseUrl = data.Location;
+							baseUrl = 'https://' + bucketName + '.s3.amazonaws.com/'+fileName;
+							console.log("New URL");	
+							console.log(baseUrl);
+							that.profile_img = baseUrl; 
+							console.log(this.profile_img +"--->"+usrImgId);
+							that.chatService.updatePic(
+								{   
+									"url": baseUrl,
+									"userId": that.userId
+								},
+								(error,response)=>
+								{
+									console.log(error);
+									if(!response.error){
+										alert("Picture updated Successfully");
+									}else{
+										alert("ERROR updating picture");
+										console.log(error);
+									}	
+								});
+						}
+					});
+					
+				}
+		
 }
 
 

@@ -120,5 +120,12 @@ export class HttpService {
 			.map( (response:Response) => response.json())
 			.catch( (error:any) => Observable.throw(error.json().error || `Server error`) );
 	}
+
+	public updatePic(params){
+		console.log("HTTP Service");		
+		return this.http.post(`${this.BASE_URL}updatePic`,JSON.stringify(params),this.headerOptions)
+			.map( (response:Response) => response.json())
+			.catch( (error:any) => Observable.throw(error.json().error || `Server error`) );
+	}
   
 }

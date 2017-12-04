@@ -13,6 +13,8 @@ import {FlexLayoutModule} from "@angular/flex-layout";
 import {MatCardModule} from '@angular/material';
 import {MatSidenavModule} from '@angular/material';
 import { HomeComponent } from './home/home.component';
+import { NotfoundComponent } from './notfound/notfound.component';
+
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { Ng2EmojiModule } from 'ng2-emoji';
@@ -40,7 +42,8 @@ export const appRoutes:Routes = [
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent   
+    HomeComponent,
+    NotfoundComponent   
   ],
   imports: [
     BrowserModule,
