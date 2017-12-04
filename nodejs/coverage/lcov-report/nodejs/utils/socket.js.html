@@ -1,0 +1,824 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for nodejs/utils/socket.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\index.html">All files</a> / <a href="index.html">nodejs/utils</a> socket.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/77</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/20</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/21</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/77</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
+'use strict';
+&nbsp;
+const path = <span class="cstat-no" title="statement not covered" >require('path');</span>
+const helper = <span class="cstat-no" title="statement not covered" >require('./helper');</span>
+&nbsp;
+class Socket{
+&nbsp;
+<span class="fstat-no" title="function not covered" >   co</span>nstructor(socket){
+<span class="cstat-no" title="statement not covered" >       this.io = socket;</span>
+   }
+   
+<span class="fstat-no" title="function not covered" >   so</span>cketEvents(){
+&nbsp;
+<span class="cstat-no" title="statement not covered" >       this.io.on('connection', <span class="fstat-no" title="function not covered" >(s</span>ocket) =&gt; {</span>
+&nbsp;
+           /**
+           * get the user's Chat list
+           */
+<span class="cstat-no" title="statement not covered" >           socket.on('chat-list', <span class="fstat-no" title="function not covered" >(d</span>ata) =&gt; {</span>
+&nbsp;
+               let chatListResponse = <span class="cstat-no" title="statement not covered" >{};</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >               if (data.userId == '') {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                   chatListResponse.error = true;</span>
+<span class="cstat-no" title="statement not covered" >                   chatListResponse.message = `User does not exits.`;</span>
+                   
+<span class="cstat-no" title="statement not covered" >                   this.io.emit('chat-list-response',chatListResponse);</span>
+&nbsp;
+               }else{
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                   helper.getUserInfo( data.userId,<span class="fstat-no" title="function not covered" >(e</span>rr, UserInfoResponse)=&gt;{</span>
+                       
+<span class="cstat-no" title="statement not covered" >                       delete UserInfoResponse.password;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                       helper.getChatList( socket.id,<span class="fstat-no" title="function not covered" >(e</span>rr, response)=&gt;{</span>
+                       
+<span class="cstat-no" title="statement not covered" >                           this.io.to(socket.id).emit('chat-list-response',{</span>
+                               error : false ,
+                               singleUser : false ,
+                               chatList : response
+                           });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                           socket.broadcast.emit('chat-list-response',{</span>
+                               error : false ,
+                               singleUser : true ,
+                               chatList : UserInfoResponse
+                           });
+&nbsp;
+                       });
+                   });
+               }
+           });
+&nbsp;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >           socket.on('chat-list-offline', <span class="fstat-no" title="function not covered" >(d</span>ata) =&gt; {</span>
+            
+                           let chatListResponse = <span class="cstat-no" title="statement not covered" >{};</span>
+            
+<span class="cstat-no" title="statement not covered" >                           if (data.userId == '') {</span>
+            
+<span class="cstat-no" title="statement not covered" >                               chatListResponse.error = true;</span>
+<span class="cstat-no" title="statement not covered" >                               chatListResponse.message = `User does not exits.`;</span>
+                               
+<span class="cstat-no" title="statement not covered" >                               this.io.emit('chat-list-response-offline',chatListResponse);</span>
+            
+                           }else{
+            
+<span class="cstat-no" title="statement not covered" >                               helper.getUserInfo( data.userId,<span class="fstat-no" title="function not covered" >(e</span>rr, UserInfoResponse)=&gt;{</span>
+                                   
+<span class="cstat-no" title="statement not covered" >                                   delete UserInfoResponse.password;</span>
+            
+<span class="cstat-no" title="statement not covered" >                                   helper.getOfflineChatList( socket.id,<span class="fstat-no" title="function not covered" >(e</span>rr, response)=&gt;{</span>
+                                   
+<span class="cstat-no" title="statement not covered" >                                       this.io.to(socket.id).emit('chat-list-response-offline',{</span>
+                                           error : false ,
+                                           singleUser : false ,
+                                           chatList : response
+                                       });
+            
+<span class="cstat-no" title="statement not covered" >                                       socket.broadcast.emit('chat-list-response-offline',{</span>
+                                           error : false ,
+                                           singleUser : true ,
+                                           chatList : UserInfoResponse
+                                       });
+            
+                                   });
+                               });
+                           }
+                       });
+&nbsp;
+&nbsp;
+           /**
+           * get the user's groups list
+           */
+&nbsp;
+<span class="cstat-no" title="statement not covered" >           socket.on('groups-list',<span class="fstat-no" title="function not covered" >(d</span>ata)=&gt;{</span>
+            
+&nbsp;
+            let groupListResponse = <span class="cstat-no" title="statement not covered" >{};</span>
+            
+<span class="cstat-no" title="statement not covered" >                           if (data.userId == '') {</span>
+            
+<span class="cstat-no" title="statement not covered" >                            groupListResponse.error = true;</span>
+<span class="cstat-no" title="statement not covered" >                            groupListResponse.message = `User does not exits.`;</span>
+                               
+<span class="cstat-no" title="statement not covered" >                            this.io.emit('groups-list-response',groupListResponse);</span>
+            
+                           }else{
+            
+<span class="cstat-no" title="statement not covered" >                               helper.getGroupsList( data,<span class="fstat-no" title="function not covered" >(e</span>rr, UserGroupInfoResponse)=&gt;{</span>
+                                       
+<span class="cstat-no" title="statement not covered" >                                  console.log("Usergroup from db fetched:"+JSON.stringify(UserGroupInfoResponse[0]));</span>
+                                  let grouparray=<span class="cstat-no" title="statement not covered" >[];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                                  if( UserGroupInfoResponse[0]!=null){</span>
+<span class="cstat-no" title="statement not covered" >                                    grouparray=UserGroupInfoResponse[0].groupsArray;</span>
+                                  }
+                            
+                                   const data = <span class="cstat-no" title="statement not covered" >{</span>
+                                    error : false,                                      
+                                    groupList : grouparray
+                                   };
+                                   
+<span class="cstat-no" title="statement not covered" >                                   this.io.to(socket.id).emit('groups-list-response',data);</span>
+                                      
+                                       
+                                   
+                               });
+                           }
+&nbsp;
+           });
+&nbsp;
+           /**
+           * send the messages to the user
+           */
+<span class="cstat-no" title="statement not covered" >           socket.on('add-message', <span class="fstat-no" title="function not covered" >(d</span>ata) =&gt; {</span>
+               
+<span class="cstat-no" title="statement not covered" >               if (data.message === '') {</span>
+                   
+<span class="cstat-no" title="statement not covered" >                   this.io.to(socket.id).emit(`add-message-response`,`Message cant be empty`); </span>
+&nbsp;
+               }else <span class="cstat-no" title="statement not covered" >if(data.fromUserId === ''){</span>
+                   
+<span class="cstat-no" title="statement not covered" >                   this.io.to(socket.id).emit(`add-message-response`,`Unexpected error, Login again.`); </span>
+&nbsp;
+               }else <span class="cstat-no" title="statement not covered" >if(data.toUserId === ''){</span>
+                   
+<span class="cstat-no" title="statement not covered" >                   this.io.to(socket.id).emit(`add-message-response`,`Select a user to chat.`); </span>
+&nbsp;
+               }else{
+                   
+                   let toSocketId = <span class="cstat-no" title="statement not covered" >data.toSocketId;</span>
+                   let fromSocketId = <span class="cstat-no" title="statement not covered" >data.fromSocketId;</span>
+<span class="cstat-no" title="statement not covered" >                   delete data.toSocketId;</span>
+<span class="cstat-no" title="statement not covered" >                   data.timestamp = Math.floor(new Date() / 1000);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                   helper.insertMessages(data,<span class="fstat-no" title="function not covered" >( </span>error , response)=&gt;{</span>
+<span class="cstat-no" title="statement not covered" >                       this.io.to(toSocketId).emit(`add-message-response`,data); </span>
+                   });
+&nbsp;
+               }				
+           });
+&nbsp;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >           socket.on('group-message', <span class="fstat-no" title="function not covered" >(d</span>ata) =&gt; {</span>
+            
+<span class="cstat-no" title="statement not covered" >            if (data.message === '') {</span>
+                
+<span class="cstat-no" title="statement not covered" >                this.io.to(socket.id).emit(`group-message-response`,`Message cant be empty`); </span>
+&nbsp;
+            }else <span class="cstat-no" title="statement not covered" >if(data.fromUserIdGroup === ''){</span>
+                
+<span class="cstat-no" title="statement not covered" >                this.io.to(socket.id).emit(`group-message-response`,`Unexpected error, Login again.`); </span>
+&nbsp;
+            }else <span class="cstat-no" title="statement not covered" >if(data.groupName === ''){</span>
+                
+<span class="cstat-no" title="statement not covered" >                this.io.to(socket.id).emit(`group-message-response`,`Select a group to chat.`); </span>
+&nbsp;
+            }else{
+                
+<span class="cstat-no" title="statement not covered" >                data.timestamp = Math.floor(new Date() / 1000);</span>
+&nbsp;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                helper.insertGroupMessages(data,<span class="fstat-no" title="function not covered" >( </span>error , response)=&gt;{</span>
+<span class="cstat-no" title="statement not covered" >                    this.io.to(data.groupName).emit(`group-message-response`,data); </span>//emits messages to given room name
+                });
+&nbsp;
+            }				
+        });
+&nbsp;
+           /**
+           * Logout the user
+           */
+<span class="cstat-no" title="statement not covered" >           socket.on('logout',<span class="fstat-no" title="function not covered" >(d</span>ata)=&gt;{</span>
+&nbsp;
+               const userId = <span class="cstat-no" title="statement not covered" >data.userId;</span>
+               
+<span class="cstat-no" title="statement not covered" >               helper.logout(userId , false, <span class="fstat-no" title="function not covered" >(e</span>rror, result)=&gt;{</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                   this.io.to(socket.id).emit('logout-response',{</span>
+                       error : false
+                   });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                   socket.broadcast.emit('chat-list-response',{</span>
+                       error : false ,
+                       userDisconnected : true ,
+                       socketId : socket.id
+                   });
+               });	
+           });
+&nbsp;
+&nbsp;
+           /**
+           * sending the disconnected user to all socket users. 
+           */
+<span class="cstat-no" title="statement not covered" >           socket.on('disconnect',<span class="fstat-no" title="function not covered" >()</span>=&gt;{</span>
+<span class="cstat-no" title="statement not covered" >               socket.broadcast.emit('chat-list-response',{</span>
+                   error : false ,
+                   userDisconnected : true ,
+                   socketId : socket.id
+               });
+           });
+&nbsp;
+       });
+&nbsp;
+   }
+   
+<span class="fstat-no" title="function not covered" >   so</span>cketConfig(){
+&nbsp;
+<span class="cstat-no" title="statement not covered" >       this.io.use(<span class="fstat-no" title="function not covered" >fu</span>nction(socket, next) {</span>
+           let userID = <span class="cstat-no" title="statement not covered" >socket.request._query['userId'];</span>
+             let userSocketId = <span class="cstat-no" title="statement not covered" >socket.id;</span>
+             const data = <span class="cstat-no" title="statement not covered" >{</span>
+                 id : userID,
+                 value : {
+                     $set :{
+                         socketId : userSocketId,
+                         online : 'Y'
+                     }
+                 }
+             }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >             helper.addSocketId( data ,<span class="fstat-no" title="function not covered" >(e</span>rror,response)=&gt;{</span>
+                 // socket id updated.
+             });
+<span class="cstat-no" title="statement not covered" >             next();</span>
+       });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >       this.socketEvents();</span>
+   }
+}
+<span class="cstat-no" title="statement not covered" >module.exports = Socket;</span></pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Dec 03 2017 19:55:33 GMT-0500 (Eastern Standard Time)
+</div>
+</div>
+<script src="..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,2752 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>whatsappclone documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	    <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">whatsappclone documentation</a>
+            <button type="button" class="btn btn-default btn-menu fa fa-bars" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+            <div id="book-search-input" role="search">
+                <input type="text" placeholder="Type to search">
+            </div>
+            <nav>
+            
+                <ul class="list">
+            
+                    <li class="title">
+                        <a href="../index.html">whatsappclone documentation</a>
+                    </li>
+            
+                    <li class="divider"></li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../index.html"><span class="fa fa-home"></span>Getting started</a>
+                        <ul class="links">
+                                <li class="link">
+                                    <a href="../"
+                                        
+                                        
+                                        >
+                                        <span class="fa fa-th"></span>Overview
+                                    </a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../modules.html" >
+                            <div class="menu-toggler linked" data-toggle="collapse"
+                                    data-target="#xs-modules-links"
+                            >
+                                <span class="fa fa-archive"></span>
+                                <span class="link-name">Modules</span>
+                                <span class="fa fa-angle-down"></span>
+                            </div>
+                        </a>
+                        <ul class="links collapse "
+                                id="xs-modules-links"
+                            >
+                                <li class="link">
+                                    <a href="../modules/AppModule.html" >AppModule</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-components-links"
+                            >
+                            <span class="fa fa-cogs"></span>
+                            <span>Components</span>
+                            <span class="fa fa-angle-down"></span>
+                        </div>
+                        <ul class="links collapse "
+                                id="xs-components-links"
+                            >
+                                <li class="link">
+                                    <a href="../components/AppComponent.html" >AppComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/HomeComponent.html"  data-type="entity-link" class="active" >HomeComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/LoginComponent.html" >LoginComponent</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-injectables-links"
+                            >
+                            <span class="fa fa-long-arrow-down"></span>
+                            <span>Injectables</span>
+                            <span class="fa fa-angle-down"></span>
+                        </div>
+                        <ul class="links collapse "
+                                id="xs-injectables-links"
+                            >
+                                <li class="link">
+                                    <a href="../injectables/ChatService.html" >ChatService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/HttpService.html" >HttpService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/SocketService.html" >SocketService</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+            
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-miscellaneous-links"
+                            >
+                            <span class="fa fa-cubes"></span>
+                            <span>Miscellaneous</span>
+                            <span class="fa fa-angle-down"></span>
+                        </div>
+                        <ul class="links collapse "
+                                id="xs-miscellaneous-links"
+                            >
+                                <li class="link">
+                                  <a href="../miscellaneous/variables.html" data-type="entity-link" >Variables</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../routes.html" ><span class="fa fa-code-fork"></span>Routes</a>
+                    </li>
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../coverage.html" ><span class="fa fa-tasks"></span>Documentation coverage</a>
+                    </li>
+            
+                    <li class="divider"></li>
+                    <li class="copyright">
+                            Documentation generated using <a href="https://compodoc.github.io/website/" target="_blank">
+                                        <img src="..//images/compodoc-vectorise.svg" class="img-responsive">
+                            </a>
+                    </li>
+            
+                </ul>
+            
+            </nav>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <nav>
+                   
+                       <ul class="list">
+                   
+                           <li class="title">
+                               <a href="../index.html">whatsappclone documentation</a>
+                           </li>
+                   
+                           <li class="divider"></li>
+                   
+                               <div id="book-search-input" role="search">
+                                   <input type="text" placeholder="Type to search">
+                               </div>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../index.html"><span class="fa fa-home"></span>Getting started</a>
+                               <ul class="links">
+                                       <li class="link">
+                                           <a href="../"
+                                               
+                                               
+                                               >
+                                               <span class="fa fa-th"></span>Overview
+                                           </a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../modules.html" >
+                                   <div class="menu-toggler linked" data-toggle="collapse"
+                                           data-target="#modules-links"
+                                   >
+                                       <span class="fa fa-archive"></span>
+                                       <span class="link-name">Modules</span>
+                                       <span class="fa fa-angle-down"></span>
+                                   </div>
+                               </a>
+                               <ul class="links collapse "
+                                       id="modules-links"
+                   >
+                                       <li class="link">
+                                           <a href="../modules/AppModule.html" >AppModule</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#components-links"
+                   >
+                                   <span class="fa fa-cogs"></span>
+                                   <span>Components</span>
+                                   <span class="fa fa-angle-down"></span>
+                               </div>
+                               <ul class="links collapse "
+                                       id="components-links"
+                   >
+                                       <li class="link">
+                                           <a href="../components/AppComponent.html" >AppComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/HomeComponent.html"  data-type="entity-link" class="active" >HomeComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/LoginComponent.html" >LoginComponent</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#injectables-links"
+                   >
+                                   <span class="fa fa-long-arrow-down"></span>
+                                   <span>Injectables</span>
+                                   <span class="fa fa-angle-down"></span>
+                               </div>
+                               <ul class="links collapse "
+                                       id="injectables-links"
+                   >
+                                       <li class="link">
+                                           <a href="../injectables/ChatService.html" >ChatService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/HttpService.html" >HttpService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/SocketService.html" >SocketService</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                   
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#miscellaneous-links"
+                   >
+                                   <span class="fa fa-cubes"></span>
+                                   <span>Miscellaneous</span>
+                                   <span class="fa fa-angle-down"></span>
+                               </div>
+                               <ul class="links collapse "
+                                       id="miscellaneous-links"
+                   >
+                                       <li class="link">
+                                         <a href="../miscellaneous/variables.html" data-type="entity-link" >Variables</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../routes.html" ><span class="fa fa-code-fork"></span>Routes</a>
+                           </li>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../coverage.html" ><span class="fa fa-tasks"></span>Documentation coverage</a>
+                           </li>
+                   
+                           <li class="divider"></li>
+                           <li class="copyright">
+                                   Documentation generated using <a href="https://compodoc.github.io/website/" target="_blank">
+                                               <img src="..//images/compodoc-vectorise.svg" class="img-responsive">
+                                   </a>
+                           </li>
+                   
+                       </ul>
+                   
+                   </nav>
+               </div>
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>HomeComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+    <li class="active">
+        <a href="#info" id="info-tab" role="tab" data-toggle="tab" data-link="info">Info</a>
+    </li>
+
+    <li>
+        <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+    </li>
+
+    <li>
+        <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+    </li>
+    <li>
+        <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+    </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/home/home.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code><a href="https://angular.io/docs/ts/latest/api/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">providers</td>
+                <td class="col-md-9">
+                    <code>
+                        ChatService
+                        HttpService
+                        SocketService
+                    </code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-home</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>home.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./home.component.html</code></td>
+            </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+        <h3 id="index">Index</h3>
+        <table class="table table-sm table-bordered index-table">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <span class="modifier">Private</span> <a href="#allUsers">allUsers</a>
+                            </li>
+                            <li>
+                                <span class="modifier">Private</span> <a href="#chatListUsers">chatListUsers</a>
+                            </li>
+                            <li>
+                                <span class="modifier">Private</span> <a href="#chatOfflineUsers">chatOfflineUsers</a>
+                            </li>
+                            <li>
+                                <span class="modifier">Private</span> <a href="#groupName">groupName</a>
+                            </li>
+                            <li>
+                                <span class="modifier">Private</span> <a href="#groupsList">groupsList</a>
+                            </li>
+                            <li>
+                                <span class="modifier">Private</span> <a href="#message">message</a>
+                            </li>
+                            <li>
+                                <span class="modifier">Private</span> <a href="#messages">messages</a>
+                            </li>
+                            <li>
+                                <span class="modifier">Private</span> <a href="#newUserstoGroup">newUserstoGroup</a>
+                            </li>
+                            <li>
+                                <span class="modifier">Private</span> <a href="#overlayDisplay">overlayDisplay</a>
+                            </li>
+                            <li>
+                                <span class="modifier">Private</span> <a href="#removedUsersfromGroup">removedUsersfromGroup</a>
+                            </li>
+                            <li>
+                                <span class="modifier">Private</span> <a href="#selectedGroupName">selectedGroupName</a>
+                            </li>
+                            <li>
+                                <span class="modifier">Private</span> <a href="#selectedSocketId">selectedSocketId</a>
+                            </li>
+                            <li>
+                                <span class="modifier">Private</span> <a href="#selectedUserId">selectedUserId</a>
+                            </li>
+                            <li>
+                                <span class="modifier">Private</span> <a href="#selectedUserName">selectedUserName</a>
+                            </li>
+                            <li>
+                                <span class="modifier">Private</span> <a href="#selectedUsersList">selectedUsersList</a>
+                            </li>
+                            <li>
+                                <span class="modifier">Private</span> <a href="#socketId">socketId</a>
+                            </li>
+                            <li>
+                                <span class="modifier">Private</span> <a href="#status">status</a>
+                            </li>
+                            <li>
+                                <span class="modifier">Private</span> <a href="#userId">userId</a>
+                            </li>
+                            <li>
+                                <span class="modifier">Private</span> <a href="#username">username</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                 <a href="#addGroup">addGroup</a>
+                            </li>
+                            <li>
+                                 <a href="#AddUser">AddUser</a>
+                            </li>
+                            <li>
+                                 <a href="#AddUsers">AddUsers</a>
+                            </li>
+                            <li>
+                                 <a href="#alignMessage">alignMessage</a>
+                            </li>
+                            <li>
+                                 <a href="#DeleteUser">DeleteUser</a>
+                            </li>
+                            <li>
+                                 <a href="#DeleteUsers">DeleteUsers</a>
+                            </li>
+                            <li>
+                                 <a href="#getUsers">getUsers</a>
+                            </li>
+                            <li>
+                                 <a href="#isGroupSelected">isGroupSelected</a>
+                            </li>
+                            <li>
+                                 <a href="#isUserSelected">isUserSelected</a>
+                            </li>
+                            <li>
+                                 <a href="#logout">logout</a>
+                            </li>
+                            <li>
+                                 <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                 <a href="#selectedGroup">selectedGroup</a>
+                            </li>
+                            <li>
+                                 <a href="#selectedUser">selectedUser</a>
+                            </li>
+                            <li>
+                                 <a href="#sendMessage">sendMessage</a>
+                            </li>
+                            <li>
+                                 <a href="#Settings">Settings</a>
+                            </li>
+                            <li>
+                                 <a href="#updateStatus">updateStatus</a>
+                            </li>
+                            <li>
+                                 <a href="#userToggle">userToggle</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h3 id="constructor">Constructor</h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>constructor(chatService: <a href="../injectables/ChatService.html">ChatService</a>, socketService: <a href="../injectables/SocketService.html">SocketService</a>, route: <a href="https://angular.io/docs/ts/latest/api/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, router: <a href="https://angular.io/docs/ts/latest/api/api/router/Router" target="_blank">Router</a>)</code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/app/home/home.component.ts:64</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div>
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                    <td>Type</td>
+                                                    <td>Optional</td>
+                                                    <td>Description</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                      <td>chatService</td>
+                                                      <td>
+                                                                <code><a href="../injectables/ChatService.html" target="_self" >ChatService</a></code>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td>socketService</td>
+                                                      <td>
+                                                                <code><a href="../injectables/SocketService.html" target="_self" >SocketService</a></code>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td>route</td>
+                                                      <td>
+                                                                <code><a href="https://angular.io/docs/ts/latest/api/api/router/ActivatedRoute" target="_blank" >ActivatedRoute</a></code>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td>router</td>
+                                                      <td>
+                                                                <code><a href="https://angular.io/docs/ts/latest/api/api/router/Router" target="_blank" >Router</a></code>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </section>
+
+
+
+
+
+    <section>
+        
+            <h3 id="methods">
+                Methods
+            </h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="addGroup"></a>
+                            <span class="name"><b> addGroup</b><a href="#addGroup"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>addGroup(newGroup: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="427" class="link-to-prism">src/app/home/home.component.ts:427</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                    <td>Type</td>
+                                                    <td>Optional</td>
+                                                    <td>Description</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                      <td>newGroup</td>
+                                                      <td>
+                                                              <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="AddUser"></a>
+                            <span class="name"><b> AddUser</b><a href="#AddUser"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>AddUser(username: , userId: )</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="488" class="link-to-prism">src/app/home/home.component.ts:488</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                    <td>Type</td>
+                                                    <td>Optional</td>
+                                                    <td>Description</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                      <td>username</td>
+                                                      <td>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td>userId</td>
+                                                      <td>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="AddUsers"></a>
+                            <span class="name"><b> AddUsers</b><a href="#AddUsers"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>AddUsers()</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="495" class="link-to-prism">src/app/home/home.component.ts:495</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="alignMessage"></a>
+                            <span class="name"><b> alignMessage</b><a href="#alignMessage"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>alignMessage(userId: )</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="342" class="link-to-prism">src/app/home/home.component.ts:342</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                    <td>Type</td>
+                                                    <td>Optional</td>
+                                                    <td>Description</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                      <td>userId</td>
+                                                      <td>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+    
+                                </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="DeleteUser"></a>
+                            <span class="name"><b> DeleteUser</b><a href="#DeleteUser"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>DeleteUser(username: , userId: )</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="516" class="link-to-prism">src/app/home/home.component.ts:516</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                    <td>Type</td>
+                                                    <td>Optional</td>
+                                                    <td>Description</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                      <td>username</td>
+                                                      <td>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td>userId</td>
+                                                      <td>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="DeleteUsers"></a>
+                            <span class="name"><b> DeleteUsers</b><a href="#DeleteUsers"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>DeleteUsers()</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="524" class="link-to-prism">src/app/home/home.component.ts:524</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="getUsers"></a>
+                            <span class="name"><b> getUsers</b><a href="#getUsers"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>getUsers()</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="484" class="link-to-prism">src/app/home/home.component.ts:484</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="isGroupSelected"></a>
+                            <span class="name"><b> isGroupSelected</b><a href="#isGroupSelected"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>isGroupSelected(groupName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="334" class="link-to-prism">src/app/home/home.component.ts:334</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                    <td>Type</td>
+                                                    <td>Optional</td>
+                                                    <td>Description</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                      <td>groupName</td>
+                                                      <td>
+                                                              <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+    
+                                </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="isUserSelected"></a>
+                            <span class="name"><b> isUserSelected</b><a href="#isUserSelected"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>isUserSelected(userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="306" class="link-to-prism">src/app/home/home.component.ts:306</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                    <td>Type</td>
+                                                    <td>Optional</td>
+                                                    <td>Description</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                      <td>userId</td>
+                                                      <td>
+                                                              <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+    
+                                </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="logout"></a>
+                            <span class="name"><b> logout</b><a href="#logout"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>logout()</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="275" class="link-to-prism">src/app/home/home.component.ts:275</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="ngOnInit"></a>
+                            <span class="name"><b> ngOnInit</b><a href="#ngOnInit"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>ngOnInit()</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">src/app/home/home.component.ts:75</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="selectedGroup"></a>
+                            <span class="name"><b> selectedGroup</b><a href="#selectedGroup"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>selectedGroup(group: )</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="314" class="link-to-prism">src/app/home/home.component.ts:314</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                    <td>Type</td>
+                                                    <td>Optional</td>
+                                                    <td>Description</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                      <td>group</td>
+                                                      <td>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="selectedUser"></a>
+                            <span class="name"><b> selectedUser</b><a href="#selectedUser"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>selectedUser(user: )</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="281" class="link-to-prism">src/app/home/home.component.ts:281</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                    <td>Type</td>
+                                                    <td>Optional</td>
+                                                    <td>Description</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                      <td>user</td>
+                                                      <td>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="sendMessage"></a>
+                            <span class="name"><b> sendMessage</b><a href="#sendMessage"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>sendMessage(event: )</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="349" class="link-to-prism">src/app/home/home.component.ts:349</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                    <td>Type</td>
+                                                    <td>Optional</td>
+                                                    <td>Description</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                      <td>event</td>
+                                                      <td>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="Settings"></a>
+                            <span class="name"><b> Settings</b><a href="#Settings"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>Settings()</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="544" class="link-to-prism">src/app/home/home.component.ts:544</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="updateStatus"></a>
+                            <span class="name"><b> updateStatus</b><a href="#updateStatus"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>updateStatus(status: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="464" class="link-to-prism">src/app/home/home.component.ts:464</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                    <td>Type</td>
+                                                    <td>Optional</td>
+                                                    <td>Description</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                      <td>status</td>
+                                                      <td>
+                                                              <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="userToggle"></a>
+                            <span class="name"><b> userToggle</b><a href="#userToggle"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>userToggle()</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="346" class="link-to-prism">src/app/home/home.component.ts:346</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </section>
+
+    <section>
+        
+            <h3 id="inputs">
+                Properties
+            </h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="allUsers"></a>
+                            <span class="name"><b><span class="modifier">Private</span> allUsers</b><a href="#allUsers"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-lock"></span><code>allUsers:     <code></code>
+    </code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/app/home/home.component.ts:58</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="chatListUsers"></a>
+                            <span class="name"><b><span class="modifier">Private</span> chatListUsers</b><a href="#chatListUsers"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-lock"></span><code>chatListUsers:     <code></code>
+    </code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/home/home.component.ts:50</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="chatOfflineUsers"></a>
+                            <span class="name"><b><span class="modifier">Private</span> chatOfflineUsers</b><a href="#chatOfflineUsers"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-lock"></span><code>chatOfflineUsers:     <code></code>
+    </code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/home/home.component.ts:51</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="groupName"></a>
+                            <span class="name"><b><span class="modifier">Private</span> groupName</b><a href="#groupName"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-lock"></span><code>groupName:     <code></code>
+    </code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/home/home.component.ts:54</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="groupsList"></a>
+                            <span class="name"><b><span class="modifier">Private</span> groupsList</b><a href="#groupsList"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-lock"></span><code>groupsList:     <code></code>
+    </code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/home/home.component.ts:55</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="message"></a>
+                            <span class="name"><b><span class="modifier">Private</span> message</b><a href="#message"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-lock"></span><code>message:     <code></code>
+    </code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/home/home.component.ts:52</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="messages"></a>
+                            <span class="name"><b><span class="modifier">Private</span> messages</b><a href="#messages"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-lock"></span><code>messages:     <code></code>
+    </code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/home/home.component.ts:53</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="newUserstoGroup"></a>
+                            <span class="name"><b><span class="modifier">Private</span> newUserstoGroup</b><a href="#newUserstoGroup"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-lock"></span><code>newUserstoGroup:     <code></code>
+    </code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/home/home.component.ts:56</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="overlayDisplay"></a>
+                            <span class="name"><b><span class="modifier">Private</span> overlayDisplay</b><a href="#overlayDisplay"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-lock"></span><code>overlayDisplay:     <code></code>
+    </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Default value : </i><code>false</code>
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/home/home.component.ts:33</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="removedUsersfromGroup"></a>
+                            <span class="name"><b><span class="modifier">Private</span> removedUsersfromGroup</b><a href="#removedUsersfromGroup"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-lock"></span><code>removedUsersfromGroup:     <code></code>
+    </code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/home/home.component.ts:57</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="selectedGroupName"></a>
+                            <span class="name"><b><span class="modifier">Private</span> selectedGroupName</b><a href="#selectedGroupName"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-lock"></span><code>selectedGroupName:     <code></code>
+    </code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/home/home.component.ts:37</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="selectedSocketId"></a>
+                            <span class="name"><b><span class="modifier">Private</span> selectedSocketId</b><a href="#selectedSocketId"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-lock"></span><code>selectedSocketId:     <code></code>
+    </code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/home/home.component.ts:35</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="selectedUserId"></a>
+                            <span class="name"><b><span class="modifier">Private</span> selectedUserId</b><a href="#selectedUserId"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-lock"></span><code>selectedUserId:     <code></code>
+    </code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/home/home.component.ts:34</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="selectedUserName"></a>
+                            <span class="name"><b><span class="modifier">Private</span> selectedUserName</b><a href="#selectedUserName"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-lock"></span><code>selectedUserName:     <code></code>
+    </code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/home/home.component.ts:36</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="selectedUsersList"></a>
+                            <span class="name"><b><span class="modifier">Private</span> selectedUsersList</b><a href="#selectedUsersList"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-lock"></span><code>selectedUsersList:     <code></code>
+    </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Default value : </i><code>true</code>
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/app/home/home.component.ts:64</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="socketId"></a>
+                            <span class="name"><b><span class="modifier">Private</span> socketId</b><a href="#socketId"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-lock"></span><code>socketId:     <code></code>
+    </code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/home/home.component.ts:49</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="status"></a>
+                            <span class="name"><b><span class="modifier">Private</span> status</b><a href="#status"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-lock"></span><code>status:     <code></code>
+    </code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/app/home/home.component.ts:59</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="userId"></a>
+                            <span class="name"><b><span class="modifier">Private</span> userId</b><a href="#userId"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-lock"></span><code>userId:     <code></code>
+    </code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/home/home.component.ts:48</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="username"></a>
+                            <span class="name"><b><span class="modifier">Private</span> username</b><a href="#username"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-lock"></span><code>username:     <code></code>
+    </code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/home/home.component.ts:47</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+    </section>
+
+</div>
+
+
+    <div class="tab-pane fade tab-source-code" id="source">
+        <pre class="line-numbers"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { ActivatedRoute ,Router } from &#x27;@angular/router&#x27;;
+import { Ng2SearchPipeModule } from &#x27;ng2-search-filter&#x27;;
+
+
+declare var $:any;
+
+
+ 
+/* Importing services starts*/
+import { SocketService } from &#x27;./../socket.service&#x27;;
+import { HttpService } from &#x27;./../http.service&#x27;;
+import { ChatService } from &#x27;./../chat.service&#x27;;
+/* Importing services ends*/
+
+
+
+@Component({
+	selector: &#x27;app-home&#x27;,
+  	templateUrl: &#x27;./home.component.html&#x27;,
+  	styleUrls: [&#x27;./home.component.css&#x27;],
+  	providers : [ChatService,HttpService,SocketService]
+})
+export class HomeComponent implements OnInit{
+
+
+	
+	/*
+	* UI related variables starts
+	*/
+	private overlayDisplay &#x3D; false;
+	private selectedUserId &#x3D; null;
+	private selectedSocketId &#x3D; null;
+	private selectedUserName &#x3D; null;
+	private selectedGroupName &#x3D; null;
+	
+		
+	/* 
+	* UI related variables ends
+	*/
+ 
+	/*
+	* Chat and message related variables starts
+	*/
+	private username &#x3D; null;
+	private userId &#x3D; null;
+	private socketId &#x3D; null;
+	private chatListUsers &#x3D; [];
+	private chatOfflineUsers &#x3D; [];
+	private message &#x3D; &#x27;&#x27;;
+	private messages &#x3D; [];
+	private groupName &#x3D; &#x27;&#x27;;
+	private groupsList&#x3D; [];
+	private newUserstoGroup &#x3D; [];
+	private removedUsersfromGroup &#x3D; [];
+	private allUsers &#x3D; [];
+	private status &#x3D; null;
+  
+	/*
+	* Chat and message related variables ends
+	*/
+	private selectedUsersList &#x3D; true;
+ 
+ 
+	constructor( 
+  	private chatService : ChatService,
+		private socketService : SocketService,
+		private route :ActivatedRoute,
+		private router :Router
+	) { }
+
+	
+	ngOnInit() {
+ 
+		$(document).ready(function(){
+			// the &quot;href&quot; attribute of the modal trigger must specify the modal ID that wants to be triggered
+			$(&#x27;.modal&#x27;).modal();
+			$(&quot;.button-collapse&quot;).sideNav();
+
+			//these are hacks to come out with proper alignment of div
+			//not recommended but time constraint
+			//set height of chat box
+			$(&quot;.main-content&quot;).height(window.innerHeight - parseInt($(&quot;.main-nav&quot;).css(&#x27;height&#x27;),10));
+			$(&quot;.main-content&quot;).css({marginBottom: &quot;0px&quot;});
+			$(&quot;.message-thread&quot;).height(parseInt($(&quot;.main-content&quot;).css(&#x27;height&#x27;),10) - parseInt($(&quot;.chat-title&quot;).css(&#x27;height&#x27;),10) - parseInt($(&quot;.chat-footer&quot;).css(&#x27;height&#x27;),10));
+			$(&quot;.message-thread&quot;).css({overflow: &quot;hidden&quot;,margin: &quot;0&quot;, overflowY: &quot;scroll&quot;});
+			$(&#x27;.message-thread&#x27;).css(&#x27;background-image&#x27;, &#x27;url(&quot;http://subtlepatterns.com/patterns/geometry2.png&quot;)&#x27;);
+			$(&quot;.message-thread&quot;).addClass(&quot;scroll1&quot;);
+		  });
+		/*
+		* getting userID from URL using &#x27;route.snapshot&#x27;
+		*/		
+		this.userId &#x3D; this.route.snapshot.params[&#x27;userid&#x27;];
+
+	
+	 
+ 
+		if(this.userId &#x3D;&#x3D;&#x3D; &#x27;&#x27; || typeof this.userId &#x3D;&#x3D; &#x27;undefined&#x27;) {
+			this.router.navigate([&#x27;/&#x27;]);
+		}
+			
+		else{
+		           
+					/*
+					* function to check if user is logged in or not starts
+					*/	
+					this.chatService.userSessionCheck(this.userId,( error, response )&#x3D;&gt;{
+				 		
+				 		if(error) {
+				 			this.router.navigate([&#x27;/&#x27;]); /* Home page redirection */
+				 		}else{
+				 			
+							 	this.username &#x3D; response.username;
+						 		this.overlayDisplay &#x3D; true;
+						 
+								
+							 			/*
+											* making socket connection by passing UserId.
+											*/	
+										this.socketService.connectSocket(this.userId);
+						 
+											/* 
+											* Code to get the real time messages goes here
+											*/
+						 
+											/* 
+											* Code for Real time chat list update goes here
+											*/
+											
+								this.socketService.getChatList(this.userId).subscribe(response &#x3D;&gt; {
+									
+									if(!response.error) {
+										
+										if(response.singleUser) {
+						
+											/* 
+											* Removing duplicate user from chat list array.
+											*/
+											if(this.chatListUsers.length &gt; 0) {
+												this.chatListUsers &#x3D; this.chatListUsers.filter(function( obj ) {
+													return obj._id !&#x3D;&#x3D; response.chatList._id;
+												});
+											}
+						
+											/* 
+											* Adding new online user into chat list array
+											*/
+											this.chatListUsers.push(response.chatList);
+						
+										}else if(response.userDisconnected){
+											this.chatListUsers &#x3D; this.chatListUsers.filter(function( obj ) {
+												return obj.socketId !&#x3D;&#x3D; response.socketId;
+											});
+										}else{
+											/* 
+											* Updating entire chatlist if user logs in.
+											*/
+											this.chatListUsers &#x3D; response.chatList;
+										//	console.log(&quot;chatlist: &quot;+JSON.stringify(this.chatListUsers));
+										}
+
+										this.chatListUsers.forEach(element &#x3D;&gt; {
+											this.allUsers.push(element);
+											});
+											this.chatOfflineUsers.forEach(element &#x3D;&gt; {
+												this.allUsers.push(element);
+												});
+												
+									}else{
+										alert(&#x27;Chat list failure.&#x27;);
+									}
+						  });	
+						  
+						 
+						  /* 
+						  * Code to update groups list of user goes here
+						  */
+						 
+						  this.socketService.getGroupsList(this.userId).subscribe(response&#x3D;&gt;{
+
+							//console.log(&quot;Trying to update groupslist&quot;);
+
+							if(!response.error){
+                                /* 
+							    * Updating entire groupslist if user logs in.
+								*/
+								
+
+								if(response.groupList!&#x3D;null){
+								for (var i &#x3D; 0; i &lt; response.groupList.length ; i++) {
+
+									//console.log(&quot;Updated groupslist:o &quot;+JSON.stringify( response.groupList[i]));
+									
+									this.groupsList.push({
+										&#x27;groupName&#x27;: response.groupList[i]
+									});
+								}
+							}
+
+
+							}
+							else{
+								alert(&#x27;Group list update failure.&#x27;);
+							}
+
+						  });
+			
+
+
+
+						  this.socketService.getOfflineChatList(this.userId).subscribe(response &#x3D;&gt; {
+							
+							if(!response.error) {
+								
+								if(response.singleUser) {
+				
+									/* 
+									* Removing duplicate user from chat list array.
+									*/
+									if(this.chatOfflineUsers.length &gt; 0) {
+										this.chatOfflineUsers &#x3D; this.chatOfflineUsers.filter(function( obj ) {
+											return obj._id !&#x3D;&#x3D; response.chatList._id;
+										});
+									}
+				
+									/* 
+									* Adding new offline user into chat list array
+									*/
+									this.chatOfflineUsers.push(response.chatList);
+				
+								}else if(response.userDisconnected){
+									this.chatOfflineUsers &#x3D; this.chatOfflineUsers.filter(function( obj ) {
+										return obj.socketId !&#x3D;&#x3D; response.socketId;
+									});
+								}else{
+									/* 
+									* Updating entire chatlist if user logs out.
+									*/
+									this.chatOfflineUsers &#x3D; response.chatList;
+								}
+							}else{
+								alert(&#x27;Chat list failure.&#x27;);
+							}
+				  });	
+	
+
+
+							  this.socketService.receiveMessages().subscribe(response &#x3D;&gt; {
+								if(this.selectedUserId &amp;&amp; this.selectedUserId &#x3D;&#x3D; response.fromUserId) {
+									this.messages.push(response);
+									setTimeout( () &#x3D;&gt;{
+											document.querySelector(&#x60;.message-thread&#x60;).scrollTop &#x3D; document.querySelector(&#x60;.message-thread&#x60;).scrollHeight;
+									},100);
+								}
+							});
+
+							this.socketService.receiveGroupMessages().subscribe(response &#x3D;&gt; {
+								//check if response type contains message key
+								if(this.selectedGroupName &amp;&amp; this.selectedGroupName &#x3D;&#x3D; response.groupName) {
+									this.messages.push(response);
+									setTimeout( () &#x3D;&gt;{
+											document.querySelector(&#x60;.message-thread&#x60;).scrollTop &#x3D; document.querySelector(&#x60;.message-thread&#x60;).scrollHeight;
+									},100);
+								}
+							});
+				 		}
+				 	});
+			}
+		
+				
+	}
+			
+			logout(){
+				this.socketService.logout({userId : this.userId}).subscribe(response &#x3D;&gt; {
+					this.router.navigate([&#x27;/&#x27;]); /* Home page redirection */
+				});
+			}
+		
+			selectedUser(user):void{
+
+				this.selectedGroupName&#x3D; null;
+
+				this.selectedUserId &#x3D; user._id;
+				this.selectedSocketId &#x3D; user.socketId;
+				this.selectedUserName &#x3D; user.username;
+			//	console.log(&quot;Selected user: &quot;+JSON.stringify(user.username));
+				
+				/* 
+				* calling method to get the messages
+
+				*/
+
+				
+				this.chatService.getMessages({ userId : this.userId,toUserId :user._id} , ( error , response)&#x3D;&gt;{
+					console.log(&quot;Selected user response: &quot;+JSON.stringify(response));
+					
+					if(!response.error) {
+						//console.log(&quot;Messages requested: &quot;+JSON.stringify(response));
+						this.messages &#x3D; response.message;
+					}
+				});
+			}
+			 
+			isUserSelected(userId:string):boolean{
+				
+				if(!this.selectedUserId){
+					return false;
+				}
+				return this.selectedUserId &#x3D;&#x3D;&#x3D; userId ? true : false;
+			}
+
+			selectedGroup(group):void{
+				
+				this.selectedUserName&#x3D;null;
+				this.selectedUserId&#x3D;null;
+
+				console.log(&quot;Selected group: &quot;+JSON.stringify(group));
+				this.selectedGroupName &#x3D; group.groupName;
+			 
+				/* 
+				* calling method to get the messages
+				*/
+				this.chatService.getGroupMessages({groupName:group.groupName} , ( error , response)&#x3D;&gt;{
+					console.log(&quot;Selected group response: &quot;+JSON.stringify(response));
+					
+					if(!response.error) {
+						this.messages &#x3D; response.message;
+					}
+				});
+			}
+
+			isGroupSelected(groupName:string):boolean{
+				if(!this.selectedGroupName) {
+					return false;
+				}
+				
+				return this.selectedGroupName &#x3D;&#x3D;&#x3D; groupName ? true : false;
+			}
+			 
+			alignMessage(userId){
+				return this.userId &#x3D;&#x3D;&#x3D; userId ? false : true;
+			}
+
+			userToggle(){
+				this.selectedUsersList &#x3D; !this.selectedUsersList;
+			}
+			sendMessage(event){
+				if(event.keyCode &#x3D;&#x3D;&#x3D; 13) {
+					console.log(&quot;Selected userid: &quot;+this.selectedUserId);
+					console.log(&quot;Selected groupname: &quot;+this.selectedGroupName);
+					
+					if(this.message &#x3D;&#x3D;&#x3D; &#x27;&#x27; || this.message &#x3D;&#x3D;&#x3D; null) {
+						alert(&#x60;Message can&#x27;t be empty.&#x60;);
+					}else{
+			 
+						if (this.message &#x3D;&#x3D;&#x3D; &#x27;&#x27;) {
+							alert(&#x60;Message can&#x27;t be empty.&#x60;);
+						}else if(this.userId &#x3D;&#x3D;&#x3D; &#x27;&#x27;){
+							this.router.navigate([&#x27;/&#x27;]);					
+						}else if((this.selectedUserId &#x3D;&#x3D;&#x3D; &#x27;&#x27;||this.selectedUserId&#x3D;&#x3D;null)&amp;&amp;(this.selectedGroupName &#x3D;&#x3D;&#x3D; &#x27;&#x27;||this.selectedGroupName&#x3D;&#x3D;null)){
+							alert(&#x60;Select a user or group to chat.&#x60;);
+						}else{
+						 
+							//  Chatting with user
+							if(this.selectedUserId!&#x3D;null) 
+							{
+							const data &#x3D; {
+								fromUserId : this.userId,
+								message : (this.message).trim(),
+								toUserId : this.selectedUserId,
+								toSocketId : this.selectedSocketId,
+								fromSocketId : this.socketId
+							}
+
+							console.log(&quot;Message: selected userId &quot;+this.selectedUserId);
+							console.log(&quot;Message when user s selected &quot;+data.message);
+							
+							this.messages.push(data);
+							setTimeout( () &#x3D;&gt;{
+									document.querySelector(&#x60;.message-thread&#x60;).scrollTop &#x3D; document.querySelector(&#x60;.message-thread&#x60;).scrollHeight;
+							},100);
+							
+							/* 
+							* calling method to send the messages
+							*/
+							this.message &#x3D; null;
+							this.socketService.sendMessage(data);
+							}
+							else if(this.selectedGroupName!&#x3D;null){ //Chatting in group
+							
+								console.log(&quot;Chatting in group: selectedgroupname&quot;);
+								
+								const data &#x3D; {
+									groupName : this.selectedGroupName,
+									message : (this.message).trim(),
+									fromUserId : this.userId,
+									fromUser:this.username								
+								}
+
+								
+
+								this.messages.push(data);
+								setTimeout( () &#x3D;&gt;{
+									document.querySelector(&#x60;.message-thread&#x60;).scrollTop &#x3D; document.querySelector(&#x60;.message-thread&#x60;).scrollHeight;
+							},100);
+
+							/* 
+							* calling method to send the messages
+							*/
+							this.message &#x3D; null;
+							this.socketService.sendGroupMessage(data);
+								
+
+
+
+							}else{
+								alert(&quot;ERROR!!&quot;);
+							}
+
+						}
+					}
+				}
+			}
+		
+			addGroup(newGroup:string){
+				
+				
+					if (newGroup) {
+					   this.groupName&#x3D;newGroup; 
+						//RegisterGroup
+						this.chatService.registerGroup(
+							{   &#x27;username&#x27;:this.username,
+								&#x27;userId&#x27;:this.userId,
+								&#x27;groupName&#x27;:newGroup
+							},
+							(error,response)&#x3D;&gt;
+							{
+
+								console.log(&quot;Addgroup response: &quot;+JSON.stringify(response));
+                               if(!response.error){
+								
+							   	this.messages.push({message:&#x27;Successfully created group &#x27;+newGroup});
+							    this.groupsList.push({
+									&#x27;groupName&#x27;:newGroup,
+									&#x27;message&#x27;:&#x27;Successfully created group &#x27;+newGroup 
+								  });
+							   }else{
+								   alert(&quot;ERROR registering group&quot;);
+							   }
+							
+							});
+
+					}
+					else
+					{
+						alert(&quot;Please enter group name&quot;);
+						
+					}
+		
+		}
+
+updateStatus(status:string){
+			
+				   this.status&#x3D;status;
+				    console.log(status +&quot; id dttaud&quot;);
+					//RegisterGroup
+					this.chatService.updateStatus(
+						{   &quot;status&quot;:this.status,
+						     &quot;userId&quot;:this.userId
+						},
+						(error,response)&#x3D;&gt;
+						{
+						   if(!response.error){
+							   alert(&quot;Status updated Successfully&quot;);
+						   }else{
+							   alert(&quot;ERROR updating status&quot;);
+						   }						
+						});
+	}
+
+
+		getUsers(){
+			
+		}
+
+		AddUser(username, userId){
+		 this.newUserstoGroup.push({
+			 &quot;username&quot; : username,
+			 &quot;userId&quot; : userId,
+		 });
+		}
+
+		AddUsers(){
+			this.newUserstoGroup.forEach(element &#x3D;&gt; {
+				console.log(element.username+ &quot; was added to &quot;+this.selectedGroupName);
+				this.chatService.registerGroup(
+					{   
+						&quot;username&quot;:element.username,
+						&quot;userId&quot;:element.userId,
+						&quot;groupName&quot; :this.selectedGroupName
+					},
+					(error,response)&#x3D;&gt;
+					{
+					   if(!response.error){
+						console.log(&quot;Added users successfully&quot;);
+					   }else{
+						   alert(&quot;ERROR adding user to group&quot;);
+					   }
+					});
+			});
+		}
+
+		
+		DeleteUser(username, userId){
+			console.log(&quot;userid in del user: &quot;+userId);
+			this.removedUsersfromGroup.push({
+				&quot;username&quot; : username,
+				&quot;userId&quot; : userId,
+			});
+		   }
+
+		DeleteUsers(){
+			this.removedUsersfromGroup.forEach(element &#x3D;&gt; {
+				console.log(element.username+ &quot; was removed with id &quot;+element.userId);
+				this.chatService.deregisterGroup(
+					{   
+						&quot;username&quot;:element.username,
+						&quot;userId&quot;:element.userId,
+						&quot;groupName&quot; :this.selectedGroupName
+					},
+					(error,response)&#x3D;&gt;
+					{
+					   if(!response.error){
+						console.log(&quot;Deleted users successfully&quot;);
+					   }else{
+						   alert(&quot;ERROR deleting user to group&quot;);
+					   }
+					});
+			});
+		}
+			
+		Settings(){
+				
+		}
+}
+	
+	
+	
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade" id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;main&quot;&gt;
+  &lt;!-- Navbar goes here --&gt;
+  &lt;div id&#x3D;&quot;container &quot; style&#x3D;&quot;height: inherit&quot;&gt;
+    &lt;nav class&#x3D;&quot;main-nav&quot;&gt;
+      &lt;div class&#x3D;&quot;nav-wrapper  teal darken-4&quot;&gt;
+        &lt;span class &#x3D; &quot;greeting-message&quot;&gt;Hello {{username}}   
+        &lt;/span&gt;
+        &lt;!-- slide button --&gt;
+        &lt;a href&#x3D;&quot;#&quot; data-activates&#x3D;&quot;slide-out&quot; class&#x3D;&quot;button-collapse&quot; style&#x3D;&quot;display: block!important&quot;&gt;
+          &lt;i class&#x3D;&quot;material-icons&quot;&gt;menu&lt;/i&gt; 
+        &lt;/a&gt;
+        &lt;ul id&#x3D;&quot;nav-mobile&quot; class&#x3D;&quot;right hide-on-med-and-down&quot; style&#x3D;&quot; height: inherit;padding-right: 20px;&quot;&gt;
+            &lt;li&gt;&lt;a class&#x3D;&#x27;dropdown-button waves-effect waves-light&#x27; (click)&#x3D;&quot;Settings()&quot; data-activates&#x3D;&#x27;dropdown1&#x27;&gt;Settings&lt;/a&gt;&lt;/li&gt;    
+            &lt;li id&#x3D;&#x27;logout&#x27; class&#x3D;&quot;waves-effect waves-light&quot; (click)&#x3D;&quot;logout()&quot; &gt;Logout&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+    &lt;/nav&gt;
+
+    &lt;!-- slide  content --&gt;
+    &lt;!-- &lt;ul id&#x3D;&quot;slide-out&quot; class&#x3D;&quot;side-nav scroll1&quot; style&#x3D;&quot;width: 25%;&quot;&gt;
+      &lt;li&gt;&lt;div class&#x3D;&quot;user-view&quot;&gt;
+        &lt;div class&#x3D;&quot;background&quot;&gt;
+          &lt;img src&#x3D;&quot;images/office.jpg&quot;&gt;
+        &lt;/div&gt;
+        &lt;a href&#x3D;&quot;#!user&quot;&gt;&lt;img class&#x3D;&quot;circle&quot; src&#x3D;&quot;images/yuna.jpg&quot;&gt;&lt;/a&gt;
+        &lt;a href&#x3D;&quot;#!name&quot;&gt;&lt;span class&#x3D;&quot;white-text name&quot;&gt;John Doe&lt;/span&gt;&lt;/a&gt;
+        &lt;a href&#x3D;&quot;#!email&quot;&gt;&lt;span class&#x3D;&quot;white-text email&quot;&gt;jdandturk@gmail.com&lt;/span&gt;&lt;/a&gt;
+      &lt;/div&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href&#x3D;&quot;#!&quot;&gt;&lt;i class&#x3D;&quot;material-icons&quot;&gt;cloud&lt;/i&gt;First Link With Icon&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href&#x3D;&quot;#!&quot;&gt;Second Link&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;div class&#x3D;&quot;divider&quot;&gt;&lt;/div&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class&#x3D;&quot;subheader&quot;&gt;Subheader&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class&#x3D;&quot;waves-effect&quot; href&#x3D;&quot;#!&quot;&gt;Third Link With Waves&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt; --&gt;
+
+  &lt;!-- Page Layout here --&gt;
+  &lt;div class&#x3D;&quot;row main-content&quot;&gt;
+      &lt;!-- begin s4 column --&gt;
+      &lt;div class&#x3D;&quot;col s3 no-padding scroll1&quot; style&#x3D;&quot;height: inherit;overflow-y: auto;&quot;&gt;
+        &lt;nav&gt;
+          &lt;div class&#x3D;&quot;nav-wrapper black&quot;&gt;
+              &lt;ul id&#x3D;&quot;nav-mobile&quot; class&#x3D;&quot;left hide-on-med-and-down&quot;&gt;   
+                &lt;li&gt; &lt;a class&#x3D;&quot;waves-effect waves-light modal-trigger&quot; data-target&#x3D;&quot;modal1&quot;&gt;New Group&lt;/a&gt;&lt;/li&gt;   
+              &lt;/ul&gt;
+              &lt;ul id&#x3D;&quot;nav-mobile&quot; class&#x3D;&quot;left hide-on-med-and-down&quot;&gt;   
+                &lt;li&gt; &lt;a class&#x3D;&quot;waves-effect waves-light modal-trigger&quot; data-target&#x3D;&quot;modal2&quot;&gt;Update Status&lt;/a&gt;&lt;/li&gt;   
+              &lt;/ul&gt;
+          &lt;/div&gt;
+        &lt;/nav&gt;
+        
+        &lt;ul id&#x3D;&#x27;dropdown1&#x27; class&#x3D;&#x27;dropdown-content&#x27;&gt;
+            &lt;li&gt;&lt;a href&#x3D;&quot;#!&quot;&gt;Profile&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;!-- modal for new group --&gt;
+        &lt;div id&#x3D;&quot;modal1&quot; class&#x3D;&quot;modal&quot;&gt;
+          &lt;div class&#x3D;&quot;modal-content&quot;&gt;
+            &lt;h4&gt;Add Group Name&lt;/h4&gt;
+            &lt;input #newGroup
+              class&#x3D;&quot;input&quot; placeholder&#x3D;&quot;Enter group name here..&quot;
+              [(ngModel)]&#x3D;&quot;groupText&quot;
+              (keyup.enter)&#x3D;&quot;addGroup(newGroup.value)&quot;&gt;
+              &lt;button id&#x3D;&quot;newgroup&quot; class&#x3D;&quot;btn modal-close&quot; (click)&#x3D;&quot;addGroup(newGroup.value)&quot;&gt;Create Group&lt;/button&gt; 
+          &lt;/div&gt;
+       &lt;/div&gt;
+         &lt;!-- modal for status update --&gt;
+         &lt;div id&#x3D;&quot;modal2&quot; class&#x3D;&quot;modal&quot;&gt;
+          &lt;div class&#x3D;&quot;modal-content&quot;&gt;
+            &lt;h4&gt;Update Status&lt;/h4&gt;
+            &lt;input #newGroup
+              class&#x3D;&quot;input&quot; placeholder&#x3D;&quot;Enter new status here..&quot;
+              [(ngModel)]&#x3D;&quot;status&quot;
+              (keyup.enter)&#x3D;&quot;updateStatus(newGroup.value)&quot;&gt;
+              &lt;button id &#x3D; &quot;status3&quot; class&#x3D;&quot;btn modal-close&quot; (click)&#x3D;&quot;updateStatus(newGroup.value)&quot;&gt;Update Status&lt;/button&gt; 
+          &lt;/div&gt;
+       &lt;/div&gt;
+       &lt;form&gt;
+          &lt;div&gt;
+              &lt;input type&#x3D;&quot;text&quot; placeholder&#x3D;&quot;  Search contacts&quot; id&#x3D;&quot;search-box&quot; [(ngModel)]&#x3D;&quot;term&quot; name&#x3D;&quot;search&quot;&gt;
+          &lt;/div&gt;  
+        &lt;/form&gt; 
+        &lt;ul class&#x3D;&quot;user-list&quot;&gt;    
+            &lt;!-- click event to handle the selection : selectedUser() --&gt;
+            &lt;!-- adding a class to indicate the selection --&gt; 
+        &lt;/ul&gt;
+        &lt;nav class&#x3D;&quot;nav-extended&quot;&gt;  
+          &lt;div class&#x3D;&quot;nav-content&quot;&gt;
+            &lt;ul class&#x3D;&quot;tabs tabs-transparent&quot;&gt;
+              &lt;button id &#x3D; &quot;online&quot; class&#x3D;&quot;waves-effect waves-light btn&quot; (click)&#x3D;&quot;selectedUsersList&#x3D;true&quot; style&#x3D;&quot;width:50%&quot;&gt;ONLINE&lt;/button&gt;
+              &lt;button id &#x3D; &quot;offline&quot; class&#x3D;&quot;waves-effect waves-light btn&quot; (click)&#x3D;&quot;selectedUsersList&#x3D;false&quot; style&#x3D;&quot;width:50%&quot;&gt;OFFLINE&lt;/button&gt;
+            &lt;/ul&gt;
+          &lt;/div&gt;
+        &lt;/nav&gt;
+        &lt;!-- list of users --&gt;
+        &lt;div *ngIf&#x3D;&quot;selectedUsersList&quot;&gt;   
+          &lt;ul class&#x3D;&quot;collection&quot;&gt;
+            &lt;li class&#x3D;&quot;collection-item active avatar&quot; 
+              *ngFor&#x3D;&quot;let user of chatListUsers |filter:term&quot;
+              (click)&#x3D;&quot;selectedUser(user)&quot; 
+              [class.selected-user]&#x3D;&quot;isUserSelected(user._id)&quot;&gt;
+                &lt;!--&lt;img src&#x3D;{{user.image}} alt&#x3D;&quot;&quot; class&#x3D;&quot;circle&quot;&gt;--&gt;
+                &lt;i class&#x3D;&quot;material-icons circle&quot;&gt;folder&lt;/i&gt;
+                &lt;span class&#x3D;&quot;title&quot;&gt;{{ user.username}}&lt;/span&gt;
+                &lt;p&gt; &lt;br&gt;&lt;/p&gt;
+                &lt;p&gt;&lt;span class&#x3D;&quot;title&quot;&gt;{{ user.status}}&lt;/span&gt;&lt;/p&gt;
+                &lt;a href&#x3D;&quot;#!&quot; class&#x3D;&quot;secondary-content&quot;&gt;&lt;i class&#x3D;&quot;material-icons&quot;&gt;grade&lt;/i&gt;&lt;/a&gt;
+            &lt;/li&gt; 
+            &lt;li class&#x3D;&quot;collection-item active avatar&quot; 
+              *ngFor&#x3D;&quot;let group of groupsList |filter:term&quot;
+              (click)&#x3D;&quot;selectedGroup(group)&quot;
+              [class.selected-group]&#x3D;&quot;isGroupSelected(group.groupName)&quot;&gt;
+              &lt;i class&#x3D;&quot;material-icons circle&quot;&gt;folder&lt;/i&gt;                    
+              &lt;span class&#x3D;&quot;title&quot;&gt;{{ group.groupName}}&lt;/span&gt;
+              &lt;a class&#x3D;&quot;waves-effect waves-light btn modal-trigger right&quot; href&#x3D;&quot;#modal3&quot; (click)&#x3D;&quot;getUsers()&quot;&gt;Add&lt;/a&gt;
+              &lt;a class&#x3D;&quot;waves-effect waves-light btn modal-trigger right&quot; href&#x3D;&quot;#modal4&quot; (click)&#x3D;&quot;getUsers()&quot;&gt;Delete&lt;/a&gt;
+              
+              &lt;!-- Add users --&gt;
+            &lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/div&gt; 
+        &lt;!-- Display all users registered --&gt;
+        &lt;div id&#x3D;&quot;modal3&quot; class&#x3D;&quot;modal&quot;&gt;
+          &lt;div class&#x3D;&quot;modal-content&quot;&gt;
+            &lt;form action&#x3D;&quot;#&quot; id&#x3D;&quot;mySelect&quot;&gt;
+                &lt;p *ngFor&#x3D;&quot;let user of allUsers; let i &#x3D; index&quot;&gt;
+                  &lt;input type&#x3D;&quot;checkbox&quot; class&#x3D;&quot;filled-in&quot; id&#x3D;&quot;test{{i}}&quot; (click)&#x3D;&quot;AddUser(user.username,user._id)&quot;/&gt;
+                  &lt;label for&#x3D;&quot;test{{i}}&quot;&gt;  {{ user.username}} &lt;/label&gt;
+                &lt;/p&gt;
+              &lt;/form&gt;
+              &lt;button class&#x3D;&quot;btn modal-close&quot; (click)&#x3D;&quot;AddUsers()&quot;&gt;Add users&lt;/button&gt;                
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div id&#x3D;&quot;modal4&quot; class&#x3D;&quot;modal&quot;&gt;
+          &lt;div class&#x3D;&quot;modal-content&quot;&gt;
+            &lt;form action&#x3D;&quot;#&quot; id&#x3D;&quot;mySelect2&quot;&gt;
+                &lt;p *ngFor&#x3D;&quot;let user of newUserstoGroup; let i &#x3D; index&quot;&gt;
+                  &lt;input type&#x3D;&quot;checkbox&quot; class&#x3D;&quot;filled-in&quot; id&#x3D;&quot;testdelete{{i}}&quot; (click)&#x3D;&quot;DeleteUser(user.username,user.userId)&quot;/&gt;
+                  &lt;label for&#x3D;&quot;testdelete{{i}}&quot;&gt;  {{ user.username}} &lt;/label&gt;
+                &lt;/p&gt;
+              &lt;/form&gt;
+              &lt;button class&#x3D;&quot;btn modal-close&quot; (click)&#x3D;&quot;DeleteUsers()&quot;&gt;Delete users&lt;/button&gt;                
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div *ngIf&#x3D;&quot;!selectedUsersList&quot;&gt;
+          &lt;ul class&#x3D;&quot;collection&quot;&gt;
+            &lt;li class&#x3D;&quot;collection-item active avatar&quot; 
+                *ngFor&#x3D;&quot;let user of chatOfflineUsers |filter:term&quot;
+                (click)&#x3D;&quot;selectedUser(user)&quot; 
+                [class.selected-user]&#x3D;&quot;isUserSelected(user._id)&quot;&gt;
+                  &lt;!--&lt;img src&#x3D;{{user.image}} alt&#x3D;&quot;&quot; class&#x3D;&quot;circle&quot;&gt;--&gt;
+                  &lt;i class&#x3D;&quot;material-icons circle&quot;&gt;folder&lt;/i&gt;
+                   &lt;span class&#x3D;&quot;title&quot;&gt;{{ user.username}}&lt;/span&gt;
+                &lt;p&gt; &lt;br&gt;&lt;/p&gt;
+                &lt;p&gt;&lt;span class&#x3D;&quot;title&quot;&gt;{{ user.status}}&lt;/span&gt;&lt;/p&gt;
+                  &lt;a href&#x3D;&quot;#!&quot; class&#x3D;&quot;secondary-content&quot;&gt;&lt;i class&#x3D;&quot;material-icons&quot;&gt;grade&lt;/i&gt;&lt;/a&gt;
+            &lt;/li&gt;
+          &lt;/ul&gt; 
+        &lt;/div&gt;
+      &lt;/div&gt;
+        
+      &lt;div class&#x3D;&quot;col s9 no-padding scroll1&quot; style&#x3D;&quot;height: inherit;overflow-y: auto;&quot;&gt;
+        &lt;nav class&#x3D;&quot;chat-title&quot;&gt;     
+          &lt;div class&#x3D;&quot;nav-wrapper black&quot;&gt;
+            &lt;div *ngIf&#x3D;&quot;selectedUserName&quot; 
+              class&#x3D;&quot;opposite-user&quot;&gt;
+                Chatting with {{selectedUserName}}
+            &lt;/div&gt;
+            &lt;div *ngIf&#x3D;&quot;selectedGroupName&quot; 
+            class&#x3D;&quot;opposite-user&quot;&gt;
+              Chatting in {{selectedGroupName}}
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/nav&gt;
+        &lt;ul class&#x3D;&quot;message-thread&quot;&gt;
+            &lt;!-- &lt;li class&#x3D;&quot;clearfix&quot;&gt;&lt;blockquote class&#x3D;&quot;me pull-right right&quot;&gt;Hi&lt;/blockquote&gt;&lt;/li&gt; --&gt;
+            &lt;!-- &lt;li class&#x3D;&quot;clearfix&quot;&gt;&lt;blockquote class&#x3D;&quot;you pull-left left&quot;&gt;Hello&lt;/blockquote&gt;&lt;/li&gt; --&gt;
+          &lt;li class&#x3D;&quot;clearfix&quot; *ngFor&#x3D;&quot;let message of messages&quot; 
+            [ngStyle]&#x3D;&quot;{
+              &#x27;display&#x27;: inline-block,
+              &#x27;font-weight&#x27;: &#x27;bold&#x27;,
+              &#x27;background-color&#x27;: &#x27;#c51162 pink accent-4&#x27;
+            }&quot;
+            [ngClass]&#x3D;&quot;alignMessage(message.fromUserId)?&#x27;received&#x27;: &#x27;sent&#x27;&quot;&gt;       
+            &lt;blockquote &gt;
+                &lt;div class&#x3D;&quot;message-container&quot; [innerHTML]&#x3D;&quot;message.message&quot;&gt;
+                &lt;/div&gt;
+            &lt;/blockquote&gt;
+            
+          &lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;div class&#x3D;&quot;page-footer chat-footer&quot;&gt;
+          &lt;div id&#x3D;&quot;copyright&quot;&gt;
+            &lt;div class&#x3D;&quot;&quot;&gt;
+              &lt;div class&#x3D;&quot;input-field&quot;&gt;
+                  &lt;input placeholder&#x3D;&quot;Enter your text here&quot; id&#x3D;&quot;icon_prefix&quot; type&#x3D;&quot;text&quot; class&#x3D;&quot;validate&quot;
+                  [(ngModel)]&#x3D;&quot;message&quot; 
+                  (keyup)&#x3D;&quot;sendMessage($event)&quot;&gt;
+                  
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt; 
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;!-- end of s8 column --&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!--- end of trailpart --&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade" id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="main">  <!-- Navbar goes here -->  <div id="container " style="height: inherit">    <nav class="main-nav">      <div class="nav-wrapper  teal darken-4">        <span class = "greeting-message">Hello {{username}}           </span>        <!-- slide button -->        <a href="#" data-activates="slide-out" class="button-collapse" style="display: block!important">          <i class="material-icons">menu</i>         </a>        <ul id="nav-mobile" class="right hide-on-med-and-down" style=" height: inherit;padding-right: 20px;">            <li><a class=\'dropdown-button waves-effect waves-light\' (click)="Settings()" data-activates=\'dropdown1\'>Settings</a></li>                <li id=\'logout\' class="waves-effect waves-light" (click)="logout()" >Logout</li>        </ul>      </div>    </nav>    <!-- slide  content -->    <!-- <ul id="slide-out" class="side-nav scroll1" style="width: 25%;">      <li><div class="user-view">        <div class="background">          <img src="images/office.jpg">        </div>        <a href="#!user"><img class="circle" src="images/yuna.jpg"></a>        <a href="#!name"><span class="white-text name">John Doe</span></a>        <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>      </div></li>      <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>      <li><a href="#!">Second Link</a></li>      <li><div class="divider"></div></li>      <li><a class="subheader">Subheader</a></li>      <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>    </ul> -->  <!-- Page Layout here -->  <div class="row main-content">      <!-- begin s4 column -->      <div class="col s3 no-padding scroll1" style="height: inherit;overflow-y: auto;">        <nav>          <div class="nav-wrapper black">              <ul id="nav-mobile" class="left hide-on-med-and-down">                   <li> <a class="waves-effect waves-light modal-trigger" data-target="modal1">New Group</a></li>                 </ul>              <ul id="nav-mobile" class="left hide-on-med-and-down">                   <li> <a class="waves-effect waves-light modal-trigger" data-target="modal2">Update Status</a></li>                 </ul>          </div>        </nav>                <ul id=\'dropdown1\' class=\'dropdown-content\'>            <li><a href="#!">Profile</a></li>        </ul>        <!-- modal for new group -->        <div id="modal1" class="modal">          <div class="modal-content">            <h4>Add Group Name</h4>            <input #newGroup              class="input" placeholder="Enter group name here.."              [(ngModel)]="groupText"              (keyup.enter)="addGroup(newGroup.value)">              <button id="newgroup" class="btn modal-close" (click)="addGroup(newGroup.value)">Create Group</button>           </div>       </div>         <!-- modal for status update -->         <div id="modal2" class="modal">          <div class="modal-content">            <h4>Update Status</h4>            <input #newGroup              class="input" placeholder="Enter new status here.."              [(ngModel)]="status"              (keyup.enter)="updateStatus(newGroup.value)">              <button id = "status3" class="btn modal-close" (click)="updateStatus(newGroup.value)">Update Status</button>           </div>       </div>       <form>          <div>              <input type="text" placeholder="  Search contacts" id="search-box" [(ngModel)]="term" name="search">          </div>          </form>         <ul class="user-list">                <!-- click event to handle the selection : selectedUser() -->            <!-- adding a class to indicate the selection -->         </ul>        <nav class="nav-extended">            <div class="nav-content">            <ul class="tabs tabs-transparent">              <button id = "online" class="waves-effect waves-light btn" (click)="selectedUsersList=true" style="width:50%">ONLINE</button>              <button id = "offline" class="waves-effect waves-light btn" (click)="selectedUsersList=false" style="width:50%">OFFLINE</button>            </ul>          </div>        </nav>        <!-- list of users -->        <div *ngIf="selectedUsersList">             <ul class="collection">            <li class="collection-item active avatar"               *ngFor="let user of chatListUsers |filter:term"              (click)="selectedUser(user)"               [class.selected-user]="isUserSelected(user._id)">                <!--<img src={{user.image}} alt="" class="circle">-->                <i class="material-icons circle">folder</i>                <span class="title">{{ user.username}}</span>                <p> <br></p>                <p><span class="title">{{ user.status}}</span></p>                <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>            </li>             <li class="collection-item active avatar"               *ngFor="let group of groupsList |filter:term"              (click)="selectedGroup(group)"              [class.selected-group]="isGroupSelected(group.groupName)">              <i class="material-icons circle">folder</i>                                  <span class="title">{{ group.groupName}}</span>              <a class="waves-effect waves-light btn modal-trigger right" href="#modal3" (click)="getUsers()">Add</a>              <a class="waves-effect waves-light btn modal-trigger right" href="#modal4" (click)="getUsers()">Delete</a>                            <!-- Add users -->            </li>          </ul>        </div>         <!-- Display all users registered -->        <div id="modal3" class="modal">          <div class="modal-content">            <form action="#" id="mySelect">                <p *ngFor="let user of allUsers; let i = index">                  <input type="checkbox" class="filled-in" id="test{{i}}" (click)="AddUser(user.username,user._id)"/>                  <label for="test{{i}}">  {{ user.username}} </label>                </p>              </form>              <button class="btn modal-close" (click)="AddUsers()">Add users</button>                          </div>        </div>        <div id="modal4" class="modal">          <div class="modal-content">            <form action="#" id="mySelect2">                <p *ngFor="let user of newUserstoGroup; let i = index">                  <input type="checkbox" class="filled-in" id="testdelete{{i}}" (click)="DeleteUser(user.username,user.userId)"/>                  <label for="testdelete{{i}}">  {{ user.username}} </label>                </p>              </form>              <button class="btn modal-close" (click)="DeleteUsers()">Delete users</button>                          </div>        </div>        <div *ngIf="!selectedUsersList">          <ul class="collection">            <li class="collection-item active avatar"                 *ngFor="let user of chatOfflineUsers |filter:term"                (click)="selectedUser(user)"                 [class.selected-user]="isUserSelected(user._id)">                  <!--<img src={{user.image}} alt="" class="circle">-->                  <i class="material-icons circle">folder</i>                   <span class="title">{{ user.username}}</span>                <p> <br></p>                <p><span class="title">{{ user.status}}</span></p>                  <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>            </li>          </ul>         </div>      </div>              <div class="col s9 no-padding scroll1" style="height: inherit;overflow-y: auto;">        <nav class="chat-title">               <div class="nav-wrapper black">            <div *ngIf="selectedUserName"               class="opposite-user">                Chatting with {{selectedUserName}}            </div>            <div *ngIf="selectedGroupName"             class="opposite-user">              Chatting in {{selectedGroupName}}            </div>          </div>        </nav>        <ul class="message-thread">            <!-- <li class="clearfix"><blockquote class="me pull-right right">Hi</blockquote></li> -->            <!-- <li class="clearfix"><blockquote class="you pull-left left">Hello</blockquote></li> -->          <li class="clearfix" *ngFor="let message of messages"             [ngStyle]="{              \'display\': inline-block,              \'font-weight\': \'bold\',              \'background-color\': \'#c51162 pink accent-4\'            }"            [ngClass]="alignMessage(message.fromUserId)?\'received\': \'sent\'">                   <blockquote >                <div class="message-container" [innerHTML]="message.message">                </div>            </blockquote>                      </li>        </ul>        <div class="page-footer chat-footer">          <div id="copyright">            <div class="">              <div class="input-field">                  <input placeholder="Enter your text here" id="icon_prefix" type="text" class="validate"                  [(ngModel)]="message"                   (keyup)="sendMessage($event)">                                </div>            </div>          </div>         </div>      </div>      <!-- end of s8 column -->    </div>  </div></div><!--- end of trailpart --></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'HomeComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+           </div>
+       </div>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script>var COMPODOC_CURRENT_PAGE_DEPTH = 1;</script>
+
+       <script src="../js/search/search.js"></script>
+       <script src="../js/search/lunr.min.js"></script>
+       <script src="../js/search/search-lunr.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+       <script src="../js/search/search_index.js"></script>
+
+    </body>
+</html>

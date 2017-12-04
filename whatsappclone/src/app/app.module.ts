@@ -23,9 +23,18 @@ import { TranslateModule, TranslatePipe } from 'ng2-translate/ng2-translate';
 import { ActivatedRoute } from '@angular/router';
 
 export const appRoutes:Routes = [
-  {path : '' , component : LoginComponent},
-  {path:'home',component: HomeComponent},
-  {path : 'home/:userid' , component : HomeComponent}
+  {path : '' , 
+  component : LoginComponent,
+  pathMatch: 'full'
+},
+  {path:'home',
+  component: HomeComponent,
+  pathMatch: 'full'
+},
+  {path : 'home/:userid' , 
+  component : HomeComponent,
+  pathMatch: 'full'
+}
 ];
 @NgModule({
   declarations: [
