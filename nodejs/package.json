@@ -2,6 +2,10 @@
   "name": "nodejs",
   "version": "1.0.0",
   "main": "server.js",
+  "apidoc": {
+    "title": "Custom apiDoc browser title",
+    "url" : "https://api.github.com/v1"
+  },
   "nyc": {
     "require": [
       "babel-register"

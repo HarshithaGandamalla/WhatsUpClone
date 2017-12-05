@@ -29,14 +29,6 @@ class Helper{
        });
    }
 
-//    emailCheck(data,callback){
-//     this.Mongodb.onConnect( (db,ObjectID) => {
-//         db.collection('users').find(data).count( (err, result) => {
-//             db.close();
-//             callback(result);
-//         });
-//     });
-// }
 
 
 updateprofilepic(userId, url, callback){    
@@ -206,26 +198,7 @@ updateGroupUsersList(findby,val,callback){
             });
         });
     }
-    
-    //    this.Mongodb.onConnect( (db,ObjectID) => {
-    //         db.collection('groups').findAndModify({username:data.username} ,[], {$addToSet: {'groupsArray':data.groupName}},{upsert:true,new:true},(err, result) => {
-    //             db.close();
-    //             callback(err,result.value);
-    //         });
-    //     });
-    
-        // this.Mongodb.onConnect( (db,ObjectID) => {
-        //     db.collection('users').findAndModify( data ,[], {$set: {'online': 'Y'}},{},(err, result) => {
-        //         db.close();
-        //         callback(err,result.value);
-        //     });
-        // });
-
-//else create new group list for the user
-   
-
-
-
+       
    /*
    * Name of the Method : userSessionCheck
    * Description : to check if user is online or not.

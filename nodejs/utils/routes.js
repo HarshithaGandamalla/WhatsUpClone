@@ -103,6 +103,13 @@ class Routes{
                     
     });
 
+    /**
+     * Post call for status
+    * @api {getprofile}
+    * @APIGroup GET PROFILE
+    * @apidescription It takes UserId as input. Gets the basic profile of User. The basic profile includes Image Url, UserName 
+    * @apiparam {String} String Takes UserID as String and returns a JSON Object containing Image and UserName
+    */
     this.app.post('/getprofile',(request,response) =>{
         
                    let userId = request.body.userId;
@@ -135,6 +142,14 @@ class Routes{
                        });
                    }
                });
+
+               /**
+                 * Post call for Update Profile Pic
+                * @api {updatepic}
+                * @APIGroup UPDATE PIC
+                * @apidescription It takes UserId and Image Url as input. The Image URL is obtained from S3 bucket. This Post call Updates the Image in MongoDb so that when retrived can be displayed in multiple places.
+                * @apiparam {JSON} String Takes UserID and Image URLas String and returns a JSON Object containing Image and UserName
+                */
         
 
                this.app.post('/updatePic',(request,response) =>{
@@ -166,6 +181,13 @@ class Routes{
                         });
         
     
+        /**
+                 * Post call for Update Profile Pic
+                * @api {registerUser}
+                * @APIGroup UPDATE PIC
+                * @apidescription It takes UserId and Image Url as input. The Image URL is obtained from S3 bucket. This Post call Updates the Image in MongoDb so that when retrived can be displayed in multiple places.
+                * @apiparam {JSON} String Takes UserID and Image URLas String and returns a JSON Object containing Image and UserName
+                */
        this.app.post('/registerUser',(request,response) =>{
 
 
@@ -255,6 +277,13 @@ class Routes{
            }
        });
 
+       /**
+                 * Post call for Update Profile Pic
+                * @api {registerUser}
+                * @APIGroup UPDATE PIC
+                * @apidescription It takes UserId and Image Url as input. The Image URL is obtained from S3 bucket. This Post call Updates the Image in MongoDb so that when retrived can be displayed in multiple places.
+                * @apiparam {JSON} String Takes UserID and Image URLas String and returns a JSON Object containing Image and UserName
+                */
        this.app.post('/login',(request,response) =>{
 
 
@@ -444,9 +473,6 @@ class Routes{
 
                 } else {
                   
-                  //console.log("No users found with name: "+data.username);
-                 //insert new entry in database
-                
                     const registerGroupData = {
                         username :data.username,
                         userId:data.userId,
@@ -484,10 +510,7 @@ this.app.post('/deregisterGroup', (request,response) => {
       let userId = request.body.userId;
       
       let deregistrationResponse = {}
-      
-      
-    //   let groupsArray=[];
-    //   groupsArray.push(groupName);
+
 
       const data = {
         username :username,
@@ -537,8 +560,6 @@ this.app.post('/deregisterUsers', (request,response) => {
         groupName :groupName,
     };
 
-    //console.log("Deregistering "+username+" "+userId);
-
     if (request.body.groupName === "") {
         response.status(200).json({
             error : true,
@@ -583,13 +604,6 @@ this.app.post('/deregisterUsers', (request,response) => {
                     
                     if (count > 0) {
                         console.log("group revelant userid array found");
-                       //modify exsisting groups array of user
-                     //  userarray.forEach(element => {
-                        
-                        // let val={
-                        //     "username":element.username,
-                        //     "userId":element.userId 
-                        // }
 
                       helper.updateGroupUsersList( data ,userarray, (error,result)=>{
                                          
@@ -597,8 +611,6 @@ this.app.post('/deregisterUsers', (request,response) => {
                         
                              if (error) {
                                     
-                                    // console.log("Not  updated");
-                                                
                                       registrationResponse.error = true;
                                      registrationResponse.message = `Server error.`;
                                      response.status(200).json(registrationResponse);
@@ -614,7 +626,6 @@ this.app.post('/deregisterUsers', (request,response) => {
     
                       });
                         
-                  //  });
     
                     } else {
                       
@@ -689,25 +700,10 @@ this.app.post('/deregisterUsers', (request,response) => {
 
 
        this.app.get('/*',(request,response) =>{
-         //  console.log("Request on * "+JSON.stringify(request));
+    
         let userId = request.body.userId;
-        let socketId=request.body.socketId;
-
-        // console.log("Socked id on * : "+socketId);
-
-        //  helper.logout(userId,socketId,(error,result)=>{
-                              
-        //                      if (error) {
-                
-        //                             console.log("Error logging out on *");
-                
-        //                         }else{
-                
-        //                             console.log("Successfully logged out on  *");
-                                        
-        //                          }
-        //  });       
-           response.sendFile(path.join(__dirname,'./dist/index.html'));
+        let socketId=request.body.socketId;      
+        response.sendFile(path.join(__dirname,'./dist/index.html'));
        });
        
    }
