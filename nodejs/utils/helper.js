@@ -19,6 +19,29 @@ class Helper{
    *		2) callback function
    * Return : callback 
    */
+  /**		
+                 * @api {userNameCheck}		
+                 * @APIGroup userNameCheck		
+                 * @apidescription checks whether username is available or not				
+                 * @apiparam {String} userName  Takes userName as input.                  		
+                 * @apiSuccess {String} usernames present in the group or not		
+                 *		
+                 * @apiSuccessExample Success-Response:		
+                 *     HTTP/1.1 200 OK		
+                 *     {		
+                 *       "error":false, 		
+                 *       "message":"username available!."		
+                 *     }		
+                 *		
+            	 *		
+                 * @apiErrorExample Error-Response:		
+                 *     HTTP/1.1 404 Not Found		
+                 *     {		
+                 *       error: true,		
+                 *       Message: "userNameName cant be empty."		
+                 *     }		
+                 */
+
    userNameCheck(data,callback){
        this.Mongodb.onConnect( (db,ObjectID) => {
            console.log("usernamecheck: "+JSON.stringify(data));
@@ -29,7 +52,28 @@ class Helper{
        });
    }
 
-
+/**		
+                 * @api {changePassword}		
+                 * @APIGroup changepassword		
+                 * @apidescription changes the password	and updates it in the database			
+                 * @apiparam {String} password.                  		
+                 * @apiSuccess {String} updates the new password in the databaes	
+                 *		
+                 * @apiSuccessExample Success-Response:		
+                 *     HTTP/1.1 200 OK		
+                 *     {		
+                 *       "error":false, 		
+                 *       "message":"password updated"		
+                 *     }		
+                 *		
+            	 *		
+                 * @apiErrorExample Error-Response:		
+                 *     HTTP/1.1 404 Not Found		
+                 *     {		
+                 *       error: true,		
+                 *       Message: "password canot be empty"		
+                 *     }		
+                 */
 changePassword(userId, password, callback){    
     this.Mongodb.onConnect( (db,ObjectID) => {
     //console.log("Status : .........."+status);
