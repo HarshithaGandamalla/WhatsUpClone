@@ -129,7 +129,20 @@ export class ChatService {
                   }
               );
 	}
-	
+	  /* 
+	* Method to change the password of the user.
+	*/
+  public changePassword(params,callback):any{
+		this.httpService.changePassword(params).subscribe(
+		  response => {
+			  console.log(JSON.stringify(response)+" in res");
+			  callback(false,response);
+		  },
+		  error => {			
+			  callback(true,'HTTP status fail.');
+		  });
+  }
+  
 	/* 
 	* Method to add user to chat group.
 	*/
