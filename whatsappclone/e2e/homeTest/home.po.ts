@@ -19,7 +19,7 @@ export class HomePage {
   }
 
   getSettings(){
-    return element(by.className('dropdown-button waves-effect waves-light')).getText();
+    return element(by.id('settings')).getText();
   }
 
   getLogout(){

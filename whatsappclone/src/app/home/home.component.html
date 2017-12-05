@@ -5,8 +5,7 @@
       <!-- Put a Small Image of profile pic here -->
       <div class="nav-wrapper  teal darken-4">
         <a href="#!user"><img class="circle" style="margin:-10px 5px; width:32px; height:32px" src={{profile_img}}></a>
-        <span>Hello {{username}}
-          
+        <span class = "greeting-message">Hello {{username}}   
         </span>
         <a href="#" data-activates="slide-out" class="button-collapse" style="display: block!important">
           <i class="material-icons">menu</i> 
@@ -15,7 +14,7 @@
         
         <ul id="nav-mobile" class="right hide-on-med-and-down" style=" height: inherit;padding-right: 20px;">
             <li> <a class="waves-effect waves-light modal-trigger" data-target="modal4">Change Password</a></li>             
-            <li><a class='dropdown-button waves-effect waves-light' (click)="Settings()" data-activates='dropdown1'>Settings</a></li>    
+            <li><a id = 'settings' class='dropdown-button waves-effect waves-light' (click)="Settings()" data-activates='dropdown1'>Settings</a></li>    
             <li id='logout' class="waves-effect waves-light" (click)="logout()" >Logout</li>
         </ul>
       </div>
@@ -99,7 +98,7 @@
                 class="input" type="password" placeholder="Enter new password.."
                 [(ngModel)]="password"
                 (keyup.enter)="changePassword(newpasword.value)">
-                <button id = "status3" class="btn modal-close" (click)="changePassword(newpassword.value)">Change Password</button> 
+                <button id = "status4" class="btn modal-close" (click)="changePassword(newpassword.value)">Change Password</button> 
             </div>
          </div>
        <form>

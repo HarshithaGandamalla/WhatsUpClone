@@ -11,7 +11,7 @@ describe('whatsappclone App', () => {
   it('should have gone into the home page', () => 
   {
     page.navigateTo();
-    expect(browser.getCurrentUrl()).toEqual('http://localhost:49152/home/5a206b2c57c5da2bf4ed1b9f');
+    expect(browser.getCurrentUrl()).toEqual('http://localhost:49157/home/5a206b2c57c5da2bf4ed1b9f');
   });
 
   it('should have the correct title', () => 
