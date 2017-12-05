@@ -130,6 +130,31 @@ updateprofilepic(userId, url, callback){
    *		2) callback function
    * Return : callback 
    */
+  /**		
+                 * @api {login}		
+                 * @APIGroup login		
+                 * @apidescription logs in the user and sets the online attribute to 'Y'		
+                 * @apiparam {String} username. 
+                 * @apiparam {String} password.                  		
+                 * @apiSuccess {String} logs in the user and sets the online attribute to 'Y'	
+                 *		
+                 * @apiSuccessExample Success-Response:		
+                 *     HTTP/1.1 200 OK		
+                 *     {		
+                 *       "error":false, 		
+                 *       "message":"logged in successfully"		
+                 *     }		
+                 *		
+            	 *		
+                 * @apiErrorExample Error-Response:		
+                 *     HTTP/1.1 404 Not Found		
+                 *     {		
+                 *       error: true,		
+                 *       Message: "username canot be empty"		
+                 *     }		
+                 */
+
+  
    login(data,callback){
        this.Mongodb.onConnect( (db,ObjectID) => {
            db.collection('users').findAndModify( data ,[], {$set: {'online': 'Y'}},{},(err, result) => {
