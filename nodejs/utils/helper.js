@@ -268,6 +268,14 @@ updateGroupUsersList(findby,val,callback){
        });
    }
 
+   /*
+   * Name of the Method : getUsers
+   * Description : To get the list of all users.
+   * Parameter : 
+   *		1) userId (socket id) of the user
+   *		2) callback function
+   * Return : callback 
+   */
    getUsers(name, callback){
     this.Mongodb.onConnect( (db,ObjectID) => {
         db.collection('users').find({ 'username': { '$regex' : name} }).toArray( (err, result) => {

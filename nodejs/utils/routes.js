@@ -104,11 +104,30 @@ class Routes{
     });
 
     /**
-     * Post call for status
+     * Post call for get profile
     * @api {getprofile}
     * @APIGroup GET PROFILE
     * @apidescription It takes UserId as input. Gets the basic profile of User. The basic profile includes Image Url, UserName 
-    * @apiparam {String} String Takes UserID as String and returns a JSON Object containing Image and UserName
+    * @apiparam {String} UserId Takes UserID as String and returns a JSON Object containing UserName
+    * @apiSuccess {String} UserName Name of the User.
+    * @apiSuccess {String} Message  Successfull Message.
+    *
+    * @apiSuccessExample Success-Response:
+    *     HTTP/1.1 200 OK
+    *     {
+    *       error:false,
+    *       UserName: "Jay",
+    *       Message: "User Logged In"
+    *     }
+    *
+    * @apiError UserNotFound The id of the User was not found.
+    *
+    * @apiErrorExample Error-Response:
+    *     HTTP/1.1 404 Not Found
+    *     {
+    *       error: true,
+    *       Message: "Server Error"
+    *     }
     */
     this.app.post('/getprofile',(request,response) =>{
         
@@ -148,7 +167,27 @@ class Routes{
                 * @api {updatepic}
                 * @APIGroup UPDATE PIC
                 * @apidescription It takes UserId and Image Url as input. The Image URL is obtained from S3 bucket. This Post call Updates the Image in MongoDb so that when retrived can be displayed in multiple places.
-                * @apiparam {JSON} String Takes UserID and Image URLas String and returns a JSON Object containing Image and UserName
+                * @apiparam {String} UserId  Takes UserID
+                * @apiparam {String} ImageUrl Takes a Url of Image URLas String and returns a JSON Object containing Image and UserName
+                * @apiSuccess {String} UserName Name of the User.
+                * @apiSuccess {String} Message  Successfull Message.
+                *
+                * @apiSuccessExample Success-Response:
+                *     HTTP/1.1 200 OK
+                *     {
+                *       error:false,
+                *       UserName: "Jay",
+                *       Message: "User pic changed successfully"
+                *     }
+                *
+                * @apiError UserNotFound The id of the User was not found.
+                *
+                * @apiErrorExample Error-Response:
+                *     HTTP/1.1 404 Not Found
+                *     {
+                *       error: true,
+                *       Message: "Server Error"
+                *     }
                 */
         
 
@@ -173,7 +212,7 @@ class Routes{
                                       else{
                                       console.log("User status response details: "+result);
                                           picResponse.error = false;
-                                          picResponse.message = `User status changed successfully`;
+                                          picResponse.message = `User pic changed successfully`;
                                           response.status(200).json(picResponse);
                                       }
                                       });
@@ -184,12 +223,12 @@ class Routes{
         /**
                  * Post call for Update Profile Pic
                 * @api {registerUser}
-                * @APIGroup UPDATE PIC
+                * @APIGroup REGISTER USER
                 * @apidescription It takes UserId and Image Url as input. The Image URL is obtained from S3 bucket. This Post call Updates the Image in MongoDb so that when retrived can be displayed in multiple places.
-                * @apiparam {JSON} String Takes UserID and Image URLas String and returns a JSON Object containing Image and UserName
+                * @apiparam {String} UserId Takes UserID to Validate the User
+
                 */
        this.app.post('/registerUser',(request,response) =>{
-
 
             let username = request.body.username;
             let email = request.body.email;
@@ -279,9 +318,9 @@ class Routes{
 
        /**
                  * Post call for Update Profile Pic
-                * @api {registerUser}
-                * @APIGroup UPDATE PIC
-                * @apidescription It takes UserId and Image Url as input. The Image URL is obtained from S3 bucket. This Post call Updates the Image in MongoDb so that when retrived can be displayed in multiple places.
+                * @api {Login}
+                * @APIGroup LOGIN
+                * @apidescription It takes UserId and Password and Logs into your account. It returns error when invalid credentials are entered
                 * @apiparam {JSON} String Takes UserID and Image URLas String and returns a JSON Object containing Image and UserName
                 */
        this.app.post('/login',(request,response) =>{
@@ -356,6 +395,8 @@ class Routes{
                           sessionCheckResponse.error = false;
                           sessionCheckResponse.username = result.username;
                        sessionCheckResponse.message = `User logged in.`;
+                       sessionCheckResponse.status =  result.status;
+                       sessionCheckResponse.email =  result.email;
                           response.status(200).json(sessionCheckResponse);
                       }
                });
