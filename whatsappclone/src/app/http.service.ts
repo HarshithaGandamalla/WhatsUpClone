@@ -50,7 +50,11 @@ export class HttpService {
   			.map( (response:Response) => response.json())
   			.catch( (error:any) => Observable.throw(error.json().error || `Server error`) );
   	}
-
+public changePassword(params){		
+		return this.http.post(`${this.BASE_URL}changePassword`,JSON.stringify(params),this.headerOptions)
+			.map( (response:Response) => response.json())
+			.catch( (error:any) => Observable.throw(error.json().error || `Server error`) );
+	}
 	 public deregisterGroup(params){
 		return this.http.post(`${this.BASE_URL}deregisterGroup`,JSON.stringify(params),this.headerOptions)
 			.map( (response:Response) => response.json())

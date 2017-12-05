@@ -111,21 +111,6 @@ ngOnInit() {
 		
 	else{
 
-
-			
-			this.chatService.updateStatus(
-					{
-						"userId":this.userId
-					},
-					(error,response)=>
-					{
-						if(!response.error){
-							console.log("Status updated Successfully");
-						}else{
-							console.log("ERROR updating status");
-						}						
-				});
-
 				this.chatService.getprofile(this.userId,( error, response )=>{
 			
 					if(error) {
@@ -476,6 +461,24 @@ this.chatService.getMessages({ userId : this.userId,toUserId :user._id} , ( erro
 				}
 			}
 		}
+
+	changePassword(status:string){
+		this.status=status;
+		//  console.log(password +" id dttaud");
+		 //RegisterGroup
+		 this.chatService.changePassword(
+			 {   "password":this.status,
+				  "userId":this.userId
+			 },
+			 (error,response)=>
+			 {
+				if(!response.error){
+					alert("Password updated Successfully");
+				}else{
+					alert("ERROR updating password");
+				}						
+			 });
+}
 	
 		addGroup(newGroup:string){
 			

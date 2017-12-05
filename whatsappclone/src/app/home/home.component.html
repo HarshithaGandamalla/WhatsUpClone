@@ -51,6 +51,11 @@
       <li><div class="divider"></div></li>
       <li><a class="subheader">Subheader</a></li>
       <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+      <!-- code for change password -->
+        <!-- <li> <a class="waves-effect waves-light modal-trigger" data-target="modal2">Update Status</a></li>    -->
+        <ul id="nav-mobile" class="left hide-on-med-and-down">   
+            <li> <a class="waves-effect waves-light modal-trigger" data-target="modal4">Change Password</a></li>   
+          </ul>
     </ul>
 
   <!-- Page Layout here -->
@@ -92,6 +97,17 @@
               <button id = "status3" class="btn modal-close" (click)="updateStatus(newStatus.value)">Update Status</button> 
           </div>
        </div>
+        <!-- modal for change password  -->
+         <div id="modal4" class="modal">
+            <div class="modal-content">
+              <h4>Enter your new password</h4>
+              <input #newpassword
+                class="input" type="password" placeholder="Enter new password.."
+                [(ngModel)]="password"
+                (keyup.enter)="changePassword(newpasword.value)">
+                <button id = "status3" class="btn modal-close" (click)="changePassword(newpassword.value)">Change Password</button> 
+            </div>
+         </div>
        <form>
           <div>
               <input type="text" placeholder="  Search contacts" id="search-box" name="search">

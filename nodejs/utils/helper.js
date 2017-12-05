@@ -30,6 +30,16 @@ class Helper{
    }
 
 
+changePassword(userId, password, callback){    
+    this.Mongodb.onConnect( (db,ObjectID) => {
+    //console.log("Status : .........."+status);
+    db.collection('users').update( { _id : ObjectID(userId)} ,{$set: {'password':password} } ,(err, result) => {
+    //db.collection('users').findAndModify( data ,[], {$set: {'status': status}},{},(err, result) => {
+            db.close();
+            callback(err,result);
+        });
+    });
+}
 
 updateprofilepic(userId, url, callback){    
     this.Mongodb.onConnect( (db,ObjectID) => {
