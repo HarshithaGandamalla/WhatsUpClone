@@ -941,7 +941,7 @@ this.app.post('/deregisterUsers', (request,response) => {
 /**		
                  * @api {addGroupUsers}		
                  * @APIGroup addGroupUsers		
-                 * @apidescription It takes username of the user and the group name and deletes the user from the group		
+                 * @apidescription It takes username of the user and the group name and adds the user to the group		
                  * @apiparam {String} userarray  Takes username of the user needs to be deregistered.				
                  * @apiparam {String} groupName  Takes groupName as input.                  		
                  * @apiSuccess {String} String added the users to the group	
@@ -1054,6 +1054,32 @@ this.app.post('/deregisterUsers', (request,response) => {
          });
                }
            });
+
+
+           /**		
+                 * @api {fetchMembers}		
+                 * @APIGroup fetchMembers		
+                 * @apidescription It takes groupname of the group and fetches the users from the group				
+                 * @apiparam {String} groupName  Takes groupName as input.                  		
+                 * @apiSuccess {String} usernames present in the group		
+                 *		
+                 * @apiSuccessExample Success-Response:		
+                 *     HTTP/1.1 200 OK		
+                 *     {		
+                 *       "error":false, 		
+                 *       "message":"fetched Users from the  group  successfully!."		
+                 *     }		
+                 *		
+                 * @apiError groupName cant be empty.		
+                 *		
+                 * @apiErrorExample Error-Response:		
+                 *     HTTP/1.1 404 Not Found		
+                 *     {		
+                 *       error: true,		
+                 *       Message: "groupName cant be empty."		
+                 *     }		
+                 */
+
 
 
 
