@@ -111,21 +111,6 @@ ngOnInit() {
 		
 	else{
 
-
-			
-			this.chatService.updateStatus(
-					{
-						"userId":this.userId
-					},
-					(error,response)=>
-					{
-						if(!response.error){
-							console.log("Status updated Successfully");
-						}else{
-							console.log("ERROR updating status");
-						}						
-				});
-
 				this.chatService.getprofile(this.userId,( error, response )=>{
 			
 					if(error) {
