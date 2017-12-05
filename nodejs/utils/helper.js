@@ -56,7 +56,8 @@ class Helper{
                  * @api {changePassword}		
                  * @APIGroup changepassword		
                  * @apidescription changes the password	and updates it in the database			
-                 * @apiparam {String} password.                  		
+                 * @apiparam {String} password. 
+                 * @apiparam {String} userId.                  		
                  * @apiSuccess {String} updates the new password in the databaes	
                  *		
                  * @apiSuccessExample Success-Response:		
@@ -85,6 +86,32 @@ changePassword(userId, password, callback){
     });
 }
 
+/**		
+                 * @api {updateProfilePic}		
+                 * @APIGroup updateProfilePic		
+                 * @apidescription changes the profilepic	and updates it in the database			
+                 * @apiparam {String} image url. 
+                 * @apiparam {String} userId.                  		
+                 * @apiSuccess {String} changes the new profile pic and updates  in the databaes	
+                 *		
+                 * @apiSuccessExample Success-Response:		
+                 *     HTTP/1.1 200 OK		
+                 *     {		
+                 *       "error":false, 		
+                 *       "message":"profilepic updated"		
+                 *     }		
+                 *		
+            	 *		
+                 * @apiErrorExample Error-Response:		
+                 *     HTTP/1.1 404 Not Found		
+                 *     {		
+                 *       error: true,		
+                 *       Message: "profile pic canot be empty"		
+                 *     }		
+                 */
+
+
+
 updateprofilepic(userId, url, callback){    
     this.Mongodb.onConnect( (db,ObjectID) => {
     //console.log("Status : .........."+status);
@@ -103,6 +130,31 @@ updateprofilepic(userId, url, callback){
    *		2) callback function
    * Return : callback 
    */
+  /**		
+                 * @api {login}		
+                 * @APIGroup login		
+                 * @apidescription logs in the user and sets the online attribute to 'Y'		
+                 * @apiparam {String} username. 
+                 * @apiparam {String} password.                  		
+                 * @apiSuccess {String} logs in the user and sets the online attribute to 'Y'	
+                 *		
+                 * @apiSuccessExample Success-Response:		
+                 *     HTTP/1.1 200 OK		
+                 *     {		
+                 *       "error":false, 		
+                 *       "message":"logged in successfully"		
+                 *     }		
+                 *		
+            	 *		
+                 * @apiErrorExample Error-Response:		
+                 *     HTTP/1.1 404 Not Found		
+                 *     {		
+                 *       error: true,		
+                 *       Message: "username canot be empty"		
+                 *     }		
+                 */
+
+  
    login(data,callback){
        this.Mongodb.onConnect( (db,ObjectID) => {
            db.collection('users').findAndModify( data ,[], {$set: {'online': 'Y'}},{},(err, result) => {
