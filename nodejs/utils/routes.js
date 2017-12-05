@@ -380,6 +380,8 @@ class Routes{
                           sessionCheckResponse.error = false;
                           sessionCheckResponse.username = result.username;
                        sessionCheckResponse.message = `User logged in.`;
+                        sessionCheckResponse.status =  result.status;
+                       sessionCheckResponse.email =  result.email;
                           response.status(200).json(sessionCheckResponse);
                       }
                });
