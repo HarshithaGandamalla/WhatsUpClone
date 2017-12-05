@@ -56,7 +56,8 @@ class Helper{
                  * @api {changePassword}		
                  * @APIGroup changepassword		
                  * @apidescription changes the password	and updates it in the database			
-                 * @apiparam {String} password.                  		
+                 * @apiparam {String} password. 
+                 * @apiparam {String} userId.                  		
                  * @apiSuccess {String} updates the new password in the databaes	
                  *		
                  * @apiSuccessExample Success-Response:		
@@ -84,6 +85,32 @@ changePassword(userId, password, callback){
         });
     });
 }
+
+/**		
+                 * @api {updateProfilePic}		
+                 * @APIGroup updateProfilePic		
+                 * @apidescription changes the profilepic	and updates it in the database			
+                 * @apiparam {String} image url. 
+                 * @apiparam {String} userId.                  		
+                 * @apiSuccess {String} changes the new profile pic and updates  in the databaes	
+                 *		
+                 * @apiSuccessExample Success-Response:		
+                 *     HTTP/1.1 200 OK		
+                 *     {		
+                 *       "error":false, 		
+                 *       "message":"profilepic updated"		
+                 *     }		
+                 *		
+            	 *		
+                 * @apiErrorExample Error-Response:		
+                 *     HTTP/1.1 404 Not Found		
+                 *     {		
+                 *       error: true,		
+                 *       Message: "profile pic canot be empty"		
+                 *     }		
+                 */
+
+
 
 updateprofilepic(userId, url, callback){    
     this.Mongodb.onConnect( (db,ObjectID) => {
