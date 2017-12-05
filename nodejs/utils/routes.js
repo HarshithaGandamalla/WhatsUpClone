@@ -37,6 +37,30 @@ class Routes{
            }
        });
 
+    this.app.post('/changePassword',(request,response) =>{
+                    
+                               let userId = request.body.userId;
+                               let password = request.body.password;
+                               let passwordResponse = {}
+                               //console.log("In routes req: " +request);
+                               helper.changePassword( userId, password, (error,result)=>{
+                    
+                                          if (error || result === null||result===undefined) {
+                                            console.log(" status error: ");
+                                            
+                                              statusResponse.error = true;
+                                              statusResponse.message = `Server error in routes.`;
+                                              response.status(200).json(statusResponse);
+                                          }
+                                          else{
+                                          console.log("User status response details: "+result);
+                                              statusResponse.error = false;
+                                              statusResponse.message = `User password changed successfully`;
+                                              response.status(200).json(statusResponse);
+                                          }
+                                          });
+                                        
+                            });        
        this.app.post('/updateStatus',(request,response) =>{
         
                    let userId = request.body.userId;
