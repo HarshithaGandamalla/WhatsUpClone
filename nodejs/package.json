@@ -4,7 +4,7 @@
   "main": "server.js",
   "apidoc": {
     "title": "Custom apiDoc browser title",
-    "url" : "https://api.github.com/v1"
+    "url": "https://api.github.com/v1"
   },
   "nyc": {
     "require": [

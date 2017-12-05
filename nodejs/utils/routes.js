@@ -1,8 +1,12 @@
+ 
 'use strict';
+
 const helper = require('./helper');
 
 class Routes{
+
    constructor(app){
+
        this.app = app;
    }
 
@@ -10,30 +14,6 @@ class Routes{
    /* creating app Routes starts */
    appRoutes(){
 
-        /**
-    * Post call for username check
-    * @api {usernameCheck}
-    * @APIGroup User Name Check
-    * @apidescription It takes User name of the client registering as input and returns a boolean object to define whether the user already exists or not
-    * @apiparam {String} username Takes username as String and returns a JSON Object containing status object
-    * @apiSuccess {String} UserName Name of the User.
-    * @apiSuccess {String} Message  Successfull Message.
-    *
-    * @apiSuccessExample Success-Response:
-    *     HTTP/1.1 200 OK
-    *     {
-    *       error:false
-    *     }
-    *
-    * @apiError UserNotFound The id of the User was not found.
-    *
-    * @apiErrorExample Error-Response:
-    *     HTTP/1.1 404 Not Found
-    *     {
-    *       error : true,
-    *       message : `username cant be empty.`
-    *     }
-    */ 
        this.app.post('/usernameCheck',(request,response) =>{       
            if (request.body.username === "" || request.body.username==undefined ) {
                response.status(200).json({
@@ -57,31 +37,6 @@ class Routes{
            }
        });
 
-           /**
-                 * Post call for Changing Password
-                * @api {changePassword}
-                * @APIGroup CHANGE PASSWORD
-                * @apidescription It takes UserId and password as input. This Post call Updates the password in MongoDb for the particular userID.
-                * @apiparam {String} UserId  Takes UserID
-                * @apiparam {String} password Takes password of the user
-                * @apiSuccess {String} Message  User Password changed successfully.
-                *
-                * @apiSuccessExample Success-Response:
-                *     HTTP/1.1 200 OK
-                *     {
-                *       error:false,
-                *       Message: "User password changed successfully"
-                *     }
-                *
-                * @apiError UserNotFound The id of the User was not found.
-                *
-                * @apiErrorExample Error-Response:
-                *     HTTP/1.1 404 Not Found
-                *     {
-                *       error: true,
-                *       Message: "Server error in routes."
-                *     }
-                */
     this.app.post('/changePassword',(request,response) =>{
                     
                                let userId = request.body.userId;
@@ -107,33 +62,32 @@ class Routes{
                                         
                             });
                             
-       /**
-                 * Post call for Update Status
-                * @api {updateStatus}
-                * @APIGroup UPDATE STATUS
-                * @apidescription It takes UserId and status as input. This Post call Updates the Status in MongoDb for the particular userID.
-                * @apiparam {String} UserId  Takes UserID
-                * @apiparam {String} status Takes status of the user
-                * @apiSuccess {String} Message  User status changed successfully.
-                *
-                * @apiSuccessExample Success-Response:
-                *     HTTP/1.1 200 OK
-                *     {
-                *       error:false,
-                *       UserName: "Jay",
-                *       Message: "User status changed successfully"
-                *     }
-                *
-                * @apiError UserNotFound The id of the User was not found.
-                *
-                * @apiErrorExample Error-Response:
-                *     HTTP/1.1 404 Not Found
-                *     {
-                *       error: true,
-                *       Message: "Server error in routes."
-                *     }
-                */
-                             
+    /**
+     * Post call for status update
+    * @api {updateStatus}
+    * @APIGroup UPDATE STATUS
+    * @apidescription It takes UserId as input. Updates of the status of the User. 
+    * @apiparam {String} UserId Takes UserID as String and returns a JSON Object containing UserName
+    * @apiSuccess {String} UserName Name of the User.
+    * @apiSuccess {String} Message  Successfull Message.
+    *
+    * @apiSuccessExample Success-Response:
+    *     HTTP/1.1 200 OK
+    *     {
+    *       error:false,
+    *       UserName: "Jay",
+    *       Message: "User Logged In"
+    *     }
+    *
+    * @apiError UserNotFound The id of the User was not found.
+    *
+    * @apiErrorExample Error-Response:
+    *     HTTP/1.1 404 Not Found
+    *     {
+    *       error: true,
+    *       Message: "Server Error"
+    *     }
+    */        
        this.app.post('/updateStatus',(request,response) =>{
         
                    let userId = request.body.userId;
@@ -158,9 +112,6 @@ class Routes{
                               });
                             
                 });
-
-
-    
 
        this.app.post('/getprofile',(request,response) =>{
         console.log("Hello ");
@@ -317,53 +268,14 @@ class Routes{
                         });
         
     
-                /**
-                * Post call for Registering an User
+        /**
+                 * Post call for Update Profile Pic
                 * @api {registerUser}
                 * @APIGroup REGISTER USER
-                * @apidescription It takes username, password and email from the user and creates an account for the user
-                * @apiparam {String} username  Takes username
-                * @apiparam {String} email takes Email
-                * @apiparam {String} password takes password from the user 
-                * @apiparam {String} status takes default status
-                * @apiparam {String} img takes default profile pic  
-                * @apiSuccess {String} UserName Name of the User.
-                * @apiSuccess {String} Message  Successfull Message.
-                *
-                * @apiSuccessExample Success-Response:
-                *     HTTP/1.1 200 OK
-                *     {
-                *       "error":false,
-                *        "userId":"5a08d574f9f91422b854b0d0",
-                *        "message":"User registration successful."
-                *     }
-                *
-                * @apiError USername not defined!
-                *
-                * @apiErrorExample Error-Response:
-                *     HTTP/1.1 404 Not Found
-                *     {
-                *       error: true,
-                *       Message: "username cant be empty."
-                *     }
-                * @apiError Password not defined!
-                *
-                * @apiErrorExample Error-Response:
-                *     HTTP/1.1 404 Not Found
-                *     {
-                *       error: true,
-                *       Message: "password cant be empty."
-                *     }
-                * @apiError Email not defined!
-                *
-                * @apiErrorExample Error-Response:
-                *     HTTP/1.1 404 Not Found
-                *     {
-                *       error: true,
-                *       Message: "Email cant be empty."
-                *     }
-                */
+                * @apidescription It takes UserId and Image Url as input. The Image URL is obtained from S3 bucket. This Post call Updates the Image in MongoDb so that when retrived can be displayed in multiple places.
+                * @apiparam {String} UserId Takes UserID to Validate the User
 
+                */
        this.app.post('/registerUser',(request,response) =>{
 
             let username = request.body.username;
@@ -453,38 +365,11 @@ class Routes{
        });
 
        /**
-                * Post call for Logging in
-                * @api {login}
-                * @APIGroup Login
-                * @apidescription It takes username, password and email from the user and creates an account for the user
-                * @apiparam {String} username  Takes username
-                * @apiparam {String} email takes Email
-                * @apiparam {String} password takes password from the user 
-                * @apiSuccess {String} UserName Name of the User.
-                * @apiSuccess {String} Message User logged in..
-                *
-                * @apiSuccessExample Success-Response:
-                *     HTTP/1.1 200 OK
-                *     {
-                *       "error":false,"userId":"5a04b06997749137b491e194","message":"User logged in."
-                *     }
-                *
-                * @apiError username cant be empty.
-                *
-                * @apiErrorExample Error-Response:
-                *     HTTP/1.1 404 Not Found
-                *     {
-                *       error: true,
-                *       Message: "username cant be empty."
-                *     }
-                * @apiError Password not defined!
-                *
-                * @apiErrorExample Error-Response:
-                *     HTTP/1.1 404 Not Found
-                *     {
-                *       error: true,
-                *       Message: "password cant be empty."
-                *     }
+                 * Post call for Update Profile Pic
+                * @api {Login}
+                * @APIGroup LOGIN
+                * @apidescription It takes UserId and Password and Logs into your account. It returns error when invalid credentials are entered
+                * @apiparam {JSON} String Takes UserID and Image URLas String and returns a JSON Object containing Image and UserName
                 */
        this.app.post('/login',(request,response) =>{
 
@@ -531,35 +416,6 @@ class Routes{
            }
        });
 
-
-        /**
-                * Post call for User Session check
-                * @api {userSessionCheck}
-                * @APIGroup userSessionCheck
-                * @apidescription It takes userId as the input and let us know whether the user is online or not
-                * @apiparam {String} userId  Takes userId
-                * @apiSuccess {String} status.
-                * @apiSuccess {String} Email.
-                * @apiSuccess {String} UserName Name of the User.
-                * @apiSuccess {String} Message User logged in.
-                *
-                * @apiSuccessExample Success-Response:
-                *     HTTP/1.1 200 OK
-                *     {
-                *       "error":false,"userName":"Jay",
-                *    "email":"jay@gmail.com", 
-                * "status" : "Hey There","message":"User logged in."
-                *     }
-                *
-                * @apiError User Id cant be empty.
-                *
-                * @apiErrorExample Error-Response:
-                *     HTTP/1.1 404 Not Found
-                *     {
-                *       error: true,
-                *       Message: "User Id cant be empty."
-                *     }
-                */
        this.app.post('/userSessionCheck',(request,response) =>{
 
            let userId = request.body.userId;
@@ -595,30 +451,6 @@ class Routes{
            }
        });
 
-       /**
-                * @api {getMessages}
-                * @APIGroup getMessages
-                * @apidescription It takes userId of the user and the other userId of the recipient as the input and retrieves their messages
-                * @apiparam {String} userId  Takes userId of the user logged in.
-                * @apiparam {String} touserId  Takes userId of the recipient.                
-                * @apiSuccess {String} messages Messages between the user and the recipient
-                *
-                * @apiSuccessExample Success-Response:
-                *     HTTP/1.1 200 OK
-                *     {
-                *       "error":false, 
-                *       "message":"message"
-                *     }
-                *
-                * @apiError userId cant be empty.
-                *
-                * @apiErrorExample Error-Response:
-                *     HTTP/1.1 404 Not Found
-                *     {
-                *       error: true,
-                *       Message: "userId cant be empty."
-                *     }
-                */
        this.app.post('/getMessages',(request,response) =>{
 
            let userId = request.body.userId;
@@ -759,31 +591,6 @@ class Routes{
   }
 });
 
- /**
-                * @api {deregisterGroup}
-                * @APIGroup deregisterGroup
-                * @apidescription It takes username of the user and the group name and deletes the user from the group
-                * @apiparam {String} username  Takes username of the user needs to be deregistered.
-                * @apiparam {String} userId  Takes userId of the user needs to be deregistered. 
-                * @apiparam {String} groupName  Takes groupName as input.            
-                * @apiSuccess {String} messages Messages between the user and the recipient
-                *
-                * @apiSuccessExample Success-Response:
-                *     HTTP/1.1 200 OK
-                *     {
-                *       "error":false, 
-                *       "message":"De registration successful!."
-                *     }
-                *
-                * @apiError groupName cant be empty.
-                *
-                * @apiErrorExample Error-Response:
-                *     HTTP/1.1 404 Not Found
-                *     {
-                *       error: true,
-                *       Message: "groupName cant be empty."
-                *     }
-                */
 this.app.post('/deregisterGroup', (request,response) => {
     
      
