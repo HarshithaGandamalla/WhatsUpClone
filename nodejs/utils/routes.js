@@ -871,6 +871,31 @@ this.app.post('/deregisterGroup', (request,response) => {
       });
 }
 });
+/**		
+                 * @api {deregisterUsers}		
+                 * @APIGroup deregisterUser		
+                 * @apidescription It takes username of the user and the group name and deletes the user from the group		
+                 * @apiparam {String} username  Takes username of the user needs to be deregistered.		
+                 * @apiparam {String} userId  Takes userId of the user needs to be deregistered. 		
+                 * @apiparam {String} groupName  Takes groupName as input.                  		
+                 * @apiSuccess {String} messages Messages between the user and the recipient		
+                 *		
+                 * @apiSuccessExample Success-Response:		
+                 *     HTTP/1.1 200 OK		
+                 *     {		
+                 *       "error":false, 		
+                 *       "message":"pulled User from group  successfully!."		
+                 *     }		
+                 *		
+                 * @apiError groupName cant be empty.		
+                 *		
+                 * @apiErrorExample Error-Response:		
+                 *     HTTP/1.1 404 Not Found		
+                 *     {		
+                 *       error: true,		
+                 *       Message: "groupName cant be empty."		
+                 *     }		
+                 */
 
 this.app.post('/deregisterUsers', (request,response) => {
     
@@ -912,6 +937,43 @@ this.app.post('/deregisterUsers', (request,response) => {
       });
 }
 });
+
+/**		
+                 * @api {addGroupUsers}		
+                 * @APIGroup addGroupUsers		
+                 * @apidescription It takes username of the user and the group name and deletes the user from the group		
+                 * @apiparam {String} userarray  Takes username of the user needs to be deregistered.				
+                 * @apiparam {String} groupName  Takes groupName as input.                  		
+                 * @apiSuccess {String} String added the users to the group	
+                 *		
+                 * @apiSuccessExample Success-Response:		
+                 *     HTTP/1.1 200 OK		
+                 *     {		
+                 *       "error":false, 		
+                 *       "message":"added User to the group  successfully!."		
+                 *     }		
+                 *		
+                 * @apiError groupName cant be empty.		
+                 *		
+                 * @apiErrorExample Error-Response:		
+                 *     HTTP/1.1 404 Not Found		
+                 *     {		
+                 *       error: true,		
+                 *       Message: "groupName cant be empty."		
+                 *     }		
+                 *  @apiErrorExample Error-Response:		
+                 *     HTTP/1.1 400 Bad Request		
+                 *     {		
+                 *       error: true,		
+                 *       Message: "bad request"		
+                 *     }
+                 *  @apiErrorExample Error-Response:		
+                 *     HTTP/1.1 500 Server error		
+                 *     {		
+                 *       error: true,		
+                 *       Message: "server error"		
+                 *     }		
+                 */
 
 
   this.app.post('/addGroupUsers',(request,response) =>{
@@ -992,6 +1054,10 @@ this.app.post('/deregisterUsers', (request,response) => {
          });
                }
            });
+
+
+
+
 
            this.app.post('/fetchMembers',(request,response) =>{
             
